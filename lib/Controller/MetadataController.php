@@ -248,7 +248,7 @@ class MetadataController extends Controller {
     }
 
     protected function addValT($key, $val, &$array) {
-        addVal($this->language->t($key), $val, $array);
+        $this->addVal($this->language->t($key), $val, $array);
     }
 
     protected function dump(&$sections, &$array) {
