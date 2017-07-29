@@ -17,6 +17,6 @@
     <screenshot>https://raw.githubusercontent.com/gino0631/nextcloud-metadata/master/screenshots/jpg-metadata.png</screenshot>
     <dependencies>
         <owncloud min-version="9.0" max-version="11" />
-        <nextcloud min-version="9" max-version="12" />
+        <nextcloud min-version="9" max-version="13" />
     </dependencies>
 </info>
