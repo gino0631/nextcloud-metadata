@@ -17,11 +17,11 @@ before_install:
   - cd ../server
   - ./occ check
   - ./occ status
+  - ./occ app:enable $APP_NAME
   - ./occ app:list
 
 script:
   - cd apps/$APP_NAME/
   
   # Run phpunit tests
-  - cd tests
-  - phpunit
+  - phpunit tests
