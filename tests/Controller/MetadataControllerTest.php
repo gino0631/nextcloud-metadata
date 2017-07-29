@@ -3,7 +3,7 @@ namespace OCA\Metadata\Tests\Controller;
 
 use OCA\Metadata\Controller\MetadataController;
 use OCP\IRequest;
-use PHPUnit\Framework\TestCase;
+use Test\TestCase;
 
 class MetadataControllerTest extends TestCase {
     private $controller;
