@@ -24,4 +24,5 @@ script:
   - cd apps/$APP_NAME/
   
   # Run phpunit tests
-  - phpunit tests
+  - cd tests
+  - phpunit --configuration phpunit.xml
