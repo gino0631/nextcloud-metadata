@@ -24,4 +24,4 @@ script:
   
   # Run phpunit tests
   - cd tests
-  phpunit
+  - phpunit
