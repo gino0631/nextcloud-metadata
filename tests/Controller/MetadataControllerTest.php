@@ -1,6 +1,7 @@
 <?php
 namespace OCA\Metadata\Tests\Controller;
 
+use OCA\Metadata\Controller\MetadataController;
 use OCP\IRequest;
 use PHPUnit\Framework\TestCase;
 
