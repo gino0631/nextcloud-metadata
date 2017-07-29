@@ -1,8 +1,8 @@
 <?php
-namespace OCA\Metadata\Controller;
+namespace OCA\Metadata\Tests\Controller;
 
 use OCP\IRequest;
-use Test\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class MetadataControllerTest extends TestCase {
     private $controller;
