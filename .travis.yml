@@ -4,6 +4,24 @@ php:
   - 7
   - 7.1
 
+env:
+  global:
+    - CORE_BRANCH=master
+    - APP_NAME=metadata
+
 before_install:
   - wget https://raw.githubusercontent.com/nextcloud/travis_ci/master/before_install.sh
-  - . ./before_install.sh metadata master pgsql
+  - . ./before_install.sh $APP_NAME $CORE_BRANCH pgsql
+
+  # Add some output debugging information
+  - cd ../server
+  - ./occ check
+  - ./occ status
+  - ./occ app:list
+
+script:
+  - cd apps/$APP_NAME/
+  
+  # Run phpunit tests
+  - cd tests
+  phpunit
