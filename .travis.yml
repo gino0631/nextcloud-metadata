@@ -1,0 +1,9 @@
+language: php
+php:
+  - 5.6
+  - 7
+  - 7.1
+
+before_install:
+  - wget https://raw.githubusercontent.com/nextcloud/travis_ci/master/before_install.sh
+  - . ./before_install.sh metadata master pgsql
