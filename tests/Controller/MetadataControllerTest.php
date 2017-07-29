@@ -20,6 +20,6 @@ class MetadataControllerTest extends TestCase {
         $res = $this->controller->get('a.txt');
         $data = $res->getData();
         $this->assertEquals('error', $data['response']);
-        $this->assertEquals('File not found.', $data['msg']
+        $this->assertEquals('File not found.', $data['msg']);
     }
 }
