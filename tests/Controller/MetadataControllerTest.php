@@ -18,12 +18,8 @@ class MetadataControllerTest extends TestCase {
         $this->loginAsUser($this->user);
 
         \OC\Files\Filesystem::tearDown();
-        //\OC\Files\Filesystem::mount('OC\Files\Storage\Temporary', array(), '/');
         \OC\Files\Filesystem::mount('\OC\Files\Storage\Local', array('datadir' => realpath(__DIR__ . '/../files')), '/' . $this->user . '/files');
         \OC\Files\Filesystem::init($this->user, '/' . $this->user . '/files');
-        
-        
-        //$this->putFile('IMG_20170626_181110.jpg');
 
         $this->controller = new MetadataController(
             'metadata',
@@ -31,18 +27,17 @@ class MetadataControllerTest extends TestCase {
         );
     }
 
-    protected function putFile($name) {
-        \OC\Files\Filesystem::file_put_contents($name, file_get_contents(__DIR__ . '/../files/' . $name));
-    }
-
     public function testGet() {
         $res = $this->controller->get('a.txt');
         $data = $res->getData();
-//        $this->assertEquals('error', $data['response']);
-//        $this->assertEquals('File not found.', $data['msg']);
+        $this->assertEquals('error', $data['response']);
+        $this->assertEquals('File not found.', $data['msg']);
+        $this->assertNull($data['metadata']);
 
         $res = $this->controller->get('IMG_20170626_181110.jpg');
         $data = $res->getData();
         $this->assertEquals('success', $data['response']);
+        $metadata = $data['metadata'];
+        $this->assertEquals('2017-06-26 18:11:09', $metadata['Date taken']);
     }
 }
