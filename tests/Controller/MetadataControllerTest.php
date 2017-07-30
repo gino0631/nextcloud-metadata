@@ -18,13 +18,16 @@ class MetadataControllerTest extends TestCase {
 
         \OC\Files\Filesystem::tearDown();
         \OC\Files\Filesystem::init($this->user, '/' . $this->user . '/files');
-        \OC\Files\Filesystem::clearMounts();
-        \OC\Files\Filesystem::mount('\OC\Files\Storage\Local', array('datadir' => realpath('../files')), 'test-data');
+        $this->putFile('IMG_20170626_181110.jpg');
 
         $this->controller = new MetadataController(
             'metadata',
             $this->createMock(\OCP\IRequest::class)
         );
+    }
+
+    protected function putFile($name) {
+        \OC\Files\Filesystem::file_put_contents($name, file_get_contents('../files/' . $name));
     }
 
     public function testGet() {
@@ -33,7 +36,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('error', $data['response']);
         $this->assertEquals('File not found.', $data['msg']);
 
-        $res = $this->controller->get('test-data/IMG_20170626_181110.jpg');
+        $res = $this->controller->get('IMG_20170626_181110.jpg');
         $data = $res->getData();
         $this->assertEquals('success', $data['response']);
     }
