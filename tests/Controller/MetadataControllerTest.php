@@ -31,13 +31,14 @@ class MetadataControllerTest extends TestCase {
         $res = $this->controller->get('a.txt');
         $data = $res->getData();
         $this->assertEquals('error', $data['response']);
-        $this->assertEquals('File not found.', $data['msg']);
-        $this->assertNull($data['metadata']);
+        $metadata = $data['metadata'];
+        $this->assertNull($metadata);
 
         $res = $this->controller->get('IMG_20170626_181110.jpg');
         $data = $res->getData();
         $this->assertEquals('success', $data['response']);
         $metadata = $data['metadata'];
+        $this->assertNotNull($metadata);
         $this->assertEquals('2017-06-26 18:11:09', $metadata['Date taken']);
     }
 }
