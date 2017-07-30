@@ -15,11 +15,12 @@ class MetadataControllerTest extends TestCase {
         $backend = new \Test\Util\User\Dummy();
         $backend->createUser($this->user, $this->user);
         \OC_User::useBackend($backend);
-        $this->loginAsUser($this->user);
 
         \OC\Files\Filesystem::tearDown();
         \OC\Files\Filesystem::mount('\OC\Files\Storage\Local', array('datadir' => realpath(__DIR__ . '/../files')), '/' . $this->user . '/files');
         \OC\Files\Filesystem::init($this->user, '/' . $this->user . '/files');
+
+        $this->loginAsUser($this->user);
 
         $this->controller = new MetadataController(
             'metadata',
