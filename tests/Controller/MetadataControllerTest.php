@@ -10,12 +10,13 @@ class MetadataControllerTest extends TestCase {
 
     public function setUp() {
         parent::setUp();
-        
+
         $this->user = 'user_' . uniqid();
-        \OC_User::createUser($this->user, $this->user);
+        $backend = new \Test\Util\User\Dummy();
+        $backend->createUser($this->user, $this->user);
+        \OC_User::useBackend($backend);
 
         \OC\Files\Filesystem::tearDown();
-        \OC_User::setUserId($this->user);
         \OC\Files\Filesystem::init($this->user, '/' . $this->user . '/files');
         \OC\Files\Filesystem::clearMounts();
 
