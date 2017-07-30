@@ -29,17 +29,17 @@ class MetadataControllerTest extends TestCase {
     }
 
     public function testGet() {
+        // TXT
         $res = $this->controller->get('a.txt');
         $data = $res->getData();
         $this->assertEquals('error', $data['response']);
-        $metadata = $data['metadata'];
-        $this->assertNull($metadata);
 
+        // JPG
         $res = $this->controller->get('IMG_20170626_181110.jpg');
         $data = $res->getData();
         $this->assertEquals('success', $data['response']);
+
         $metadata = $data['metadata'];
-        $this->assertNotNull($metadata);
         $this->assertEquals('2017-06-26 18:11:09', $metadata['Date taken']);
     }
 }
