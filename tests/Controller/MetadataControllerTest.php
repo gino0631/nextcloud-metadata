@@ -40,5 +40,17 @@ class MetadataControllerTest extends TestCase {
 
         $metadata = $data['metadata'];
         $this->assertEquals('2017-06-26 18:11:09', $metadata['Date taken']);
+        $this->assertEquals('4032 x 3016', $metadata['Dimensions']);
+        $this->assertEquals('Xiaomi MI 6', $metadata['Camera used']);
+        $this->assertEquals('sagit-user 7.1.1 NMF26X V8.2.2.0.NCAMIEC release-keys', $metadata['Software']);
+        $this->assertEquals('f/1.8', $metadata['F-stop']);
+        $this->assertEquals('1/649 sec.', $metadata['Exposure time']);
+        $this->assertEquals('ISO-100', $metadata['ISO speed']);
+        $this->assertEquals('3.82 mm', $metadata['Focal length']);
+        $this->assertEquals('Center Weighted Average', $metadata['Metering mode']);
+        $this->assertEquals('No flash, compulsory', $metadata['Flash mode']);
+        $this->assertEquals('27', $metadata['35mm focal length']);
+        $this->assertEquals('N 51° 31\' 31.5836"', $metadata['GPS latitude']);
+        $this->assertEquals('W 0° 9\' 34.0459"', $metadata['GPS longitude']);
     }
 }
