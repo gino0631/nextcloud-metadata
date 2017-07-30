@@ -200,7 +200,7 @@ class MetadataController extends Controller {
     }
 
     protected function formatGpsCoord($coord) {
-        $return = $this->evalRational($coord[0]) . utf8_encode('°');
+        $return = $this->evalRational($coord[0]) . 'Â°';
 
         if (($coord[1] != '0/1') || ($coord[2] != '0/1')) {
             $return .= ' ' . $this->evalRational($coord[1]) . '\'';
