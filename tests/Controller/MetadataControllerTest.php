@@ -18,7 +18,8 @@ class MetadataControllerTest extends TestCase {
 
         \OC\Files\Filesystem::tearDown();
         \OC\Files\Filesystem::init($this->user, '/' . $this->user . '/files');
-        $this->putFile('IMG_20170626_181110.jpg');
+        \OC\Files\Filesystem::mount('\OC\Files\Storage\Local', array('datadir' => realpath(__DIR__ . '/../files')), 'test-data');
+        //$this->putFile('IMG_20170626_181110.jpg');
 
         $this->controller = new MetadataController(
             'metadata',
@@ -36,7 +37,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('error', $data['response']);
         $this->assertEquals('File not found.', $data['msg']);
 
-        $res = $this->controller->get('IMG_20170626_181110.jpg');
+        $res = $this->controller->get('test-data/IMG_20170626_181110.jpg');
         $data = $res->getData();
         $this->assertEquals('success', $data['response']);
     }
