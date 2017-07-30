@@ -33,7 +33,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('error', $data['response']);
         $this->assertEquals('File not found.', $data['msg']);
 
-        $res = $this->controller->get('/test-data/IMG_20170626_181110.jpg');
+        $res = $this->controller->get('test-data/IMG_20170626_181110.jpg');
         $data = $res->getData();
         $this->assertEquals('success', $data['response']);
     }
