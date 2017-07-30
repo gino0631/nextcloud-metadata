@@ -19,7 +19,7 @@ class MetadataControllerTest extends TestCase {
         \OC\Files\Filesystem::tearDown();
         \OC\Files\Filesystem::init($this->user, '/' . $this->user . '/files');
         \OC\Files\Filesystem::clearMounts();
-        \OC\Files\Filesystem::mount('\OC\Files\Storage\Local', array('datadir' => realpath('../files')), '/test-data');
+        \OC\Files\Filesystem::mount('\OC\Files\Storage\Local', array('datadir' => realpath('../files')), 'test-data');
 
         $this->controller = new MetadataController(
             'metadata',
