@@ -15,12 +15,11 @@ class MetadataControllerTest extends TestCase {
         $backend = new \Test\Util\User\Dummy();
         $backend->createUser($this->user, $this->user);
         \OC_User::useBackend($backend);
+        $this->loginAsUser($this->user);
 
         \OC\Files\Filesystem::tearDown();
         \OC\Files\Filesystem::mount('\OC\Files\Storage\Local', array('datadir' => realpath(__DIR__ . '/../files')), '/' . $this->user . '/files');
         \OC\Files\Filesystem::init($this->user, '/' . $this->user . '/files');
-
-        $this->loginAsUser($this->user);
 
         $this->controller = new MetadataController(
             'metadata',
@@ -37,7 +36,7 @@ class MetadataControllerTest extends TestCase {
         // JPG
         $res = $this->controller->get('IMG_20170626_181110.jpg');
         $data = $res->getData();
-        $this->assertEquals('success', $data['msg']);
+        $this->assertEquals('success', $data['response']);
 
         $metadata = $data['metadata'];
         $this->assertEquals('2017-06-26 18:11:09', $metadata['Date taken']);
