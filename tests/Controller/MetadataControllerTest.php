@@ -27,7 +27,7 @@ class MetadataControllerTest extends TestCase {
     }
 
     protected function putFile($name) {
-        \OC\Files\Filesystem::file_put_contents($name, file_get_contents(realpath('../files/' . $name)));
+        \OC\Files\Filesystem::file_put_contents($name, file_get_contents(__DIR__ . '/../files/' . $name));
     }
 
     public function testGet() {
