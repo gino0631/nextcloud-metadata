@@ -37,7 +37,7 @@ class MetadataControllerTest extends TestCase {
         // JPG
         $res = $this->controller->get('IMG_20170626_181110.jpg');
         $data = $res->getData();
-        $this->assertEquals('success', $data['response']);
+        $this->assertEquals('success', $data['msg']);
 
         $metadata = $data['metadata'];
         $this->assertEquals('2017-06-26 18:11:09', $metadata['Date taken']);
