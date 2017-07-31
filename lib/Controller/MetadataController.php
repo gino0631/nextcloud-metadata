@@ -40,7 +40,7 @@ class MetadataController extends Controller {
         switch ($mimetype) {
             case 'image/jpeg':
             case 'image/tiff':
-                $metadata = $this->readExif($file);
+                $metadata = $this->readExif($file, $lat, $lon);
                 break;
 
             default:
@@ -56,7 +56,9 @@ class MetadataController extends Controller {
             return new JSONResponse(
                 array(
                     'response' => 'success',
-                    'metadata' => $metadata
+                    'metadata' => $metadata,
+                    'lat' => $lat,
+                    'lon' => $lon
                 )
             );
 
@@ -70,7 +72,7 @@ class MetadataController extends Controller {
         }
     }
 
-    protected function readExif($file) {
+    protected function readExif($file, &$lat, &$lon) {
         $return = array();
 
         if ($sections = exif_read_data($file, 0, true)) {
@@ -157,11 +159,15 @@ class MetadataController extends Controller {
             }
 
             if ($v = $this->getVal('GPSLatitude', $gps)) {
-                $this->addValT('GPS latitude', $this->getVal('GPSLatitudeRef', $gps) . ' ' . $this->formatGpsCoord($v), $return);
+                $ref = $this->getVal('GPSLatitudeRef', $gps);
+                $this->addValT('GPS latitude', $ref . ' ' . $this->formatGpsCoord($v), $return);
+                $lat = $this->gpsToDecDegree($v, $ref == 'N');
             }
 
             if ($v = $this->getVal('GPSLongitude', $gps)) {
-                $this->addValT('GPS longitude', $this->getVal('GPSLongitudeRef', $gps) . ' ' . $this->formatGpsCoord($v), $return);
+                $ref = $this->getVal('GPSLongitudeRef', $gps);
+                $this->addValT('GPS longitude', $ref . ' ' . $this->formatGpsCoord($v), $return);
+                $lon = $this->gpsToDecDegree($v, $ref == 'E');
             }
         }
 
@@ -211,6 +217,12 @@ class MetadataController extends Controller {
         }
 
         return $return;
+    }
+
+    protected function gpsToDecDegree($coord, $pos) {
+        $return = round($this->evalRational($coord[0]) + ($this->evalRational($coord[1]) / 60) + ($this->evalRational($coord[2]) / 3600), 8);
+
+        return $pos? $return : -$return;
     }
 
     protected function evalRational($val) {
