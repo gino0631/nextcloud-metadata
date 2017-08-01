@@ -40,6 +40,7 @@
 
         updateDisplay: function(data) {
             var html = '';
+            var showLocation = false;
 
             if (data.response === 'success') {
                 html += '<table>';
@@ -49,11 +50,10 @@
                     html += '<tr><td class="key">' + m + ':</td><td class="value">' + metadata[m] + '</td></tr>';
                 }
 
-                if (data.lat && data.lon) {
+                showLocation = (data.lat != null) && (data.lon != null);
+                if (showLocation) {
                     var url = 'https://nominatim.openstreetmap.org/reverse',
-                        lat = data.lat,
-                        lon = data.lon,
-                        data = {lat: lat, lon: lon, format: 'json', zoom: 18},
+                        data = {lat: data.lat, lon: data.lon, format: 'json', zoom: 18},
                         _self = this;
                     $.ajax({
                         type: 'GET',
@@ -62,11 +62,11 @@
                         data: data,
                         async: true,
                         success: function(data) {
-                            _self.updateLocation(data, lat, lon);
+                            _self.updateLocation(data);
                         }
                     });
 
-                    html += '<tr><td class="key">' + t('metadata', 'Location') + ':</td><td class="get-location value">' + t('metadata', 'Resolving ...') + '</td></tr>';
+                    html += '<tr><td class="key">' + t('metadata', 'Location') + ':</td><td class="value"><a href="#" class="get-location">' + t('metadata', 'Resolving, click here to view on map ...') + '</a></td></tr>';
                 }
 
                 html += '</table>';
@@ -76,27 +76,16 @@
             }
 
             this.$el.find('.get-metadata').html(html);
-        },
 
-        updateLocation: function(data, lat, lon) {
-            var location = data.address;
-            var address = [];
-            this.add(location.building ? location.building : location.house_number, address);
-            this.add(location.road ? location.road : location.footway, address);
-            this.add(location.city, address);
-            this.add(location.country, address);
-
-            this.$el.find('.get-location')
-                .empty()
-                .append($(document.createElement('a'))
-                    .html(address.join(', '))
+            if (showLocation) {
+                this.$el.find('.get-location')
                     .click(function() {
-                        var bbox = [data.boundingbox[2] - 0.005, data.boundingbox[0] - 0.005, data.boundingbox[3] - -0.005, data.boundingbox[1] - -0.005];
+                        var bbox = [data.lon - 0.0051, data.lat - 0.0051, data.lon - -0.0051, data.lat - -0.0051];
 
                         var iframe = document.createElement('iframe');
                         iframe.setAttribute('width', '100%');
                         iframe.setAttribute('height', '100%');
-                        iframe.setAttribute('src', 'https://www.openstreetmap.org/export/embed.html?bbox=' + bbox.join() + '&marker=' + lat + ',' + lon);
+                        iframe.setAttribute('src', 'https://www.openstreetmap.org/export/embed.html?bbox=' + bbox.join() + '&marker=' + data.lat + ',' + data.lon);
 
                         $(document.createElement('div'))
                             .prop('title', 'OpenStreetMap')
@@ -116,7 +105,26 @@
                                 }
                             });
                     })
-                );
+            }
+        },
+
+        updateLocation: function(data) {
+            var html = '';
+
+            if (data.error) {
+                html = data.error;
+
+            } else {
+                var location = data.address;
+                var address = [];
+                this.add(location.building ? location.building : location.house_number, address);
+                this.add(location.road ? location.road : location.footway, address);
+                this.add(location.city, address);
+                this.add(location.country, address);
+                html = address.join(', ');
+            }
+
+            this.$el.find('.get-location').html(html);
         },
 
         add: function(val, array) {
