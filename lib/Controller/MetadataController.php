@@ -25,6 +25,9 @@ class MetadataController extends Controller {
         $this->language = \OC::$server->getL10N('metadata');
     }
 
+    /**
+     * @NoAdminRequired
+     */
     public function get($source) {
         $file = Filesystem::getLocalFile($source);
         if (!$file) {
