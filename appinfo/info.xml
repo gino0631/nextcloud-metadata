@@ -5,7 +5,10 @@
     <name>Metadata</name>
     <summary>A plugin for displaying file metadata</summary>
     <description>
-        A plugin which displays file metadata (currently, only EXIF is supported) in the file details sidebar.
+        A plugin which displays file metadata in the file details sidebar. Currently, the supported file types include:
+        - audio/mpeg (ID3)
+        - image/jpeg (EXIF)
+        - image/tiff (EXIF)
     </description>
     <version>0.3.0</version>
     <licence>agpl</licence>
