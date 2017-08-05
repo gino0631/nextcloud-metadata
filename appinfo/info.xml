@@ -7,7 +7,7 @@
     <description>
         A plugin which displays file metadata (currently, only EXIF is supported) in the file details sidebar.
     </description>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
     <licence>agpl</licence>
     <author>gino0631</author>
     <category>files</category>
