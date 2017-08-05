@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+
+## 0.3.0 – 2017-08-06
 ### Added
 - MP3 support
 
