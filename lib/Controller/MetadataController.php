@@ -186,7 +186,7 @@ class MetadataController extends Controller {
             }
 
             if ($v = $this->getVal('ExposureBiasValue', $exif)) {
-                $this->addValT('Exposure bias', $this->language->t('%s step', array($this->evalRational($v))), $return);
+                $this->addValT('Exposure bias', $this->language->t('%s step', array($this->formatRational($v))), $return);
             }
 
             if ($v = $this->getVal('FocalLength', $exif)) {
@@ -284,10 +284,7 @@ class MetadataController extends Controller {
                 }
 
             } else {
-                $val = round($matches[2] / $matches[4], 2);
-                if ($matches[1] == '-') {
-                    $val = -$val;
-                }
+                $val = round($this->evalFraction($matches[1], $matches[2], $matches[4]), 2);
             }
         }
 
@@ -296,10 +293,16 @@ class MetadataController extends Controller {
 
     protected function evalRational($val) {
         if (preg_match('/([\-]?)(\d+)([\/])(\d+)/', $val, $matches) !== FALSE) {
-            $val = round($matches[2] / $matches[4], 2);
-            if ($matches[1] == '-') {
-                $val = -$val;
-            }
+            $val = $this->evalFraction($matches[1], $matches[2], $matches[4]);
+        }
+
+        return $val;
+    }
+
+    protected function evalFraction($sig, $num, $den) {
+        $val = $num / $den;
+        if ($sig == '-') {
+            $val = -$val;
         }
 
         return $val;
