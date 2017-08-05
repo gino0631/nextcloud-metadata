@@ -35,7 +35,7 @@
             }
             var mimetype = fileInfo.get('mimetype');
 
-            return (['image/jpeg', 'image/tiff'].indexOf(mimetype) > -1);
+            return (['audio/mpeg', 'image/jpeg', 'image/tiff'].indexOf(mimetype) > -1);
         },
 
         updateDisplay: function(data) {

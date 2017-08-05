@@ -39,8 +39,15 @@ class MetadataController extends Controller {
             );
         }
 
+        $lat = null;
+        $lon = null;
+
         $mimetype = Filesystem::getMimeType($source);
         switch ($mimetype) {
+            case 'audio/mpeg':
+                $metadata = $this->readId3($file);
+                break;
+
             case 'image/jpeg':
             case 'image/tiff':
                 $metadata = $this->readExif($file, $lat, $lon);
@@ -73,6 +80,47 @@ class MetadataController extends Controller {
                 )
             );
         }
+    }
+
+    protected function readId3($file) {
+        $return = array();
+
+        $id3Parser = new \ID3Parser\ID3Parser();
+        if ($sections = $id3Parser->analyze($file)) {
+            $id3v1 = $this->getVal('id3v1', $sections, array());
+
+//            $this->dump($sections, $return);
+
+            if ($v = $this->getVal('artist', $id3v1)) {
+                $this->addValT('Artist', $v, $return);
+            }
+
+            if ($v = $this->getVal('title', $id3v1)) {
+                $this->addValT('Title', $v, $return);
+            }
+
+            if ($v = $this->getVal('album', $id3v1)) {
+                $this->addValT('Album', $v, $return);
+            }
+
+            if ($v = $this->getVal('track', $id3v1)) {
+                $this->addValT('Track #', $v, $return);
+            }
+
+            if ($v = $this->getVal('year', $id3v1)) {
+                $this->addValT('Year', $v, $return);
+            }
+
+            if ($v = $this->getVal('genre', $id3v1)) {
+                $this->addValT('Genre', $v, $return);
+            }
+
+            if ($v = $this->getVal('comment', $id3v1)) {
+                $this->addValT('Comment', $v, $return);
+            }
+        }
+
+        return $return;
     }
 
     protected function readExif($file, &$lat, &$lon) {
@@ -130,7 +178,7 @@ class MetadataController extends Controller {
             }
 
             if ($v = $this->getVal('ExposureTime', $exif)) {
-                $this->addValT('Exposure time', $this->language->t('%s sec.', array($this->normRational($v))), $return);
+                $this->addValT('Exposure time', $this->language->t('%s sec.', array($this->formatRational($v, true))), $return);
             }
 
             if ($v = $this->getVal('ISOSpeedRatings', $exif)) {
@@ -228,18 +276,29 @@ class MetadataController extends Controller {
         return $pos? $return : -$return;
     }
 
-    protected function evalRational($val) {
-        if (preg_match('/(\d+)([\/])(\d+)/', $val, $matches) !== FALSE) {
-            $val = $matches[1] / $matches[3];
+    protected function formatRational($val, $fracIfSmall = false) {
+        if (preg_match('/([\-]?)(\d+)([\/])(\d+)/', $val, $matches) !== FALSE) {
+            if ($fracIfSmall && ($matches[2] < $matches[4])) {
+                if ($matches[2] != 1) {
+                    $val = $matches[1] . 1 . '/' . round($matches[4] / $matches[2]);
+                }
+
+            } else {
+                $val = round($matches[2] / $matches[4], 2);
+                if ($matches[1] == '-') {
+                    $val = -$val;
+                }
+            }
         }
 
         return $val;
     }
 
-    protected function normRational($val) {
-        if (preg_match('/(\d+)([\/])(\d+)/', $val, $matches) !== FALSE) {
-            if ($matches[1] != 1) {
-                $val = 1 . '/' . round($matches[3] / $matches[1]);
+    protected function evalRational($val) {
+        if (preg_match('/([\-]?)(\d+)([\/])(\d+)/', $val, $matches) !== FALSE) {
+            $val = round($matches[2] / $matches[4], 2);
+            if ($matches[1] == '-') {
+                $val = -$val;
             }
         }
 
@@ -256,7 +315,10 @@ class MetadataController extends Controller {
 
     protected function addVal($key, $val, &$array) {
         if (array_key_exists($key, $array)) {
-            $val = $array[$key] . ' ' . $val;
+            $prev = $array[$key];
+            if (substr($val, 0, strlen($prev)) != $prev) {
+                $val = $prev . ' ' . $val;
+            }
         }
 
         $array[$key] = $val;
@@ -266,10 +328,13 @@ class MetadataController extends Controller {
         $this->addVal($this->language->t($key), $val, $array);
     }
 
-    protected function dump(&$sections, &$array) {
-        foreach ($sections as $section => $data) {
-            foreach ($data as $key => $val) {
-                $this->addVal($section . '.' . utf8_encode($key), utf8_encode($val), $array);
+    protected function dump(&$data, &$array, $prefix = '') {
+        foreach ($data as $key => $val) {
+            if (is_array($val)) {
+                $this->dump($val, $array, $prefix . $key . '.');
+
+            } else {
+                $this->addVal($prefix . utf8_encode($key), utf8_encode($val), $array);
             }
         }
     }
