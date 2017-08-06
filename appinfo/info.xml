@@ -4,10 +4,9 @@
     <id>metadata</id>
     <name>Metadata</name>
     <summary>A plugin for displaying file metadata</summary>
-    <description>A plugin which displays file metadata in the file details sidebar. Currently, the supported file types include:
-        - audio/mpeg (ID3)
-        - image/jpeg (EXIF)
-        - image/tiff (EXIF)
+    <description><![CDATA[A plugin which displays file metadata in the file details sidebar.
+
+See the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations.]]>
     </description>
     <version>0.3.0</version>
     <licence>agpl</licence>
