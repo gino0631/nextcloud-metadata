@@ -2,6 +2,7 @@
 namespace OCA\Metadata\Controller;
 
 use OC\Files\Filesystem;
+use OCA\Metadata\GetID3\getID3;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\IRequest;
@@ -44,7 +45,11 @@ class MetadataController extends Controller {
 
         $mimetype = Filesystem::getMimeType($source);
         switch ($mimetype) {
+            case 'audio/flac':
             case 'audio/mpeg':
+            case 'audio/ogg':
+            case 'video/mp4':
+            case 'video/mpeg':
                 $metadata = $this->readId3($file);
                 break;
 
@@ -85,39 +90,75 @@ class MetadataController extends Controller {
     protected function readId3($file) {
         $return = array();
 
-        $id3Parser = new \ID3Parser\ID3Parser();
-        if ($sections = $id3Parser->analyze($file)) {
-            $id3v1 = $this->getVal('id3v1', $sections, array());
+        $getId3 = new getID3();
+        $getId3->option_save_attachments = getID3::ATTACHMENTS_NONE;
+        if ($sections = $getId3->analyze($file)) {
+            $audio = $this->getVal('audio', $sections) ?: array();
+            $video = $this->getVal('video', $sections) ?: array();
+            $tags = $this->getVal('tags_html', $sections) ?: array();
+            $vorbis = $this->getVal('vorbiscomment', $tags) ?: array();
+            $id3v2 = $this->getVal('id3v2', $tags) ?: array();
+            $id3v1 = $this->getVal('id3v1', $tags) ?: array();
+            $qt = $this->getVal('quicktime', $tags) ?: array();
 
-//            $this->dump($sections, $return);
-
-            if ($v = $this->getVal('artist', $id3v1)) {
+            if ($v = $this->getVal('artist', $vorbis, $id3v2, $id3v1)) {
                 $this->addValT('Artist', $v, $return);
             }
 
-            if ($v = $this->getVal('title', $id3v1)) {
+            if ($v = $this->getVal('title', $vorbis, $id3v2, $id3v1)) {
                 $this->addValT('Title', $v, $return);
             }
 
-            if ($v = $this->getVal('album', $id3v1)) {
+            if ($v = $this->getVal('playtime_seconds', $sections)) {
+                $this->addValT('Length', $this->formatSeconds($v), $return);
+            }
+
+            if (($x = $this->getVal('resolution_x', $video)) && ($y = $this->getVal('resolution_y', $video))) {
+                $this->addValT('Dimensions', $x . ' x ' . $y, $return);
+            }
+
+            if ($v = $this->getVal('frame_rate', $video)) {
+                $this->addValT('Frame rate', $this->language->t('%s fps', array($v)), $return);
+            }
+
+            if ($v = $this->getVal('bitrate', $sections)) {
+                $this->addValT('Bit rate', $this->language->t('%s kbps', array(floor($v/1000))), $return);
+            }
+
+            if ($v = $this->getVal('sample_rate', $audio)) {
+                $this->addValT('Sample rate', $this->language->t('%s Hz', array($v)), $return);
+            }
+
+            if ($v = $this->getVal('bits_per_sample', $audio)) {
+                $this->addValT('Sample size', $this->language->t('%s bit', array($v)), $return);
+            }
+
+            if ($v = $this->getVal('album', $vorbis, $id3v2, $id3v1)) {
                 $this->addValT('Album', $v, $return);
             }
 
-            if ($v = $this->getVal('track', $id3v1)) {
+            if ($v = $this->getVal('tracknumber', $vorbis) ?: $this->getVal('track_number', $id3v2) ?: $this->getVal('track', $id3v1)) {
                 $this->addValT('Track #', $v, $return);
             }
 
-            if ($v = $this->getVal('year', $id3v1)) {
+            if ($v = $this->getVal('date', $vorbis) ?: $this->getVal('year', $vorbis, $id3v2, $id3v1)) {
                 $this->addValT('Year', $v, $return);
             }
 
-            if ($v = $this->getVal('genre', $id3v1)) {
+            if ($v = $this->getVal('genre', $vorbis, $id3v2, $id3v1)) {
                 $this->addValT('Genre', $v, $return);
             }
 
-            if ($v = $this->getVal('comment', $id3v1)) {
+            if ($v = $this->getVal('description', $vorbis) ?: $this->getVal('comment', $vorbis, $id3v2, $id3v1)) {
+
                 $this->addValT('Comment', $v, $return);
             }
+
+            if ($v = $this->getVal('encoding_tool', $qt)) {
+                $this->addValT('Encoding tool', $v, $return);
+            }
+
+//            $this->dump($sections, $return);
         }
 
         return $return;
@@ -127,12 +168,10 @@ class MetadataController extends Controller {
         $return = array();
 
         if ($sections = exif_read_data($file, 0, true)) {
-            $comp = $this->getVal('COMPUTED', $sections, array());
-            $ifd0 = $this->getVal('IFD0', $sections, array());
-            $exif = $this->getVal('EXIF', $sections, array());
-            $gps = $this->getVal('GPS', $sections, array());
-
-//            $this->dump($sections, $return);
+            $comp = $this->getVal('COMPUTED', $sections) ?: array();
+            $ifd0 = $this->getVal('IFD0', $sections) ?: array();
+            $exif = $this->getVal('EXIF', $sections) ?: array();
+            $gps = $this->getVal('GPS', $sections) ?: array();
 
             if ($v = $this->getVal('DateTimeOriginal', $exif)) {
                 $v[4] = $v[7] = '-';
@@ -220,6 +259,8 @@ class MetadataController extends Controller {
                 $this->addValT('GPS longitude', $ref . ' ' . $this->formatGpsCoord($v), $return);
                 $lon = $this->gpsToDecDegree($v, $ref == 'E');
             }
+
+//            $this->dump($sections, $return);
         }
 
         return $return;
@@ -276,6 +317,10 @@ class MetadataController extends Controller {
         return $pos? $return : -$return;
     }
 
+    protected function formatSeconds($val) {
+        return sprintf("%02d:%02d:%02d", floor($val/3600), ($val/60)%60, $val%60);
+    }
+
     protected function formatRational($val, $fracIfSmall = false) {
         if (preg_match('/([\-]?)(\d+)([\/])(\d+)/', $val, $matches) !== FALSE) {
             if ($fracIfSmall && ($matches[2] < $matches[4])) {
@@ -308,15 +353,27 @@ class MetadataController extends Controller {
         return $val;
     }
 
-    protected function getVal($key, &$array, $default = null) {
+    protected function getVal($key, &$array, &$array2 = null, &$array3 = null) {
         if (array_key_exists($key, $array)) {
             return $array[$key];
         }
 
-        return $default;
+        if (($array2 != null) && array_key_exists($key, $array2)) {
+            return $array2[$key];
+        }
+
+        if (($array3 != null) && array_key_exists($key, $array3)) {
+            return $array3[$key];
+        }
+
+        return null;
     }
 
     protected function addVal($key, $val, &$array) {
+        if (is_array($val)) {
+            $val = join('<br>', $val);
+        }
+
         if (array_key_exists($key, $array)) {
             $prev = $array[$key];
             if (substr($val, 0, strlen($prev)) != $prev) {

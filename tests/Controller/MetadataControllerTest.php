@@ -27,13 +27,13 @@ class MetadataControllerTest extends TestCase {
         );
     }
 
-    public function testGet() {
-        // TXT
+    public function testTxt() {
         $res = $this->controller->get('a.txt');
         $data = $res->getData();
         $this->assertEquals('error', $data['response']);
+    }
 
-        // JPG
+    public function testJpg() {
         $res = $this->controller->get('IMG_20170626_181110.jpg');
         $data = $res->getData();
         $this->assertEquals('success', $data['response']);
@@ -52,15 +52,52 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('27', $metadata['35mm focal length']);
         $this->assertEquals('N 51° 31\' 31.5836"', $metadata['GPS latitude']);
         $this->assertEquals('W 0° 9\' 34.0459"', $metadata['GPS longitude']);
+    }
 
-        // MP3
-        $res = $this->controller->get('v1andv23tags.mp3');
+    public function testMp3() {
+        $res = $this->controller->get('sample_id3v1_id3v23.mp3');
         $data = $res->getData();
         $this->assertEquals('success', $data['response']);
 
         $metadata = $data['metadata'];
         $this->assertEquals('ARTIST123456789012345678901234', $metadata['Artist']);
         $this->assertEquals('TITLE1234567890123456789012345', $metadata['Title']);
+        $this->aseertEquals('00:00:00', $metadata['Length']);
+        $this->aseertEquals('44100 Hz', $metadata['Sample rate']);
+        $this->assertEquals('ALBUM1234567890123456789012345', $metadata['Album']);
+        $this->assertEquals('1', $metadata['Track #']);
+        $this->assertEquals('2001', $metadata['Year']);
+        $this->assertEquals('Pop', $metadata['Genre']);
+        $this->assertEquals('COMMENT123456789012345678901', $metadata['Comment']);
+    }
+
+    public function testOgg() {
+        $res = $this->controller->get('sample.ogg');
+        $data = $res->getData();
+        $this->assertEquals('success', $data['response']);
+
+        $metadata = $data['metadata'];
+        $this->assertEquals('ARTIST123456789012345678901234', $metadata['Artist']);
+        $this->assertEquals('TITLE1234567890123456789012345', $metadata['Title']);
+        $this->aseertEquals('00:00:00', $metadata['Length']);
+        $this->aseertEquals('44100 Hz', $metadata['Sample rate']);
+        $this->assertEquals('ALBUM1234567890123456789012345', $metadata['Album']);
+        $this->assertEquals('1', $metadata['Track #']);
+        $this->assertEquals('2001', $metadata['Year']);
+        $this->assertEquals('Pop', $metadata['Genre']);
+        $this->assertEquals('COMMENT123456789012345678901', $metadata['Comment']);
+    }
+
+    public function testFlac() {
+        $res = $this->controller->get('sample.flac');
+        $data = $res->getData();
+        $this->assertEquals('success', $data['response']);
+
+        $metadata = $data['metadata'];
+        $this->assertEquals('ARTIST123456789012345678901234', $metadata['Artist']);
+        $this->assertEquals('TITLE1234567890123456789012345', $metadata['Title']);
+        $this->aseertEquals('00:00:00', $metadata['Length']);
+        $this->aseertEquals('44100 Hz', $metadata['Sample rate']);
         $this->assertEquals('ALBUM1234567890123456789012345', $metadata['Album']);
         $this->assertEquals('1', $metadata['Track #']);
         $this->assertEquals('2001', $metadata['Year']);

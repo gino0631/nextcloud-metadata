@@ -1,0 +1,233 @@
+<?php
+/////////////////////////////////////////////////////////////////
+/// getID3() by James Heinrich <info@getid3.org>               //
+//  available at http://getid3.sourceforge.net                 //
+//            or http://www.getid3.org                         //
+//          also https://github.com/JamesHeinrich/getID3       //
+/////////////////////////////////////////////////////////////////
+//                                                             //
+// Please see readme.txt for more information                  //
+//                                                            ///
+/////////////////////////////////////////////////////////////////
+
+namespace OCA\Metadata\GetID3;
+
+abstract class getid3_handler {
+
+	/**
+	* @var getID3
+	*/
+	protected $getid3;                       // pointer
+
+	protected $data_string_flag     = false; // analyzing filepointer or string
+	protected $data_string          = '';    // string to analyze
+	protected $data_string_position = 0;     // seek position in string
+	protected $data_string_length   = 0;     // string length
+
+	private $dependency_to = null;
+
+
+	public function __construct(getID3 $getid3, $call_module=null) {
+		$this->getid3 = $getid3;
+
+		if ($call_module) {
+			$this->dependency_to = str_replace('getid3_', '', $call_module);
+		}
+	}
+
+
+	// Analyze from file pointer
+	abstract public function Analyze();
+
+
+	// Analyze from string instead
+	public function AnalyzeString($string) {
+		// Enter string mode
+		$this->setStringMode($string);
+
+		// Save info
+		$saved_avdataoffset = $this->getid3->info['avdataoffset'];
+		$saved_avdataend    = $this->getid3->info['avdataend'];
+		$saved_filesize     = (isset($this->getid3->info['filesize']) ? $this->getid3->info['filesize'] : null); // may be not set if called as dependency without openfile() call
+
+		// Reset some info
+		$this->getid3->info['avdataoffset'] = 0;
+		$this->getid3->info['avdataend']    = $this->getid3->info['filesize'] = $this->data_string_length;
+
+		// Analyze
+		$this->Analyze();
+
+		// Restore some info
+		$this->getid3->info['avdataoffset'] = $saved_avdataoffset;
+		$this->getid3->info['avdataend']    = $saved_avdataend;
+		$this->getid3->info['filesize']     = $saved_filesize;
+
+		// Exit string mode
+		$this->data_string_flag = false;
+	}
+
+	public function setStringMode($string) {
+		$this->data_string_flag   = true;
+		$this->data_string        = $string;
+		$this->data_string_length = strlen($string);
+	}
+
+	protected function ftell() {
+		if ($this->data_string_flag) {
+			return $this->data_string_position;
+		}
+		return ftell($this->getid3->fp);
+	}
+
+	protected function fread($bytes) {
+		if ($this->data_string_flag) {
+			$this->data_string_position += $bytes;
+			return substr($this->data_string, $this->data_string_position - $bytes, $bytes);
+		}
+		$pos = $this->ftell() + $bytes;
+		if (!getid3_lib::intValueSupported($pos)) {
+			throw new getid3_exception('cannot fread('.$bytes.' from '.$this->ftell().') because beyond PHP filesystem limit', 10);
+		}
+
+		//return fread($this->getid3->fp, $bytes);
+		/*
+		* http://www.getid3.org/phpBB3/viewtopic.php?t=1930
+		* "I found out that the root cause for the problem was how getID3 uses the PHP system function fread().
+		* It seems to assume that fread() would always return as many bytes as were requested.
+		* However, according the PHP manual (http://php.net/manual/en/function.fread.php), this is the case only with regular local files, but not e.g. with Linux pipes.
+		* The call may return only part of the requested data and a new call is needed to get more."
+		*/
+		$contents = '';
+		do {
+			$part = fread($this->getid3->fp, $bytes);
+			$partLength  = strlen($part);
+			$bytes      -= $partLength;
+			$contents   .= $part;
+		} while (($bytes > 0) && ($partLength > 0));
+		return $contents;
+	}
+
+	protected function fseek($bytes, $whence=SEEK_SET) {
+		if ($this->data_string_flag) {
+			switch ($whence) {
+				case SEEK_SET:
+					$this->data_string_position = $bytes;
+					break;
+
+				case SEEK_CUR:
+					$this->data_string_position += $bytes;
+					break;
+
+				case SEEK_END:
+					$this->data_string_position = $this->data_string_length + $bytes;
+					break;
+			}
+			return 0;
+		} else {
+			$pos = $bytes;
+			if ($whence == SEEK_CUR) {
+				$pos = $this->ftell() + $bytes;
+			} elseif ($whence == SEEK_END) {
+				$pos = $this->getid3->info['filesize'] + $bytes;
+			}
+			if (!getid3_lib::intValueSupported($pos)) {
+				throw new getid3_exception('cannot fseek('.$pos.') because beyond PHP filesystem limit', 10);
+			}
+		}
+		return fseek($this->getid3->fp, $bytes, $whence);
+	}
+
+	protected function feof() {
+		if ($this->data_string_flag) {
+			return $this->data_string_position >= $this->data_string_length;
+		}
+		return feof($this->getid3->fp);
+	}
+
+	final protected function isDependencyFor($module) {
+		return $this->dependency_to == $module;
+	}
+
+	protected function error($text) {
+		$this->getid3->info['error'][] = $text;
+
+		return false;
+	}
+
+	protected function warning($text) {
+		return $this->getid3->warning($text);
+	}
+
+	protected function notice($text) {
+		// does nothing for now
+	}
+
+	public function saveAttachment($name, $offset, $length, $image_mime=null) {
+		try {
+
+			// do not extract at all
+			if ($this->getid3->option_save_attachments === getID3::ATTACHMENTS_NONE) {
+
+				$attachment = null; // do not set any
+
+			// extract to return array
+			} elseif ($this->getid3->option_save_attachments === getID3::ATTACHMENTS_INLINE) {
+
+				$this->fseek($offset);
+				$attachment = $this->fread($length); // get whole data in one pass, till it is anyway stored in memory
+				if ($attachment === false || strlen($attachment) != $length) {
+					throw new \Exception('failed to read attachment data');
+				}
+
+			// assume directory path is given
+			} else {
+
+				// set up destination path
+				$dir = rtrim(str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $this->getid3->option_save_attachments), DIRECTORY_SEPARATOR);
+				if (!is_dir($dir) || !is_writable($dir)) { // check supplied directory
+					throw new \Exception('supplied path ('.$dir.') does not exist, or is not writable');
+				}
+				$dest = $dir.DIRECTORY_SEPARATOR.$name.($image_mime ? '.'.getid3_lib::ImageExtFromMime($image_mime) : '');
+
+				// create dest file
+				if (($fp_dest = fopen($dest, 'wb')) == false) {
+					throw new \Exception('failed to create file '.$dest);
+				}
+
+				// copy data
+				$this->fseek($offset);
+				$buffersize = ($this->data_string_flag ? $length : $this->getid3->fread_buffer_size());
+				$bytesleft = $length;
+				while ($bytesleft > 0) {
+					if (($buffer = $this->fread(min($buffersize, $bytesleft))) === false || ($byteswritten = fwrite($fp_dest, $buffer)) === false || ($byteswritten === 0)) {
+						throw new \Exception($buffer === false ? 'not enough data to read' : 'failed to write to destination file, may be not enough disk space');
+					}
+					$bytesleft -= $byteswritten;
+				}
+
+				fclose($fp_dest);
+				$attachment = $dest;
+
+			}
+
+		} catch (\Exception $e) {
+
+			// close and remove dest file if created
+			if (isset($fp_dest) && is_resource($fp_dest)) {
+				fclose($fp_dest);
+				unlink($dest);
+			}
+
+			// do not set any is case of error
+			$attachment = null;
+			$this->warning('Failed to extract attachment '.$name.': '.$e->getMessage());
+
+		}
+
+		// seek to the end of attachment
+		$this->fseek($offset + $length);
+
+		return $attachment;
+	}
+
+}
