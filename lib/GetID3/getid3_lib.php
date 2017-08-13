@@ -11,6 +11,7 @@
 //                                                            ///
 /////////////////////////////////////////////////////////////////
 
+namespace OCA\Metadata\GetID3;
 
 class getid3_lib
 {
@@ -282,7 +283,7 @@ class getid3_lib
 					$intvalue = 0 - ($intvalue & ($signMaskBit - 1));
 				}
 			} else {
-				throw new Exception('ERROR: Cannot have signed integers larger than '.(8 * PHP_INT_SIZE).'-bits ('.strlen($byteword).') in self::BigEndian2Int()');
+				throw new \Exception('ERROR: Cannot have signed integers larger than '.(8 * PHP_INT_SIZE).'-bits ('.strlen($byteword).') in self::BigEndian2Int()');
 			}
 		}
 		return self::CastAsInt($intvalue);
@@ -306,13 +307,13 @@ class getid3_lib
 
 	public static function BigEndian2String($number, $minbytes=1, $synchsafe=false, $signed=false) {
 		if ($number < 0) {
-			throw new Exception('ERROR: self::BigEndian2String() does not support negative numbers');
+			throw new \Exception('ERROR: self::BigEndian2String() does not support negative numbers');
 		}
 		$maskbyte = (($synchsafe || $signed) ? 0x7F : 0xFF);
 		$intstring = '';
 		if ($signed) {
 			if ($minbytes > PHP_INT_SIZE) {
-				throw new Exception('ERROR: Cannot have signed integers larger than '.(8 * PHP_INT_SIZE).'-bits in self::BigEndian2String()');
+				throw new \Exception('ERROR: Cannot have signed integers larger than '.(8 * PHP_INT_SIZE).'-bits in self::BigEndian2String()');
 			}
 			$number = $number & (0x80 << (8 * ($minbytes - 1)));
 		}
@@ -556,98 +557,9 @@ class getid3_lib
 		return $XMLarray;
 	}
 
-
-	// Allan Hansen <ahØartemis*dk>
-	// self::md5_data() - returns md5sum for a file from startuing position to absolute end position
-	public static function hash_data($file, $offset, $end, $algorithm) {
-		static $tempdir = '';
-		if (!self::intValueSupported($end)) {
-			return false;
-		}
-		switch ($algorithm) {
-			case 'md5':
-				$hash_function = 'md5_file';
-				$unix_call     = 'md5sum';
-				$windows_call  = 'md5sum.exe';
-				$hash_length   = 32;
-				break;
-
-			case 'sha1':
-				$hash_function = 'sha1_file';
-				$unix_call     = 'sha1sum';
-				$windows_call  = 'sha1sum.exe';
-				$hash_length   = 40;
-				break;
-
-			default:
-				throw new Exception('Invalid algorithm ('.$algorithm.') in self::hash_data()');
-				break;
-		}
-		$size = $end - $offset;
-		while (true) {
-			if (GETID3_OS_ISWINDOWS) {
-
-				// It seems that sha1sum.exe for Windows only works on physical files, does not accept piped data
-				// Fall back to create-temp-file method:
-				if ($algorithm == 'sha1') {
-					break;
-				}
-
-				$RequiredFiles = array('cygwin1.dll', 'head.exe', 'tail.exe', $windows_call);
-				foreach ($RequiredFiles as $required_file) {
-					if (!is_readable(GETID3_HELPERAPPSDIR.$required_file)) {
-						// helper apps not available - fall back to old method
-						break 2;
-					}
-				}
-				$commandline  = GETID3_HELPERAPPSDIR.'head.exe -c '.$end.' '.escapeshellarg(str_replace('/', DIRECTORY_SEPARATOR, $file)).' | ';
-				$commandline .= GETID3_HELPERAPPSDIR.'tail.exe -c '.$size.' | ';
-				$commandline .= GETID3_HELPERAPPSDIR.$windows_call;
-
-			} else {
-
-				$commandline  = 'head -c'.$end.' '.escapeshellarg($file).' | ';
-				$commandline .= 'tail -c'.$size.' | ';
-				$commandline .= $unix_call;
-
-			}
-			if (preg_match('#(1|ON)#i', ini_get('safe_mode'))) {
-				//throw new Exception('PHP running in Safe Mode - backtick operator not available, using slower non-system-call '.$algorithm.' algorithm');
-				break;
-			}
-			return substr(`$commandline`, 0, $hash_length);
-		}
-
-		if (empty($tempdir)) {
-			// yes this is ugly, feel free to suggest a better way
-			require_once(dirname(__FILE__).'/getid3.php');
-			$getid3_temp = new getID3();
-			$tempdir = $getid3_temp->tempdir;
-			unset($getid3_temp);
-		}
-		// try to create a temporary file in the system temp directory - invalid dirname should force to system temp dir
-		if (($data_filename = tempnam($tempdir, 'gI3')) === false) {
-			// can't find anywhere to create a temp file, just fail
-			return false;
-		}
-
-		// Init
-		$result = false;
-
-		// copy parts of file
-		try {
-			self::CopyFileParts($file, $data_filename, $offset, $end - $offset);
-			$result = $hash_function($data_filename);
-		} catch (Exception $e) {
-			throw new Exception('self::CopyFileParts() failed in getid_lib::hash_data(): '.$e->getMessage());
-		}
-		unlink($data_filename);
-		return $result;
-	}
-
 	public static function CopyFileParts($filename_source, $filename_dest, $offset, $length) {
 		if (!self::intValueSupported($offset + $length)) {
-			throw new Exception('cannot copy file portion, it extends beyond the '.round(PHP_INT_MAX / 1073741824).'GB limit');
+			throw new \Exception('cannot copy file portion, it extends beyond the '.round(PHP_INT_MAX / 1073741824).'GB limit');
 		}
 		if (is_readable($filename_source) && is_file($filename_source) && ($fp_src = fopen($filename_source, 'rb'))) {
 			if (($fp_dest = fopen($filename_dest, 'wb'))) {
@@ -659,15 +571,15 @@ class getid3_lib
 					}
 					return true;
 				} else {
-					throw new Exception('failed to seek to offset '.$offset.' in '.$filename_source);
+					throw new \Exception('failed to seek to offset '.$offset.' in '.$filename_source);
 				}
 				fclose($fp_dest);
 			} else {
-				throw new Exception('failed to create file for writing '.$filename_dest);
+				throw new \Exception('failed to create file for writing '.$filename_dest);
 			}
 			fclose($fp_src);
 		} else {
-			throw new Exception('failed to open file for reading '.$filename_source);
+			throw new \Exception('failed to open file for reading '.$filename_source);
 		}
 		return false;
 	}
@@ -1011,7 +923,7 @@ class getid3_lib
 			$ConversionFunction = $ConversionFunctionList[strtoupper($in_charset)][strtoupper($out_charset)];
 			return self::$ConversionFunction($string);
 		}
-		throw new Exception('PHP does not has mb_convert_encoding() or iconv() support - cannot convert from '.$in_charset.' to '.$out_charset);
+		throw new \Exception('PHP does not has mb_convert_encoding() or iconv() support - cannot convert from '.$in_charset.' to '.$out_charset);
 	}
 
 	public static function recursiveMultiByteCharString2HTML($data, $charset='ISO-8859-1') {
@@ -1184,14 +1096,14 @@ class getid3_lib
 			}
 
 			// yes this is ugly, feel free to suggest a better way
-			if (include_once(dirname(__FILE__).'/getid3.php')) {
+//			if (include_once(dirname(__FILE__).'/getid3.php')) {
 				if ($getid3_temp = new getID3()) {
 					if ($getid3_temp_tempdir = $getid3_temp->tempdir) {
 						$tempdir = $getid3_temp_tempdir;
 					}
 					unset($getid3_temp, $getid3_temp_tempdir);
 				}
-			}
+//			}
 		}
 		$GetDataImageSize = false;
 		if ($tempfilename = tempnam($tempdir, 'gI3')) {
@@ -1370,54 +1282,9 @@ class getid3_lib
 		return (isset($cache[$file][$name][$key]) ? $cache[$file][$name][$key] : '');
 	}
 
-	public static function IncludeDependency($filename, $sourcefile, $DieOnFailure=false) {
-		global $GETID3_ERRORARRAY;
-
-		if (file_exists($filename)) {
-			if (include_once($filename)) {
-				return true;
-			} else {
-				$diemessage = basename($sourcefile).' depends on '.$filename.', which has errors';
-			}
-		} else {
-			$diemessage = basename($sourcefile).' depends on '.$filename.', which is missing';
-		}
-		if ($DieOnFailure) {
-			throw new Exception($diemessage);
-		} else {
-			$GETID3_ERRORARRAY[] = $diemessage;
-		}
-		return false;
-	}
-
 	public static function trimNullByte($string) {
 		return trim($string, "\x00");
 	}
-
-	public static function getFileSizeSyscall($path) {
-		$filesize = false;
-
-		if (GETID3_OS_ISWINDOWS) {
-			if (class_exists('COM')) { // From PHP 5.3.15 and 5.4.5, COM and DOTNET is no longer built into the php core.you have to add COM support in php.ini:
-				$filesystem = new COM('Scripting.FileSystemObject');
-				$file = $filesystem->GetFile($path);
-				$filesize = $file->Size();
-				unset($filesystem, $file);
-			} else {
-				$commandline = 'for %I in ('.escapeshellarg($path).') do @echo %~zI';
-			}
-		} else {
-			$commandline = 'ls -l '.escapeshellarg($path).' | awk \'{print $5}\'';
-		}
-		if (isset($commandline)) {
-			$output = trim(`$commandline`);
-			if (ctype_digit($output)) {
-				$filesize = (float) $output;
-			}
-		}
-		return $filesize;
-	}
-
 
 	/**
 	* Workaround for Bug #37268 (https://bugs.php.net/bug.php?id=37268)

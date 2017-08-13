@@ -14,7 +14,10 @@
 //                                                            ///
 /////////////////////////////////////////////////////////////////
 
-getid3_lib::IncludeDependency(GETID3_INCLUDEPATH.'module.tag.id3v1.php', __FILE__, true);
+namespace OCA\Metadata\GetID3\Tags;
+
+use OCA\Metadata\GetID3\getid3_handler;
+use OCA\Metadata\GetID3\getid3_lib;
 
 class getid3_id3v2 extends getid3_handler
 {

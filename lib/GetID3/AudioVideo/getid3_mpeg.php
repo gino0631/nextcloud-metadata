@@ -14,7 +14,12 @@
 //                                                            ///
 /////////////////////////////////////////////////////////////////
 
-getid3_lib::IncludeDependency(GETID3_INCLUDEPATH.'module.audio.mp3.php', __FILE__, true);
+namespace OCA\Metadata\GetID3\AudioVideo;
+
+use OCA\Metadata\GetID3\getid3;
+use OCA\Metadata\GetID3\getid3_handler;
+use OCA\Metadata\GetID3\getid3_lib;
+use OCA\Metadata\GetID3\Audio\getid3_mp3;
 
 class getid3_mpeg extends getid3_handler {
 
@@ -274,7 +279,7 @@ class getid3_mpeg extends getid3_handler {
 						$GOPheader['closed_gop']         = self::readBitsFromStream($bitstream, $bitstreamoffset,  1); //  1 bit flag: closed_gop
 						$GOPheader['broken_link']        = self::readBitsFromStream($bitstream, $bitstreamoffset,  1); //  1 bit flag: broken_link
 
-						$time_code_separator = ($GOPheader['drop_frame_flag'] ? ';' : ':'); // While non-drop time code is displayed with colons separating the digit pairs—"HH:MM:SS:FF"—drop frame is usually represented with a semi-colon (;) or period (.) as the divider between all the digit pairs—"HH;MM;SS;FF", "HH.MM.SS.FF"
+						$time_code_separator = ($GOPheader['drop_frame_flag'] ? ';' : ':'); // While non-drop time code is displayed with colons separating the digit pairsâ€”"HH:MM:SS:FF"â€”drop frame is usually represented with a semi-colon (;) or period (.) as the divider between all the digit pairsâ€”"HH;MM;SS;FF", "HH.MM.SS.FF"
 						$GOPheader['time_code'] = sprintf('%02d'.$time_code_separator.'%02d'.$time_code_separator.'%02d'.$time_code_separator.'%02d', $GOPheader['time_code_hours'], $GOPheader['time_code_minutes'], $GOPheader['time_code_seconds'], $GOPheader['time_code_pictures']);
 
 						$info['mpeg']['group_of_pictures'][] = $GOPheader;

@@ -14,8 +14,11 @@
 //                                                            ///
 /////////////////////////////////////////////////////////////////
 
+namespace OCA\Metadata\GetID3\Audio;
 
-getid3_lib::IncludeDependency(GETID3_INCLUDEPATH.'module.audio.ogg.php', __FILE__, true);
+use OCA\Metadata\GetID3\getid3;
+use OCA\Metadata\GetID3\getid3_handler;
+use OCA\Metadata\GetID3\getid3_lib;
 
 /**
 * @tutorial http://flac.sourceforge.net/format.html

@@ -14,6 +14,10 @@
 //                                                            ///
 /////////////////////////////////////////////////////////////////
 
+namespace OCA\Metadata\GetID3\Audio;
+
+use OCA\Metadata\GetID3\getid3_handler;
+use OCA\Metadata\GetID3\getid3_lib;
 
 // number of frames to scan to determine if MPEG-audio sequence is valid
 // Lower this number to 5-20 for faster scanning

@@ -14,6 +14,11 @@
 //                                                            ///
 /////////////////////////////////////////////////////////////////
 
+namespace OCA\Metadata\GetID3\Tags;
+
+use OCA\Metadata\GetID3\getid3;
+use OCA\Metadata\GetID3\getid3_handler;
+use OCA\Metadata\GetID3\getid3_lib;
 
 class getid3_lyrics3 extends getid3_handler
 {
@@ -103,7 +108,6 @@ class getid3_lyrics3 extends getid3_handler
 			if (!isset($info['ape'])) {
 				if (isset($info['lyrics3']['tag_offset_start'])) {
 					$GETID3_ERRORARRAY = &$info['warning'];
-					getid3_lib::IncludeDependency(GETID3_INCLUDEPATH.'module.tag.apetag.php', __FILE__, true);
 					$getid3_temp = new getID3();
 					$getid3_temp->openfile($this->getid3->filename);
 					$getid3_apetag = new getid3_apetag($getid3_temp);

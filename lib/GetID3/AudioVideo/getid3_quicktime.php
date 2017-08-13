@@ -15,8 +15,14 @@
 //                                                            ///
 /////////////////////////////////////////////////////////////////
 
-getid3_lib::IncludeDependency(GETID3_INCLUDEPATH.'module.audio.mp3.php', __FILE__, true);
-getid3_lib::IncludeDependency(GETID3_INCLUDEPATH.'module.tag.id3v2.php', __FILE__, true); // needed for ISO 639-2 language code lookup
+namespace OCA\Metadata\GetID3\AudioVideo;
+
+use OCA\Metadata\GetID3\getid3;
+use OCA\Metadata\GetID3\getid3_handler;
+use OCA\Metadata\GetID3\getid3_lib;
+use OCA\Metadata\GetID3\Audio\getid3_mp3;
+use OCA\Metadata\GetID3\Tags\getid3_id3v1;
+use OCA\Metadata\GetID3\Tags\getid3_id3v2;
 
 class getid3_quicktime extends getid3_handler
 {
