@@ -35,7 +35,7 @@
             }
             var mimetype = fileInfo.get('mimetype');
 
-            return (['audio/flac', 'audio/mpeg', 'audio/ogg', 'image/jpeg', 'image/tiff', 'video/mp4', 'video/mpeg'].indexOf(mimetype) > -1);
+            return (['audio/flac', 'audio/mpeg', 'audio/ogg', 'image/jpeg', 'image/tiff', 'video/mp4', 'video/mpeg', 'video/x-matroska'].indexOf(mimetype) > -1);
         },
 
         updateDisplay: function(data) {

@@ -14,6 +14,13 @@
 //                                                            ///
 /////////////////////////////////////////////////////////////////
 
+namespace OCA\Metadata\GetID3\AudioVideo;
+
+use OCA\Metadata\GetID3\getid3;
+use OCA\Metadata\GetID3\getid3_exception;
+use OCA\Metadata\GetID3\getid3_handler;
+use OCA\Metadata\GetID3\getid3_lib;
+use OCA\Metadata\GetID3\Audio\getid3_ogg;
 
 define('EBML_ID_CHAPTERS',                  0x0043A770); // [10][43][A7][70] -- A system to define basic menus and partition data. For more detailed information, look at the Chapters Explanation.
 define('EBML_ID_SEEKHEAD',                  0x014D9B74); // [11][4D][9B][74] -- Contains the position of other level 1 elements.
@@ -233,7 +240,7 @@ class getid3_matroska extends getid3_handler
 		// parse container
 		try {
 			$this->parseEBML($info);
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			$this->error('EBML parser: '.$e->getMessage());
 		}
 
@@ -282,8 +289,6 @@ class getid3_matroska extends getid3_handler
 
 						switch ($trackarray['CodecID']) {
 							case 'V_MS/VFW/FOURCC':
-								getid3_lib::IncludeDependency(GETID3_INCLUDEPATH.'module.audio-video.riff.php', __FILE__, true);
-
 								$parsed = getid3_riff::ParseBITMAPINFOHEADER($trackarray['CodecPrivate']);
 								$track_info['codec'] = getid3_riff::fourccLookup($parsed['fourcc']);
 								$info['matroska']['track_codec_parsed'][$trackarray['TrackNumber']] = $parsed;
@@ -336,7 +341,6 @@ class getid3_matroska extends getid3_handler
 							case 'A_MPEG/L2':
 							case 'A_FLAC':
 								$module_dataformat = ($track_info['dataformat'] == 'mp2' ? 'mp3' : ($track_info['dataformat'] == 'eac3' ? 'ac3' : $track_info['dataformat']));
-								getid3_lib::IncludeDependency(GETID3_INCLUDEPATH.'module.audio.'.$module_dataformat.'.php', __FILE__, true);
 
 								if (!isset($info['matroska']['track_data_offsets'][$trackarray['TrackNumber']])) {
 									$this->warning('Unable to parse audio data ['.basename(__FILE__).':'.__LINE__.'] because $info[matroska][track_data_offsets]['.$trackarray['TrackNumber'].'] not set');
@@ -354,8 +358,9 @@ class getid3_matroska extends getid3_handler
 								}
 
 								// analyze
-								$class = 'getid3_'.$module_dataformat;
+								$class = '\OCA\Metadata\GetID3\Audio\getid3_'.$module_dataformat;
 								$header_data_key = $track_info['dataformat'][0] == 'm' ? 'mpeg' : $track_info['dataformat'];
+								/** @var getid3_handler $getid3_audio */
 								$getid3_audio = new $class($getid3_temp, __CLASS__);
 								if ($track_info['dataformat'] == 'flac') {
 									$getid3_audio->AnalyzeString($trackarray['CodecPrivate']);
@@ -409,8 +414,6 @@ class getid3_matroska extends getid3_handler
 								}
 								$vorbis_offset -= 1;
 
-								getid3_lib::IncludeDependency(GETID3_INCLUDEPATH.'module.audio.ogg.php', __FILE__, true);
-
 								// create temp instance
 								$getid3_temp = new getID3();
 
@@ -446,8 +449,6 @@ class getid3_matroska extends getid3_handler
 								break;
 
 							case 'A_MS/ACM':
-								getid3_lib::IncludeDependency(GETID3_INCLUDEPATH.'module.audio-video.riff.php', __FILE__, true);
-
 								$parsed = getid3_riff::parseWAVEFORMATex($trackarray['CodecPrivate']);
 								foreach ($parsed as $key => $value) {
 									if ($key != 'raw') {
@@ -1271,7 +1272,7 @@ class getid3_matroska extends getid3_handler
 		} elseif (0x01 & $first_byte_int) {
 			$length = 8;
 		} else {
-			throw new Exception('invalid EBML integer (leading 0x00) at '.$this->current_offset);
+			throw new \Exception('invalid EBML integer (leading 0x00) at '.$this->current_offset);
 		}
 
 		// read

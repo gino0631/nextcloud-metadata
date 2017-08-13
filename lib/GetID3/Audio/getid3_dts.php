@@ -14,6 +14,10 @@
 //                                                             //
 /////////////////////////////////////////////////////////////////
 
+namespace OCA\Metadata\GetID3\Audio;
+
+use OCA\Metadata\GetID3\getid3_handler;
+use OCA\Metadata\GetID3\getid3_lib;
 
 /**
 * @tutorial http://wiki.multimedia.cx/index.php?title=DTS

@@ -18,14 +18,21 @@
 //                                                            ///
 /////////////////////////////////////////////////////////////////
 
+namespace OCA\Metadata\GetID3\AudioVideo;
+
+use OCA\Metadata\GetID3\getid3;
+use OCA\Metadata\GetID3\getid3_exception;
+use OCA\Metadata\GetID3\getid3_handler;
+use OCA\Metadata\GetID3\getid3_lib;
+use OCA\Metadata\GetID3\Audio\getid3_ac3;
+use OCA\Metadata\GetID3\Audio\getid3_dts;
+use OCA\Metadata\GetID3\Audio\getid3_mp3;
+use OCA\Metadata\GetID3\Tags\getid3_id3v2;
+
 /**
 * @todo Parse AC-3/DTS audio inside WAVE correctly
 * @todo Rewrite RIFF parser totally
 */
-
-getid3_lib::IncludeDependency(GETID3_INCLUDEPATH.'module.audio.mp3.php', __FILE__, true);
-getid3_lib::IncludeDependency(GETID3_INCLUDEPATH.'module.audio.ac3.php', __FILE__, true);
-getid3_lib::IncludeDependency(GETID3_INCLUDEPATH.'module.audio.dts.php', __FILE__, true);
 
 class getid3_riff extends getid3_handler {
 
@@ -1156,8 +1163,6 @@ class getid3_riff extends getid3_handler {
 				$info['mime_type']  = 'video/mpeg';
 
 				if (!empty($thisfile_riff['CDXA']['data'][0]['size'])) {
-					getid3_lib::IncludeDependency(GETID3_INCLUDEPATH.'module.audio-video.mpeg.php', __FILE__, true);
-
 					$getid3_temp = new getID3();
 					$getid3_temp->openfile($this->getid3->filename);
 					$getid3_mpeg = new getid3_mpeg($getid3_temp);
@@ -1199,8 +1204,6 @@ $this->error('WebP image parsing not supported in this version of getID3()');
 				}
 
 				if (isset($thisfile_riff[$RIFFsubtype]['id3 '])) {
-					getid3_lib::IncludeDependency(GETID3_INCLUDEPATH.'module.tag.id3v2.php', __FILE__, true);
-
 					$getid3_temp = new getID3();
 					$getid3_temp->openfile($this->getid3->filename);
 					$getid3_id3v2 = new getid3_id3v2($getid3_temp);
@@ -1357,10 +1360,10 @@ $this->error('WebP image parsing not supported in this version of getID3()');
 			$maxoffset = min($maxoffset, $info['avdataend']);
 			$AMVheader = $this->fread(284);
 			if (substr($AMVheader,   0,  8) != 'hdrlamvh') {
-				throw new Exception('expecting "hdrlamv" at offset '.($startoffset +   0).', found "'.substr($AMVheader,   0, 8).'"');
+				throw new \Exception('expecting "hdrlamv" at offset '.($startoffset +   0).', found "'.substr($AMVheader,   0, 8).'"');
 			}
 			if (substr($AMVheader,   8,  4) != "\x38\x00\x00\x00") { // "amvh" chunk size, hardcoded to 0x38 = 56 bytes
-				throw new Exception('expecting "0x38000000" at offset '.($startoffset +   8).', found "'.getid3_lib::PrintHexBytes(substr($AMVheader,   8, 4)).'"');
+				throw new \Exception('expecting "0x38000000" at offset '.($startoffset +   8).', found "'.getid3_lib::PrintHexBytes(substr($AMVheader,   8, 4)).'"');
 			}
 			$RIFFchunk = array();
 			$RIFFchunk['amvh']['us_per_frame']   = getid3_lib::LittleEndian2Int(substr($AMVheader,  12,  4));
@@ -1382,20 +1385,20 @@ $this->error('WebP image parsing not supported in this version of getID3()');
 			// the rest is all hardcoded(?) and does not appear to be useful until you get to audio info at offset 256, even then everything is probably hardcoded
 
 			if (substr($AMVheader,  68, 20) != 'LIST'."\x00\x00\x00\x00".'strlstrh'."\x38\x00\x00\x00") {
-				throw new Exception('expecting "LIST<0x00000000>strlstrh<0x38000000>" at offset '.($startoffset +  68).', found "'.getid3_lib::PrintHexBytes(substr($AMVheader,  68, 20)).'"');
+				throw new \Exception('expecting "LIST<0x00000000>strlstrh<0x38000000>" at offset '.($startoffset +  68).', found "'.getid3_lib::PrintHexBytes(substr($AMVheader,  68, 20)).'"');
 			}
 			// followed by 56 bytes of null: substr($AMVheader,  88, 56) -> 144
 			if (substr($AMVheader, 144,  8) != 'strf'."\x24\x00\x00\x00") {
-				throw new Exception('expecting "strf<0x24000000>" at offset '.($startoffset + 144).', found "'.getid3_lib::PrintHexBytes(substr($AMVheader, 144,  8)).'"');
+				throw new \Exception('expecting "strf<0x24000000>" at offset '.($startoffset + 144).', found "'.getid3_lib::PrintHexBytes(substr($AMVheader, 144,  8)).'"');
 			}
 			// followed by 36 bytes of null: substr($AMVheader, 144, 36) -> 180
 
 			if (substr($AMVheader, 188, 20) != 'LIST'."\x00\x00\x00\x00".'strlstrh'."\x30\x00\x00\x00") {
-				throw new Exception('expecting "LIST<0x00000000>strlstrh<0x30000000>" at offset '.($startoffset + 188).', found "'.getid3_lib::PrintHexBytes(substr($AMVheader, 188, 20)).'"');
+				throw new \Exception('expecting "LIST<0x00000000>strlstrh<0x30000000>" at offset '.($startoffset + 188).', found "'.getid3_lib::PrintHexBytes(substr($AMVheader, 188, 20)).'"');
 			}
 			// followed by 48 bytes of null: substr($AMVheader, 208, 48) -> 256
 			if (substr($AMVheader, 256,  8) != 'strf'."\x14\x00\x00\x00") {
-				throw new Exception('expecting "strf<0x14000000>" at offset '.($startoffset + 256).', found "'.getid3_lib::PrintHexBytes(substr($AMVheader, 256,  8)).'"');
+				throw new \Exception('expecting "strf<0x14000000>" at offset '.($startoffset + 256).', found "'.getid3_lib::PrintHexBytes(substr($AMVheader, 256,  8)).'"');
 			}
 			// followed by 20 bytes of a modified WAVEFORMATEX:
 			// typedef struct {

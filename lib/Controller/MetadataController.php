@@ -50,6 +50,7 @@ class MetadataController extends Controller {
             case 'audio/ogg':
             case 'video/mp4':
             case 'video/mpeg':
+            case 'video/x-matroska':
                 $metadata = $this->readId3($file);
                 break;
 
@@ -99,7 +100,8 @@ class MetadataController extends Controller {
             $vorbis = $this->getVal('vorbiscomment', $tags) ?: array();
             $id3v2 = $this->getVal('id3v2', $tags) ?: array();
             $id3v1 = $this->getVal('id3v1', $tags) ?: array();
-            $qt = $this->getVal('quicktime', $tags) ?: array();
+            $quicktime = $this->getVal('quicktime', $tags) ?: array();
+            $matroska = $this->getVal('matroska', $tags) ?: array();
 
             if ($v = $this->getVal('artist', $vorbis, $id3v2, $id3v1)) {
                 $this->addValT('Artist', $v, $return);
@@ -125,12 +127,16 @@ class MetadataController extends Controller {
                 $this->addValT('Bit rate', $this->language->t('%s kbps', array(floor($v/1000))), $return);
             }
 
+            if ($v = $this->getVal('channels', $audio)) {
+                $this->addValT('Audio channels', $v, $return);
+            }
+
             if ($v = $this->getVal('sample_rate', $audio)) {
-                $this->addValT('Sample rate', $this->language->t('%s Hz', array($v)), $return);
+                $this->addValT('Audio sample rate', $this->language->t('%s Hz', array($v)), $return);
             }
 
             if ($v = $this->getVal('bits_per_sample', $audio)) {
-                $this->addValT('Sample size', $this->language->t('%s bit', array($v)), $return);
+                $this->addValT('Audio sample size', $this->language->t('%s bit', array($v)), $return);
             }
 
             if ($v = $this->getVal('album', $vorbis, $id3v2, $id3v1)) {
@@ -154,7 +160,7 @@ class MetadataController extends Controller {
                 $this->addValT('Comment', $v, $return);
             }
 
-            if ($v = $this->getVal('encoding_tool', $qt)) {
+            if ($v = $this->getVal('encoding_tool', $quicktime) ?: $this->getVal('encoder', $matroska)) {
                 $this->addValT('Encoding tool', $v, $return);
             }
 
