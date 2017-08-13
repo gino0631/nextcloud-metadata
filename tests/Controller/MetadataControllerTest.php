@@ -62,8 +62,8 @@ class MetadataControllerTest extends TestCase {
         $metadata = $data['metadata'];
         $this->assertEquals('ARTIST123456789012345678901234', $metadata['Artist']);
         $this->assertEquals('TITLE1234567890123456789012345', $metadata['Title']);
-        $this->aseertEquals('00:00:00', $metadata['Length']);
-        $this->aseertEquals('44100 Hz', $metadata['Sample rate']);
+        $this->assertEquals('00:00:00', $metadata['Length']);
+        $this->assertEquals('44100 Hz', $metadata['Sample rate']);
         $this->assertEquals('ALBUM1234567890123456789012345', $metadata['Album']);
         $this->assertEquals('1', $metadata['Track #']);
         $this->assertEquals('2001', $metadata['Year']);
@@ -79,8 +79,8 @@ class MetadataControllerTest extends TestCase {
         $metadata = $data['metadata'];
         $this->assertEquals('ARTIST123456789012345678901234', $metadata['Artist']);
         $this->assertEquals('TITLE1234567890123456789012345', $metadata['Title']);
-        $this->aseertEquals('00:00:00', $metadata['Length']);
-        $this->aseertEquals('44100 Hz', $metadata['Sample rate']);
+        $this->assertEquals('00:00:00', $metadata['Length']);
+        $this->assertEquals('44100 Hz', $metadata['Sample rate']);
         $this->assertEquals('ALBUM1234567890123456789012345', $metadata['Album']);
         $this->assertEquals('1', $metadata['Track #']);
         $this->assertEquals('2001', $metadata['Year']);
@@ -96,8 +96,8 @@ class MetadataControllerTest extends TestCase {
         $metadata = $data['metadata'];
         $this->assertEquals('ARTIST123456789012345678901234', $metadata['Artist']);
         $this->assertEquals('TITLE1234567890123456789012345', $metadata['Title']);
-        $this->aseertEquals('00:00:00', $metadata['Length']);
-        $this->aseertEquals('44100 Hz', $metadata['Sample rate']);
+        $this->assertEquals('00:00:00', $metadata['Length']);
+        $this->assertEquals('44100 Hz', $metadata['Sample rate']);
         $this->assertEquals('ALBUM1234567890123456789012345', $metadata['Album']);
         $this->assertEquals('1', $metadata['Track #']);
         $this->assertEquals('2001', $metadata['Year']);
