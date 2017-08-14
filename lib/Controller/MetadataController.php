@@ -110,11 +110,11 @@ class MetadataController extends Controller {
             $quicktime = $this->getVal('quicktime', $tags) ?: array();
             $matroska = $this->getVal('matroska', $tags) ?: array();
 
-            if ($v = $this->getValM('artist', $vorbis, $riff, $id3v2, $id3v1)) {
+            if ($v = $this->getValM('artist', $tags)) {
                 $this->addValT('Artist', $v, $return);
             }
 
-            if ($v = $this->getValM('title', $vorbis, $riff, $id3v2, $id3v1)) {
+            if ($v = $this->getValM('title', $tags)) {
                 $this->addValT('Title', $v, $return);
             }
 
@@ -158,7 +158,7 @@ class MetadataController extends Controller {
                 $this->addValT('Audio sample size', $this->language->t('%s bit', array($v)), $return);
             }
 
-            if ($v = $this->getVal('album', $vorbis, $id3v2, $id3v1) ?: $this->getVal('product', $riff)) {
+            if ($v = $this->getValM('album', $tags) ?: $this->getVal('product', $riff)) {
                 $this->addValT('Album', $v, $return);
             }
 
@@ -166,16 +166,16 @@ class MetadataController extends Controller {
                 $this->addValT('Track #', $v, $return);
             }
 
-            if ($v = $this->getVal('date', $vorbis) ?: $this->getVal('creationdate', $riff) ?: $this->getVal('year', $vorbis, $id3v2, $id3v1)) {
+            if ($v = $this->getVal('date', $vorbis) ?: $this->getVal('creationdate', $riff) ?: $this->getVal('creation_date', $quicktime) ?: $this->getVal('year', $vorbis, $id3v2, $id3v1)) {
                 $isYear = is_array($v) && (count($v) == 1) && (strlen($v[0]) == 4);
                 $this->addValT($isYear ? 'Year' : 'Date', $v, $return);
             }
 
-            if ($v = $this->getValM('genre', $vorbis, $riff, $id3v2, $id3v1)) {
+            if ($v = $this->getValM('genre', $tags)) {
                 $this->addValT('Genre', $v, $return);
             }
 
-            if ($v = $this->getVal('description', $vorbis) ?: $this->getValM('comment', $vorbis, $riff, $id3v2, $id3v1)) {
+            if ($v = $this->getVal('description', $vorbis) ?: $this->getValM('comment', $tags)) {
                 $this->addValT('Comment', $v, $return);
             }
 
@@ -394,7 +394,7 @@ class MetadataController extends Controller {
         return null;
     }
 
-    protected function getValM($key, &...$arrays) {
+    protected function getValM($key, &$arrays) {
         foreach ($arrays as $array) {
             if (array_key_exists($key, $array)) {
                 return $array[$key];
