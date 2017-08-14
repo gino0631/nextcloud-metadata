@@ -2,8 +2,8 @@
 
 ## [Unreleased]
 ### Added
-- MP3 ID3v2, OGG and FLAC audio support
-- MPEG and MKV video support
+- MP3 (ID3v2), OGG, FLAC and WAVE audio support
+- MPEG, MKV and FLV video support
 
 ## 0.3.0 – 2017-08-06
 ### Added

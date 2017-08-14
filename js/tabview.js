@@ -35,7 +35,10 @@
             }
             var mimetype = fileInfo.get('mimetype');
 
-            return (['audio/flac', 'audio/mpeg', 'audio/ogg', 'image/jpeg', 'image/tiff', 'video/mp4', 'video/mpeg', 'video/x-matroska'].indexOf(mimetype) > -1);
+            return (['audio/flac', 'audio/mpeg', 'audio/ogg', 'audio/wav',
+                'image/jpeg', 'image/tiff',
+                'video/3gpp', 'video/dvd', 'video/mp4', 'video/mpeg', 'video/quicktime',
+                'video/x-flv', 'video/x-matroska', 'video/x-msvideo'].indexOf(mimetype) > -1);
         },
 
         updateDisplay: function(data) {
@@ -50,7 +53,7 @@
                     html += '<tr><td class="key">' + m + ':</td><td class="value">' + metadata[m] + '</td></tr>';
                 }
 
-                showLocation = (data.lat != null) && (data.lon != null);
+                showLocation = (data.lat !== null) && (data.lon !== null);
                 if (showLocation) {
                     var url = 'https://nominatim.openstreetmap.org/reverse',
                         data = {lat: data.lat, lon: data.lon, format: 'json', zoom: 18},

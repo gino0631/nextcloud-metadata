@@ -52,6 +52,11 @@
 //                                                            ///
 /////////////////////////////////////////////////////////////////
 
+namespace OCA\Metadata\GetID3\AudioVideo;
+
+use OCA\Metadata\GetID3\getid3_handler;
+use OCA\Metadata\GetID3\getid3_lib;
+
 define('GETID3_FLV_TAG_AUDIO',          8);
 define('GETID3_FLV_TAG_VIDEO',          9);
 define('GETID3_FLV_TAG_META',          18);

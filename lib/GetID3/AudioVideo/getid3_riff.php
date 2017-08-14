@@ -1837,7 +1837,7 @@ $this->error('WebP image parsing not supported in this version of getID3()');
 		if (strlen($WaveFormatExData) > 16) {
 			$WaveFormatEx_raw['cbSize']      = substr($WaveFormatExData, 16, 2);
 		}
-		$WaveFormatEx_raw = array_map('getid3_lib::LittleEndian2Int', $WaveFormatEx_raw);
+		$WaveFormatEx_raw = array_map('\OCA\Metadata\GetID3\getid3_lib::LittleEndian2Int', $WaveFormatEx_raw);
 
 		$WaveFormatEx['codec']           = self::wFormatTagLookup($WaveFormatEx_raw['wFormatTag']);
 		$WaveFormatEx['channels']        = $WaveFormatEx_raw['nChannels'];
@@ -1921,7 +1921,7 @@ $this->error('WebP image parsing not supported in this version of getID3()');
 		$parsed['biYPelsPerMeter'] = substr($BITMAPINFOHEADER, 28, 4); // vertical resolution, in pixels per metre, of the target device
 		$parsed['biClrUsed']       = substr($BITMAPINFOHEADER, 32, 4); // actual number of color indices in the color table used by the bitmap. If this value is zero, the bitmap uses the maximum number of colors corresponding to the value of the biBitCount member for the compression mode specified by biCompression
 		$parsed['biClrImportant']  = substr($BITMAPINFOHEADER, 36, 4); // number of color indices that are considered important for displaying the bitmap. If this value is zero, all colors are important
-		$parsed = array_map('getid3_lib::'.($littleEndian ? 'Little' : 'Big').'Endian2Int', $parsed);
+		$parsed = array_map('\OCA\Metadata\GetID3\getid3_lib::'.($littleEndian ? 'Little' : 'Big').'Endian2Int', $parsed);
 
 		$parsed['fourcc']          = substr($BITMAPINFOHEADER, 16, 4);  // compression identifier
 

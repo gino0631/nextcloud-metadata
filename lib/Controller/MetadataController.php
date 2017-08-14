@@ -48,9 +48,15 @@ class MetadataController extends Controller {
             case 'audio/flac':
             case 'audio/mpeg':
             case 'audio/ogg':
+            case 'audio/wav':
+            case 'video/3gpp':
+            case 'video/dvd':
             case 'video/mp4':
             case 'video/mpeg':
+            case 'video/quicktime':
+            case 'video/x-flv':
             case 'video/x-matroska':
+            case 'video/x-msvideo':
                 $metadata = $this->readId3($file);
                 break;
 
@@ -100,14 +106,15 @@ class MetadataController extends Controller {
             $vorbis = $this->getVal('vorbiscomment', $tags) ?: array();
             $id3v2 = $this->getVal('id3v2', $tags) ?: array();
             $id3v1 = $this->getVal('id3v1', $tags) ?: array();
+            $riff = $this->getVal('riff', $tags) ?: array();
             $quicktime = $this->getVal('quicktime', $tags) ?: array();
             $matroska = $this->getVal('matroska', $tags) ?: array();
 
-            if ($v = $this->getVal('artist', $vorbis, $id3v2, $id3v1)) {
+            if ($v = $this->getValM('artist', $vorbis, $riff, $id3v2, $id3v1)) {
                 $this->addValT('Artist', $v, $return);
             }
 
-            if ($v = $this->getVal('title', $vorbis, $id3v2, $id3v1)) {
+            if ($v = $this->getValM('title', $vorbis, $riff, $id3v2, $id3v1)) {
                 $this->addValT('Title', $v, $return);
             }
 
@@ -120,11 +127,23 @@ class MetadataController extends Controller {
             }
 
             if ($v = $this->getVal('frame_rate', $video)) {
-                $this->addValT('Frame rate', $this->language->t('%s fps', array($v)), $return);
+                $this->addValT('Frame rate', $this->language->t('%g fps', array($v)), $return);
             }
 
             if ($v = $this->getVal('bitrate', $sections)) {
                 $this->addValT('Bit rate', $this->language->t('%s kbps', array(floor($v/1000))), $return);
+            }
+
+            if ($v = $this->getVal('codec', $video)) {
+                $this->addValT('Video codec', $v, $return);
+            }
+
+            if ($v = $this->getVal('bits_per_sample', $video)) {
+                $this->addValT('Video sample size', $this->language->t('%s bit', array($v)), $return);
+            }
+
+            if ($v = $this->getVal('codec', $audio)) {
+                $this->addValT('Audio codec', $v, $return);
             }
 
             if ($v = $this->getVal('channels', $audio)) {
@@ -139,28 +158,28 @@ class MetadataController extends Controller {
                 $this->addValT('Audio sample size', $this->language->t('%s bit', array($v)), $return);
             }
 
-            if ($v = $this->getVal('album', $vorbis, $id3v2, $id3v1)) {
+            if ($v = $this->getVal('album', $vorbis, $id3v2, $id3v1) ?: $this->getVal('product', $riff)) {
                 $this->addValT('Album', $v, $return);
             }
 
-            if ($v = $this->getVal('tracknumber', $vorbis) ?: $this->getVal('track_number', $id3v2) ?: $this->getVal('track', $id3v1)) {
+            if ($v = $this->getVal('tracknumber', $vorbis) ?: $this->getVal('part', $riff) ?: $this->getVal('track_number', $id3v2) ?: $this->getVal('track', $id3v1)) {
                 $this->addValT('Track #', $v, $return);
             }
 
-            if ($v = $this->getVal('date', $vorbis) ?: $this->getVal('year', $vorbis, $id3v2, $id3v1)) {
-                $this->addValT('Year', $v, $return);
+            if ($v = $this->getVal('date', $vorbis) ?: $this->getVal('creationdate', $riff) ?: $this->getVal('year', $vorbis, $id3v2, $id3v1)) {
+                $isYear = is_array($v) && (count($v) == 1) && (strlen($v[0]) == 4);
+                $this->addValT($isYear ? 'Year' : 'Date', $v, $return);
             }
 
-            if ($v = $this->getVal('genre', $vorbis, $id3v2, $id3v1)) {
+            if ($v = $this->getValM('genre', $vorbis, $riff, $id3v2, $id3v1)) {
                 $this->addValT('Genre', $v, $return);
             }
 
-            if ($v = $this->getVal('description', $vorbis) ?: $this->getVal('comment', $vorbis, $id3v2, $id3v1)) {
-
+            if ($v = $this->getVal('description', $vorbis) ?: $this->getValM('comment', $vorbis, $riff, $id3v2, $id3v1)) {
                 $this->addValT('Comment', $v, $return);
             }
 
-            if ($v = $this->getVal('encoding_tool', $quicktime) ?: $this->getVal('encoder', $matroska)) {
+            if ($v = $this->getVal('software', $riff) ?: $this->getVal('encoding_tool', $quicktime) ?: $this->getVal('encoder', $matroska, $audio)) {
                 $this->addValT('Encoding tool', $v, $return);
             }
 
@@ -370,6 +389,16 @@ class MetadataController extends Controller {
 
         if (($array3 != null) && array_key_exists($key, $array3)) {
             return $array3[$key];
+        }
+
+        return null;
+    }
+
+    protected function getValM($key, &...$arrays) {
+        foreach ($arrays as $array) {
+            if (array_key_exists($key, $array)) {
+                return $array[$key];
+            }
         }
 
         return null;

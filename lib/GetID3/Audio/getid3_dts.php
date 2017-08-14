@@ -63,7 +63,7 @@ class getid3_dts extends getid3_handler
         } else {
 
 			unset($info['fileformat']);
-			return $this->error('Expecting "'.implode('| ', array_map('getid3_lib::PrintHexBytes', self::$syncwords)).'" at offset '.$info['avdataoffset'].', found "'.getid3_lib::PrintHexBytes($sync).'"');
+			return $this->error('Expecting "'.implode('| ', array_map('\OCA\Metadata\GetID3\getid3_lib::PrintHexBytes', self::$syncwords)).'" at offset '.$info['avdataoffset'].', found "'.getid3_lib::PrintHexBytes($sync).'"');
 
 		}
 

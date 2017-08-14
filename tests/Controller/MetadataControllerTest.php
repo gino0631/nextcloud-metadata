@@ -104,4 +104,21 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('Pop', $metadata['Genre']);
         $this->assertEquals('COMMENT123456789012345678901', $metadata['Comment']);
     }
+
+    public function testWav() {
+        $res = $this->controller->get('sample.wav');
+        $data = $res->getData();
+        $this->assertEquals('success', $data['response']);
+
+        $metadata = $data['metadata'];
+        $this->assertEquals('ARTIST123456789012345678901234', $metadata['Artist']);
+        $this->assertEquals('TITLE1234567890123456789012345', $metadata['Title']);
+        $this->assertEquals('00:00:00', $metadata['Length']);
+        $this->assertEquals('44100 Hz', $metadata['Sample rate']);
+        $this->assertEquals('ALBUM1234567890123456789012345', $metadata['Album']);
+        $this->assertEquals('1', $metadata['Track #']);
+        $this->assertEquals('2001', $metadata['Year']);
+        $this->assertEquals('Pop', $metadata['Genre']);
+        $this->assertEquals('COMMENT123456789012345678901', $metadata['Comment']);
+    }
 }
