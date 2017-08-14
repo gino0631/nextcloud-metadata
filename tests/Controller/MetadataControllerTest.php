@@ -90,7 +90,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('2001', $metadata['Year']);
         $this->assertEquals('Pop', $metadata['Genre']);
         $this->assertEquals('COMMENT123456789012345678901', $metadata['Comment']);
-        $this->assertEquals('Lavf57.76.100', $metadata['Encoding tool']);
+        $this->assertEquals('Lavf57.73.100', $metadata['Encoding tool']);
     }
 
     public function testFlac() {
