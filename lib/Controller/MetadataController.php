@@ -46,6 +46,7 @@ class MetadataController extends Controller {
         $mimetype = Filesystem::getMimeType($source);
         switch ($mimetype) {
             case 'audio/flac':
+            case 'audio/mp4':
             case 'audio/mpeg':
             case 'audio/ogg':
             case 'audio/wav':

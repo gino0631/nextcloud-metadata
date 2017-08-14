@@ -35,7 +35,7 @@
             }
             var mimetype = fileInfo.get('mimetype');
 
-            return (['audio/flac', 'audio/mpeg', 'audio/ogg', 'audio/wav',
+            return (['audio/flac', 'audio/mp4', 'audio/mpeg', 'audio/ogg', 'audio/wav',
                 'image/jpeg', 'image/tiff',
                 'video/3gpp', 'video/dvd', 'video/mp4', 'video/mpeg', 'video/quicktime',
                 'video/x-flv', 'video/x-matroska', 'video/x-msvideo'].indexOf(mimetype) > -1);
