@@ -56,16 +56,19 @@
                 showLocation = (data.lat !== null) && (data.lon !== null);
                 if (showLocation) {
                     var url = 'https://nominatim.openstreetmap.org/reverse',
-                        data = {lat: data.lat, lon: data.lon, format: 'json', zoom: 18},
+                        params = {lat: data.lat, lon: data.lon, format: 'json', zoom: 18},
                         _self = this;
                     $.ajax({
                         type: 'GET',
                         url: url,
                         dataType: 'json',
-                        data: data,
+                        data: params,
                         async: true,
                         success: function(data) {
                             _self.updateLocation(data);
+                        },
+                        error: function() {
+                            _self.updateLocation({error: t('metadata', 'Nominatim service unavailable, click here to view on map')});
                         }
                     });
 
