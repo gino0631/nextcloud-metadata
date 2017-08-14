@@ -63,12 +63,15 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('ARTIST123456789012345678901234', $metadata['Artist']);
         $this->assertEquals('TITLE1234567890123456789012345', $metadata['Title']);
         $this->assertEquals('00:00:00', $metadata['Length']);
-        $this->assertEquals('44100 Hz', $metadata['Sample rate']);
+        $this->assertEquals('LAME', $metadata['Audio codec']);
+        $this->assertEquals('2', $metadata['Audio channels']);
+        $this->assertEquals('44100 Hz', $metadata['Audio sample rate']);
         $this->assertEquals('ALBUM1234567890123456789012345', $metadata['Album']);
         $this->assertEquals('1', $metadata['Track #']);
         $this->assertEquals('2001', $metadata['Year']);
         $this->assertEquals('Pop', $metadata['Genre']);
         $this->assertEquals('COMMENT123456789012345678901', $metadata['Comment']);
+        $this->assertEquals('LAME3.92', $metadata['Encoding tool']);
     }
 
     public function testOgg() {
@@ -80,12 +83,14 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('ARTIST123456789012345678901234', $metadata['Artist']);
         $this->assertEquals('TITLE1234567890123456789012345', $metadata['Title']);
         $this->assertEquals('00:00:00', $metadata['Length']);
-        $this->assertEquals('44100 Hz', $metadata['Sample rate']);
+        $this->assertEquals('2', $metadata['Audio channels']);
+        $this->assertEquals('44100 Hz', $metadata['Audio sample rate']);
         $this->assertEquals('ALBUM1234567890123456789012345', $metadata['Album']);
         $this->assertEquals('1', $metadata['Track #']);
         $this->assertEquals('2001', $metadata['Year']);
         $this->assertEquals('Pop', $metadata['Genre']);
         $this->assertEquals('COMMENT123456789012345678901', $metadata['Comment']);
+        $this->assertEquals('Lavf57.76.100', $metadata['Encoding tool']);
     }
 
     public function testFlac() {
@@ -97,12 +102,14 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('ARTIST123456789012345678901234', $metadata['Artist']);
         $this->assertEquals('TITLE1234567890123456789012345', $metadata['Title']);
         $this->assertEquals('00:00:00', $metadata['Length']);
-        $this->assertEquals('44100 Hz', $metadata['Sample rate']);
+        $this->assertEquals('2', $metadata['Audio channels']);
+        $this->assertEquals('44100 Hz', $metadata['Audio sample rate']);
         $this->assertEquals('ALBUM1234567890123456789012345', $metadata['Album']);
         $this->assertEquals('1', $metadata['Track #']);
         $this->assertEquals('2001', $metadata['Year']);
         $this->assertEquals('Pop', $metadata['Genre']);
         $this->assertEquals('COMMENT123456789012345678901', $metadata['Comment']);
+        $this->assertEquals('Lavf57.76.100', $metadata['Encoding tool']);
     }
 
     public function testWav() {
@@ -114,11 +121,14 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('ARTIST123456789012345678901234', $metadata['Artist']);
         $this->assertEquals('TITLE1234567890123456789012345', $metadata['Title']);
         $this->assertEquals('00:00:00', $metadata['Length']);
-        $this->assertEquals('44100 Hz', $metadata['Sample rate']);
+        $this->assertEquals('Pulse Code Modulation (PCM)', $metadata['Audio codec']);
+        $this->assertEquals('2', $metadata['Audio channels']);
+        $this->assertEquals('44100 Hz', $metadata['Audio sample rate']);
         $this->assertEquals('ALBUM1234567890123456789012345', $metadata['Album']);
         $this->assertEquals('1', $metadata['Track #']);
         $this->assertEquals('2001', $metadata['Year']);
         $this->assertEquals('Pop', $metadata['Genre']);
         $this->assertEquals('COMMENT123456789012345678901', $metadata['Comment']);
+        $this->assertEquals('Lavf57.76.100', $metadata['Encoding tool']);
     }
 }
