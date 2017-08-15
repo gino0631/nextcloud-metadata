@@ -111,6 +111,8 @@ class MetadataController extends Controller {
             $quicktime = $this->getVal('quicktime', $tags) ?: array();
             $matroska = $this->getVal('matroska', $tags) ?: array();
 
+            krsort($tags);  // make a predictable order with 'id3v2' before 'id3v1'
+
             if ($v = $this->getValM('artist', $tags)) {
                 $this->addValT('Artist', $v, $return);
             }
