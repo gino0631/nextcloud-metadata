@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+
+## 0.4.0 – 2017-08-15
 ### Added
 - MP3 (ID3v2), OGG, FLAC and WAVE audio support
 - MPEG, MKV and FLV video support
