@@ -8,6 +8,24 @@ use OCP\AppFramework\Http\JSONResponse;
 use OCP\IRequest;
 
 class MetadataController extends Controller {
+    const EXPOSURE_PROGRAMS = array(
+        0 => 'Not defined',
+        1 => 'Manual',
+        2 => 'Normal program',
+        3 => 'Aperture priority',
+        4 => 'Shutter priority',
+        5 => 'Creative program',
+        6 => 'Action program',
+        7 => 'Portrait mode',
+        8 => 'Landscape mode'
+    );
+
+    const EXPOSURE_MODES = array(
+        0 => 'Auto exposure',
+        1 => 'Manual exposure',
+        2 => 'Auto bracket'
+    );
+
     const METERING_MODES = array(
         0 => 'Unknown',
         1 => 'Average',
@@ -182,6 +200,10 @@ class MetadataController extends Controller {
                 $this->addValT('Comment', $v, $return);
             }
 
+            if ($v = $this->getValM('encoded_by', $tags)) {
+                $this->addValT('Encoded by', $v, $return);
+            }
+
             if ($v = $this->getVal('software', $riff) ?: $this->getVal('encoding_tool', $quicktime) ?: $this->getVal('encoder', $matroska, $audio)) {
                 $this->addValT('Encoding tool', $v, $return);
             }
@@ -252,6 +274,14 @@ class MetadataController extends Controller {
                 $this->addValT('ISO speed', $this->language->t('ISO-%s', array($v)), $return);
             }
 
+            if ($v = $this->getVal('ExposureProgram', $exif)) {
+                $this->addValT('Exposure program', $this->formatExposureProgram($v), $return);
+            }
+
+            if ($v = $this->getVal('ExposureMode', $exif)) {
+                $this->addValT('Exposure mode', $this->formatExposureMode($v), $return);
+            }
+
             if ($v = $this->getVal('ExposureBiasValue', $exif)) {
                 $this->addValT('Exposure bias', $this->language->t('%s step', array($this->formatRational($v))), $return);
             }
@@ -292,6 +322,14 @@ class MetadataController extends Controller {
         }
 
         return $return;
+    }
+
+    protected function formatExposureProgram($code) {
+        return $this->language->t(MetadataController::EXPOSURE_PROGRAMS[$code]);
+    }
+
+    protected function formatExposureMode($mode) {
+        return $this->language->t(MetadataController::EXPOSURE_MODES[$mode]);
     }
 
     protected function formatMeteringMode($mode) {
