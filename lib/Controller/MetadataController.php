@@ -131,12 +131,12 @@ class MetadataController extends Controller {
 
             krsort($tags);  // make a predictable order with 'id3v2' before 'id3v1'
 
-            if ($v = $this->getValM('artist', $tags)) {
-                $this->addValT('Artist', $v, $return);
-            }
-
             if ($v = $this->getValM('title', $tags)) {
                 $this->addValT('Title', $v, $return);
+            }
+
+            if ($v = $this->getValM('artist', $tags)) {
+                $this->addValT('Artist', $v, $return);
             }
 
             if ($v = $this->getVal('playtime_seconds', $sections)) {
@@ -197,6 +197,10 @@ class MetadataController extends Controller {
             }
 
             if ($v = $this->getVal('description', $vorbis) ?: $this->getValM('comment', $tags)) {
+                if (is_array($v)) {
+                    $this->formatComments($v);
+                }
+
                 $this->addValT('Comment', $v, $return);
             }
 
@@ -417,6 +421,19 @@ class MetadataController extends Controller {
         }
 
         return $val;
+    }
+
+    protected function formatComments(&$array) {
+        foreach ($array as $key => $val) {
+            while (substr_compare($val, '&#0;', -4) === 0) {
+                $val = substr($val, 0, -4);
+                $array[$key] = $val;
+            }
+
+            if (!is_numeric($key)) {
+                $array[$key] = '('.$key.') '.$val;
+            }
+        }
     }
 
     protected function getVal($key, &$array, &$array2 = null, &$array3 = null) {
