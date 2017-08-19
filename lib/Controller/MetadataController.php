@@ -172,7 +172,7 @@ class MetadataController extends Controller {
             }
 
             if ($v = $this->getVal('sample_rate', $audio)) {
-                $this->addValT('Audio sample rate', $this->language->t('%s Hz', array($v)), $return);
+                $this->addValT('Audio sample rate', $this->language->t('%s kHz', array($v/1000)), $return);
             }
 
             if ($v = $this->getVal('bits_per_sample', $audio)) {

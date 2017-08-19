@@ -65,7 +65,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('00:00:00', $metadata['Length']);
         $this->assertEquals('LAME', $metadata['Audio codec']);
         $this->assertEquals('2', $metadata['Audio channels']);
-        $this->assertEquals('44100 Hz', $metadata['Audio sample rate']);
+        $this->assertEquals('44.1 kHz', $metadata['Audio sample rate']);
         $this->assertEquals('ALBUM1234567890123456789012345', $metadata['Album']);
         $this->assertEquals('1', $metadata['Track #']);
         $this->assertEquals('2001', $metadata['Year']);
@@ -85,7 +85,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('TITLE1234567890123456789012345', $metadata['Title']);
         $this->assertEquals('00:00:00', $metadata['Length']);
         $this->assertEquals('2', $metadata['Audio channels']);
-        $this->assertEquals('44100 Hz', $metadata['Audio sample rate']);
+        $this->assertEquals('44.1 kHz', $metadata['Audio sample rate']);
         $this->assertEquals('ALBUM1234567890123456789012345', $metadata['Album']);
         $this->assertEquals('1', $metadata['Track #']);
         $this->assertEquals('2001', $metadata['Year']);
@@ -105,7 +105,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('TITLE1234567890123456789012345', $metadata['Title']);
         $this->assertEquals('00:00:00', $metadata['Length']);
         $this->assertEquals('2', $metadata['Audio channels']);
-        $this->assertEquals('44100 Hz', $metadata['Audio sample rate']);
+        $this->assertEquals('44.1 kHz', $metadata['Audio sample rate']);
         $this->assertEquals('ALBUM1234567890123456789012345', $metadata['Album']);
         $this->assertEquals('1', $metadata['Track #']);
         $this->assertEquals('2001', $metadata['Year']);
@@ -126,7 +126,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('00:00:00', $metadata['Length']);
         $this->assertEquals('Pulse Code Modulation (PCM)', $metadata['Audio codec']);
         $this->assertEquals('2', $metadata['Audio channels']);
-        $this->assertEquals('44100 Hz', $metadata['Audio sample rate']);
+        $this->assertEquals('44.1 kHz', $metadata['Audio sample rate']);
         $this->assertEquals('ALBUM1234567890123456789012345', $metadata['Album']);
         $this->assertEquals('1', $metadata['Track #']);
         $this->assertEquals('2001', $metadata['Year']);
