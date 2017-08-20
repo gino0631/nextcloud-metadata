@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+### Added
+- Support for XMP metadata in JPEG and TIFF files
 
 ## 0.4.0 – 2017-08-15
 ### Added

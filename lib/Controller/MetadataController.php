@@ -58,6 +58,7 @@ class MetadataController extends Controller {
             );
         }
 
+        $metadata = null;
         $lat = null;
         $lon = null;
 
@@ -76,12 +77,26 @@ class MetadataController extends Controller {
             case 'video/x-flv':
             case 'video/x-matroska':
             case 'video/x-msvideo':
-                $metadata = $this->readId3($file);
+                if ($sections = $this->readId3($file)) {
+                    $metadata = $this->getAvMetadata($sections);
+//                    $this->dump($sections, $metadata);
+                }
                 break;
 
             case 'image/jpeg':
+                if ($sections = $this->readExif($file)) {
+                    $sections['XMP'] = $this->readJpegXmp($file);
+                    $metadata = $this->getImageMetadata($sections, $lat, $lon);
+//                    $this->dump($sections, $metadata);
+                }
+                break;
+
             case 'image/tiff':
-                $metadata = $this->readExif($file, $lat, $lon);
+                if ($sections = $this->readExif($file)) {
+                    $sections['XMP'] = $this->readTiffXmp($file);
+                    $metadata = $this->getImageMetadata($sections, $lat, $lon);
+//                    $this->dump($sections, $metadata);
+                }
                 break;
 
             default:
@@ -114,215 +129,323 @@ class MetadataController extends Controller {
     }
 
     protected function readId3($file) {
-        $return = array();
-
         $getId3 = new getID3();
         $getId3->option_save_attachments = getID3::ATTACHMENTS_NONE;
-        if ($sections = $getId3->analyze($file)) {
-            $audio = $this->getVal('audio', $sections) ?: array();
-            $video = $this->getVal('video', $sections) ?: array();
-            $tags = $this->getVal('tags_html', $sections) ?: array();
-            $vorbis = $this->getVal('vorbiscomment', $tags) ?: array();
-            $id3v2 = $this->getVal('id3v2', $tags) ?: array();
-            $id3v1 = $this->getVal('id3v1', $tags) ?: array();
-            $riff = $this->getVal('riff', $tags) ?: array();
-            $quicktime = $this->getVal('quicktime', $tags) ?: array();
-            $matroska = $this->getVal('matroska', $tags) ?: array();
 
-            krsort($tags);  // make a predictable order with 'id3v2' before 'id3v1'
+        return $getId3->analyze($file);
+    }
 
-            if ($v = $this->getValM('title', $tags)) {
-                $this->addValT('Title', $v, $return);
-            }
+    protected function readExif($file) {
+        return exif_read_data($file, 0, true);
+    }
 
-            if ($v = $this->getValM('artist', $tags)) {
-                $this->addValT('Artist', $v, $return);
-            }
+    protected function readJpegXmp($file) {
+        if ($hnd = fopen($file, 'rb')) {
+            try {
+                $data = fread($hnd, 2);
 
-            if ($v = $this->getVal('playtime_seconds', $sections)) {
-                $this->addValT('Length', $this->formatSeconds($v), $return);
-            }
+                if ($data === "\xFF\xD8") {     // SOI (Start Of Image)
+                    $data = fread($hnd, 2);
 
-            if (($x = $this->getVal('resolution_x', $video)) && ($y = $this->getVal('resolution_y', $video))) {
-                $this->addValT('Dimensions', $x . ' x ' . $y, $return);
-            }
+                    // While not EOF, tag is valid, and not SOS (Start Of Scan) or EOI (End Of Image)
+                    while (!feof($hnd) && ($data[0] === "\xFF") && ($data[1] !== "\xDA") && ($data[1] !== "\xD9")) {
+                        $size = 0;
+                        if ((ord($data[1]) < 0xD0) || (ord($data[1]) > 0xD7)) {     // All segments but RSTn have size bytes
+                            $size = $this->unpackShort(false, fread($hnd, 2)) - 2;
+                        }
 
-            if ($v = $this->getVal('frame_rate', $video)) {
-                $this->addValT('Frame rate', $this->language->t('%g fps', array($v)), $return);
-            }
+                        if (($data[1] === "\xE1") && ($size > 29)) {                // APP1 with enough data
+                            $data = fread($hnd, 29);
+                            $size -= 29;
 
-            if ($v = $this->getVal('bitrate', $sections)) {
-                $this->addValT('Bit rate', $this->language->t('%s kbps', array(floor($v/1000))), $return);
-            }
+                            if ($data === 'http://ns.adobe.com/xap/1.0/'."\x00") {
+                                $xmpMetadata = new XmpMetadata(fread($hnd, $size));
+                                return $xmpMetadata->getArray();
+                            }
+                        }
 
-            if ($v = $this->getVal('codec', $video)) {
-                $this->addValT('Video codec', $v, $return);
-            }
+                        if ($size > 0) {
+                            fseek($hnd, $size, SEEK_CUR);
+                        }
 
-            if ($v = $this->getVal('bits_per_sample', $video)) {
-                $this->addValT('Video sample size', $this->language->t('%s bit', array($v)), $return);
-            }
-
-            if ($v = $this->getVal('codec', $audio)) {
-                $this->addValT('Audio codec', $v, $return);
-            }
-
-            if ($v = $this->getVal('channels', $audio)) {
-                $this->addValT('Audio channels', $v, $return);
-            }
-
-            if ($v = $this->getVal('sample_rate', $audio)) {
-                $this->addValT('Audio sample rate', $this->language->t('%s kHz', array($v/1000)), $return);
-            }
-
-            if ($v = $this->getVal('bits_per_sample', $audio)) {
-                $this->addValT('Audio sample size', $this->language->t('%s bit', array($v)), $return);
-            }
-
-            if ($v = $this->getValM('album', $tags) ?: $this->getVal('product', $riff)) {
-                $this->addValT('Album', $v, $return);
-            }
-
-            if ($v = $this->getVal('tracknumber', $vorbis) ?: $this->getVal('part', $riff) ?: $this->getVal('track_number', $id3v2) ?: $this->getVal('track', $id3v1)) {
-                $this->addValT('Track #', $v, $return);
-            }
-
-            if ($v = $this->getVal('date', $vorbis) ?: $this->getVal('creationdate', $riff) ?: $this->getVal('creation_date', $quicktime) ?: $this->getVal('year', $vorbis, $id3v2, $id3v1)) {
-                $isYear = is_array($v) && (count($v) == 1) && (strlen($v[0]) == 4);
-                $this->addValT($isYear ? 'Year' : 'Date', $v, $return);
-            }
-
-            if ($v = $this->getValM('genre', $tags)) {
-                $this->addValT('Genre', $v, $return);
-            }
-
-            if ($v = $this->getVal('description', $vorbis) ?: $this->getValM('comment', $tags)) {
-                if (is_array($v)) {
-                    $this->formatComments($v);
+                        $data = fread($hnd, 2);
+                    }
                 }
 
-                $this->addValT('Comment', $v, $return);
+            } finally {
+                fclose($hnd);
+            }
+        }
+
+        return null;
+    }
+
+    protected function readTiffXmp($file) {
+        if ($hnd = fopen($file, 'rb')) {
+            try {
+                $data = fread($hnd, 4);
+
+                if (($data === "II\x2A\x00") || ($data === "MM\x00\x2A")) {     // ID
+                    $intel = ($data[0] === 'I');
+                    $ifdOffs = $this->unpackInt($intel, fread($hnd, 4));
+
+                    while (!feof($hnd) && ($ifdOffs !== 0)) {
+                        fseek($hnd, $ifdOffs, SEEK_SET);                // Go to IFD
+                        $tagCnt = $this->unpackShort($intel, fread($hnd, 2));
+
+                        for ($i = 0; $i < $tagCnt; $i++) {
+                            $tagId = $this->unpackShort($intel, fread($hnd, 2));
+                            fread($hnd, 2);     // TagType
+
+                            if ($tagId === 0x02BC) {
+                                $count = $this->unpackInt($intel, fread($hnd, 4));
+                                $offset = $this->unpackInt($intel, fread($hnd, 4));
+                                fseek($hnd, $offset, SEEK_SET);         // Go to XMP
+
+                                $xmpMetadata = new XmpMetadata(fread($hnd, $count));
+                                return $xmpMetadata->getArray();
+
+                            } else {
+                                fread($hnd, 8);
+                            }
+                        }
+
+                        $ifdOffs = $this->unpackInt($intel, fread($hnd, 4));
+                        if (($ifdOffs !== 0) && ($ifdOffs < ftell($hnd))) {     // Never go back
+                            $ifdOffs = 0;
+                        }
+                    }
+                }
+
+            } finally {
+                fclose($hnd);
+            }
+        }
+
+        return null;
+    }
+
+    protected function unpackShort($intel, $data) {
+        return unpack(($intel? 'v' : 'n').'d', $data)['d'];
+    }
+
+    protected function unpackInt($intel, $data) {
+        return unpack(($intel? 'V' : 'N').'d', $data)['d'];
+    }
+
+    protected function getAvMetadata($sections) {
+        $return = array();
+
+        $audio = $this->getVal('audio', $sections) ?: array();
+        $video = $this->getVal('video', $sections) ?: array();
+        $tags = $this->getVal('tags_html', $sections) ?: array();
+        $vorbis = $this->getVal('vorbiscomment', $tags) ?: array();
+        $id3v2 = $this->getVal('id3v2', $tags) ?: array();
+        $id3v1 = $this->getVal('id3v1', $tags) ?: array();
+        $riff = $this->getVal('riff', $tags) ?: array();
+        $quicktime = $this->getVal('quicktime', $tags) ?: array();
+        $matroska = $this->getVal('matroska', $tags) ?: array();
+
+        krsort($tags);  // make a predictable order with 'id3v2' before 'id3v1'
+
+        if ($v = $this->getValM('title', $tags)) {
+            $this->addValT('Title', $v, $return);
+        }
+
+        if ($v = $this->getValM('artist', $tags)) {
+            $this->addValT('Artist', $v, $return);
+        }
+
+        if ($v = $this->getVal('playtime_seconds', $sections)) {
+            $this->addValT('Length', $this->formatSeconds($v), $return);
+        }
+
+        if (($x = $this->getVal('resolution_x', $video)) && ($y = $this->getVal('resolution_y', $video))) {
+            $this->addValT('Dimensions', $x . ' x ' . $y, $return);
+        }
+
+        if ($v = $this->getVal('frame_rate', $video)) {
+            $this->addValT('Frame rate', $this->language->t('%g fps', array($v)), $return);
+        }
+
+        if ($v = $this->getVal('bitrate', $sections)) {
+            $this->addValT('Bit rate', $this->language->t('%s kbps', array(floor($v/1000))), $return);
+        }
+
+        if ($v = $this->getVal('codec', $video)) {
+            $this->addValT('Video codec', $v, $return);
+        }
+
+        if ($v = $this->getVal('bits_per_sample', $video)) {
+            $this->addValT('Video sample size', $this->language->t('%s bit', array($v)), $return);
+        }
+
+        if ($v = $this->getVal('codec', $audio)) {
+            $this->addValT('Audio codec', $v, $return);
+        }
+
+        if ($v = $this->getVal('channels', $audio)) {
+            $this->addValT('Audio channels', $v, $return);
+        }
+
+        if ($v = $this->getVal('sample_rate', $audio)) {
+            $this->addValT('Audio sample rate', $this->language->t('%s kHz', array($v/1000)), $return);
+        }
+
+        if ($v = $this->getVal('bits_per_sample', $audio)) {
+            $this->addValT('Audio sample size', $this->language->t('%s bit', array($v)), $return);
+        }
+
+        if ($v = $this->getValM('album', $tags) ?: $this->getVal('product', $riff)) {
+            $this->addValT('Album', $v, $return);
+        }
+
+        if ($v = $this->getVal('tracknumber', $vorbis) ?: $this->getVal('part', $riff) ?: $this->getVal('track_number', $id3v2) ?: $this->getVal('track', $id3v1)) {
+            $this->addValT('Track #', $v, $return);
+        }
+
+        if ($v = $this->getVal('date', $vorbis) ?: $this->getVal('creationdate', $riff) ?: $this->getVal('creation_date', $quicktime) ?: $this->getVal('year', $vorbis, $id3v2, $id3v1)) {
+            $isYear = is_array($v) && (count($v) == 1) && (strlen($v[0]) == 4);
+            $this->addValT($isYear ? 'Year' : 'Date', $v, $return);
+        }
+
+        if ($v = $this->getValM('genre', $tags)) {
+            $this->addValT('Genre', $v, $return);
+        }
+
+        if ($v = $this->getVal('description', $vorbis) ?: $this->getValM('comment', $tags)) {
+            if (is_array($v)) {
+                $this->formatComments($v);
             }
 
-            if ($v = $this->getValM('encoded_by', $tags)) {
-                $this->addValT('Encoded by', $v, $return);
-            }
+            $this->addValT('Comment', $v, $return);
+        }
 
-            if ($v = $this->getVal('software', $riff) ?: $this->getVal('encoding_tool', $quicktime) ?: $this->getVal('encoder', $matroska, $audio)) {
-                $this->addValT('Encoding tool', $v, $return);
-            }
+        if ($v = $this->getValM('encoded_by', $tags)) {
+            $this->addValT('Encoded by', $v, $return);
+        }
 
-//            $this->dump($sections, $return);
+        if ($v = $this->getVal('software', $riff) ?: $this->getVal('encoding_tool', $quicktime) ?: $this->getVal('encoder', $matroska, $audio)) {
+            $this->addValT('Encoding tool', $v, $return);
         }
 
         return $return;
     }
 
-    protected function readExif($file, &$lat, &$lon) {
+    protected function getImageMetadata($sections, &$lat, &$lon) {
         $return = array();
 
-        if ($sections = exif_read_data($file, 0, true)) {
-            $comp = $this->getVal('COMPUTED', $sections) ?: array();
-            $ifd0 = $this->getVal('IFD0', $sections) ?: array();
-            $exif = $this->getVal('EXIF', $sections) ?: array();
-            $gps = $this->getVal('GPS', $sections) ?: array();
+        $comp = $this->getVal('COMPUTED', $sections) ?: array();
+        $ifd0 = $this->getVal('IFD0', $sections) ?: array();
+        $exif = $this->getVal('EXIF', $sections) ?: array();
+        $gps = $this->getVal('GPS', $sections) ?: array();
+        $xmp = $this->getVal('XMP', $sections) ?: array();
 
-            if ($v = $this->getVal('DateTimeOriginal', $exif)) {
-                $v[4] = $v[7] = '-';
-                $this->addValT('Date taken', $v, $return);
-            }
+        if ($v = $this->getVal('title', $xmp)) {
+            $this->addValT('Title', $v, $return);
+        }
 
-            if (($w = $this->getVal('ExifImageWidth', $exif)) && ($h = $this->getVal('ExifImageLength', $exif))) {
-                if ($ornt = $this->getVal('Orientation', $ifd0)) {
-                    if ($ornt >= 5) {
-                      $tmp = $w;
-                      $w = $h;
-                      $h = $tmp;
-                    }
+        if ($v = $this->getVal('description', $xmp)) {
+            $this->addValT('Description', $v, $return);
+        }
+
+        if ($v = $this->getVal('people', $xmp)) {
+            $this->addValT('People', $v, $return);
+        }
+
+        if ($v = $this->getVal('DateTimeOriginal', $exif)) {
+            $v[4] = $v[7] = '-';
+            $this->addValT('Date taken', $v, $return);
+        }
+
+        if (($w = $this->getVal('ExifImageWidth', $exif)) && ($h = $this->getVal('ExifImageLength', $exif))) {
+            if ($ornt = $this->getVal('Orientation', $ifd0)) {
+                if ($ornt >= 5) {
+                    $tmp = $w;
+                    $w = $h;
+                    $h = $tmp;
                 }
-
-            } else {
-                $w = $this->getVal('Width', $comp);
-                $h = $this->getVal('Height', $comp);
             }
 
-            if ($w && $h) {
-                $this->addValT('Dimensions', $w . ' x ' . $h, $return);
-            }
+        } else {
+            $w = $this->getVal('Width', $comp);
+            $h = $this->getVal('Height', $comp);
+        }
 
-            if ($v = $this->getVal('Artist', $ifd0)) {
-                $this->addValT('Artist', $v, $return);
-            }
+        if ($w && $h) {
+            $this->addValT('Dimensions', $w . ' x ' . $h, $return);
+        }
 
-            if ($v = $this->getVal('Make', $ifd0)) {
-                $this->addValT('Camera used', $v, $return);
-            }
+        if ($v = $this->getVal('Artist', $ifd0)) {
+            $this->addValT('Artist', $v, $return);
+        }
 
-            if ($v = $this->getVal('Model', $ifd0)) {
-                $this->addValT('Camera used', $v, $return);
-            }
+        if ($v = $this->getVal('Make', $ifd0)) {
+            $this->addValT('Camera used', $v, $return);
+        }
 
-            if ($v = $this->getVal('Software', $ifd0)) {
-                $this->addValT('Software', $v, $return);
-            }
+        if ($v = $this->getVal('Model', $ifd0)) {
+            $this->addValT('Camera used', $v, $return);
+        }
 
-            if ($v = $this->getVal('ApertureFNumber', $comp)) {
-                $this->addValT('F-stop', $v, $return);
-            }
+        if ($v = $this->getVal('Software', $ifd0)) {
+            $this->addValT('Software', $v, $return);
+        }
 
-            if ($v = $this->getVal('ExposureTime', $exif)) {
-                $this->addValT('Exposure time', $this->language->t('%s sec.', array($this->formatRational($v, true))), $return);
-            }
+        if ($v = $this->getVal('ApertureFNumber', $comp)) {
+            $this->addValT('F-stop', $v, $return);
+        }
 
-            if ($v = $this->getVal('ISOSpeedRatings', $exif)) {
-                $this->addValT('ISO speed', $this->language->t('ISO-%s', array($v)), $return);
-            }
+        if ($v = $this->getVal('ExposureTime', $exif)) {
+            $this->addValT('Exposure time', $this->language->t('%s sec.', array($this->formatRational($v, true))), $return);
+        }
 
-            if ($v = $this->getVal('ExposureProgram', $exif)) {
-                $this->addValT('Exposure program', $this->formatExposureProgram($v), $return);
-            }
+        if ($v = $this->getVal('ISOSpeedRatings', $exif)) {
+            $this->addValT('ISO speed', $this->language->t('ISO-%s', array($v)), $return);
+        }
 
-            if ($v = $this->getVal('ExposureMode', $exif)) {
-                $this->addValT('Exposure mode', $this->formatExposureMode($v), $return);
-            }
+        if ($v = $this->getVal('ExposureProgram', $exif)) {
+            $this->addValT('Exposure program', $this->formatExposureProgram($v), $return);
+        }
 
-            if ($v = $this->getVal('ExposureBiasValue', $exif)) {
-                $this->addValT('Exposure bias', $this->language->t('%s step', array($this->formatRational($v))), $return);
-            }
+        if ($v = $this->getVal('ExposureMode', $exif)) {
+            $this->addValT('Exposure mode', $this->formatExposureMode($v), $return);
+        }
 
-            if ($v = $this->getVal('FocalLength', $exif)) {
-                $this->addValT('Focal length', $this->language->t('%g mm', array($this->evalRational($v))), $return);
-            }
+        if ($v = $this->getVal('ExposureBiasValue', $exif)) {
+            $this->addValT('Exposure bias', $this->language->t('%s step', array($this->formatRational($v))), $return);
+        }
 
-            if ($v = $this->getVal('MaxApertureValue', $exif)) {
-                $this->addValT('Max aperture', $this->evalRational($v), $return);
-            }
+        if ($v = $this->getVal('FocalLength', $exif)) {
+            $this->addValT('Focal length', $this->language->t('%g mm', array($this->evalRational($v))), $return);
+        }
 
-            if ($v = $this->getVal('MeteringMode', $exif)) {
-                $this->addValT('Metering mode', $this->formatMeteringMode($v), $return);
-            }
+        if ($v = $this->getVal('MaxApertureValue', $exif)) {
+            $this->addValT('Max aperture', $this->evalRational($v), $return);
+        }
 
-            if ($v = $this->getVal('Flash', $exif)) {
-                $this->addValT('Flash mode', $this->formatFlashMode($v), $return);
-            }
+        if ($v = $this->getVal('MeteringMode', $exif)) {
+            $this->addValT('Metering mode', $this->formatMeteringMode($v), $return);
+        }
 
-            if ($v = $this->getVal('FocalLengthIn35mmFilm', $exif)) {
-                $this->addValT('35mm focal length', $v, $return);
-            }
+        if ($v = $this->getVal('Flash', $exif)) {
+            $this->addValT('Flash mode', $this->formatFlashMode($v), $return);
+        }
 
-            if ($v = $this->getVal('GPSLatitude', $gps)) {
-                $ref = $this->getVal('GPSLatitudeRef', $gps);
-                $this->addValT('GPS latitude', $ref . ' ' . $this->formatGpsCoord($v), $return);
-                $lat = $this->gpsToDecDegree($v, $ref == 'N');
-            }
+        if ($v = $this->getVal('FocalLengthIn35mmFilm', $exif)) {
+            $this->addValT('35mm focal length', $v, $return);
+        }
 
-            if ($v = $this->getVal('GPSLongitude', $gps)) {
-                $ref = $this->getVal('GPSLongitudeRef', $gps);
-                $this->addValT('GPS longitude', $ref . ' ' . $this->formatGpsCoord($v), $return);
-                $lon = $this->gpsToDecDegree($v, $ref == 'E');
-            }
+        if ($v = $this->getVal('GPSLatitude', $gps)) {
+            $ref = $this->getVal('GPSLatitudeRef', $gps);
+            $this->addValT('GPS latitude', $ref . ' ' . $this->formatGpsCoord($v), $return);
+            $lat = $this->gpsToDecDegree($v, $ref == 'N');
+        }
 
-//            $this->dump($sections, $return);
+        if ($v = $this->getVal('GPSLongitude', $gps)) {
+            $ref = $this->getVal('GPSLongitudeRef', $gps);
+            $this->addValT('GPS longitude', $ref . ' ' . $this->formatGpsCoord($v), $return);
+            $lon = $this->gpsToDecDegree($v, $ref == 'E');
         }
 
         return $return;
@@ -392,7 +515,7 @@ class MetadataController extends Controller {
     }
 
     protected function formatRational($val, $fracIfSmall = false) {
-        if (preg_match('/([\-]?)(\d+)([\/])(\d+)/', $val, $matches) !== FALSE) {
+        if (preg_match('/([\-]?)(\d+)([\/])(\d+)/', $val, $matches) !== false) {
             if ($fracIfSmall && ($matches[2] < $matches[4])) {
                 if ($matches[2] != 1) {
                     $val = $matches[1] . 1 . '/' . round($matches[4] / $matches[2]);
@@ -407,7 +530,7 @@ class MetadataController extends Controller {
     }
 
     protected function evalRational($val) {
-        if (preg_match('/([\-]?)(\d+)([\/])(\d+)/', $val, $matches) !== FALSE) {
+        if (preg_match('/([\-]?)(\d+)([\/])(\d+)/', $val, $matches) !== false) {
             $val = $this->evalFraction($matches[1], $matches[2], $matches[4]);
         }
 

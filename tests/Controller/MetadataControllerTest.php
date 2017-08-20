@@ -54,6 +54,52 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('W 0° 9\' 34.0459"', $metadata['GPS longitude']);
     }
 
+    public function testJpgXmp() {
+        $res = $this->controller->get('IMG_20170626_181110_XMP.jpg');
+        $data = $res->getData();
+        $this->assertEquals('success', $data['response']);
+
+        $metadata = $data['metadata'];
+        $this->assertEquals('Roses', $metadata['Title']);
+        $this->assertEquals('Yellow roses in a park', $metadata['Description']);
+        $this->assertEquals('Rose2<br>Rose1', $metadata['People']);
+        $this->assertEquals('2017-06-26 18:11:09', $metadata['Date taken']);
+        $this->assertEquals('96 x 128', $metadata['Dimensions']);
+        $this->assertEquals('Xiaomi MI 6', $metadata['Camera used']);
+        $this->assertEquals('f/1.8', $metadata['F-stop']);
+        $this->assertEquals('1/649 sec.', $metadata['Exposure time']);
+        $this->assertEquals('ISO-100', $metadata['ISO speed']);
+        $this->assertEquals('3.82 mm', $metadata['Focal length']);
+        $this->assertEquals('Center Weighted Average', $metadata['Metering mode']);
+        $this->assertEquals('No flash, compulsory', $metadata['Flash mode']);
+        $this->assertEquals('27', $metadata['35mm focal length']);
+        $this->assertEquals('N 51° 31\' 31.5836"', $metadata['GPS latitude']);
+        $this->assertEquals('W 0° 9\' 34.0459"', $metadata['GPS longitude']);
+    }
+
+    public function testTifXmp() {
+        $res = $this->controller->get('IMG_20170626_181110_XMP.tif');
+        $data = $res->getData();
+        $this->assertEquals('success', $data['response']);
+
+        $metadata = $data['metadata'];
+        $this->assertEquals('Roses', $metadata['Title']);
+        $this->assertEquals('Yellow roses in a park', $metadata['Description']);
+        $this->assertEquals('Rose2<br>Rose1', $metadata['People']);
+        $this->assertEquals('2017-06-26 18:11:09', $metadata['Date taken']);
+        $this->assertEquals('96 x 128', $metadata['Dimensions']);
+        $this->assertEquals('Xiaomi MI 6', $metadata['Camera used']);
+        $this->assertEquals('f/1.8', $metadata['F-stop']);
+        $this->assertEquals('1/649 sec.', $metadata['Exposure time']);
+        $this->assertEquals('ISO-100', $metadata['ISO speed']);
+        $this->assertEquals('3.82 mm', $metadata['Focal length']);
+        $this->assertEquals('Center Weighted Average', $metadata['Metering mode']);
+        $this->assertEquals('No flash, compulsory', $metadata['Flash mode']);
+        $this->assertEquals('27', $metadata['35mm focal length']);
+        $this->assertEquals('N 51° 31\' 31.5836"', $metadata['GPS latitude']);
+        $this->assertEquals('W 0° 9\' 34.0459"', $metadata['GPS longitude']);
+    }
+
     public function testMp3() {
         $res = $this->controller->get('sample_id3v1_id3v23.mp3');
         $data = $res->getData();
