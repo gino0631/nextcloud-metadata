@@ -1,8 +1,13 @@
 # Changelog
 
 ## [Unreleased]
+
+## 0.5.0 – 2017-08-21
 ### Added
 - Support for XMP metadata in JPEG and TIFF files
+
+### Changed
+- Display of some attributes improved
 
 ## 0.4.0 – 2017-08-15
 ### Added
