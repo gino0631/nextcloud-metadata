@@ -8,25 +8,29 @@
         },
 
         render: function() {
-            this.$el.html('<div style="text-align:center; word-wrap:break-word;" class="get-metadata"><p><img src="'
-                + OC.imagePath('core','loading.gif')
-                + '"><br><br></p><p>'
-                + t('metadata', 'Reading metadata ...')
-                + '</p></div>');
+            var fileInfo = this.getFileInfo();
+            
+            if (fileInfo) {
+                this.$el.html('<div style="text-align:center; word-wrap:break-word;" class="get-metadata"><p><img src="'
+                    + OC.imagePath('core','loading.gif')
+                    + '"><br><br></p><p>'
+                    + t('metadata', 'Reading metadata ...')
+                    + '</p></div>');
 
-            var url = OC.generateUrl('/apps/metadata/get'),
-                data = {source: this.getFileInfo().getFullPath()},
-                _self = this;
-            $.ajax({
-                type: 'GET',
-                url: url,
-                dataType: 'json',
-                data: data,
-                async: true,
-                success: function(data) {
-                    _self.updateDisplay(data);
-                }
-            });
+                var url = OC.generateUrl('/apps/metadata/get'),
+                    data = {source: fileInfo.getFullPath()},
+                    _self = this;
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    dataType: 'json',
+                    data: data,
+                    async: true,
+                    success: function(data) {
+                        _self.updateDisplay(data);
+                    }
+                });
+            }
         },
 
         canDisplay: function(fileInfo) {
