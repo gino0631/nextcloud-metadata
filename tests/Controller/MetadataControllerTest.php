@@ -60,7 +60,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('Yellow roses in a park', $metadata['Description']);
         $this->assertEquals('Beautiful yellow roses in a park', $metadata['Comment']);
         $this->assertEquals('Rose2<br>Rose1', $metadata['People']);
-        $this->assertEquals('Rose1<br>Rose2', $metadata['Tags']);
+        $this->assertEquals('Rose/Rose1<br>Rose/Rose2', $metadata['Tags']);
         $this->assertEquals('2017-06-26 18:11:09', $metadata['Date taken']);
         $this->assertEquals('96 x 128', $metadata['Dimensions']);
         $this->assertEquals('Xiaomi MI 6', $metadata['Camera used']);
@@ -81,7 +81,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('Yellow roses in a park', $metadata['Description']);
         $this->assertEquals('Beautiful yellow roses in a park', $metadata['Comment']);
         $this->assertEquals('Rose2<br>Rose1', $metadata['People']);
-        $this->assertEquals('Rose1<br>Rose2', $metadata['Tags']);
+        $this->assertEquals('Rose/Rose1<br>Rose/Rose2', $metadata['Tags']);
         $this->assertEquals('2017-06-26 18:11:09', $metadata['Date taken']);
         $this->assertEquals('96 x 128', $metadata['Dimensions']);
         $this->assertEquals('Xiaomi MI 6', $metadata['Camera used']);
