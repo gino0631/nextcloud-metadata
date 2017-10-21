@@ -58,7 +58,7 @@ class MetadataControllerTest extends TestCase {
         $metadata = $data['metadata'];
         $this->assertEquals('Roses', $metadata['Title']);
         $this->assertEquals('Yellow roses in a park', $metadata['Description']);
-        $this->assertEquals('Beatiful yellow roses in a park', $metadata['Comment']);
+        $this->assertEquals('Beautiful yellow roses in a park', $metadata['Comment']);
         $this->assertEquals('Rose2<br>Rose1', $metadata['People']);
         $this->assertEquals('Rose1<br>Rose2', $metadata['Tags']);
         $this->assertEquals('2017-06-26 18:11:09', $metadata['Date taken']);
@@ -79,7 +79,7 @@ class MetadataControllerTest extends TestCase {
         $metadata = $data['metadata'];
         $this->assertEquals('Roses', $metadata['Title']);
         $this->assertEquals('Yellow roses in a park', $metadata['Description']);
-        $this->assertEquals('Beatiful yellow roses in a park', $metadata['Comment']);
+        $this->assertEquals('Beautiful yellow roses in a park', $metadata['Comment']);
         $this->assertEquals('Rose2<br>Rose1', $metadata['People']);
         $this->assertEquals('Rose1<br>Rose2', $metadata['Tags']);
         $this->assertEquals('2017-06-26 18:11:09', $metadata['Date taken']);
