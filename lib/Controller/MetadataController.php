@@ -353,6 +353,14 @@ class MetadataController extends Controller {
             $this->addValT('People', $v, $return);
         }
 
+        if ($v = $this->getVal('tags', $xmp)) {
+            $this->addValT('Tags', $v, $return);
+        }
+
+        if ($v = $this->getVal('UserComment', $comp)) {
+            $this->addValT('Comment', $v, $return);
+        }
+
         if ($v = $this->getVal('DateTimeOriginal', $exif)) {
             $v[4] = $v[7] = '-';
             $this->addValT('Date taken', $v, $return);
@@ -392,16 +400,16 @@ class MetadataController extends Controller {
             $this->addValT('Software', $v, $return);
         }
 
-        if ($v = $this->getVal('ApertureFNumber', $comp)) {
-            $this->addValT('F-stop', $v, $return);
+        if ($v = $this->getVal('ExposureTime', $exif)) {
+            $this->addValT('Exposure', $this->language->t('%s sec.', array($this->formatRational($v, true))), $return);
         }
 
-        if ($v = $this->getVal('ExposureTime', $exif)) {
-            $this->addValT('Exposure time', $this->language->t('%s sec.', array($this->formatRational($v, true))), $return);
+        if ($v = $this->getVal('ApertureFNumber', $comp)) {
+            $this->addValT('Exposure', $v, $return, null, '&emsp;');
         }
 
         if ($v = $this->getVal('ISOSpeedRatings', $exif)) {
-            $this->addValT('ISO speed', $this->language->t('ISO-%s', array($v)), $return);
+            $this->addValT('Exposure', $this->language->t('ISO-%s', array($v)), $return, null, '&emsp;');
         }
 
         if ($v = $this->getVal('ExposureProgram', $exif)) {
@@ -420,6 +428,10 @@ class MetadataController extends Controller {
             $this->addValT('Focal length', $this->language->t('%g mm', array($this->evalRational($v))), $return);
         }
 
+        if ($v = $this->getVal('FocalLengthIn35mmFilm', $exif)) {
+            $this->addValT('Focal length', $this->language->t('(35 mm equivalent: %g mm)', array($v)), $return);
+        }
+
         if ($v = $this->getVal('MaxApertureValue', $exif)) {
             $this->addValT('Max aperture', $this->evalRational($v), $return);
         }
@@ -432,19 +444,15 @@ class MetadataController extends Controller {
             $this->addValT('Flash mode', $this->formatFlashMode($v), $return);
         }
 
-        if ($v = $this->getVal('FocalLengthIn35mmFilm', $exif)) {
-            $this->addValT('35mm focal length', $v, $return);
-        }
-
         if ($v = $this->getVal('GPSLatitude', $gps)) {
             $ref = $this->getVal('GPSLatitudeRef', $gps);
-            $this->addValT('GPS latitude', $ref . ' ' . $this->formatGpsCoord($v), $return);
+            $this->addValT('GPS coordinates', $ref . ' ' . $this->formatGpsCoord($v), $return);
             $lat = $this->gpsToDecDegree($v, $ref == 'N');
         }
 
         if ($v = $this->getVal('GPSLongitude', $gps)) {
             $ref = $this->getVal('GPSLongitudeRef', $gps);
-            $this->addValT('GPS longitude', $ref . ' ' . $this->formatGpsCoord($v), $return);
+            $this->addValT('GPS coordinates', $ref . ' ' . $this->formatGpsCoord($v), $return, null, '&emsp;');
             $lon = $this->gpsToDecDegree($v, $ref == 'E');
         }
 
@@ -498,7 +506,7 @@ class MetadataController extends Controller {
         }
 
         if ($coord[2] != '0/1') {
-            $return .= ' ' . $this->evalRational($coord[2]) . '"';
+            $return .= ' ' . round($this->evalRational($coord[2]), 2) . '"';
         }
 
         return $return;
@@ -585,23 +593,31 @@ class MetadataController extends Controller {
         return null;
     }
 
-    protected function addVal($key, $val, &$array) {
+    protected function addVal($key, $val, &$array, $join = null, $sep = null) {
+        if (is_null($join)) {
+            $join = '<br>';
+        }
+
+        if (is_null($sep)) {
+            $sep = ' ';
+        }
+
         if (is_array($val)) {
-            $val = join('<br>', $val);
+            $val = join($join, $val);
         }
 
         if (array_key_exists($key, $array)) {
             $prev = $array[$key];
             if (substr($val, 0, strlen($prev)) != $prev) {
-                $val = $prev . ' ' . $val;
+                $val = $prev . $sep . $val;
             }
         }
 
         $array[$key] = $val;
     }
 
-    protected function addValT($key, $val, &$array) {
-        $this->addVal($this->language->t($key), $val, $array);
+    protected function addValT($key, $val, &$array, $join = null, $sep = null) {
+        $this->addVal($this->language->t($key), $val, $array, $join, $sep);
     }
 
     protected function dump(&$data, &$array, $prefix = '') {

@@ -5,6 +5,7 @@ class XmpMetadata {
     const EL_MWG_RS_REGIONS = 'mwg-rs:Regions';
     const EL_MWG_RS_NAME = 'mwg-rs:Name';
     const EL_MWG_RS_TYPE = 'mwg-rs:Type';
+    const EL_DIGIKAM_TAGS_LIST = 'digiKam:TagsList';
     const EL_DC_TITLE = 'dc:title';
     const EL_DC_DESCRIPTION = 'dc:description';
     const EL_RDF_DESCRIPTION = 'rdf:Description';
@@ -43,6 +44,7 @@ class XmpMetadata {
         switch ($name) {
             // Elements to remember
             case self::EL_MWG_RS_REGIONS:
+            case self::EL_DIGIKAM_TAGS_LIST:
             case self::EL_DC_TITLE:
             case self::EL_DC_DESCRIPTION:
                 $this->contextPush($name);
@@ -87,6 +89,12 @@ class XmpMetadata {
                         $this->rsType = null;
                         break;
 
+                    case self::EL_DIGIKAM_TAGS_LIST:
+                        if (!empty($this->text)) {
+                            $this->addHierVal('tags', $this->text);
+                        }
+                        break;
+
                     case self::EL_DC_TITLE:
                         if (!empty($this->text)) {
                             $this->addVal('title', $this->text);
@@ -107,12 +115,26 @@ class XmpMetadata {
         $this->text = $data;
     }
 
-    protected function addVal($key, $value) {
+    protected function addVal($key, &$value) {
         if (!array_key_exists($key, $this->data)) {
             $this->data[$key] = array($value);
 
         } else {
             $this->data[$key][] = $value;
+        }
+    }
+
+    protected function addHierVal($key, &$value) {
+        if (!array_key_exists($key, $this->data)) {
+            $this->data[$key] = array($value);
+
+        } else {
+            if ((($prevIdx = count($this->data[$key]) - 1) >= 0) && (($prevVal = $this->data[$key][$prevIdx]) === substr($value, 0, strlen($prevVal)))) {
+                $this->data[$key][$prevIdx] = $value;   // replace parent
+
+            } else {
+                $this->data[$key][] = $value;
+            }
         }
     }
 

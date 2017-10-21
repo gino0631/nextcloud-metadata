@@ -43,15 +43,11 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('4032 x 3016', $metadata['Dimensions']);
         $this->assertEquals('Xiaomi MI 6', $metadata['Camera used']);
         $this->assertEquals('sagit-user 7.1.1 NMF26X V8.2.2.0.NCAMIEC release-keys', $metadata['Software']);
-        $this->assertEquals('f/1.8', $metadata['F-stop']);
-        $this->assertEquals('1/649 sec.', $metadata['Exposure time']);
-        $this->assertEquals('ISO-100', $metadata['ISO speed']);
-        $this->assertEquals('3.82 mm', $metadata['Focal length']);
+        $this->assertEquals('1/649 sec.&emsp;f/1.8&emsp;ISO-100', $metadata['Exposure']);
+        $this->assertEquals('3.82 mm (35 mm equivalent: 27 mm)', $metadata['Focal length']);
         $this->assertEquals('Center Weighted Average', $metadata['Metering mode']);
         $this->assertEquals('No flash, compulsory', $metadata['Flash mode']);
-        $this->assertEquals('27', $metadata['35mm focal length']);
-        $this->assertEquals('N 51° 31\' 31.5836"', $metadata['GPS latitude']);
-        $this->assertEquals('W 0° 9\' 34.0459"', $metadata['GPS longitude']);
+        $this->assertEquals('N 51° 31\' 31.58"&emsp;W 0° 9\' 34.05"', $metadata['GPS coordinates']);
     }
 
     public function testJpgXmp() {
@@ -62,19 +58,17 @@ class MetadataControllerTest extends TestCase {
         $metadata = $data['metadata'];
         $this->assertEquals('Roses', $metadata['Title']);
         $this->assertEquals('Yellow roses in a park', $metadata['Description']);
+        $this->assertEquals('Beatiful yellow roses in a park', $metadata['Comment']);
         $this->assertEquals('Rose2<br>Rose1', $metadata['People']);
+        $this->assertEquals('Rose1<br>Rose2', $metadata['Tags']);
         $this->assertEquals('2017-06-26 18:11:09', $metadata['Date taken']);
         $this->assertEquals('96 x 128', $metadata['Dimensions']);
         $this->assertEquals('Xiaomi MI 6', $metadata['Camera used']);
-        $this->assertEquals('f/1.8', $metadata['F-stop']);
-        $this->assertEquals('1/649 sec.', $metadata['Exposure time']);
-        $this->assertEquals('ISO-100', $metadata['ISO speed']);
-        $this->assertEquals('3.82 mm', $metadata['Focal length']);
+        $this->assertEquals('1/649 sec.&emsp;f/1.8&emsp;ISO-100', $metadata['Exposure']);
+        $this->assertEquals('3.82 mm (35 mm equivalent: 27 mm)', $metadata['Focal length']);
         $this->assertEquals('Center Weighted Average', $metadata['Metering mode']);
         $this->assertEquals('No flash, compulsory', $metadata['Flash mode']);
-        $this->assertEquals('27', $metadata['35mm focal length']);
-        $this->assertEquals('N 51° 31\' 31.5836"', $metadata['GPS latitude']);
-        $this->assertEquals('W 0° 9\' 34.0459"', $metadata['GPS longitude']);
+        $this->assertEquals('N 51° 31\' 31.58"&emsp;W 0° 9\' 34.05"', $metadata['GPS coordinates']);
     }
 
     public function testTifXmp() {
@@ -85,19 +79,17 @@ class MetadataControllerTest extends TestCase {
         $metadata = $data['metadata'];
         $this->assertEquals('Roses', $metadata['Title']);
         $this->assertEquals('Yellow roses in a park', $metadata['Description']);
+        $this->assertEquals('Beatiful yellow roses in a park', $metadata['Comment']);
         $this->assertEquals('Rose2<br>Rose1', $metadata['People']);
+        $this->assertEquals('Rose1<br>Rose2', $metadata['Tags']);
         $this->assertEquals('2017-06-26 18:11:09', $metadata['Date taken']);
         $this->assertEquals('96 x 128', $metadata['Dimensions']);
         $this->assertEquals('Xiaomi MI 6', $metadata['Camera used']);
-        $this->assertEquals('f/1.8', $metadata['F-stop']);
-        $this->assertEquals('1/649 sec.', $metadata['Exposure time']);
-        $this->assertEquals('ISO-100', $metadata['ISO speed']);
-        $this->assertEquals('3.82 mm', $metadata['Focal length']);
+        $this->assertEquals('1/649 sec.&emsp;f/1.8&emsp;ISO-100', $metadata['Exposure']);
+        $this->assertEquals('3.82 mm (35 mm equivalent: 27 mm)', $metadata['Focal length']);
         $this->assertEquals('Center Weighted Average', $metadata['Metering mode']);
         $this->assertEquals('No flash, compulsory', $metadata['Flash mode']);
-        $this->assertEquals('27', $metadata['35mm focal length']);
-        $this->assertEquals('N 51° 31\' 31.5836"', $metadata['GPS latitude']);
-        $this->assertEquals('W 0° 9\' 34.0459"', $metadata['GPS longitude']);
+        $this->assertEquals('N 51° 31\' 31.58"&emsp;W 0° 9\' 34.05"', $metadata['GPS coordinates']);
     }
 
     public function testMp3() {
