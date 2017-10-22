@@ -2,6 +2,18 @@
 
 ## [Unreleased]
 
+## 0.6.0 – 2017-10-22
+### Added
+- Support for EXIF UserComment and DigiKam TagsList
+  [#7](https://github.com/gino0631/nextcloud-metadata/issues/7)
+
+### Changed
+- Display of some attributes improved
+ 
+### Fixed
+- Fail to initialize the main page when using this app
+  [#8](https://github.com/gino0631/nextcloud-metadata/issues/8)
+
 ## 0.5.0 – 2017-08-21
 ### Added
 - Support for XMP metadata in JPEG and TIFF files
