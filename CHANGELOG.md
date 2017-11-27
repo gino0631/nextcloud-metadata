@@ -1,6 +1,9 @@
 # Changelog
 
 ## [Unreleased]
+### Changed
+- Display of image metadata improved
+- Error handling improved
 
 ## 0.6.0 – 2017-10-22
 ### Added

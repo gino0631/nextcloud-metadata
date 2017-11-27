@@ -128,7 +128,7 @@
                 var location = data.address;
                 var address = [];
                 this.add(location.building || location.attraction || location.artwork || location.monument || location.house_number, address);
-                this.add(location.road || location.pedestrian || location.path || location.steps || location.footway || location.cycleway || location.construction, address);
+                this.add(location.road || location.pedestrian || location.path || location.steps || location.footway || location.cycleway || location.bridleway || location.construction, address);
                 this.add(location.city || location.town || location.village || location.hamlet || location.isolated_dwelling, address);
                 this.add(location.country, address);
                 html = address.join(', ');

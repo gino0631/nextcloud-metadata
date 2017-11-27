@@ -6,6 +6,7 @@ use OCA\Metadata\GetID3\getID3;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\IRequest;
+use Exception;
 
 class MetadataController extends Controller {
     const EXPOSURE_PROGRAMS = array(
@@ -62,50 +63,57 @@ class MetadataController extends Controller {
         $lat = null;
         $lon = null;
 
-        $mimetype = Filesystem::getMimeType($source);
-        switch ($mimetype) {
-            case 'audio/flac':
-            case 'audio/mp4':
-            case 'audio/mpeg':
-            case 'audio/ogg':
-            case 'audio/wav':
-            case 'video/3gpp':
-            case 'video/dvd':
-            case 'video/mp4':
-            case 'video/mpeg':
-            case 'video/quicktime':
-            case 'video/x-flv':
-            case 'video/x-matroska':
-            case 'video/x-msvideo':
-                if ($sections = $this->readId3($file)) {
-                    $metadata = $this->getAvMetadata($sections);
-//                    $this->dump($sections, $metadata);
-                }
-                break;
+        try {
+            $mimetype = Filesystem::getMimeType($source);
+            switch ($mimetype) {
+                case 'audio/flac':
+                case 'audio/mp4':
+                case 'audio/mpeg':
+                case 'audio/ogg':
+                case 'audio/wav':
+                case 'video/3gpp':
+                case 'video/dvd':
+                case 'video/mp4':
+                case 'video/mpeg':
+                case 'video/quicktime':
+                case 'video/x-flv':
+                case 'video/x-matroska':
+                case 'video/x-msvideo':
+                    if ($sections = $this->readId3($file)) {
+                        $metadata = $this->getAvMetadata($sections);
+//                        $this->dump($sections, $metadata);
+                    }
+                    break;
 
-            case 'image/jpeg':
-                if ($sections = $this->readExif($file)) {
-                    $sections['XMP'] = $this->readJpegXmp($file);
-                    $metadata = $this->getImageMetadata($sections, $lat, $lon);
-//                    $this->dump($sections, $metadata);
-                }
-                break;
+                case 'image/jpeg':
+                    if ($sections = $this->readExif($file)) {
+                        $sections['XMP'] = $this->readJpegXmp($file);
+                        $metadata = $this->getImageMetadata($sections, $lat, $lon);
+//                        $this->dump($sections, $metadata);
+                    }
+                    break;
 
-            case 'image/tiff':
-                if ($sections = $this->readExif($file)) {
-                    $sections['XMP'] = $this->readTiffXmp($file);
-                    $metadata = $this->getImageMetadata($sections, $lat, $lon);
-//                    $this->dump($sections, $metadata);
-                }
-                break;
+                case 'image/tiff':
+                    if ($sections = $this->readExif($file)) {
+                        $sections['XMP'] = $this->readTiffXmp($file);
+                        $metadata = $this->getImageMetadata($sections, $lat, $lon);
+//                        $this->dump($sections, $metadata);
+                    }
+                    break;
 
-            default:
-                return new JSONResponse(
-                    array(
-                        'response' => 'error',
-                        'msg' => $this->language->t('Unsupported MIME type "%s".', array($mimetype))
-                    )
-                );
+                default:
+                    throw new Exception($this->language->t('Unsupported MIME type "%s".', array($mimetype)));
+            }
+
+        } catch (Exception $e) {
+            \OC::$server->getLogger()->logException($e, ['app' => 'metadata']);
+
+            return new JSONResponse(
+                array(
+                    'reponse' => 'error',
+                    'msg' => $e->getMessage()
+                )
+            );
         }
 
         if (!empty($metadata)) {
@@ -136,6 +144,10 @@ class MetadataController extends Controller {
     }
 
     protected function readExif($file) {
+        if (!function_exists('exif_read_data')) {
+            throw new Exception($this->language->t('EXIF support is missing; you might need to install an appropriate package for your system.'));
+        }
+
         return exif_read_data($file, 0, true);
     }
 
@@ -357,7 +369,7 @@ class MetadataController extends Controller {
             $this->addValT('Tags', $v, $return);
         }
 
-        if ($v = $this->getVal('UserComment', $comp)) {
+        if (($v = $this->getVal('Comments', $ifd0)) || ($v = $this->getVal('UserComment', $comp))) {
             $this->addValT('Comment', $v, $return);
         }
 
@@ -425,7 +437,7 @@ class MetadataController extends Controller {
         }
 
         if ($v = $this->getVal('FocalLength', $exif)) {
-            $this->addValT('Focal length', $this->language->t('%g mm', array($this->evalRational($v))), $return);
+            $this->addValT('Focal length', $this->language->t('%g mm', array($this->formatRational($v))), $return);
         }
 
         if ($v = $this->getVal('FocalLengthIn35mmFilm', $exif)) {
@@ -433,7 +445,7 @@ class MetadataController extends Controller {
         }
 
         if ($v = $this->getVal('MaxApertureValue', $exif)) {
-            $this->addValT('Max aperture', $this->evalRational($v), $return);
+            $this->addValT('Max aperture', $this->apexToF($this->evalRational($v)), $return);
         }
 
         if ($v = $this->getVal('MeteringMode', $exif)) {
@@ -457,6 +469,10 @@ class MetadataController extends Controller {
         }
 
         return $return;
+    }
+
+    protected function apexToF($val) {
+        return 'f/' . sprintf('%01.1f', round(pow(2, $val / 2), 1));
     }
 
     protected function formatExposureProgram($code) {
@@ -519,7 +535,7 @@ class MetadataController extends Controller {
     }
 
     protected function formatSeconds($val) {
-        return sprintf("%02d:%02d:%02d", floor($val/3600), ($val/60)%60, $val%60);
+        return sprintf("%02d:%02d:%02d", floor($val / 3600), floor(fmod(($val / 60), 60)), round(fmod($val, 60)));
     }
 
     protected function formatRational($val, $fracIfSmall = false) {
