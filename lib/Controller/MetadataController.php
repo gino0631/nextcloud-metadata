@@ -110,7 +110,7 @@ class MetadataController extends Controller {
 
             return new JSONResponse(
                 array(
-                    'reponse' => 'error',
+                    'response' => 'error',
                     'msg' => $e->getMessage()
                 )
             );
