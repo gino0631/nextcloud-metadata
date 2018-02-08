@@ -112,7 +112,7 @@ class XmpMetadata {
     }
 
     public function charData($parser, $data) {
-        $this->text = $data;
+        $this->text .= $data;
     }
 
     protected function addVal($key, &$value) {

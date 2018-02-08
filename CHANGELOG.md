@@ -5,6 +5,10 @@
 - Display of image metadata improved
 - Error handling improved
 
+### Fixed
+- XMP parsing fixed
+  [#11](https://github.com/gino0631/nextcloud-metadata/issues/11)
+
 ## 0.6.0 – 2017-10-22
 ### Added
 - Support for EXIF UserComment and DigiKam TagsList

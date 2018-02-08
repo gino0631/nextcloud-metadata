@@ -92,6 +92,15 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('N 51° 31\' 31.58"&emsp;W 0° 9\' 34.05"', $metadata['GPS coordinates']);
     }
 
+    public function testJpgUnicode() {
+        $res = $this->controller->get('viagem.jpg');
+        $data = $res->getData();
+        $this->assertEquals('success', $data['response']);
+
+        $metadata = $data['metadata'];
+        $this->assertEquals('Viágem', $metadata['Title']);
+    }
+
     public function testMp3() {
         $res = $this->controller->get('sample_id3v1_id3v23.mp3');
         $data = $res->getData();
