@@ -53,7 +53,6 @@ class MetadataControllerTest extends TestCase {
     public function testJpgXmp() {
         $res = $this->controller->get('IMG_20170626_181110_XMP.jpg');
         $data = $res->getData();
-        $this->assertEquals('', $data['msg']);
         $this->assertEquals('success', $data['response']);
 
         $metadata = $data['metadata'];
