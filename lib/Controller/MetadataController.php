@@ -38,6 +38,10 @@ class MetadataController extends Controller {
         255 => 'Other'
     );
 
+    const FOUR_CC = array(
+        'avc1' => 'H.264 - MPEG-4 AVC (part 10)'
+    );
+
     protected $language;
 
     public function __construct($appName, IRequest $request) {
@@ -80,7 +84,7 @@ class MetadataController extends Controller {
                 case 'video/x-matroska':
                 case 'video/x-msvideo':
                     if ($sections = $this->readId3($file)) {
-                        $metadata = $this->getAvMetadata($sections);
+                        $metadata = $this->getAvMetadata($sections, $lat, $lon);
 //                        $this->dump($sections, $metadata);
                     }
                     break;
@@ -245,7 +249,7 @@ class MetadataController extends Controller {
         return unpack(($intel? 'V' : 'N').'d', $data)['d'];
     }
 
-    protected function getAvMetadata($sections) {
+    protected function getAvMetadata($sections, &$lat, &$lon) {
         $return = array();
 
         $audio = $this->getVal('audio', $sections) ?: array();
@@ -284,8 +288,31 @@ class MetadataController extends Controller {
             $this->addValT('Bit rate', $this->language->t('%s kbps', array(floor($v/1000))), $return);
         }
 
+        if ($v = $this->getVal('author', $quicktime)) {
+            $this->addValT('Author', $v, $return);
+        }
+
+        if ($v = $this->getVal('copyright', $quicktime)) {
+            $this->addValT('Copyright', $v, $return);
+        }
+
+        if ($v = $this->getVal('make', $quicktime)) {
+            $this->addValT('Camera used', $v, $return);
+        }
+
+        if ($v = $this->getVal('model', $quicktime)) {
+            $this->addValT('Camera used', $v, $return);
+        }
+
+        if ($v = $this->getVal('com.android.version', $quicktime)) {
+            $this->addValT('Android version', $v, $return);
+        }
+
         if ($v = $this->getVal('codec', $video)) {
             $this->addValT('Video codec', $v, $return);
+
+        } else if ($v = $this->getVal('fourcc', $video)) {
+            $this->addValT('Video codec', $this->formatFourCc($v), $return);
         }
 
         if ($v = $this->getVal('bits_per_sample', $video)) {
@@ -339,6 +366,16 @@ class MetadataController extends Controller {
 
         if ($v = $this->getVal('software', $riff) ?: $this->getVal('encoding_tool', $quicktime) ?: $this->getVal('encoder', $matroska, $audio)) {
             $this->addValT('Encoding tool', $v, $return);
+        }
+
+        if ($v = $this->getVal('gps_latitude', $quicktime)) {
+            $lat = $v[0];
+            $this->addValT('GPS coordinates', $this->formatGpsDegree($lat, 'N', 'S'), $return);
+        }
+
+        if ($v = $this->getVal('gps_longitude', $quicktime)) {
+            $lon = $v[0];
+            $this->addValT('GPS coordinates', $this->formatGpsDegree($lon, 'E', 'W'), $return, null, '&emsp;');
         }
 
         return $return;
@@ -458,13 +495,13 @@ class MetadataController extends Controller {
 
         if ($v = $this->getVal('GPSLatitude', $gps)) {
             $ref = $this->getVal('GPSLatitudeRef', $gps);
-            $this->addValT('GPS coordinates', $ref . ' ' . $this->formatGpsCoord($v), $return);
+            $this->addValT('GPS coordinates', $this->formatGpsCoord($v, $ref), $return);
             $lat = $this->gpsToDecDegree($v, $ref == 'N');
         }
 
         if ($v = $this->getVal('GPSLongitude', $gps)) {
             $ref = $this->getVal('GPSLongitudeRef', $gps);
-            $this->addValT('GPS coordinates', $ref . ' ' . $this->formatGpsCoord($v), $return, null, '&emsp;');
+            $this->addValT('GPS coordinates', $this->formatGpsCoord($v, $ref), $return, null, '&emsp;');
             $lon = $this->gpsToDecDegree($v, $ref == 'E');
         }
 
@@ -514,8 +551,12 @@ class MetadataController extends Controller {
         }
     }
 
-    protected function formatGpsCoord($coord) {
-        $return = $this->evalRational($coord[0]) . '°';
+    protected function formatFourCc($code) {
+        return array_key_exists($code, MetadataController::FOUR_CC) ? MetadataController::FOUR_CC[$code] . ' (' . $code .')' : $code;
+    }
+
+    protected function formatGpsCoord($coord, $ref) {
+        $return = $ref . ' ' . $this->evalRational($coord[0]) . '°';
 
         if (($coord[1] != '0/1') || ($coord[2] != '0/1')) {
             $return .= ' ' . $this->evalRational($coord[1]) . '\'';
@@ -524,6 +565,24 @@ class MetadataController extends Controller {
         if ($coord[2] != '0/1') {
             $return .= ' ' . round($this->evalRational($coord[2]), 2) . '"';
         }
+
+        return $return;
+    }
+
+    protected function formatGpsDegree($deg, $posRef, $negRef) {
+        $return = ($deg >= 0) ? $posRef : $negRef;
+        $deg = abs($deg);
+
+        $v = floor($deg);
+        $return .= ' ' . $v . '°';
+
+        $deg = ($deg - $v) * 60;
+        $v = floor($deg);
+        $return .= ' ' . $v . '\'';
+
+        $deg = ($deg - $v) * 60;
+        $v = round($deg, 2);
+        $return .= ' ' . $v . '"';
 
         return $return;
     }

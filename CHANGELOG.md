@@ -1,6 +1,10 @@
 # Changelog
 
 ## [Unreleased]
+### Added
+- Support for additional video metadata
+  [#12](https://github.com/gino0631/nextcloud-metadata/issues/12)
+
 ### Changed
 - Display of image metadata improved
 - Error handling improved
