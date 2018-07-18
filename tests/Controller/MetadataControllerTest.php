@@ -18,6 +18,7 @@ class MetadataControllerTest extends TestCase {
         $backend = new \Test\Util\User\Dummy();
         $backend->createUser($this->user, $this->user);
         \OC::$server->getUserManager()->registerBackend($backend);
+        $this->assertNotNull(\OC::$server->getUserManager()->get($this->user));
         $this->loginAsUser($this->user);
 
         \OC\Files\Filesystem::tearDown();
