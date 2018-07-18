@@ -8,12 +8,12 @@ env:
     - APP_NAME=metadata
   matrix:
     - CLOUD=nextcloud;CORE_BRANCH=master
-    - CLOUD=owncloud;CORE_BRANCH=master
+    - CLOUD=owncloud;CORE_BRANCH=stable10
 
 before_install:
   - if [ $CLOUD = 'nextcloud' ]; then wget https://raw.githubusercontent.com/nextcloud/travis_ci/master/before_install.sh; fi
   - if [ $CLOUD = 'owncloud' ]; then wget https://raw.githubusercontent.com/owncloud/administration/master/travis-ci/before_install.sh; fi
-  - if [ $CLOUD = 'owncloud' ]; then APP_NAME=nextcloud-$APP_NAME; fi
+  - if [ $CLOUD = 'owncloud' ]; then ln -s $PWD ../$APP_NAME; fi
   - . ./before_install.sh $APP_NAME $CORE_BRANCH pgsql
   - if [ $CLOUD = 'nextcloud' ]; then cd ../server; fi
   - if [ $CLOUD = 'owncloud' ]; then cd ../core; fi
