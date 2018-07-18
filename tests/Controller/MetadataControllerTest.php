@@ -4,6 +4,9 @@ namespace OCA\Metadata\Tests\Controller;
 use OCA\Metadata\Controller\MetadataController;
 use Test\TestCase;
 
+/**
+ * @group DB
+ */
 class MetadataControllerTest extends TestCase {
     private $user;
     private $controller;
