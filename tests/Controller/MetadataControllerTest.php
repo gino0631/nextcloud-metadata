@@ -17,6 +17,7 @@ class MetadataControllerTest extends TestCase {
         $this->user = 'user_' . uniqid();
         $backend = new \Test\Util\User\Dummy();
         $userManager = \OC::$server->getUserManager();
+        $userManager->registerBackend($backend);
         $userManager->createUserFromBackend($this->user, $this->user, $backend);
         $this->assertNotNull($userManager->get($this->user));
         $this->loginAsUser($this->user);
