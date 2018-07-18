@@ -8,7 +8,7 @@ env:
     - APP_NAME=metadata
   matrix:
     - CLOUD=nextcloud;CORE_BRANCH=master
-    - CLOUD=owncloud;CORE_BRANCH=master
+    - CLOUD=owncloud;CORE_BRANCH=stable12
 
 before_install:
   - if [ $CLOUD = 'nextcloud' ]; then wget https://raw.githubusercontent.com/nextcloud/travis_ci/master/before_install.sh; fi
