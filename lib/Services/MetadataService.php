@@ -44,12 +44,6 @@ class MetadataService {
         'avc1' => 'H.264 - MPEG-4 AVC (part 10)'
     );
 
-    private $appName;
-
-    public function __construct($appName) {
-        $this->appName = $appName;
-    }
-
     public function getMetadata($source, $language) {
         $file = Filesystem::getLocalFile($source);
         if (!$file) {
