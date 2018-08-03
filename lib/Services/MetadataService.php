@@ -301,7 +301,7 @@ class MetadataService {
 
         if ($v = $this->getVal('date', $vorbis) ?: $this->getVal('creationdate', $riff) ?: $this->getVal('creation_date', $quicktime) ?: $this->getVal('year', $vorbis, $id3v2, $id3v1)) {
             $isYear = is_array($v) && (count($v) == 1) && (strlen($v[0]) == 4);
-            $this->addValT($isYear ? 'Year' : 'Date', $v, $return);
+            $this->addValT($language, $isYear ? 'Year' : 'Date', $v, $return);
         }
 
         if ($v = $this->getValM('genre', $tags)) {
