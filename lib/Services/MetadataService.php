@@ -363,11 +363,11 @@ class MetadataService {
         }
 
         if ($v = $this->getVal('tags', $xmp)) {
-            $this->addValT($language, 'Tags', $v, $return);
+            $this->addValTags($language, 'Tags', $v, $return);
         }
 
         if ($v = $this->getVal('subject', $xmp)) {
-            $this->addValT($language, 'Tags', $v, $return);
+            $this->addValTags($language, 'Tags', $v, $return);
         }
 
         if ($v = $this->getVal('Rating', $xmp)) {
@@ -661,6 +661,27 @@ class MetadataService {
 
     protected function addValT($language, $key, $val, &$array, $join = null, $sep = null) {
         $this->addVal($language->t($key), $val, $array, $join, $sep);
+    }
+
+    protected function addValTags($language, $key, $listOfTags, &$array) {
+        $key=$language->t($key);
+        $prev = [];
+        if (array_key_exists($key, $array)) {
+            $prev = $array[$key];
+        }
+        foreach($listOfTags as $tag) {
+            $alreadyExists=false;
+            foreach($prev as $prevTag) {
+                if(in_array($tag, explode("/", $prevTag))){
+                    $alreadyExists=true;
+                }
+            }
+            if($alreadyExists) {
+                continue;
+            }
+            $prev[] = $tag;
+        }
+        $array[$key] = $prev;
     }
 
     protected function dump(&$data, &$array, $prefix = '') {
