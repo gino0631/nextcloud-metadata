@@ -2,6 +2,7 @@
 namespace OCA\Metadata\Tests\Controller;
 
 use OCA\Metadata\Controller\MetadataController;
+use OCA\Metadata\Services\MetadataService;
 use Test\TestCase;
 
 /**
@@ -28,7 +29,8 @@ class MetadataControllerTest extends TestCase {
 
         $this->controller = new MetadataController(
             'metadata',
-            $this->createMock(\OCP\IRequest::class)
+            $this->createMock(\OCP\IRequest::class),
+            new MetadataService()
         );
     }
 
@@ -65,7 +67,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('Yellow roses in a park', $metadata['Description']);
         $this->assertEquals('Beautiful yellow roses in a park', $metadata['Comment']);
         $this->assertEquals('Rose2<br>Rose1', $metadata['People']);
-        $this->assertEquals('Rose/Rose1<br>Rose/Rose2', $metadata['Tags']);
+        $this->assertEquals(['Rose/Rose1', 'Rose/Rose2'], $metadata['Tags']);
         $this->assertEquals('2017-06-26 18:11:09', $metadata['Date taken']);
         $this->assertEquals('96 x 128', $metadata['Dimensions']);
         $this->assertEquals('Xiaomi MI 6', $metadata['Camera used']);
@@ -86,7 +88,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('Yellow roses in a park', $metadata['Description']);
         $this->assertEquals('Beautiful yellow roses in a park', $metadata['Comment']);
         $this->assertEquals('Rose2<br>Rose1', $metadata['People']);
-        $this->assertEquals('Rose/Rose1<br>Rose/Rose2', $metadata['Tags']);
+        $this->assertEquals(['Rose/Rose1', 'Rose/Rose2'], $metadata['Tags']);
         $this->assertEquals('2017-06-26 18:11:09', $metadata['Date taken']);
         $this->assertEquals('96 x 128', $metadata['Dimensions']);
         $this->assertEquals('Xiaomi MI 6', $metadata['Camera used']);

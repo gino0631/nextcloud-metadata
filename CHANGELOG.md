@@ -4,10 +4,12 @@
 ### Added
 - Support for additional video metadata
   [#12](https://github.com/gino0631/nextcloud-metadata/issues/12)
+- Support for Subjects and Rating field
 
 ### Changed
 - Display of image metadata improved
 - Error handling improved
+- Separate controller from service to allow reuse in other apps
 
 ### Fixed
 - XMP parsing fixed

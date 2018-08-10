@@ -1,11 +1,12 @@
 <?php
-namespace OCA\Metadata\Controller;
+namespace OCA\Metadata\Services;
 
 class XmpMetadata {
     const EL_MWG_RS_REGIONS = 'mwg-rs:Regions';
     const EL_MWG_RS_NAME = 'mwg-rs:Name';
     const EL_MWG_RS_TYPE = 'mwg-rs:Type';
     const EL_DIGIKAM_TAGS_LIST = 'digiKam:TagsList';
+    const EL_DC_SUBJECT = 'dc:subject';
     const EL_DC_TITLE = 'dc:title';
     const EL_DC_DESCRIPTION = 'dc:description';
     const EL_RDF_DESCRIPTION = 'rdf:Description';
@@ -41,11 +42,20 @@ class XmpMetadata {
     public function startElement($parser, $name, array $attributes) {
         $this->text = null;
 
+
+        if (sizeof($attributes)) {
+            while (list($k, $v) = each($attributes)) {
+                if(substr($k, 0, 4 ) === "xmp:") {
+                    $this->addVal(substr($k, 4), $v);
+                }
+            }
+        }
         switch ($name) {
             // Elements to remember
             case self::EL_MWG_RS_REGIONS:
             case self::EL_DIGIKAM_TAGS_LIST:
             case self::EL_DC_TITLE:
+            case self::EL_DC_SUBJECT:
             case self::EL_DC_DESCRIPTION:
                 $this->contextPush($name);
                 break;
@@ -98,6 +108,12 @@ class XmpMetadata {
                     case self::EL_DC_TITLE:
                         if (!empty($this->text)) {
                             $this->addVal('title', $this->text);
+                        }
+                        break;
+
+                    case self::EL_DC_SUBJECT:
+                        if (!empty($this->text)) {
+                            $this->addVal('subject', $this->text);
                         }
                         break;
 
