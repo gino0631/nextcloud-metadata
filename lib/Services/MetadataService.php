@@ -5,6 +5,7 @@ use OCP\IConfig;
 use OCP\IL10N;
 use OC\Files\Filesystem;
 use OCA\Metadata\GetID3\getID3;
+use OCA\Metadata\Exceptions\UnsupportedFiletypeException;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\IRequest;
@@ -44,7 +45,8 @@ class MetadataService {
         'avc1' => 'H.264 - MPEG-4 AVC (part 10)'
     );
 
-    public function getMetadata($source, $language) {
+    public function getMetadata($node, $language) {
+        $source = Filesystem::getPath($node->getId());
         $file = Filesystem::getLocalFile($source);
         if (!$file) {
             throw new \Exception($language->t('File not found.'));
@@ -92,7 +94,7 @@ class MetadataService {
                 break;
 
             default:
-                throw new \Exception($language->t('Unsupported MIME type "%s".', array($mimetype)));
+                throw new UnsupportedFiletypeException($language->t('Unsupported MIME type "%s".', array($mimetype)));
         }
         return new Metadata($metadata, $lat, $lon);
     }
@@ -246,29 +248,29 @@ class MetadataService {
         }
 
         if ($v = $this->getVal('author', $quicktime)) {
-            $this->addValT('Author', $v, $return);
+            $this->addValT($language, 'Author', $v, $return);
         }
 
         if ($v = $this->getVal('copyright', $quicktime)) {
-            $this->addValT('Copyright', $v, $return);
+            $this->addValT($language, 'Copyright', $v, $return);
         }
 
         if ($v = $this->getVal('make', $quicktime)) {
-            $this->addValT('Camera used', $v, $return);
+            $this->addValT($language, 'Camera used', $v, $return);
         }
 
         if ($v = $this->getVal('model', $quicktime)) {
-            $this->addValT('Camera used', $v, $return);
+            $this->addValT($language, 'Camera used', $v, $return);
         }
 
         if ($v = $this->getVal('com.android.version', $quicktime)) {
-            $this->addValT('Android version', $v, $return);
+            $this->addValT($language, 'Android version', $v, $return);
         }
 
         if ($v = $this->getVal('codec', $video)) {
             $this->addValT($language, 'Video codec', $v, $return);
         } else if ($v = $this->getVal('fourcc', $video)) {
-            $this->addValT('Video codec', $this->formatFourCc($v), $return);
+            $this->addValT($language, 'Video codec', $this->formatFourCc($v), $return);
         }
 
         if ($v = $this->getVal('bits_per_sample', $video)) {
@@ -520,7 +522,7 @@ class MetadataService {
     }
 
     protected function formatFourCc($code) {
-        return array_key_exists($code, MetadataController::FOUR_CC) ? MetadataController::FOUR_CC[$code] . ' (' . $code .')' : $code;
+        return array_key_exists($code, MetadataService::FOUR_CC) ? MetadataService::FOUR_CC[$code] . ' (' . $code .')' : $code;
     }
 
     protected function formatGpsCoord($coord, $ref) {

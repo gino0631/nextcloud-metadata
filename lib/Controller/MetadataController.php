@@ -23,7 +23,9 @@ class MetadataController extends Controller {
      */
     public function get($source) {
         try {
-            $metadata = $this->metadataService->getMetadata($source, $this->language);
+            $root = \OC::$server->getUserFolder();
+            $node = $root->get($source);
+            $metadata = $this->metadataService->getMetadata($node, $this->language);
             if(empty($metadata->metadataArray))
             {
                 return new JSONResponse(
