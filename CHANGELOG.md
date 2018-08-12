@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+
+## 0.7.0 – 2018-08-12
 ### Added
 - Support for additional video metadata
   [#12](https://github.com/gino0631/nextcloud-metadata/issues/12)
