@@ -293,7 +293,7 @@ class MetadataController extends Controller {
                 $tagId = $this->readShort($hnd, $intel);
                 $tagType = $this->readShort($hnd, $intel);
                 $count = $this->readInt($hnd, $intel);
-                $offsetOrData = (($tagType == 2) && ($count <= 4)) ? substr(fread($hnd, 4), 0, $count - 1) : $this->readInt($hnd, $intel);
+                $offsetOrData = (($tagType === 2) && ($count <= 4)) ? substr(fread($hnd, 4), 0, $count - 1) : $this->readInt($hnd, $intel);
                 $curr = ftell($hnd);
 
                 $result = call_user_func($callback, $hnd, $intel, $tagId, $tagType, $count, $offsetOrData);
@@ -383,7 +383,7 @@ class MetadataController extends Controller {
         }
 
         if ($v = $this->getVal('model', $quicktime)) {
-            $this->addValT('Camera used', $v, $return);
+            $this->addValT('Camera used', $v, $return, null, ' ');
         }
 
         if ($v = $this->getVal('com.android.version', $quicktime)) {
@@ -426,7 +426,7 @@ class MetadataController extends Controller {
         }
 
         if ($v = $this->getVal('date', $vorbis) ?: $this->getVal('creationdate', $riff) ?: $this->getVal('creation_date', $quicktime) ?: $this->getVal('year', $vorbis, $id3v2, $id3v1)) {
-            $isYear = is_array($v) && (count($v) == 1) && (strlen($v[0]) == 4);
+            $isYear = is_array($v) && (count($v) === 1) && (strlen($v[0]) === 4);
             $this->addValT($isYear ? 'Year' : 'Date', $v, $return);
         }
 
@@ -488,6 +488,10 @@ class MetadataController extends Controller {
             $this->addValT('Tags', $v, $return);
         }
 
+        if ($v = $this->getVal('keywords', $xmp)) {
+            $this->addValT('Keywords', $v, $return);
+        }
+
         if (($v = $this->getVal('Comments', $ifd0)) || ($v = $this->getVal('UserComment', $comp))) {
             $this->addValT('Comment', $v, $return);
         }
@@ -519,12 +523,16 @@ class MetadataController extends Controller {
             $this->addValT('Artist', $v, $return);
         }
 
+        if ($v = $this->getVal('Copyright', $ifd0)) {
+            $this->addValT('Copyright', $v, $return);
+        }
+
         if ($v = $this->getVal('Make', $ifd0)) {
             $this->addValT('Camera used', $v, $return);
         }
 
         if ($v = $this->getVal('Model', $ifd0)) {
-            $this->addValT('Camera used', $v, $return);
+            $this->addValT('Camera used', $v, $return, null, ' ');
         }
 
         if ($v = $this->getVal('Software', $ifd0)) {
@@ -560,7 +568,7 @@ class MetadataController extends Controller {
         }
 
         if ($v = $this->getVal('FocalLengthIn35mmFilm', $exif)) {
-            $this->addValT('Focal length', $this->language->t('(35 mm equivalent: %g mm)', array($v)), $return);
+            $this->addValT('Focal length', $this->language->t('(35 mm equivalent: %g mm)', array($v)), $return, null, ' ');
         }
 
         if ($v = $this->getVal('MaxApertureValue', $exif)) {
@@ -578,13 +586,13 @@ class MetadataController extends Controller {
         if ($v = $this->getVal('GPSLatitude', $gps)) {
             $ref = $this->getVal('GPSLatitudeRef', $gps);
             $this->addValT('GPS coordinates', $this->formatGpsCoord($v, $ref), $return);
-            $lat = $this->gpsToDecDegree($v, $ref == 'N');
+            $lat = $this->gpsToDecDegree($v, $ref === 'N');
         }
 
         if ($v = $this->getVal('GPSLongitude', $gps)) {
             $ref = $this->getVal('GPSLongitudeRef', $gps);
             $this->addValT('GPS coordinates', $this->formatGpsCoord($v, $ref), $return, null, '&emsp;');
-            $lon = $this->gpsToDecDegree($v, $ref == 'E');
+            $lon = $this->gpsToDecDegree($v, $ref === 'E');
         }
 
         if ($v = $this->getVal('GPSAltitude', $gps)) {
@@ -622,16 +630,16 @@ class MetadataController extends Controller {
         } else {
             $return = $this->language->t(($mode & 0x01) ? 'Flash' : 'No flash');
 
-            if (($compuls = ($mode & 0x18)) != 0) {
-                $return .= ', ' . $this->language->t(($compuls == 0x18) ? 'auto' : 'compulsory');
+            if (($compuls = ($mode & 0x18)) !== 0) {
+                $return .= ', ' . $this->language->t(($compuls === 0x18) ? 'auto' : 'compulsory');
             }
 
             if ($mode & 0x40) {
                 $return .= ', ' . $this->language->t('red-eye');
             }
 
-            if (($strobe = ($mode & 0x06)) != 0) {
-                $return .= ', ' . $this->language->t(($strobe == 0x06) ? 'strobe return' : (($strobe == 0x04) ? 'no strobe return' : ''));
+            if (($strobe = ($mode & 0x06)) !== 0) {
+                $return .= ', ' . $this->language->t(($strobe === 0x06) ? 'strobe return' : (($strobe === 0x04) ? 'no strobe return' : ''));
             }
 
             return $return;
@@ -645,11 +653,11 @@ class MetadataController extends Controller {
     protected function formatGpsCoord($coord, $ref) {
         $return = $ref . ' ' . $this->evalRational($coord[0]) . '°';
 
-        if (($coord[1] != '0/1') || ($coord[2] != '0/1')) {
+        if (($coord[1] !== '0/1') || ($coord[2] !== '0/1')) {
             $return .= ' ' . $this->evalRational($coord[1]) . '\'';
         }
 
-        if ($coord[2] != '0/1') {
+        if ($coord[2] !== '0/1') {
             $return .= ' ' . round($this->evalRational($coord[2]), 2) . '"';
         }
 
@@ -657,7 +665,7 @@ class MetadataController extends Controller {
     }
 
     protected function formatGpsAlt($coord, $ref) {
-        return (($ref == 1) ? '-' : '') . round($this->evalRational($coord), 1) . ' m';
+        return (($ref === 1) ? '-' : '') . round($this->evalRational($coord), 1) . ' m';
     }
 
     protected function formatGpsDegree($deg, $posRef, $negRef) {
@@ -691,7 +699,7 @@ class MetadataController extends Controller {
     protected function formatRational($val, $fracIfSmall = false) {
         if (preg_match('/([\-]?)(\d+)([\/])(\d+)/', $val, $matches) !== false) {
             if ($fracIfSmall && ($matches[2] < $matches[4])) {
-                if ($matches[2] != 1) {
+                if ($matches[2] !== 1) {
                     $val = $matches[1] . 1 . '/' . round($matches[4] / $matches[2]);
                 }
 
@@ -713,7 +721,7 @@ class MetadataController extends Controller {
 
     protected function evalFraction($sig, $num, $den) {
         $val = $num / $den;
-        if ($sig == '-') {
+        if ($sig === '-') {
             $val = -$val;
         }
 
@@ -738,11 +746,11 @@ class MetadataController extends Controller {
             return $array[$key];
         }
 
-        if (($array2 != null) && array_key_exists($key, $array2)) {
+        if (($array2 !== null) && array_key_exists($key, $array2)) {
             return $array2[$key];
         }
 
-        if (($array3 != null) && array_key_exists($key, $array3)) {
+        if (($array3 !== null) && array_key_exists($key, $array3)) {
             return $array3[$key];
         }
 
@@ -760,22 +768,35 @@ class MetadataController extends Controller {
     }
 
     protected function addVal($key, $val, &$array, $join = null, $sep = null) {
-        if (is_null($join)) {
-            $join = '<br>';
-        }
-
-        if (is_null($sep)) {
-            $sep = ' ';
-        }
-
         if (is_array($val)) {
-            $val = join($join, $val);
+            if (isset($join)) {
+                $val = join($join, $val);
+
+            } else if (count($val) <= 1) {
+                $val = array_pop($val);
+            }
         }
 
         if (array_key_exists($key, $array)) {
             $prev = $array[$key];
-            if (substr($val, 0, strlen($prev)) != $prev) {
-                $val = $prev . $sep . $val;
+
+            if (isset($sep)) {
+                if (substr($val, 0, strlen($prev)) !== $prev) {
+                    $val = $prev . $sep . $val;
+                }
+
+            } else {
+                if (!is_array($prev)) {
+                    $prev = array($prev);
+                }
+
+                if (is_array($val)) {
+                    $val = array_merge($prev, $val);
+
+                } else {
+                    $prev[] = $val;
+                    $val = $prev;
+                }
             }
         }
 

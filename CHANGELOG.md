@@ -4,6 +4,8 @@
 ### Added
 - Support for additional video metadata
   [#12](https://github.com/gino0631/nextcloud-metadata/issues/12)
+- Support for keywords
+  [#13](https://github.com/gino0631/nextcloud-metadata/issues/13)
 
 ### Changed
 - Display of image metadata improved

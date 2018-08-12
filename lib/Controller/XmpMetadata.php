@@ -7,6 +7,7 @@ class XmpMetadata {
     const EL_MWG_RS_TYPE = 'mwg-rs:Type';
     const EL_DIGIKAM_TAGS_LIST = 'digiKam:TagsList';
     const EL_DC_TITLE = 'dc:title';
+    const EL_DC_SUBJECT = 'dc:subject';
     const EL_DC_DESCRIPTION = 'dc:description';
     const EL_RDF_DESCRIPTION = 'rdf:Description';
     const EL_RDF_LI = 'rdf:li';
@@ -46,6 +47,7 @@ class XmpMetadata {
             case self::EL_MWG_RS_REGIONS:
             case self::EL_DIGIKAM_TAGS_LIST:
             case self::EL_DC_TITLE:
+            case self::EL_DC_SUBJECT:
             case self::EL_DC_DESCRIPTION:
                 $this->contextPush($name);
                 break;
@@ -82,7 +84,7 @@ class XmpMetadata {
             case self::EL_RDF_LI:
                 switch ($this->contextPeek()) {     // memorized in startElement()
                     case self::EL_MWG_RS_REGIONS:
-                        if (($this->rsType === 'Face') && !empty($this->rsName)) {
+                        if ($this->rsType === 'Face') {
                             $this->addVal('people', $this->rsName);
                         }
                         $this->rsName = null;
@@ -96,15 +98,15 @@ class XmpMetadata {
                         break;
 
                     case self::EL_DC_TITLE:
-                        if (!empty($this->text)) {
-                            $this->addVal('title', $this->text);
-                        }
+                        $this->addVal('title', $this->text);
+                        break;
+
+                    case self::EL_DC_SUBJECT:
+                        $this->addVal('keywords', $this->text);
                         break;
 
                     case self::EL_DC_DESCRIPTION:
-                        if (!empty($this->text)) {
-                            $this->addVal('description', $this->text);
-                        }
+                        $this->addVal('description', $this->text);
                         break;
                 }
                 break;
@@ -116,11 +118,13 @@ class XmpMetadata {
     }
 
     protected function addVal($key, &$value) {
-        if (!array_key_exists($key, $this->data)) {
-            $this->data[$key] = array($value);
+        if (!empty($value)) {
+            if (!array_key_exists($key, $this->data)) {
+                $this->data[$key] = array($value);
 
-        } else {
-            $this->data[$key][] = $value;
+            } else {
+                $this->data[$key][] = $value;
+            }
         }
     }
 

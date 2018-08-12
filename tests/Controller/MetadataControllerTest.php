@@ -53,6 +53,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('Center Weighted Average', $metadata['Metering mode']);
         $this->assertEquals('No flash, compulsory', $metadata['Flash mode']);
         $this->assertEquals('N 51° 31\' 31.58"&emsp;W 0° 9\' 34.05"', $metadata['GPS coordinates']);
+        $this->assertEquals('0 m', $metadata['GPS altitude']);
     }
 
     public function testJpgXmp() {
@@ -64,8 +65,9 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('Roses', $metadata['Title']);
         $this->assertEquals('Yellow roses in a park', $metadata['Description']);
         $this->assertEquals('Beautiful yellow roses in a park', $metadata['Comment']);
-        $this->assertEquals('Rose2<br>Rose1', $metadata['People']);
-        $this->assertEquals('Rose/Rose1<br>Rose/Rose2', $metadata['Tags']);
+        $this->assertEquals(['Rose2', 'Rose1'], $metadata['People']);
+        $this->assertEquals(['Rose/Rose1', 'Rose/Rose2'], $metadata['Tags']);
+        $this->assertEquals(['Rose', 'Rose1', 'Rose2'], $metadata['Keywords']);
         $this->assertEquals('2017-06-26 18:11:09', $metadata['Date taken']);
         $this->assertEquals('96 x 128', $metadata['Dimensions']);
         $this->assertEquals('Xiaomi MI 6', $metadata['Camera used']);
@@ -74,6 +76,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('Center Weighted Average', $metadata['Metering mode']);
         $this->assertEquals('No flash, compulsory', $metadata['Flash mode']);
         $this->assertEquals('N 51° 31\' 31.58"&emsp;W 0° 9\' 34.05"', $metadata['GPS coordinates']);
+        $this->assertEquals('0 m', $metadata['GPS altitude']);
     }
 
     public function testTifXmp() {
@@ -85,8 +88,9 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('Roses', $metadata['Title']);
         $this->assertEquals('Yellow roses in a park', $metadata['Description']);
         $this->assertEquals('Beautiful yellow roses in a park', $metadata['Comment']);
-        $this->assertEquals('Rose2<br>Rose1', $metadata['People']);
-        $this->assertEquals('Rose/Rose1<br>Rose/Rose2', $metadata['Tags']);
+        $this->assertEquals(['Rose2', 'Rose1'], $metadata['People']);
+        $this->assertEquals(['Rose/Rose1', 'Rose/Rose2'], $metadata['Tags']);
+        $this->assertEquals(['Rose', 'Rose1', 'Rose2'], $metadata['Keywords']);
         $this->assertEquals('2017-06-26 18:11:09', $metadata['Date taken']);
         $this->assertEquals('96 x 128', $metadata['Dimensions']);
         $this->assertEquals('Xiaomi MI 6', $metadata['Camera used']);
@@ -95,6 +99,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('Center Weighted Average', $metadata['Metering mode']);
         $this->assertEquals('No flash, compulsory', $metadata['Flash mode']);
         $this->assertEquals('N 51° 31\' 31.58"&emsp;W 0° 9\' 34.05"', $metadata['GPS coordinates']);
+        $this->assertEquals('0 m', $metadata['GPS altitude']);
     }
 
     public function testJpgUnicode() {
@@ -112,6 +117,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('success', $data['response']);
 
         $metadata = $data['metadata'];
+        $this->assertEquals('Canon EOS 600D', $metadata['Camera used']);
         $this->assertEquals('N 46° 46\' 52.51"&emsp;E 15° 30\' 51.93"', $metadata['GPS coordinates']);
         $this->assertEquals('415 m', $metadata['GPS altitude']);
     }
