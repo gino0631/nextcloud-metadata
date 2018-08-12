@@ -106,6 +106,16 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('Viágem', $metadata['Title']);
     }
 
+    public function testJpgGps() {
+        $res = $this->controller->get('canon.jpg');
+        $data = $res->getData();
+        $this->assertEquals('success', $data['response']);
+
+        $metadata = $data['metadata'];
+        $this->assertEquals('N 46° 46\' 52.51"&emsp;E 15° 30\' 51.93"', $metadata['GPS coordinates']);
+        $this->assertEquals('415 m', $metadata['GPS altitude']);
+    }
+
     public function testMp3() {
         $res = $this->controller->get('sample_id3v1_id3v23.mp3');
         $data = $res->getData();

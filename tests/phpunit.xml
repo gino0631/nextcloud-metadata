@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<phpunit bootstrap="../../../tests/bootstrap.php">
+<phpunit bootstrap="../../../tests/bootstrap.php" convertWarningsToExceptions="false">
   <testsuites>
     <testsuite name="Nextcloud - Metadata Tests">
       <directory>.</directory>
