@@ -92,6 +92,9 @@ class MetadataController extends Controller {
                 case 'image/jpeg':
                     if ($sections = $this->readExif($file)) {
                         $sections['XMP'] = $this->readJpegXmp($file);
+                        if (!array_key_exists('GPS', $sections)) {
+                          $sections['GPS'] = $this->readJpegGps($file);
+                        }
                         $metadata = $this->getImageMetadata($sections, $lat, $lon);
 //                        $this->dump($sections, $metadata);
                     }
@@ -155,7 +158,66 @@ class MetadataController extends Controller {
         return exif_read_data($file, 0, true);
     }
 
+    protected function readJpegGps($file) {
+        return $this->readJpeg($file, function($hnd, $marker, $size) {
+            if (($marker === "\xE1") && ($size > 14)) {                // APP1 with enough data
+                $data = fread($hnd, 6);
+
+                if ($data === 'Exif'."\x00\x00") {
+                    $pos = ftell($hnd);
+
+                    return $this->readTiff($hnd, $pos, function($hnd, $intel, $tagId, $tagType, $count, $offset) use($pos) {
+                        if ($tagId === 0x8825) {
+                            $gps = array();
+                            $this->readTiffIfd($hnd, $pos, $intel, $offset, function($hnd, $intel, $tagId, $tagType, $count, $offsetOrData) use($pos, &$gps) {
+                                switch($tagId) {
+                                    case 0x01:
+                                        $gps['GPSLatitudeRef'] = $offsetOrData;
+                                        break;
+                                    case 0x02:
+                                        fseek($hnd, $pos + $offsetOrData);
+                                        $gps['GPSLatitude'] = array($this->readRat($hnd, $intel), $this->readRat($hnd, $intel), $this->readRat($hnd, $intel));
+                                        break;
+                                    case 0x03:
+                                        $gps['GPSLongitudeRef'] = $offsetOrData;
+                                        break;
+                                    case 0x04:
+                                        fseek($hnd, $pos + $offsetOrData);
+                                        $gps['GPSLongitude'] = array($this->readRat($hnd, $intel), $this->readRat($hnd, $intel), $this->readRat($hnd, $intel));
+                                        break;
+                                    case 0x05:
+                                        $gps['GPSAltitudeRef'] = $offsetOrData;
+                                        break;
+                                    case 0x06:
+                                        fseek($hnd, $pos + $offsetOrData);
+                                        $gps['GPSAltitude'] = $this->readRat($hnd, $intel);
+                                        break;
+                                }
+                            });
+
+                            return $gps;
+                        }
+                    });
+                }
+            }
+        });
+    }
+
     protected function readJpegXmp($file) {
+        return $this->readJpeg($file, function($hnd, $marker, $size) {
+            if (($marker === "\xE1") && ($size > 29)) {                // APP1 with enough data
+                $data = fread($hnd, 29);
+                $size -= 29;
+
+                if ($data === 'http://ns.adobe.com/xap/1.0/'."\x00") {
+                    $xmpMetadata = new XmpMetadata(fread($hnd, $size));
+                    return $xmpMetadata->getArray();
+                }
+            }
+        });
+    }
+
+    protected function readJpeg($file, $callback) {
         if ($hnd = fopen($file, 'rb')) {
             try {
                 $data = fread($hnd, 2);
@@ -165,23 +227,18 @@ class MetadataController extends Controller {
 
                     // While not EOF, tag is valid, and not SOS (Start Of Scan) or EOI (End Of Image)
                     while (!feof($hnd) && ($data[0] === "\xFF") && ($data[1] !== "\xDA") && ($data[1] !== "\xD9")) {
-                        $size = 0;
                         if ((ord($data[1]) < 0xD0) || (ord($data[1]) > 0xD7)) {     // All segments but RSTn have size bytes
-                            $size = $this->unpackShort(false, fread($hnd, 2)) - 2;
-                        }
+                            $size = $this->readShort($hnd, false) - 2;
 
-                        if (($data[1] === "\xE1") && ($size > 29)) {                // APP1 with enough data
-                            $data = fread($hnd, 29);
-                            $size -= 29;
+                            if ($size > 0) {
+                                $pos = ftell($hnd);
+                                $result = call_user_func($callback, $hnd, $data[1], $size);
+                                if ($result) {
+                                    return $result;
+                                }
 
-                            if ($data === 'http://ns.adobe.com/xap/1.0/'."\x00") {
-                                $xmpMetadata = new XmpMetadata(fread($hnd, $size));
-                                return $xmpMetadata->getArray();
+                                fseek($hnd, $pos + $size);
                             }
-                        }
-
-                        if ($size > 0) {
-                            fseek($hnd, $size, SEEK_CUR);
                         }
 
                         $data = fread($hnd, 2);
@@ -199,39 +256,14 @@ class MetadataController extends Controller {
     protected function readTiffXmp($file) {
         if ($hnd = fopen($file, 'rb')) {
             try {
-                $data = fread($hnd, 4);
+                return $this->readTiff($hnd, 0, function($hnd, $intel, $tagId, $tagType, $count, $offset) {
+                    if ($tagId === 0x02BC) {
+                        fseek($hnd, $offset);           // Go to XMP
 
-                if (($data === "II\x2A\x00") || ($data === "MM\x00\x2A")) {     // ID
-                    $intel = ($data[0] === 'I');
-                    $ifdOffs = $this->unpackInt($intel, fread($hnd, 4));
-
-                    while (!feof($hnd) && ($ifdOffs !== 0)) {
-                        fseek($hnd, $ifdOffs, SEEK_SET);                // Go to IFD
-                        $tagCnt = $this->unpackShort($intel, fread($hnd, 2));
-
-                        for ($i = 0; $i < $tagCnt; $i++) {
-                            $tagId = $this->unpackShort($intel, fread($hnd, 2));
-                            fread($hnd, 2);     // TagType
-
-                            if ($tagId === 0x02BC) {
-                                $count = $this->unpackInt($intel, fread($hnd, 4));
-                                $offset = $this->unpackInt($intel, fread($hnd, 4));
-                                fseek($hnd, $offset, SEEK_SET);         // Go to XMP
-
-                                $xmpMetadata = new XmpMetadata(fread($hnd, $count));
-                                return $xmpMetadata->getArray();
-
-                            } else {
-                                fread($hnd, 8);
-                            }
-                        }
-
-                        $ifdOffs = $this->unpackInt($intel, fread($hnd, 4));
-                        if (($ifdOffs !== 0) && ($ifdOffs < ftell($hnd))) {     // Never go back
-                            $ifdOffs = 0;
-                        }
+                        $xmpMetadata = new XmpMetadata(fread($hnd, $count));
+                        return $xmpMetadata->getArray();
                     }
-                }
+                });
 
             } finally {
                 fclose($hnd);
@@ -239,6 +271,56 @@ class MetadataController extends Controller {
         }
 
         return null;
+    }
+
+    protected function readTiff($hnd, $pos, $callback) {
+        $data = fread($hnd, 4);
+
+        if (($data === "II\x2A\x00") || ($data === "MM\x00\x2A")) {     // ID
+            $intel = ($data[0] === 'I');
+            $ifdOffs = $this->readInt($hnd, $intel);
+
+            return $this->readTiffIfd($hnd, $pos, $intel, $ifdOffs, $callback);
+        }
+    }
+
+    protected function readTiffIfd($hnd, $pos, $intel, $ifdOffs, $callback) {
+        while (!feof($hnd) && ($ifdOffs !== 0)) {
+            fseek($hnd, $pos + $ifdOffs);               // Go to IFD
+            $tagCnt = $this->readShort($hnd, $intel);
+
+            for ($i = 0; $i < $tagCnt; $i++) {
+                $tagId = $this->readShort($hnd, $intel);
+                $tagType = $this->readShort($hnd, $intel);
+                $count = $this->readInt($hnd, $intel);
+                $offsetOrData = (($tagType == 2) && ($count <= 4)) ? substr(fread($hnd, 4), 0, $count - 1) : $this->readInt($hnd, $intel);
+                $curr = ftell($hnd);
+
+                $result = call_user_func($callback, $hnd, $intel, $tagId, $tagType, $count, $offsetOrData);
+                if ($result) {
+                    return $result;
+                }
+
+                fseek($hnd, $curr);
+            }
+
+            $ifdOffs = $this->readInt($hnd, $intel);
+            if (($ifdOffs !== 0) && ($ifdOffs < ftell($hnd))) {         // Never go back
+                $ifdOffs = 0;
+            }
+        }
+    }
+
+    protected function readShort($hnd, $intel) {
+        return $this->unpackShort($intel, fread($hnd, 2));
+    }
+
+    protected function readInt($hnd, $intel) {
+        return $this->unpackInt($intel, fread($hnd, 4));
+    }
+
+    protected function readRat($hnd, $intel) {
+        return $this->readInt($hnd, $intel) . '/' . $this->readInt($hnd, $intel);
     }
 
     protected function unpackShort($intel, $data) {
@@ -505,6 +587,11 @@ class MetadataController extends Controller {
             $lon = $this->gpsToDecDegree($v, $ref == 'E');
         }
 
+        if ($v = $this->getVal('GPSAltitude', $gps)) {
+            $ref = $this->getVal('GPSAltitudeRef', $gps);
+            $this->addValT('GPS altitude', $this->formatGpsAlt($v, $ref), $return);
+        }
+
         return $return;
     }
 
@@ -567,6 +654,10 @@ class MetadataController extends Controller {
         }
 
         return $return;
+    }
+
+    protected function formatGpsAlt($coord, $ref) {
+        return (($ref == 1) ? '-' : '') . round($this->evalRational($coord), 1) . ' m';
     }
 
     protected function formatGpsDegree($deg, $posRef, $negRef) {
