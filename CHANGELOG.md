@@ -12,6 +12,8 @@
 ### Fixed
 - XMP parsing fixed
   [#11](https://github.com/gino0631/nextcloud-metadata/issues/11)
+- GPS info parsing fixed
+  [#15](https://github.com/gino0631/nextcloud-metadata/issues/15)
 
 ## 0.6.0 – 2017-10-22
 ### Added
