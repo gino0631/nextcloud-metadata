@@ -1,5 +1,5 @@
 <?php
-namespace OCA\Metadata\Controller;
+namespace OCA\Metadata\Services;
 
 class XmpMetadata {
     const EL_MWG_RS_REGIONS = 'mwg-rs:Regions';
