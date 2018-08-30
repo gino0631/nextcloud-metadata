@@ -47,13 +47,14 @@ class MetadataService {
 
     private $language;
 
-    public function __construct() {
-        $this->language = \OC::$server->getL10N('metadata');
+    public function __construct($appName) {
+        $this->language = \OC::$server->getL10N($appName);
     }
 
     public function getMetadata($node) {
-        $source = Filesystem::getPath($node->getId());
-        $file = Filesystem::getLocalFile($source);
+        $mount = Filesystem::getMountManager()->find($node->getPath());
+        $internalPath = $mount->getInternalPath($node->getPath());
+        $file = $mount->getStorage()->getLocalFile($internalPath);
         if (!$file) {
             throw new \Exception($language->t('File not found.'));
         }
@@ -62,7 +63,7 @@ class MetadataService {
         $lat = null;
         $lon = null;
 
-        $mimetype = Filesystem::getMimeType($source);
+        $mimetype = $node->getMimeType();
         switch ($mimetype) {
             case 'audio/flac':
             case 'audio/mp4':
