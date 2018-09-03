@@ -37,5 +37,8 @@ class Application extends App {
 		$eventDispatcher->addListener('\OCA\Files_FullTextSearch::onFileIndexing', function(GenericEvent $e) {
 			$this->metadataIndexingService->onFileIndexing($e);
 		});
+		$eventDispatcher->addListener('\OCA\Files_FullTextSearch::onSearchRequest', function(GenericEvent $e) {
+			$this->metadataIndexingService->onSearchRequest($e);
+		});
 	}
 }

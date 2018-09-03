@@ -2,6 +2,7 @@
 namespace OCA\Metadata\Services;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use OC\Files\Node\File;
+use OCA\FullTextSearch\Model\SearchRequest;
 
 class MetadataIndexingService {
 
@@ -9,6 +10,17 @@ class MetadataIndexingService {
 
     public function __construct(MetadataService $metadataService) {
         $this->metadataService = $metadataService;
+    }
+
+    public function onSearchRequest(GenericEvent $e) {
+        $request = $e->getArgument('request');
+        if (!$request instanceof SearchRequest) {
+            return;
+        }
+        foreach($request->getOption('meta') as $option) {
+            $optionKvp = explode("=", $option, 2);
+            $request->addSubTag(strtolower($optionKvp[0]), strtolower($optionKvp[1]));
+        }
     }
 
     public function onFileIndexing(GenericEvent $e) {
