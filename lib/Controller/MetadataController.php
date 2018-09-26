@@ -108,6 +108,13 @@ class MetadataController extends Controller {
                     }
                     break;
 
+                case 'image/x-dcraw':
+                    if ($sections = $this->readExif($file)) {
+                        $metadata = $this->getImageMetadata($sections, $lat, $lon);
+//                        $this->dump($sections, $metadata);
+                    }
+                    break;
+
                 default:
                     throw new Exception($this->language->t('Unsupported MIME type "%s".', array($mimetype)));
             }
