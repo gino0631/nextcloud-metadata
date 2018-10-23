@@ -2,6 +2,7 @@
 namespace OCA\Metadata\Tests\Controller;
 
 use OCA\Metadata\Controller\MetadataController;
+use OCA\Metadata\Services\MetadataService;
 use Test\TestCase;
 
 /**
@@ -28,7 +29,8 @@ class MetadataControllerTest extends TestCase {
 
         $this->controller = new MetadataController(
             'metadata',
-            $this->createMock(\OCP\IRequest::class)
+            $this->createMock(\OCP\IRequest::class),
+            new MetadataService('metadata')
         );
     }
 
