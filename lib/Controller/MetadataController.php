@@ -82,6 +82,7 @@ class MetadataController extends Controller {
                 case 'video/quicktime':
                 case 'video/x-flv':
                 case 'video/x-matroska':
+                case 'video/webm':
                 case 'video/x-msvideo':
                     if ($sections = $this->readId3($file)) {
                         $metadata = $this->getAvMetadata($sections, $lat, $lon);
