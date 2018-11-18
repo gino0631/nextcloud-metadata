@@ -9,8 +9,10 @@ A [Nextcloud](https://nextcloud.com/) plugin which displays file metadata in the
 - audio/wav (RIFF)
 - image/jpeg (EXIF, XMP-dc, XMP-mwg-rs, XMP-digiKam TagsList)
 - image/tiff (EXIF, XMP-dc, XMP-mwg-rs, XMP-digiKam TagsList)
+- image/x-dcraw (EXIF)
 - video/mp4 (QuickTime)
 - video/quicktime (QuickTime)
+- video/webm (Matroska)
 - video/x-matroska (Matroska)
 
 Support for other formats may be implemented in future releases (feel free to make feature requests).

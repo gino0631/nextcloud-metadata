@@ -80,9 +80,9 @@ class MetadataController extends Controller {
                 case 'video/mp4':
                 case 'video/mpeg':
                 case 'video/quicktime':
+                case 'video/webm':
                 case 'video/x-flv':
                 case 'video/x-matroska':
-                case 'video/webm':
                 case 'video/x-msvideo':
                     if ($sections = $this->readId3($file)) {
                         $metadata = $this->getAvMetadata($sections, $lat, $lon);
@@ -454,7 +454,7 @@ class MetadataController extends Controller {
             $this->addValT('Encoded by', $v, $return);
         }
 
-        if ($v = $this->getVal('software', $riff) ?: $this->getVal('encoding_tool', $quicktime) ?: $this->getVal('encoder', $matroska, $audio)) {
+        if ($v = $this->getVal('writingapp', $matroska) ?: $this->getVal('encoding_tool', $quicktime) ?: $this->getVal('software', $riff) ?: $this->getVal('encoder', $audio)) {
             $this->addValT('Encoding tool', $v, $return);
         }
 

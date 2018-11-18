@@ -25,5 +25,5 @@
 }
 
 #metadataTabView .value:hover {
-    white-space: normal;
+    white-space: pre-wrap;
 }

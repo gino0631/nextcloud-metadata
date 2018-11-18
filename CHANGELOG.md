@@ -2,6 +2,19 @@
 
 ## [Unreleased]
 
+## 0.8.0 – 2018-11-18
+### Added
+- Support for PHP 7.2 (though some functionality may be affected
+  by the bugs in PHP, see the discussion for details)
+  [#19](https://github.com/gino0631/nextcloud-metadata/issues/19)
+- Support for RAW image files
+  [#22](https://github.com/gino0631/nextcloud-metadata/pull/22)
+- Support for WEBM video files
+  [#25](https://github.com/gino0631/nextcloud-metadata/pull/25)
+
+### Changed
+- Display of image metadata improved
+
 ## 0.7.0 – 2018-08-12
 ### Added
 - Support for additional video metadata
