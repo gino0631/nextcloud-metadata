@@ -13,7 +13,7 @@ env:
     - CLOUD=nextcloud CORE_BRANCH=master
     - CLOUD=owncloud CORE_BRANCH=stable10
 
-marix:
+matrix:
   exclude:
     - php: 7.0
       env: CLOUD=nextcloud CORE_BRANCH=master
