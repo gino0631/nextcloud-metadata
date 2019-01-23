@@ -2,6 +2,7 @@ language: php
 php:
   - 7.0
   - 7.1
+  - 7.3
 
 env:
   global:
@@ -17,6 +18,8 @@ matrix:
   exclude:
     - php: 7.0
       env: CLOUD=nextcloud CORE_BRANCH=master
+  allow_failures:
+    - php: 7.3
 
 before_install:
   - if [ $CLOUD = 'nextcloud' ]; then wget https://raw.githubusercontent.com/nextcloud/travis_ci/master/before_install.sh; fi
