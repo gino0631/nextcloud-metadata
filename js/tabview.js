@@ -7,6 +7,10 @@
             return t('metadata', 'Metadata');
         },
 
+        getIcon: function() {
+            return 'icon-details';
+        },
+
         render: function() {
             var fileInfo = this.getFileInfo();
             
