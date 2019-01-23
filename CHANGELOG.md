@@ -1,6 +1,12 @@
 # Changelog
 
 ## [Unreleased]
+### Added
+- Support for PHP 7.3 (though some functionality may be affected
+  by the bugs in PHP, see the discussion for details)
+  [#29](https://github.com/gino0631/nextcloud-metadata/issues/29)
+- Sidebar tab icon
+  [#28](https://github.com/gino0631/nextcloud-metadata/issues/28)
 
 ## 0.8.0 – 2018-11-18
 ### Added
