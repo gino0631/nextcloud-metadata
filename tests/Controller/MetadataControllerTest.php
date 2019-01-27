@@ -110,7 +110,7 @@ class MetadataControllerTest extends TestCase {
         $metadata = $data['metadata'];
         $this->assertEquals('Testing IPTC Object Names', $metadata['Title']);
         $this->assertEquals('This is a headline', $metadata['Headline']);
-        $this->assertEquals('album:Normandy SR; game:Mass Effect 2', $metadata['Keywords']);
+        $this->assertEquals(['album:Normandy SR', 'game:Mass Effect 2'], $metadata['Keywords']);
         $this->assertEquals('This is a byline', $metadata['Author']);
         $this->assertEquals('This is a byline title', $metadata['Job title']);
         $this->assertEquals('This is a credit', $metadata['Credits']);
