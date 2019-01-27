@@ -44,7 +44,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('success', $data['response']);
 
         $metadata = $data['metadata'];
-        $this->assertEquals('2017-06-26 18:11:09', $metadata['Date taken']);
+        $this->assertEquals('2017-06-26 18:11:09', $metadata['Date created']);
         $this->assertEquals('4032 x 3016', $metadata['Dimensions']);
         $this->assertEquals('Xiaomi MI 6', $metadata['Camera used']);
         $this->assertEquals('sagit-user 7.1.1 NMF26X V8.2.2.0.NCAMIEC release-keys', $metadata['Software']);
@@ -68,7 +68,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals(['Rose2', 'Rose1'], $metadata['People']);
         $this->assertEquals(['Rose/Rose1', 'Rose/Rose2'], $metadata['Tags']);
         $this->assertEquals(['Rose', 'Rose1', 'Rose2'], $metadata['Keywords']);
-        $this->assertEquals('2017-06-26 18:11:09', $metadata['Date taken']);
+        $this->assertEquals('2017-06-26 18:11:09', $metadata['Date created']);
         $this->assertEquals('96 x 128', $metadata['Dimensions']);
         $this->assertEquals('Xiaomi MI 6', $metadata['Camera used']);
         $this->assertEquals('1/649 sec.&emsp;f/1.8&emsp;ISO-100', $metadata['Exposure']);
@@ -91,7 +91,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals(['Rose2', 'Rose1'], $metadata['People']);
         $this->assertEquals(['Rose/Rose1', 'Rose/Rose2'], $metadata['Tags']);
         $this->assertEquals(['Rose', 'Rose1', 'Rose2'], $metadata['Keywords']);
-        $this->assertEquals('2017-06-26 18:11:09', $metadata['Date taken']);
+        $this->assertEquals('2017-06-26 18:11:09', $metadata['Date created']);
         $this->assertEquals('96 x 128', $metadata['Dimensions']);
         $this->assertEquals('Xiaomi MI 6', $metadata['Camera used']);
         $this->assertEquals('1/649 sec.&emsp;f/1.8&emsp;ISO-100', $metadata['Exposure']);
@@ -100,6 +100,20 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('No flash, compulsory', $metadata['Flash mode']);
         $this->assertEquals('N 51° 31\' 31.58"&emsp;W 0° 9\' 34.05"', $metadata['GPS coordinates']);
         $this->assertEquals('0 m', $metadata['GPS altitude']);
+    }
+
+    public function testJpgIptc() {
+        $res = $this->controller->get('iptc.jpg');
+        $data = $res->getData();
+        $this->assertEquals('success', $data['response']);
+
+        $metadata = $data['metadata'];
+        $this->assertEquals('Testing IPTC Object Names', $metadata['Title']);
+        $this->assertEquals('This is a headline', $metadata['Headline']);
+        $this->assertEquals('album:Normandy SR; game:Mass Effect 2', $metadata['Keywords']);
+        $this->assertEquals('This is a byline', $metadata['Author']);
+        $this->assertEquals('This is a byline title', $metadata['Job title']);
+        $this->assertEquals('This is a credit', $metadata['Credits']);
     }
 
     public function testJpgUnicode() {

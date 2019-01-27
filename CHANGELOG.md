@@ -7,6 +7,8 @@
   [#29](https://github.com/gino0631/nextcloud-metadata/issues/29)
 - Sidebar tab icon
   [#28](https://github.com/gino0631/nextcloud-metadata/issues/28)
+- Support for IPTC metadata
+  [#31](https://github.com/gino0631/nextcloud-metadata/issues/31)
 
 ## 0.8.0 – 2018-11-18
 ### Added

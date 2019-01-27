@@ -66,6 +66,7 @@ class MetadataController extends Controller {
         $metadata = null;
         $lat = null;
         $lon = null;
+        $loc = null;
 
         try {
             $mimetype = Filesystem::getMimeType($source);
@@ -92,26 +93,26 @@ class MetadataController extends Controller {
 
                 case 'image/jpeg':
                     if ($sections = $this->readExif($file)) {
-                        $sections['XMP'] = $this->readJpegXmp($file);
+                        $sections['XMP'] = $this->readJpegXmpIptc($file);
                         if (!array_key_exists('GPS', $sections)) {
                           $sections['GPS'] = $this->readJpegGps($file);
                         }
-                        $metadata = $this->getImageMetadata($sections, $lat, $lon);
+                        $metadata = $this->getImageMetadata($sections, $lat, $lon, $loc);
 //                        $this->dump($sections, $metadata);
                     }
                     break;
 
                 case 'image/tiff':
                     if ($sections = $this->readExif($file)) {
-                        $sections['XMP'] = $this->readTiffXmp($file);
-                        $metadata = $this->getImageMetadata($sections, $lat, $lon);
+                        $sections['XMP'] = $this->readTiffXmpIptc($file);
+                        $metadata = $this->getImageMetadata($sections, $lat, $lon, $loc);
 //                        $this->dump($sections, $metadata);
                     }
                     break;
 
                 case 'image/x-dcraw':
                     if ($sections = $this->readExif($file)) {
-                        $metadata = $this->getImageMetadata($sections, $lat, $lon);
+                        $metadata = $this->getImageMetadata($sections, $lat, $lon, $loc);
 //                        $this->dump($sections, $metadata);
                     }
                     break;
@@ -137,7 +138,8 @@ class MetadataController extends Controller {
                     'response' => 'success',
                     'metadata' => $metadata,
                     'lat' => $lat,
-                    'lon' => $lon
+                    'lon' => $lon,
+                    'loc' => $loc
                 )
             );
 
@@ -167,7 +169,7 @@ class MetadataController extends Controller {
     }
 
     protected function readJpegGps($file) {
-        return $this->readJpeg($file, function($hnd, $marker, $size) {
+        return $this->readJpegFile($file, function($hnd, $marker, $size) {
             if (($marker === "\xE1") && ($size > 14)) {                // APP1 with enough data
                 $data = fread($hnd, 6);
 
@@ -211,21 +213,30 @@ class MetadataController extends Controller {
         });
     }
 
-    protected function readJpegXmp($file) {
-        return $this->readJpeg($file, function($hnd, $marker, $size) {
+    protected function readJpegXmpIptc($file) {
+        $xmp = array();
+        $iptc = array();
+
+        $this->readJpegFile($file, function($hnd, $marker, $size) use (&$xmp, &$iptc) {
             if (($marker === "\xE1") && ($size > 29)) {                // APP1 with enough data
                 $data = fread($hnd, 29);
                 $size -= 29;
 
                 if ($data === 'http://ns.adobe.com/xap/1.0/'."\x00") {
                     $xmpMetadata = new XmpMetadata(fread($hnd, $size));
-                    return $xmpMetadata->getArray();
+                    $xmp = $xmpMetadata->getArray();
                 }
+
+            } else if (($marker === "\xED") && ($size > 0)) {          // APP13
+                $iptcMetadata = new IptcMetadata(fread($hnd, $size));
+                $iptc = $iptcMetadata->getArray();
             }
         });
+
+        return array_merge($iptc, $xmp);
     }
 
-    protected function readJpeg($file, $callback) {
+    protected function readJpegFile($file, $callback) {
         if ($hnd = fopen($file, 'rb')) {
             try {
                 $data = fread($hnd, 2);
@@ -261,17 +272,31 @@ class MetadataController extends Controller {
         return null;
     }
 
-    protected function readTiffXmp($file) {
+    protected function readTiffXmpIptc($file) {
+        $xmp = array();
+        $iptc = array();
+
+        $this->readTiffFile($file, function($hnd, $intel, $tagId, $tagType, $count, $offset) use (&$xmp, &$iptc) {
+            if ($tagId === 0x02BC) {
+                fseek($hnd, $offset);           // Go to XMP
+
+                $xmpMetadata = new XmpMetadata(fread($hnd, $count));
+                $xmp = $xmpMetadata->getArray();
+
+            } else if ($tagId === 0x83BB) {
+                fseek($hnd, $offset);           // Go to IPTC
+                $iptcMetadata = new IptcMetadata(fread($hnd, $count));
+                $iptc = $iptcMetadata->getArray();
+            }
+        });
+
+        return array_merge($iptc, $xmp);
+    }
+
+    protected function readTiffFile($file, $callback) {
         if ($hnd = fopen($file, 'rb')) {
             try {
-                return $this->readTiff($hnd, 0, function($hnd, $intel, $tagId, $tagType, $count, $offset) {
-                    if ($tagId === 0x02BC) {
-                        fseek($hnd, $offset);           // Go to XMP
-
-                        $xmpMetadata = new XmpMetadata(fread($hnd, $count));
-                        return $xmpMetadata->getArray();
-                    }
-                });
+                return $this->readTiff($hnd, 0, $callback);
 
             } finally {
                 fclose($hnd);
@@ -301,7 +326,8 @@ class MetadataController extends Controller {
                 $tagId = $this->readShort($hnd, $intel);
                 $tagType = $this->readShort($hnd, $intel);
                 $count = $this->readInt($hnd, $intel);
-                $offsetOrData = (($tagType === 2) && ($count <= 4)) ? substr(fread($hnd, 4), 0, $count - 1) : $this->readInt($hnd, $intel);
+                $count = $count * (($tagType === 3) ? 2 : ($tagType === 4) ? 4 : ($tagType === 5) ? 8 : 1);
+                $offsetOrData = ($count <= 4) ? substr(fread($hnd, 4), 0, $count - 1) : $this->readInt($hnd, $intel);
                 $curr = ftell($hnd);
 
                 $result = call_user_func($callback, $hnd, $intel, $tagId, $tagType, $count, $offsetOrData);
@@ -471,7 +497,7 @@ class MetadataController extends Controller {
         return $return;
     }
 
-    protected function getImageMetadata($sections, &$lat, &$lon) {
+    protected function getImageMetadata($sections, &$lat, &$lon, &$loc) {
         $return = array();
 
         $comp = $this->getVal('COMPUTED', $sections) ?: array();
@@ -484,8 +510,16 @@ class MetadataController extends Controller {
             $this->addValT('Title', $v, $return);
         }
 
+        if ($v = $this->getVal('headline', $xmp)) {
+            $this->addValT('Headline', $v, $return);
+        }
+
         if ($v = $this->getVal('description', $xmp)) {
             $this->addValT('Description', $v, $return);
+        }
+
+        if ($v = $this->getVal('captionWriter', $xmp)) {
+            $this->addValT('Description writer', $v, $return);
         }
 
         if ($v = $this->getVal('people', $xmp)) {
@@ -496,17 +530,25 @@ class MetadataController extends Controller {
             $this->addValT('Tags', $v, $return);
         }
 
-        if ($v = $this->getVal('keywords', $xmp)) {
+        if ($v = $this->getVal('subject', $xmp)) {
             $this->addValT('Keywords', $v, $return);
+        }
+
+        if ($v = $this->getVal('instructions', $xmp)) {
+            $this->addValT('Instructions', $v, $return);
         }
 
         if (($v = $this->getVal('Comments', $ifd0)) || ($v = $this->getVal('UserComment', $comp))) {
             $this->addValT('Comment', $v, $return);
         }
 
-        if ($v = $this->getVal('DateTimeOriginal', $exif)) {
-            $v[4] = $v[7] = '-';
-            $this->addValT('Date taken', $v, $return);
+        if (($d = $this->getVal('DateTimeOriginal', $exif)) || ($v = $this->getVal('dateCreated', $xmp))) {
+            if ($d) {
+                $d[4] = $d[7] = '-';
+                $v = $d;
+            }
+
+            $this->addValT('Date created', $v, $return);
         }
 
         if (($w = $this->getVal('ExifImageWidth', $exif)) && ($h = $this->getVal('ExifImageLength', $exif))) {
@@ -527,11 +569,23 @@ class MetadataController extends Controller {
             $this->addValT('Dimensions', $w . ' x ' . $h, $return);
         }
 
-        if ($v = $this->getVal('Artist', $ifd0)) {
-            $this->addValT('Artist', $v, $return);
+        if (($v = $this->getVal('Artist', $ifd0)) || ($v = $this->getVal('creator', $xmp))) {
+            $this->addValT('Author', $v, $return);
         }
 
-        if ($v = $this->getVal('Copyright', $ifd0)) {
+        if ($v = $this->getVal('authorsPosition', $xmp)) {
+            $this->addValT('Job title', $v, $return);
+        }
+
+        if ($v = $this->getVal('credit', $xmp)) {
+            $this->addValT('Credits', $v, $return);
+        }
+
+        if ($v = $this->getVal('source', $xmp)) {
+            $this->addValT('Source', $v, $return);
+        }
+
+        if (($v = $this->getVal('Copyright', $ifd0)) || ($v = $this->getVal('rights', $xmp))) {
             $this->addValT('Copyright', $v, $return);
         }
 
@@ -606,6 +660,18 @@ class MetadataController extends Controller {
         if ($v = $this->getVal('GPSAltitude', $gps)) {
             $ref = $this->getVal('GPSAltitudeRef', $gps);
             $this->addValT('GPS altitude', $this->formatGpsAlt($v, $ref), $return);
+        }
+
+        if ($v = $this->getVal('city', $xmp)) {
+            $loc['city'] = $v[0];
+        }
+
+        if ($v = $this->getVal('state', $xmp)) {
+            $loc['state'] = $v[0];
+        }
+
+        if ($v = $this->getVal('country', $xmp)) {
+            $loc['country'] = $v[0];
         }
 
         return $return;

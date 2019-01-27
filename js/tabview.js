@@ -50,7 +50,7 @@
         },
 
         formatValue: function(value) {
-            return Array.isArray(value) ? value.join("; ") : value;
+            return Array.isArray(value) ? value.join('; ') : value;
         },
 
         updateDisplay: function(data) {
@@ -65,26 +65,39 @@
                     html += '<tr><td class="key">' + m + ':</td><td class="value">' + this.formatValue(metadata[m]) + '</td></tr>';
                 }
 
-                showLocation = (data.lat !== null) && (data.lon !== null);
+                showLocation = (data.loc !== null) || ((data.lat !== null) && (data.lon !== null));
                 if (showLocation) {
-                    var url = 'https://nominatim.openstreetmap.org/reverse',
-                        params = {lat: data.lat, lon: data.lon, format: 'json', zoom: 18},
-                        _self = this;
-                    $.ajax({
-                        type: 'GET',
-                        url: url,
-                        dataType: 'json',
-                        data: params,
-                        async: true,
-                        success: function(data) {
-                            _self.updateLocation(data);
-                        },
-                        error: function() {
-                            _self.updateLocation({error: t('metadata', 'Nominatim service unavailable, click here to view on map')});
-                        }
-                    });
+                    var location;
 
-                    html += '<tr><td class="key">' + t('metadata', 'Location') + ':</td><td class="value"><a href="#" class="get-location">' + t('metadata', 'Resolving, click here to view on map ...') + '</a></td></tr>';
+                    if (data.loc !== null) {
+                        var address = [];
+                        this.add(data.loc.city, address);
+                        this.add(data.loc.state, address);
+                        this.add(data.loc.country, address);
+                        location = address.join(', ');
+
+                    } else {
+                        location = t('metadata', 'Resolving, click here to view on map ...');
+
+                        var url = 'https://nominatim.openstreetmap.org/reverse',
+                            params = {lat: data.lat, lon: data.lon, format: 'json', zoom: 18},
+                            _self = this;
+                        $.ajax({
+                            type: 'GET',
+                            url: url,
+                            dataType: 'json',
+                            data: params,
+                            async: true,
+                            success: function(data) {
+                                _self.updateLocation(data);
+                            },
+                            error: function() {
+                                _self.updateLocation({error: t('metadata', 'Nominatim service unavailable, click here to view on map')});
+                            }
+                        });
+                    }
+
+                    html += '<tr><td class="key">' + t('metadata', 'Location') + ':</td><td class="value"><a href="#" class="get-location">' + location + '</a></td></tr>';
                 }
 
                 html += '</table>';
@@ -96,34 +109,64 @@
             this.$el.find('.get-metadata').html(html);
 
             if (showLocation) {
+                var _self = this;
+
                 this.$el.find('.get-location')
                     .click(function() {
-                        var bbox = [data.lon - 0.0051, data.lat - 0.0051, data.lon - -0.0051, data.lat - -0.0051];
+                        if ((data.lat === null) || (data.lon === null)) {
+                            var url = 'https://nominatim.openstreetmap.org/search',
+                                params = {city: data.loc.city, state: data.loc.state, country: data.loc.country, format: 'json', limit: 1};
+                            $.ajax({
+                                type: 'GET',
+                                url: url,
+                                dataType: 'json',
+                                data: params,
+                                async: true,
+                                success: function(data) {
+                                    if (data.length > 0) {
+                                        _self.showMap(data[0]);
 
-                        var iframe = document.createElement('iframe');
-                        iframe.setAttribute('width', '100%');
-                        iframe.setAttribute('height', '100%');
-                        iframe.setAttribute('src', 'https://www.openstreetmap.org/export/embed.html?bbox=' + bbox.join() + '&marker=' + data.lat + ',' + data.lon);
-
-                        $(document.createElement('div'))
-                            .prop('title', 'OpenStreetMap')
-                            .css('background', 'url(' + OC.imagePath('core','loading.gif') + ') center center no-repeat')
-                            .append(iframe)
-                            .appendTo($('body'))
-                            .ocdialog({
-                                width: 900,
-                                height: 680,
-                                closeOnEscape: true,
-                                modal: true,
-                                close: function() {
-                                    var _self = this;
-                                    setTimeout(function() {
-                                      $(_self).ocdialog('destroy').remove();
-                                    }, 3000);
+                                    } else {
+                                        console.log(t('metadata', 'Location could not be determined'));
+                                    }
+                                },
+                                error: function() {
+                                    console.log(t('metadata', 'Nominatim service unavailable'));
                                 }
                             });
+
+                        } else {
+                            _self.showMap(data);
+                        }
                     })
             }
+        },
+
+        showMap: function(data) {
+            var bbox = [data.lon - 0.0051, data.lat - 0.0051, data.lon - -0.0051, data.lat - -0.0051];
+
+            var iframe = document.createElement('iframe');
+            iframe.setAttribute('width', '100%');
+            iframe.setAttribute('height', '100%');
+            iframe.setAttribute('src', 'https://www.openstreetmap.org/export/embed.html?bbox=' + bbox.join() + '&marker=' + data.lat + ',' + data.lon);
+
+            $(document.createElement('div'))
+                .prop('title', 'OpenStreetMap')
+                .css('background', 'url(' + OC.imagePath('core','loading.gif') + ') center center no-repeat')
+                .append(iframe)
+                .appendTo($('body'))
+                .ocdialog({
+                    width: 900,
+                    height: 680,
+                    closeOnEscape: true,
+                    modal: true,
+                    close: function() {
+                        var _self = this;
+                        setTimeout(function() {
+                            $(_self).ocdialog('destroy').remove();
+                        }, 3000);
+                    }
+                });
         },
 
         updateLocation: function(data) {

@@ -6,9 +6,21 @@ class XmpMetadata {
     const EL_MWG_RS_NAME = 'mwg-rs:Name';
     const EL_MWG_RS_TYPE = 'mwg-rs:Type';
     const EL_DIGIKAM_TAGS_LIST = 'digiKam:TagsList';
-    const EL_DC_TITLE = 'dc:title';
-    const EL_DC_SUBJECT = 'dc:subject';
+    const EL_PS_AUTHORS_POSITION = 'photoshop:AuthorsPosition';
+    const EL_PS_CAPTION_WRITER = 'photoshop:CaptionWriter';
+    const EL_PS_CITY = 'photoshop:City';
+    const EL_PS_COUNTRY = 'photoshop:Country';
+    const EL_PS_CREDIT = 'photoshop:Credit';
+    const EL_PS_DATE_CREATED = 'photoshop:DateCreated';
+    const EL_PS_HEADLINE = 'photoshop:Headline';
+    const EL_PS_INSTRUCTIONS = 'photoshop:Instructions';
+    const EL_PS_SOURCE = 'photoshop:Source';
+    const EL_PS_STATE = 'photoshop:State';
+    const EL_DC_CREATOR = 'dc:creator';
     const EL_DC_DESCRIPTION = 'dc:description';
+    const EL_DC_RIGHTS = 'dc:rights';
+    const EL_DC_SUBJECT = 'dc:subject';
+    const EL_DC_TITLE = 'dc:title';
     const EL_RDF_DESCRIPTION = 'rdf:Description';
     const EL_RDF_LI = 'rdf:li';
 
@@ -46,9 +58,11 @@ class XmpMetadata {
             // Elements to remember
             case self::EL_MWG_RS_REGIONS:
             case self::EL_DIGIKAM_TAGS_LIST:
-            case self::EL_DC_TITLE:
-            case self::EL_DC_SUBJECT:
+            case self::EL_DC_CREATOR:
             case self::EL_DC_DESCRIPTION:
+            case self::EL_DC_RIGHTS:
+            case self::EL_DC_SUBJECT:
+            case self::EL_DC_TITLE:
                 $this->contextPush($name);
                 break;
 
@@ -62,6 +76,18 @@ class XmpMetadata {
                             $this->rsType = $attributes[self::EL_MWG_RS_TYPE];
                         }
                         break;
+
+                    case NULL:
+                        $this->addValIfExists(self::EL_PS_AUTHORS_POSITION, $attributes);
+                        $this->addValIfExists(self::EL_PS_CAPTION_WRITER, $attributes);
+                        $this->addValIfExists(self::EL_PS_CITY, $attributes);
+                        $this->addValIfExists(self::EL_PS_COUNTRY, $attributes);
+                        $this->addValIfExists(self::EL_PS_CREDIT, $attributes);
+                        $this->addValIfExists(self::EL_PS_DATE_CREATED, $attributes);
+                        $this->addValIfExists(self::EL_PS_HEADLINE, $attributes);
+                        $this->addValIfExists(self::EL_PS_INSTRUCTIONS, $attributes);
+                        $this->addValIfExists(self::EL_PS_SOURCE, $attributes);
+                        $this->addValIfExists(self::EL_PS_STATE, $attributes);
                 }
                 break;
         }
@@ -81,8 +107,23 @@ class XmpMetadata {
                 $this->rsType = $this->text;
                 break;
 
+            case self::EL_PS_AUTHORS_POSITION:
+            case self::EL_PS_CAPTION_WRITER:
+            case self::EL_PS_CITY:
+            case self::EL_PS_COUNTRY:
+            case self::EL_PS_CREDIT:
+            case self::EL_PS_DATE_CREATED:
+            case self::EL_PS_HEADLINE:
+            case self::EL_PS_INSTRUCTIONS:
+            case self::EL_PS_SOURCE:
+            case self::EL_PS_STATE:
+                $this->addVal($this->formatKey($name), $this->text);
+                break;
+
             case self::EL_RDF_LI:
-                switch ($this->contextPeek()) {     // memorized in startElement()
+                $parent = $this->contextPeek();     // memorized in startElement()
+
+                switch ($parent) {
                     case self::EL_MWG_RS_REGIONS:
                         if ($this->rsType === 'Face') {
                             $this->addVal('people', $this->rsName);
@@ -97,16 +138,12 @@ class XmpMetadata {
                         }
                         break;
 
-                    case self::EL_DC_TITLE:
-                        $this->addVal('title', $this->text);
-                        break;
-
-                    case self::EL_DC_SUBJECT:
-                        $this->addVal('keywords', $this->text);
-                        break;
-
+                    case self::EL_DC_CREATOR:
                     case self::EL_DC_DESCRIPTION:
-                        $this->addVal('description', $this->text);
+                    case self::EL_DC_RIGHTS:
+                    case self::EL_DC_SUBJECT:
+                    case self::EL_DC_TITLE:
+                        $this->addVal($this->formatKey($parent), $this->text);
                         break;
                 }
                 break;
@@ -115,6 +152,12 @@ class XmpMetadata {
 
     public function charData($parser, $data) {
         $this->text .= $data;
+    }
+
+    protected function addValIfExists($key, &$attributes) {
+        if (array_key_exists($key, $attributes)) {
+            $this->addVal($this->formatKey($key), $attributes[$key]);
+        }
     }
 
     protected function addVal($key, &$value) {
@@ -140,6 +183,15 @@ class XmpMetadata {
                 $this->data[$key][] = $value;
             }
         }
+    }
+
+    protected function formatKey($key) {
+        $pos = strrpos($key, ':');
+        if ($pos !== false) {
+            $key = substr($key, $pos + 1);
+        }
+
+        return lcfirst($key);
     }
 
     protected function contextPush($var) {
