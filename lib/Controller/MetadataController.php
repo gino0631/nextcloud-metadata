@@ -126,6 +126,13 @@ class MetadataController extends Controller {
 
                 case 'image/x-dcraw':
                     if ($sections = $this->readExif($file)) {
+                        $sidecar = $file . '.xmp';
+                        if (file_exists($sidecar)) {
+                            if ($xmpMetadata = XmpMetadata::fromFile($sidecar)) {
+                                $sections['XMP'] = $xmpMetadata->getArray();
+                            }
+                        }
+
                         $metadata = $this->getImageMetadata($sections, $lat, $lon, $loc);
 //                        $this->dump($sections, $metadata);
                     }
@@ -263,12 +270,12 @@ class MetadataController extends Controller {
                 $size -= 29;
 
                 if ($data === 'http://ns.adobe.com/xap/1.0/'."\x00") {
-                    $xmpMetadata = new XmpMetadata(fread($hnd, $size));
+                    $xmpMetadata = XmpMetadata::fromData(fread($hnd, $size));
                     $xmp = $xmpMetadata->getArray();
                 }
 
             } else if (($marker === "\xED") && ($size > 0)) {          // APP13
-                $iptcMetadata = new IptcMetadata(fread($hnd, $size));
+                $iptcMetadata = IptcMetadata::fromData(fread($hnd, $size));
                 $iptc = $iptcMetadata->getArray();
             }
         });
@@ -320,12 +327,12 @@ class MetadataController extends Controller {
             if ($tagId === 0x02BC) {
                 fseek($hnd, $offset);           // Go to XMP
 
-                $xmpMetadata = new XmpMetadata(fread($hnd, $count));
+                $xmpMetadata = XmpMetadata::fromData(fread($hnd, $count));
                 $xmp = $xmpMetadata->getArray();
 
             } else if ($tagId === 0x83BB) {
                 fseek($hnd, $offset);           // Go to IPTC
-                $iptcMetadata = new IptcMetadata(fread($hnd, $count));
+                $iptcMetadata = IptcMetadata::fromData(fread($hnd, $count));
                 $iptc = $iptcMetadata->getArray();
             }
         });

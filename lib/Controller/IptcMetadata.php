@@ -22,7 +22,7 @@ class IptcMetadata {
 
     private $data = array();
 
-    public function __construct($bin) {
+    private function __construct($bin) {
         $iptc = iptcparse($bin);
 
         foreach (self::MAP as $k => $v) {
@@ -30,6 +30,10 @@ class IptcMetadata {
                 $this->data[$v] = $iptc[$k];
             }
         }
+    }
+
+    public static function fromData($bin) {
+        return new IptcMetadata($bin);
     }
 
     public function getArray() {

@@ -31,19 +31,43 @@ class XmpMetadata {
     private $rsName = null;
     private $rsType = null;
 
-    public function __construct($xml) {
+    private function __construct() {
         $this->parser = xml_parser_create('UTF-8');
         xml_parser_set_option($this->parser, XML_OPTION_CASE_FOLDING, 0);
         xml_parser_set_option($this->parser, XML_OPTION_SKIP_WHITE, 0);
         xml_set_element_handler($this->parser, array($this, 'startElement'), array($this, 'endElement'));
         xml_set_character_data_handler($this->parser, array($this, 'charData'));
-
-        xml_parse($this->parser, $xml, true);
     }
 
     public function __destruct() {
         if (is_resource($this->parser)) {
             xml_parser_free($this->parser);
+        }
+    }
+
+    public static function fromData($xml) {
+        $obj = new XmpMetadata();
+        xml_parse($obj->parser, $xml, true);
+
+        return $obj;
+    }
+
+    public static function fromFile($file) {
+        if ($hnd = fopen($file, 'rb')) {
+            try {
+                $obj = new XmpMetadata();
+
+                while (($data = fread($hnd, 8192))) {
+                    xml_parse($obj->parser, $data);
+                }
+
+                xml_parse($obj->parser, '', true);
+
+                return $obj;
+
+            } finally {
+                fclose($hnd);
+            }
         }
     }
 
