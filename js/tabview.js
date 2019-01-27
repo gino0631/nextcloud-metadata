@@ -78,7 +78,9 @@
 
                     } else {
                         location = t('metadata', 'Resolving, click here to view on map ...');
+                    }
 
+                    if ((data.lat !== null) && (data.lon !== null)) {
                         var url = 'https://nominatim.openstreetmap.org/reverse',
                             params = {lat: data.lat, lon: data.lon, format: 'json', zoom: 18},
                             _self = this;
@@ -92,7 +94,9 @@
                                 _self.updateLocation(data);
                             },
                             error: function() {
-                                _self.updateLocation({error: t('metadata', 'Nominatim service unavailable, click here to view on map')});
+                                if (data.loc === null) {
+                                    _self.updateLocation({error: t('metadata', 'Nominatim service unavailable, click here to view on map')});
+                                }
                             }
                         });
                     }
@@ -178,7 +182,7 @@
             } else {
                 var location = data.address;
                 var address = [];
-                this.add(location.building || location.attraction || location.artwork || location.monument || location.house_number, address);
+                this.add(location.building || location.attraction || location.artwork || location.monument || location.viewpoint || location.house_number, address);
                 this.add(location.road || location.pedestrian || location.path || location.steps || location.footway || location.cycleway || location.bridleway || location.construction, address);
                 this.add(location.city || location.town || location.village || location.hamlet || location.isolated_dwelling, address);
                 this.add(location.country, address);

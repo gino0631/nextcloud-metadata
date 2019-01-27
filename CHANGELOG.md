@@ -9,6 +9,8 @@
   [#28](https://github.com/gino0631/nextcloud-metadata/issues/28)
 - Support for IPTC metadata
   [#31](https://github.com/gino0631/nextcloud-metadata/issues/31)
+- Support for XMP sidecar files
+  [#21](https://github.com/gino0631/nextcloud-metadata/issues/21)
 
 ## 0.8.0 – 2018-11-18
 ### Added
