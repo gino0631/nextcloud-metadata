@@ -91,6 +91,13 @@ class MetadataController extends Controller {
                     }
                     break;
 
+                case 'image/gif':
+                    if ($sections = $this->readGif($file)) {
+                        $metadata = $this->getImageMetadata($sections, $lat, $lon, $loc);
+//                        $this->dump($sections, $metadata);
+                    }
+                    break;
+
                 case 'image/png':
                     if ($sections = $this->readPng($file)) {
                         $metadata = $this->getImageMetadata($sections, $lat, $lon, $loc);
@@ -167,16 +174,30 @@ class MetadataController extends Controller {
         return $getId3->analyze($file);
     }
 
-    protected function readPng($file) {
+    protected function readGif($file) {
         $computed = array();
-
-        $size = getimagesize($file);
-        $computed['Width'] = $size[0];
-        $computed['Height'] = $size[1];
+        $this->getImageSize($file, $computed);
 
         return array(
             'COMPUTED' => $computed
         );
+    }
+
+    protected function readPng($file) {
+        $computed = array();
+        $this->getImageSize($file, $computed);
+
+        return array(
+            'COMPUTED' => $computed
+        );
+    }
+
+    protected function getImageSize($file, &$return) {
+        $size = getimagesize($file);
+        $return['Width'] = $size[0];
+        $return['Height'] = $size[1];
+
+        return $return;
     }
 
     protected function readExif($file) {
