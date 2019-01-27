@@ -91,6 +91,13 @@ class MetadataController extends Controller {
                     }
                     break;
 
+                case 'image/png':
+                    if ($sections = $this->readPng($file)) {
+                        $metadata = $this->getImageMetadata($sections, $lat, $lon, $loc);
+//                        $this->dump($sections, $metadata);
+                    }
+                    break;
+
                 case 'image/jpeg':
                     if ($sections = $this->readExif($file)) {
                         $sections['XMP'] = $this->readJpegXmpIptc($file);
@@ -158,6 +165,18 @@ class MetadataController extends Controller {
         $getId3->option_save_attachments = getID3::ATTACHMENTS_NONE;
 
         return $getId3->analyze($file);
+    }
+
+    protected function readPng($file) {
+        $computed = array();
+
+        $size = getimagesize($file);
+        $computed['Width'] = $size[0];
+        $computed['Height'] = $size[1];
+
+        return array(
+            'COMPUTED' => $computed
+        );
     }
 
     protected function readExif($file) {
