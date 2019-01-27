@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+
+## 0.9.0 – 2019-01-27
 ### Added
 - Support for PHP 7.3 (though some functionality may be affected
   by the bugs in PHP, see the discussion for details)
