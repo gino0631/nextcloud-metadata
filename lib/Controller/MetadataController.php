@@ -546,7 +546,7 @@ class MetadataController extends Controller {
         return $return;
     }
 
-    protected function getImageMetadata($sections, &$lat, &$lon, &$loc) {
+    protected function getImageMetadata($sections, &$lat, &$lon, &$loc, IL10N $l) {
         $return = array();
 
         $comp = $this->getVal('COMPUTED', $sections) ?: array();
@@ -556,39 +556,39 @@ class MetadataController extends Controller {
         $xmp = $this->getVal('XMP', $sections) ?: array();
 
         if ($v = $this->getVal('title', $xmp)) {
-            $this->addValT('Title', $v, $return);
+            $this->addValT($l->t("metadata", "Title"), $v, $return);
         }
 
         if ($v = $this->getVal('headline', $xmp)) {
-            $this->addValT('Headline', $v, $return);
+            $this->addValT($l->t("metadata", "Headline"), $v, $return);
         }
 
         if ($v = $this->getVal('description', $xmp)) {
-            $this->addValT('Description', $v, $return);
+            $this->addValT($l->t("metadata", "Description"), $v, $return);
         }
 
         if ($v = $this->getVal('captionWriter', $xmp)) {
-            $this->addValT('Description writer', $v, $return);
+            $this->addValT($l->t("metadata", "Description writer"), $v, $return);
         }
 
         if ($v = $this->getVal('people', $xmp)) {
-            $this->addValT('People', $v, $return);
+            $this->addValT($l->t("metadata", "People"), $v, $return);
         }
 
         if ($v = $this->getVal('tags', $xmp)) {
-            $this->addValT('Tags', $v, $return);
+            $this->addValT($l->t("metadata", "Tags"), $v, $return);
         }
 
         if ($v = $this->getVal('subject', $xmp)) {
-            $this->addValT('Keywords', $v, $return);
+            $this->addValT($l->t("metadata", "Keywords"), $v, $return);
         }
 
         if ($v = $this->getVal('instructions', $xmp)) {
-            $this->addValT('Instructions', $v, $return);
+            $this->addValT($l->t("metadata", "Instructions"), $v, $return);
         }
 
         if (($v = $this->getVal('Comments', $ifd0)) || ($v = $this->getVal('UserComment', $comp))) {
-            $this->addValT('Comment', $v, $return);
+            $this->addValT($l->t("metadata", "Comment"), $v, $return);
         }
 
         if (($d = $this->getVal('DateTimeOriginal', $exif)) || ($v = $this->getVal('dateCreated', $xmp))) {
@@ -597,7 +597,7 @@ class MetadataController extends Controller {
                 $v = $d;
             }
 
-            $this->addValT('Date created', $v, $return);
+            $this->addValT($l->t("metadata", "Date created"), $v, $return);
         }
 
         if (($w = $this->getVal('ExifImageWidth', $exif)) && ($h = $this->getVal('ExifImageLength', $exif))) {
@@ -615,100 +615,100 @@ class MetadataController extends Controller {
         }
 
         if ($w && $h) {
-            $this->addValT('Dimensions', $w . ' x ' . $h, $return);
+            $this->addValT($l->t("metadata", "Dimensions"), $w . ' x ' . $h, $return);
         }
 
         if (($v = $this->getVal('Artist', $ifd0)) || ($v = $this->getVal('creator', $xmp))) {
-            $this->addValT('Author', $v, $return);
+            $this->addValT($l->t("metadata", "Author"), $v, $return);
         }
 
         if ($v = $this->getVal('authorsPosition', $xmp)) {
-            $this->addValT('Job title', $v, $return);
+            $this->addValT($l->t("metadata", "Job title"), $v, $return);
         }
 
         if ($v = $this->getVal('credit', $xmp)) {
-            $this->addValT('Credits', $v, $return);
+            $this->addValT($l->t("metadata", "Credits"), $v, $return);
         }
 
         if ($v = $this->getVal('source', $xmp)) {
-            $this->addValT('Source', $v, $return);
+            $this->addValT($l->t("metadata", "Source"), $v, $return);
         }
 
         if (($v = $this->getVal('Copyright', $ifd0)) || ($v = $this->getVal('rights', $xmp))) {
-            $this->addValT('Copyright', $v, $return);
+            $this->addValT($l->t("metadata", "Copyright"), $v, $return);
         }
 
         if ($v = $this->getVal('Make', $ifd0)) {
-            $this->addValT('Camera used', $v, $return);
+            $this->addValT($l->t("metadata", "Camera used"), $v, $return);
         }
 
         if ($v = $this->getVal('Model', $ifd0)) {
-            $this->addValT('Camera used', $v, $return, null, ' ');
+            $this->addValT($l->t("metadata", "Camera used"), $v, $return, null, ' ');
         }
 
         if ($v = $this->getVal('Software', $ifd0)) {
-            $this->addValT('Software', $v, $return);
+            $this->addValT($l->t("metadata", "'Software"), $v, $return);
         }
 
         if ($v = $this->getVal('ExposureTime', $exif)) {
-            $this->addValT('Exposure', $this->language->t('%s sec.', array($this->formatRational($v, true))), $return);
+            $this->addValT($l->t("metadata", "Exposure"), $this->language->t('%s sec.', array($this->formatRational($v, true))), $return);
         }
 
         if ($v = $this->getVal('ApertureFNumber', $comp)) {
-            $this->addValT('Exposure', $v, $return, null, '&emsp;');
+            $this->addValT($l->t("metadata", "Exposure"), $v, $return, null, '&emsp;');
         }
 
         if ($v = $this->getVal('ISOSpeedRatings', $exif)) {
-            $this->addValT('Exposure', $this->language->t('ISO-%s', array($v)), $return, null, '&emsp;');
+            $this->addValT($l->t("metadata", "Exposure"), $this->language->t('ISO-%s', array($v)), $return, null, '&emsp;');
         }
 
         if ($v = $this->getVal('ExposureProgram', $exif)) {
-            $this->addValT('Exposure program', $this->formatExposureProgram($v), $return);
+            $this->addValT($l->t("metadata", "Exposure program"), $this->formatExposureProgram($v), $return);
         }
 
         if ($v = $this->getVal('ExposureMode', $exif)) {
-            $this->addValT('Exposure mode', $this->formatExposureMode($v), $return);
+            $this->addValT($l->t("metadata", "Exposure mode"), $this->formatExposureMode($v), $return);
         }
 
         if ($v = $this->getVal('ExposureBiasValue', $exif)) {
-            $this->addValT('Exposure bias', $this->language->t('%s step', array($this->formatRational($v))), $return);
+            $this->addValT($l->t("metadata", "Exposure bias"), $this->language->t('%s step', array($this->formatRational($v))), $return);
         }
 
         if ($v = $this->getVal('FocalLength', $exif)) {
-            $this->addValT('Focal length', $this->language->t('%g mm', array($this->formatRational($v))), $return);
+            $this->addValT($l->t("metadata", "Focal length"), $this->language->t('%g mm', array($this->formatRational($v))), $return);
         }
 
         if ($v = $this->getVal('FocalLengthIn35mmFilm', $exif)) {
-            $this->addValT('Focal length', $this->language->t('(35 mm equivalent: %g mm)', array($v)), $return, null, ' ');
+            $this->addValT($l->t("metadata", "Focal length"), $this->language->t('(35 mm equivalent: %g mm)', array($v)), $return, null, ' ');
         }
 
         if ($v = $this->getVal('MaxApertureValue', $exif)) {
-            $this->addValT('Max aperture', $this->apexToF($this->evalRational($v)), $return);
+            $this->addValT($l->t("metadata", "Max aperture"), $this->apexToF($this->evalRational($v)), $return);
         }
 
         if ($v = $this->getVal('MeteringMode', $exif)) {
-            $this->addValT('Metering mode', $this->formatMeteringMode($v), $return);
+            $this->addValT($l->t("metadata", "Metering mode"), $this->formatMeteringMode($v), $return);
         }
 
         if ($v = $this->getVal('Flash', $exif)) {
-            $this->addValT('Flash mode', $this->formatFlashMode($v), $return);
+            $this->addValT($l->t("metadata", "Flash mode"), $this->formatFlashMode($v), $return);
         }
 
         if ($v = $this->getVal('GPSLatitude', $gps)) {
             $ref = $this->getVal('GPSLatitudeRef', $gps);
-            $this->addValT('GPS coordinates', $this->formatGpsCoord($v, $ref), $return);
+            $this->addValT($l->t("metadata", "GPS coordinates"), $this->formatGpsCoord($v, $ref), $return);
             $lat = $this->gpsToDecDegree($v, $ref === 'N');
         }
 
         if ($v = $this->getVal('GPSLongitude', $gps)) {
             $ref = $this->getVal('GPSLongitudeRef', $gps);
-            $this->addValT('GPS coordinates', $this->formatGpsCoord($v, $ref), $return, null, '&emsp;');
+            $this->addValT($l->t("metadata", "GPS coordinates"), $this->formatGpsCoord($v, $ref), $return, null, '&emsp;');
             $lon = $this->gpsToDecDegree($v, $ref === 'E');
         }
 
         if ($v = $this->getVal('GPSAltitude', $gps)) {
             $ref = $this->getVal('GPSAltitudeRef', $gps);
-            $this->addValT('GPS altitude', $this->formatGpsAlt($v, $ref), $return);
+            $this->addValT($l->t("metadata", "GPS altitude"), $this->formatGpsAlt($v, $ref), $return);
         }
 
         if ($v = $this->getVal('city', $xmp)) {
