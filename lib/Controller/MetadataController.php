@@ -7,6 +7,8 @@ use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\IRequest;
 use Exception;
+use OCP\L10N\IFactory;
+use OCP\IL10N;
 
 class MetadataController extends Controller {
     const EXPOSURE_PROGRAMS = array(
@@ -139,7 +141,7 @@ class MetadataController extends Controller {
                     break;
 
                 default:
-                    throw new Exception($this->language->t('Unsupported MIME type "%s".', array($mimetype)));
+                    throw new Exception($this->language->t('Unsupported MIME type %s', array($mimetype)));
             }
 
         } catch (Exception $e) {
@@ -412,7 +414,7 @@ class MetadataController extends Controller {
         return unpack(($intel? 'V' : 'N').'d', $data)['d'];
     }
 
-    protected function getAvMetadata($sections, &$lat, &$lon) {
+    protected function getAvMetadata($sections, &$lat, &$lon, IL10N $l) {
         $return = array();
 
         $audio = $this->getVal('audio', $sections) ?: array();
@@ -428,19 +430,19 @@ class MetadataController extends Controller {
         krsort($tags);  // make a predictable order with 'id3v2' before 'id3v1'
 
         if ($v = $this->getValM('title', $tags)) {
-            $this->addValT('Title', $v, $return);
+            $this->addValT($l->t("metadata", "Title"), $v, $return);
         }
 
         if ($v = $this->getValM('artist', $tags)) {
-            $this->addValT('Artist', $v, $return);
+            $this->addValT($l->t("metadata", "Artist"), $v, $return);
         }
 
         if ($v = $this->getVal('playtime_seconds', $sections)) {
-            $this->addValT('Length', $this->formatSeconds($v), $return);
+            $this->addValT($l->t("metadata", "Length"), $this->formatSeconds($v), $return);
         }
 
         if (($x = $this->getVal('resolution_x', $video)) && ($y = $this->getVal('resolution_y', $video))) {
-            $this->addValT('Dimensions', $x . ' x ' . $y, $return);
+            $this->addValT($l->t("metadata", "Dimensions"), $x . ' x ' . $y, $return);
         }
 
         if ($v = $this->getVal('frame_rate', $video)) {
@@ -452,58 +454,58 @@ class MetadataController extends Controller {
         }
 
         if ($v = $this->getVal('author', $quicktime)) {
-            $this->addValT('Author', $v, $return);
+            $this->addValT($l->t("metadata", "Author"), $v, $return);
         }
 
         if ($v = $this->getVal('copyright', $quicktime)) {
-            $this->addValT('Copyright', $v, $return);
+            $this->addValT($l->t("metadata", "Copyright"), $v, $return);
         }
 
         if ($v = $this->getVal('make', $quicktime)) {
-            $this->addValT('Camera used', $v, $return);
+            $this->addValT($l->t("metadata", "Camera used"), $v, $return);
         }
 
         if ($v = $this->getVal('model', $quicktime)) {
-            $this->addValT('Camera used', $v, $return, null, ' ');
+            $this->addValT($l->t("metadata", "Camera used"), $v, $return, null, ' ');
         }
 
         if ($v = $this->getVal('com.android.version', $quicktime)) {
-            $this->addValT('Android version', $v, $return);
+            $this->addValT($l->t("metadata", "Android version"), $v, $return);
         }
 
         if ($v = $this->getVal('codec', $video)) {
-            $this->addValT('Video codec', $v, $return);
+            $this->addValT($l->t("metadata", "Video codec"), $v, $return);
 
         } else if ($v = $this->getVal('fourcc', $video)) {
-            $this->addValT('Video codec', $this->formatFourCc($v), $return);
+            $this->addValT($l->t("metadata", "Video codec"), $this->formatFourCc($v), $return);
         }
 
         if ($v = $this->getVal('bits_per_sample', $video)) {
-            $this->addValT('Video sample size', $this->language->t('%s bit', array($v)), $return);
+            $this->addValT($l->t("metadata", "Video sample size"), $this->language->t('%s bit', array($v)), $return);
         }
 
         if ($v = $this->getVal('codec', $audio)) {
-            $this->addValT('Audio codec', $v, $return);
+            $this->addValT($l->t("metadata", "Audio codec"), $v, $return);
         }
 
         if ($v = $this->getVal('channels', $audio)) {
-            $this->addValT('Audio channels', $v, $return);
+            $this->addValT($l->t("metadata", "Audio channels"), $v, $return);
         }
 
         if ($v = $this->getVal('sample_rate', $audio)) {
-            $this->addValT('Audio sample rate', $this->language->t('%s kHz', array($v/1000)), $return);
+            $this->addValT(($l->t("metadata", "Audio sample rate"), $this->language->t('%s kHz', array($v/1000)), $return);
         }
 
         if ($v = $this->getVal('bits_per_sample', $audio)) {
-            $this->addValT('Audio sample size', $this->language->t('%s bit', array($v)), $return);
+            $this->addValT(($l->t("metadata", "Audio sample size"), $this->language->t('%s bit', array($v)), $return);
         }
 
         if ($v = $this->getValM('album', $tags) ?: $this->getVal('product', $riff)) {
-            $this->addValT('Album', $v, $return);
+            $this->addValT(($l->t("metadata", "Album"), $v, $return);
         }
 
         if ($v = $this->getVal('tracknumber', $vorbis) ?: $this->getVal('part', $riff) ?: $this->getVal('track_number', $id3v2) ?: $this->getVal('track', $id3v1)) {
-            $this->addValT('Track #', $v, $return);
+            $this->addValT($l->t("metadata", "Track #"), $v, $return);
         }
 
         if ($v = $this->getVal('date', $vorbis) ?: $this->getVal('creationdate', $riff) ?: $this->getVal('creation_date', $quicktime) ?: $this->getVal('year', $vorbis, $id3v2, $id3v1)) {
@@ -512,7 +514,7 @@ class MetadataController extends Controller {
         }
 
         if ($v = $this->getValM('genre', $tags)) {
-            $this->addValT('Genre', $v, $return);
+            $this->addValT($l->t("metadata", "Genre"), $v, $return);
         }
 
         if ($v = $this->getVal('description', $vorbis) ?: $this->getValM('comment', $tags)) {
@@ -520,25 +522,25 @@ class MetadataController extends Controller {
                 $this->formatComments($v);
             }
 
-            $this->addValT('Comment', $v, $return);
+            $this->addValT($l->t("metadata", "Comment"), $v, $return);
         }
 
         if ($v = $this->getValM('encoded_by', $tags)) {
-            $this->addValT('Encoded by', $v, $return);
+            $this->addValT($l->t("metadata", "Encoded by"), $v, $return);
         }
 
         if ($v = $this->getVal('writingapp', $matroska) ?: $this->getVal('encoding_tool', $quicktime) ?: $this->getVal('software', $riff) ?: $this->getVal('encoder', $audio)) {
-            $this->addValT('Encoding tool', $v, $return);
+            $this->addValT($l->t("metadata", "Encoding tool"), $v, $return);
         }
 
         if ($v = $this->getVal('gps_latitude', $quicktime)) {
             $lat = $v[0];
-            $this->addValT('GPS coordinates', $this->formatGpsDegree($lat, 'N', 'S'), $return);
+            $this->addValT($l->t("metadata", "GPS coordinates"), $this->formatGpsDegree($lat, 'N', 'S'), $return);
         }
 
         if ($v = $this->getVal('gps_longitude', $quicktime)) {
             $lon = $v[0];
-            $this->addValT('GPS coordinates', $this->formatGpsDegree($lon, 'E', 'W'), $return, null, '&emsp;');
+            $this->addValT($l->t("metadata", "GPS coordinates"), $this->formatGpsDegree($lon, 'E', 'W'), $return, null, '&emsp;');
         }
 
         return $return;
