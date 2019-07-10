@@ -493,15 +493,15 @@ class MetadataController extends Controller {
         }
 
         if ($v = $this->getVal('sample_rate', $audio)) {
-            $this->addValT(($l->t("metadata", "Audio sample rate"), $this->language->t('%s kHz', array($v/1000)), $return);
+            $this->addValT($l->t("metadata", "Audio sample rate"), $this->language->t('%s kHz', array($v/1000)), $return);
         }
 
         if ($v = $this->getVal('bits_per_sample', $audio)) {
-            $this->addValT(($l->t("metadata", "Audio sample size"), $this->language->t('%s bit', array($v)), $return);
+            $this->addValT($l->t("metadata", "Audio sample size"), $this->language->t('%s bit', array($v)), $return);
         }
 
         if ($v = $this->getValM('album', $tags) ?: $this->getVal('product', $riff)) {
-            $this->addValT(($l->t("metadata", "Album"), $v, $return);
+            $this->addValT($l->t("metadata", "Album"), $v, $return);
         }
 
         if ($v = $this->getVal('tracknumber', $vorbis) ?: $this->getVal('part', $riff) ?: $this->getVal('track_number', $id3v2) ?: $this->getVal('track', $id3v1)) {
