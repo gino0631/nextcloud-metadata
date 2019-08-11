@@ -125,7 +125,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('Viágem', $metadata['Title']);
         $this->assertEquals('Viágem', $metadata['Description']);
         $this->assertEquals('Viágem', $metadata['Comment']);
-        $this->assertEquals(['Viágem'], $metadata['Keywords']);
+        $this->assertEquals('Viágem', $metadata['Keywords']);
         $this->assertEquals('Viágem', $metadata['Author']);
         $this->assertEquals('Viágem', $metadata['Copyright']);
         $this->assertEquals('Viágem', $metadata['Camera used']);
