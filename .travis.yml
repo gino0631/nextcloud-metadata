@@ -16,7 +16,7 @@ env:
     - CLOUD=nextcloud CORE_BRANCH=stable15
     - CLOUD=nextcloud CORE_BRANCH=stable16
     - CLOUD=nextcloud CORE_BRANCH=master
-    - CLOUD=owncloud CORE_BRANCH=stable10
+    - CLOUD=owncloud CORE_BRANCH=v10.1.0
 
 matrix:
   exclude:
