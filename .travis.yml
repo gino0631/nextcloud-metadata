@@ -38,6 +38,7 @@ before_install:
   - if [ $CLOUD = 'nextcloud' ]; then wget https://raw.githubusercontent.com/nextcloud/travis_ci/master/before_install.sh; fi
   - if [ $CLOUD = 'owncloud' ]; then wget https://raw.githubusercontent.com/owncloud/administration/master/travis-ci/before_install.sh; fi
   - if [ $CLOUD = 'owncloud' ]; then nvm install stable; fi
+  - if [ $CLOUD = 'owncloud' ]; then composer install; fi
   - if [ $CLOUD = 'owncloud' ]; then curl -sSfL -o ~/.phpenv/versions/$(phpenv version-name)/bin/phpunit https://phar.phpunit.de/phpunit-6.5.phar; fi
   - if [ $CLOUD = 'owncloud' ]; then ln -s $PWD ../$APP_NAME; fi
   - . ./before_install.sh $APP_NAME $CORE_BRANCH pgsql
