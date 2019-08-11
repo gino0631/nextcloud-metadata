@@ -4,6 +4,9 @@ php:
   - 7.1
   - 7.3
 
+node_js:
+  - node
+
 services:
   - postgresql
 
@@ -14,6 +17,7 @@ env:
     - CLOUD=nextcloud CORE_BRANCH=stable13
     - CLOUD=nextcloud CORE_BRANCH=stable14
     - CLOUD=nextcloud CORE_BRANCH=stable15
+    - CLOUD=nextcloud CORE_BRANCH=stable16
     - CLOUD=nextcloud CORE_BRANCH=master
     - CLOUD=owncloud CORE_BRANCH=stable10
 
@@ -21,6 +25,8 @@ matrix:
   exclude:
     - php: 7.0
       env: CLOUD=nextcloud CORE_BRANCH=master
+    - php: 7.3
+      env: CLOUD=nextcloud CORE_BRANCH=stable13
   allow_failures:
     - php: 7.3
 
