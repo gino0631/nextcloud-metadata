@@ -4,9 +4,6 @@ php:
   - 7.1
   - 7.3
 
-node_js:
-  - 8.15
-
 services:
   - postgresql
 
@@ -25,6 +22,7 @@ matrix:
   exclude:
     - php: 7.0
       env: CLOUD=nextcloud CORE_BRANCH=stable16
+    - php: 7.0
       env: CLOUD=nextcloud CORE_BRANCH=master
     - php: 7.3
       env: CLOUD=nextcloud CORE_BRANCH=stable13
@@ -34,6 +32,7 @@ matrix:
 before_install:
   - if [ $CLOUD = 'nextcloud' ]; then wget https://raw.githubusercontent.com/nextcloud/travis_ci/master/before_install.sh; fi
   - if [ $CLOUD = 'owncloud' ]; then wget https://raw.githubusercontent.com/owncloud/administration/master/travis-ci/before_install.sh; fi
+  - if [ $CLOUD = 'owncloud' ]; then nvm install stable; fi
   - if [ $CLOUD = 'owncloud' ]; then node -v; fi
   - if [ $CLOUD = 'owncloud' ]; then ln -s $PWD ../$APP_NAME; fi
   - . ./before_install.sh $APP_NAME $CORE_BRANCH pgsql
