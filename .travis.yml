@@ -16,7 +16,8 @@ env:
     - CLOUD=nextcloud CORE_BRANCH=stable15
     - CLOUD=nextcloud CORE_BRANCH=stable16
     - CLOUD=nextcloud CORE_BRANCH=master
-    - CLOUD=owncloud CORE_BRANCH=v10.2.0
+    - CLOUD=owncloud CORE_BRANCH=v10.1.1
+    - CLOUD=owncloud CORE_BRANCH=stable10
 
 matrix:
   exclude:
@@ -27,6 +28,10 @@ matrix:
     - php: 7.3
       env: CLOUD=nextcloud CORE_BRANCH=stable13
   allow_failures:
+    - php: 7.0
+      env: CLOUD=owncloud CORE_BRANCH=stable10
+    - php: 7.1
+      env: CLOUD=owncloud CORE_BRANCH=stable10
     - php: 7.3
 
 before_install:
