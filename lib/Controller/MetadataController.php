@@ -586,7 +586,7 @@ class MetadataController extends Controller {
         }
 
         if (($v = $this->getVal('Comments', $ifd0)) || ($v = $this->getVal('UserComment', $comp))) {
-            $this->addValT('Comment', $v, $return);
+            $this->addValT('Comment', utf8_encode($v), $return);
         }
 
         if (($d = $this->getVal('DateTimeOriginal', $exif)) || ($v = $this->getVal('dateCreated', $xmp))) {

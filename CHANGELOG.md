@@ -1,6 +1,9 @@
 # Changelog
 
 ## [Unreleased]
+### Fixed
+- Handling of Unicode comments and missing IPTC metadata fixed
+  [#36](https://github.com/gino0631/nextcloud-metadata/issues/36)
 
 ## 0.9.0 – 2019-01-27
 ### Added
