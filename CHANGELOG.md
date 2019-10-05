@@ -1,6 +1,11 @@
 # Changelog
 
 ## [Unreleased]
+
+## 0.10.0 – 2019-10-05
+### Added
+- Compatibility with Nextcloud 17.
+
 ### Fixed
 - Handling of Unicode comments and missing IPTC metadata fixed
   [#36](https://github.com/gino0631/nextcloud-metadata/issues/36)
