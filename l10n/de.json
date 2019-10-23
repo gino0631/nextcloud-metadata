@@ -1,3 +1,5 @@
 { "translations": {
+    "Metadata" : "Metadaten",
+    "Reading metadata ..." : "Lese Metadaten ..."
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
