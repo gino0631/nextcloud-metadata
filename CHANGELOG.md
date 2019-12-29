@@ -1,6 +1,12 @@
 # Changelog
 
 ## [Unreleased]
+### Added
+- Compatibility with Nextcloud 18.
+
+### Fixed
+- App sidebar not displayed in Nextcloud 18
+  [#45](https://github.com/gino0631/nextcloud-metadata/issues/45)
 
 ## 0.10.0 – 2019-10-05
 ### Added

@@ -38,10 +38,10 @@
         },
 
         canDisplay: function(fileInfo) {
-            if (!fileInfo || fileInfo.isDirectory() || !fileInfo.has('mimetype')) {
+            if (!fileInfo || fileInfo.isDirectory()) {
                 return false;
             }
-            var mimetype = fileInfo.get('mimetype');
+            var mimetype = fileInfo.get('mimetype') || '';
 
             return (['audio/flac', 'audio/mp4', 'audio/mpeg', 'audio/ogg', 'audio/wav',
                 'image/gif', 'image/jpeg', 'image/png', 'image/tiff', 'image/x-dcraw',
