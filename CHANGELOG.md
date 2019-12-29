@@ -7,6 +7,8 @@
 ### Fixed
 - App sidebar not displayed in Nextcloud 18
   [#45](https://github.com/gino0631/nextcloud-metadata/issues/45)
+- Exception when trying to show metadata of a certain MP3 file
+  [#44](https://github.com/gino0631/nextcloud-metadata/issues/44)
 
 ## 0.10.0 – 2019-10-05
 ### Added

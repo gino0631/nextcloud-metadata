@@ -1,10 +1,9 @@
 <?php
-/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// getID3() by James Heinrich <info@getid3.org>               //
-//  available at http://getid3.sourceforge.net                 //
-//            or http://www.getid3.org                         //
-//          also https://github.com/JamesHeinrich/getID3       //
-/////////////////////////////////////////////////////////////////
+//  available at https://github.com/JamesHeinrich/getID3       //
+//            or https://www.getid3.org                        //
+//            or http://getid3.sourceforge.net                 //
 //                                                             //
 // Please see readme.txt for more information                  //
 //                                                            ///
@@ -12,21 +11,53 @@
 
 namespace OCA\Metadata\GetID3;
 
-abstract class getid3_handler {
+abstract class getid3_handler
+{
 
 	/**
 	* @var getID3
 	*/
 	protected $getid3;                       // pointer
 
-	protected $data_string_flag     = false; // analyzing filepointer or string
-	protected $data_string          = '';    // string to analyze
-	protected $data_string_position = 0;     // seek position in string
-	protected $data_string_length   = 0;     // string length
+	/**
+	 * Analyzing filepointer or string.
+	 *
+	 * @var bool
+	 */
+	protected $data_string_flag     = false;
 
-	private $dependency_to = null;
+	/**
+	 * String to analyze.
+	 *
+	 * @var string
+	 */
+	protected $data_string          = '';
 
+	/**
+	 * Seek position in string.
+	 *
+	 * @var int
+	 */
+	protected $data_string_position = 0;
 
+	/**
+	 * String length.
+	 *
+	 * @var int
+	 */
+	protected $data_string_length   = 0;
+
+	/**
+	 * @var string
+	 */
+	private $dependency_to;
+
+	/**
+	 * getid3_handler constructor.
+	 *
+	 * @param getID3 $getid3
+	 * @param string $call_module
+	 */
 	public function __construct(getID3 $getid3, $call_module=null) {
 		$this->getid3 = $getid3;
 
@@ -35,12 +66,18 @@ abstract class getid3_handler {
 		}
 	}
 
-
-	// Analyze from file pointer
+	/**
+	 * Analyze from file pointer.
+	 *
+	 * @return bool
+	 */
 	abstract public function Analyze();
 
-
-	// Analyze from string instead
+	/**
+	 * Analyze from string instead.
+	 *
+	 * @param string $string
+	 */
 	public function AnalyzeString($string) {
 		// Enter string mode
 		$this->setStringMode($string);
@@ -66,12 +103,18 @@ abstract class getid3_handler {
 		$this->data_string_flag = false;
 	}
 
+	/**
+	 * @param string $string
+	 */
 	public function setStringMode($string) {
 		$this->data_string_flag   = true;
 		$this->data_string        = $string;
 		$this->data_string_length = strlen($string);
 	}
 
+	/**
+	 * @return int|bool
+	 */
 	protected function ftell() {
 		if ($this->data_string_flag) {
 			return $this->data_string_position;
@@ -79,6 +122,13 @@ abstract class getid3_handler {
 		return ftell($this->getid3->fp);
 	}
 
+	/**
+	 * @param int $bytes
+	 *
+	 * @return string|false
+	 *
+	 * @throws getid3_exception
+	 */
 	protected function fread($bytes) {
 		if ($this->data_string_flag) {
 			$this->data_string_position += $bytes;
@@ -91,7 +141,7 @@ abstract class getid3_handler {
 
 		//return fread($this->getid3->fp, $bytes);
 		/*
-		* http://www.getid3.org/phpBB3/viewtopic.php?t=1930
+		* https://www.getid3.org/phpBB3/viewtopic.php?t=1930
 		* "I found out that the root cause for the problem was how getID3 uses the PHP system function fread().
 		* It seems to assume that fread() would always return as many bytes as were requested.
 		* However, according the PHP manual (http://php.net/manual/en/function.fread.php), this is the case only with regular local files, but not e.g. with Linux pipes.
@@ -99,6 +149,10 @@ abstract class getid3_handler {
 		*/
 		$contents = '';
 		do {
+			//if (($this->getid3->memory_limit > 0) && ($bytes > $this->getid3->memory_limit)) {
+			if (($this->getid3->memory_limit > 0) && (($bytes / $this->getid3->memory_limit) > 0.99)) { // enable a more-fuzzy match to prevent close misses generating errors like "PHP Fatal error: Allowed memory size of 33554432 bytes exhausted (tried to allocate 33554464 bytes)"
+				throw new getid3_exception('cannot fread('.$bytes.' from '.$this->ftell().') that is more than available PHP memory ('.$this->getid3->memory_limit.')', 10);
+			}
 			$part = fread($this->getid3->fp, $bytes);
 			$partLength  = strlen($part);
 			$bytes      -= $partLength;
@@ -107,6 +161,14 @@ abstract class getid3_handler {
 		return $contents;
 	}
 
+	/**
+	 * @param int $bytes
+	 * @param int $whence
+	 *
+	 * @return int
+	 *
+	 * @throws getid3_exception
+	 */
 	protected function fseek($bytes, $whence=SEEK_SET) {
 		if ($this->data_string_flag) {
 			switch ($whence) {
@@ -137,6 +199,9 @@ abstract class getid3_handler {
 		return fseek($this->getid3->fp, $bytes, $whence);
 	}
 
+	/**
+	 * @return bool
+	 */
 	protected function feof() {
 		if ($this->data_string_flag) {
 			return $this->data_string_position >= $this->data_string_length;
@@ -144,24 +209,53 @@ abstract class getid3_handler {
 		return feof($this->getid3->fp);
 	}
 
+	/**
+	 * @param string $module
+	 *
+	 * @return bool
+	 */
 	final protected function isDependencyFor($module) {
 		return $this->dependency_to == $module;
 	}
 
+	/**
+	 * @param string $text
+	 *
+	 * @return bool
+	 */
 	protected function error($text) {
 		$this->getid3->info['error'][] = $text;
 
 		return false;
 	}
 
+	/**
+	 * @param string $text
+	 *
+	 * @return bool
+	 */
 	protected function warning($text) {
 		return $this->getid3->warning($text);
 	}
 
+	/**
+	 * @param string $text
+	 */
 	protected function notice($text) {
 		// does nothing for now
 	}
 
+	/**
+	 * @param string $name
+	 * @param int    $offset
+	 * @param int    $length
+	 * @param string $image_mime
+	 *
+	 * @return string|null
+	 *
+	 * @throws Exception
+	 * @throws getid3_exception
+	 */
 	public function saveAttachment($name, $offset, $length, $image_mime=null) {
 		try {
 
@@ -184,7 +278,7 @@ abstract class getid3_handler {
 
 				// set up destination path
 				$dir = rtrim(str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $this->getid3->option_save_attachments), DIRECTORY_SEPARATOR);
-				if (!is_dir($dir) || !is_writable($dir)) { // check supplied directory
+				if (!is_dir($dir) || !getID3::is_writable($dir)) { // check supplied directory
 					throw new \Exception('supplied path ('.$dir.') does not exist, or is not writable');
 				}
 				$dest = $dir.DIRECTORY_SEPARATOR.$name.($image_mime ? '.'.getid3_lib::ImageExtFromMime($image_mime) : '');
@@ -215,6 +309,9 @@ abstract class getid3_handler {
 			// close and remove dest file if created
 			if (isset($fp_dest) && is_resource($fp_dest)) {
 				fclose($fp_dest);
+			}
+
+			if (isset($dest) && file_exists($dest)) {
 				unlink($dest);
 			}
 
