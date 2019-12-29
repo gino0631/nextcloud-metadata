@@ -20,5 +20,5 @@ Support for other formats may be implemented in future releases (feel free to ma
 <br><kbd><img src="screenshots/jpg-metadata.png?raw=true"></kbd>
 
 ## Requirements
-* PHP 5.6 or later (tested with 7.0, 7.1)
+* PHP 7.1 or later (tested successfully with 7.1 and 7.3; problems with EXIF exist in 7.2; other versions may or may not work)
 * EXIF support for PHP (if `php --ri exif` returns `Extension 'exif' not present`, you might need to install an appropriate package for your system, e.g. by running `pkg install php71-exif` on FreeBSD/NAS4Free)
