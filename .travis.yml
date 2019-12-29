@@ -2,7 +2,9 @@ language: php
 php:
   - 7.0
   - 7.1
+  - 7.2
   - 7.3
+  - 7.4
 
 services:
   - postgresql
@@ -24,9 +26,7 @@ matrix:
   exclude:
     - php: 7.0
       env: CLOUD=nextcloud CORE_BRANCH=stable16
-    - php: 7.0
       env: CLOUD=nextcloud CORE_BRANCH=stable17
-    - php: 7.0
       env: CLOUD=nextcloud CORE_BRANCH=master
     - php: 7.1
       env: CLOUD=nextcloud CORE_BRANCH=master
@@ -37,7 +37,9 @@ matrix:
       env: CLOUD=owncloud CORE_BRANCH=stable10
     - php: 7.1
       env: CLOUD=owncloud CORE_BRANCH=stable10
+    - php: 7.2
     - php: 7.3
+    - php: 7.4
 
 before_install:
   - if [ $CLOUD = 'nextcloud' ]; then wget https://raw.githubusercontent.com/nextcloud/travis_ci/master/before_install.sh; fi
