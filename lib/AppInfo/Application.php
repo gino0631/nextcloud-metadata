@@ -3,7 +3,6 @@
 namespace OCA\Metadata\AppInfo;
 
 use OCP\AppFramework\App;
-use OCP\EventDispatcher\IEventDispatcher;
 
 class Application extends App {
 	const APP_NAME = 'metadata';
@@ -19,8 +18,7 @@ class Application extends App {
 
 		$container = $this->getContainer();
 		$server = $container->getServer();
-		/** @var IEventDispatcher $eventDispatcher */
-		$eventDispatcher = $server->query(IEventDispatcher::class);
+		$eventDispatcher = $server->getEventDispatcher();
 
 		$eventDispatcher->addListener('OCA\Files::loadAdditionalScripts', function() {
 			\OCP\Util::addStyle('metadata', 'tabview' );
@@ -30,7 +28,7 @@ class Application extends App {
 			$policy = new \OCP\AppFramework\Http\EmptyContentSecurityPolicy();
 			$policy->addAllowedConnectDomain('https://nominatim.openstreetmap.org/');
 			$policy->addAllowedFrameDomain('https://www.openstreetmap.org/');
-			\OC::$server->getContentSecurityPolicyManager()->addDefaultPolicy($policy);
+			$server->getContentSecurityPolicyManager()->addDefaultPolicy($policy);
 		});
 	}
 }
