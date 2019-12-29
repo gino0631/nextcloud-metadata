@@ -11,7 +11,7 @@ class MetadataControllerTest extends TestCase {
     private $user;
     private $controller;
 
-    public function setUp() {
+    public function setUp(): void {
         parent::setUp();
 
         $this->user = 'user_' . uniqid();
