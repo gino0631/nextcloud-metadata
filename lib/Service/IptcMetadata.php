@@ -1,5 +1,5 @@
 <?php
-namespace OCA\Metadata\Controller;
+namespace OCA\Metadata\Service;
 
 class IptcMetadata {
     const MAP = array(
