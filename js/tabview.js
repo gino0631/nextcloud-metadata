@@ -18,7 +18,7 @@
                 this.$el.html('<div style="text-align:center; word-wrap:break-word;" class="get-metadata"><p><img src="'
                     + OC.imagePath('core','loading.gif')
                     + '"><br><br></p><p>'
-                    + t('metadata', 'Reading metadata ...')
+                    + t('metadata', 'Reading metadata …')
                     + '</p></div>');
 
                 var url = OC.generateUrl('/apps/metadata/get'),
