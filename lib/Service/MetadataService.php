@@ -484,11 +484,11 @@ class MetadataService {
         }
 
         if ($v = $this->getValM('encoded_by', $tags)) {
-            $this->addVal($this->('Encoded by'), $v, $return);
+            $this->addVal($this->t('Encoded by'), $v, $return);
         }
 
         if ($v = $this->getVal('writingapp', $matroska) ?: $this->getVal('encoding_tool', $quicktime) ?: $this->getVal('software', $riff) ?: $this->getVal('encoder', $audio)) {
-            $this->addVal($this->('Encoding tool'), $v, $return);
+            $this->addVal($this->t('Encoding tool'), $v, $return);
         }
 
         if ($v = $this->getVal('gps_latitude', $quicktime)) {
