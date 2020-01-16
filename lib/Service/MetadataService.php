@@ -51,7 +51,7 @@ class MetadataService {
     public function getMetadata($source) {
         $file = Filesystem::getLocalFile($source);
         if (!$file) {
-            throw new \Exception($this->language->t('File not found.'));
+            throw new \Exception($this->t('File not found.'));
         }
 
         $metadata = null;
@@ -126,7 +126,7 @@ class MetadataService {
                 break;
 
             default:
-                throw new \Exception($this->language->t('Unsupported MIME type "%s".', array($mimetype)));
+                throw new \Exception($this->t('Unsupported MIME type "%s".', array($mimetype)));
         }
 
         return $metadata;
@@ -167,7 +167,7 @@ class MetadataService {
 
     protected function readExif($file) {
         if (!function_exists('exif_read_data')) {
-            throw new \Exception($this->language->t('EXIF support is missing; you might need to install an appropriate package for your system.'));
+            throw new \Exception($this->t('EXIF support is missing; you might need to install an appropriate package for your system.'));
         }
 
         return exif_read_data($file, 0, true);
@@ -388,91 +388,91 @@ class MetadataService {
         krsort($tags);  // make a predictable order with 'id3v2' before 'id3v1'
 
         if ($v = $this->getValM('title', $tags)) {
-            $this->addValT('Title', $v, $return);
+            $this->addVal($this->t('Title'), $v, $return);
         }
 
         if ($v = $this->getValM('artist', $tags)) {
-            $this->addValT('Artist', $v, $return);
+            $this->addVal($this->t('Artist'), $v, $return);
         }
 
         if ($v = $this->getVal('playtime_seconds', $sections)) {
-            $this->addValT('Length', $this->formatSeconds($v), $return);
+            $this->addVal($this->t('Length'), $this->formatSeconds($v), $return);
         }
 
         if (($x = $this->getVal('resolution_x', $video)) && ($y = $this->getVal('resolution_y', $video))) {
-            $this->addValT('Dimensions', $x . ' x ' . $y, $return);
+            $this->addVal($this->t('Dimensions'), $x . ' x ' . $y, $return);
         }
 
         if ($v = $this->getVal('frame_rate', $video)) {
-            $this->addValT('Frame rate', $this->language->t('%g fps', array($v)), $return);
+            $this->addVal($this->t('Frame rate'), $this->t('%g fps', array($v)), $return);
         }
 
         if ($v = $this->getVal('bitrate', $sections)) {
-            $this->addValT('Bit rate', $this->language->t('%s kbps', array(floor($v/1000))), $return);
+            $this->addVal($this->t('Bit rate'), $this->t('%s kbps', array(floor($v/1000))), $return);
         }
 
         if ($v = $this->getVal('author', $quicktime)) {
-            $this->addValT('Author', $v, $return);
+            $this->addVal($this->t('Author'), $v, $return);
         }
 
         if ($v = $this->getVal('copyright', $quicktime)) {
-            $this->addValT('Copyright', $v, $return);
+            $this->addVal($this->t('Copyright'), $v, $return);
         }
 
         if ($v = $this->getVal('make', $quicktime)) {
-            $this->addValT('Camera used', $v, $return);
+            $this->addVal($this->t('Camera used'), $v, $return);
         }
 
         if ($v = $this->getVal('model', $quicktime)) {
-            $this->addValT('Camera used', $v, $return, null, ' ');
+            $this->addVal($this->t('Camera used'), $v, $return, null, ' ');
         }
 
         if ($v = $this->getVal('com.android.version', $quicktime)) {
-            $this->addValT('Android version', $v, $return);
+            $this->addVal($this->t('Android version'), $v, $return);
         }
 
         if ($v = $this->getVal('codec', $video)) {
-            $this->addValT('Video codec', $v, $return);
+            $this->addVal($this->t('Video codec'), $v, $return);
 
         } else if ($v = $this->getVal('fourcc', $video)) {
-            $this->addValT('Video codec', $this->formatFourCc($v), $return);
+            $this->addVal($this->t('Video codec'), $this->formatFourCc($v), $return);
         }
 
         if ($v = $this->getVal('bits_per_sample', $video)) {
-            $this->addValT('Video sample size', $this->language->t('%s bit', array($v)), $return);
+            $this->addVal($this->t('Video sample size'), $this->t('%s bit', array($v)), $return);
         }
 
         if ($v = $this->getVal('codec', $audio)) {
-            $this->addValT('Audio codec', $v, $return);
+            $this->addVal($this->t('Audio codec'), $v, $return);
         }
 
         if ($v = $this->getVal('channels', $audio)) {
-            $this->addValT('Audio channels', $v, $return);
+            $this->addVal($this->t('Audio channels'), $v, $return);
         }
 
         if ($v = $this->getVal('sample_rate', $audio)) {
-            $this->addValT('Audio sample rate', $this->language->t('%s kHz', array($v/1000)), $return);
+            $this->addVal($this->t('Audio sample rate'), $this->t('%s kHz', array($v/1000)), $return);
         }
 
         if ($v = $this->getVal('bits_per_sample', $audio)) {
-            $this->addValT('Audio sample size', $this->language->t('%s bit', array($v)), $return);
+            $this->addVal($this->t('Audio sample size'), $this->t('%s bit', array($v)), $return);
         }
 
         if ($v = $this->getValM('album', $tags) ?: $this->getVal('product', $riff)) {
-            $this->addValT('Album', $v, $return);
+            $this->addVal($this->t('Album'), $v, $return);
         }
 
         if ($v = $this->getVal('tracknumber', $vorbis) ?: $this->getVal('part', $riff) ?: $this->getVal('track_number', $id3v2) ?: $this->getVal('track', $id3v1)) {
-            $this->addValT('Track #', $v, $return);
+            $this->addVal($this->t('Track #'), $v, $return);
         }
 
         if ($v = $this->getVal('date', $vorbis) ?: $this->getVal('creationdate', $riff) ?: $this->getVal('creation_date', $quicktime) ?: $this->getVal('year', $vorbis, $id3v2, $id3v1)) {
             $isYear = is_array($v) && (count($v) === 1) && (strlen($v[0]) === 4);
-            $this->addValT($isYear ? 'Year' : 'Date', $v, $return);
+            $this->addVal($isYear ? $this->t('Year') : $this->t('Date'), $v, $return);
         }
 
         if ($v = $this->getValM('genre', $tags)) {
-            $this->addValT('Genre', $v, $return);
+            $this->addVal($this->t('Genre'), $v, $return);
         }
 
         if ($v = $this->getVal('description', $vorbis) ?: $this->getValM('comment', $tags)) {
@@ -480,25 +480,25 @@ class MetadataService {
                 $this->formatComments($v);
             }
 
-            $this->addValT('Comment', $v, $return);
+            $this->addVal($this->t('Comment'), $v, $return);
         }
 
         if ($v = $this->getValM('encoded_by', $tags)) {
-            $this->addValT('Encoded by', $v, $return);
+            $this->addVal($this->('Encoded by'), $v, $return);
         }
 
         if ($v = $this->getVal('writingapp', $matroska) ?: $this->getVal('encoding_tool', $quicktime) ?: $this->getVal('software', $riff) ?: $this->getVal('encoder', $audio)) {
-            $this->addValT('Encoding tool', $v, $return);
+            $this->addVal($this->('Encoding tool'), $v, $return);
         }
 
         if ($v = $this->getVal('gps_latitude', $quicktime)) {
             $lat = $v[0];
-            $this->addValT('GPS coordinates', $this->formatGpsDegree($lat, 'N', 'S'), $return);
+            $this->addVal($this->t('GPS coordinates'), $this->formatGpsDegree($lat, 'N', 'S'), $return);
         }
 
         if ($v = $this->getVal('gps_longitude', $quicktime)) {
             $lon = $v[0];
-            $this->addValT('GPS coordinates', $this->formatGpsDegree($lon, 'E', 'W'), $return, null, '&emsp;');
+            $this->addVal($this->t('GPS coordinates'), $this->formatGpsDegree($lon, 'E', 'W'), $return, null, '&emsp;');
         }
 
         return new Metadata($return, $lat, $lon);
@@ -517,42 +517,42 @@ class MetadataService {
         $xmp = $this->getVal('XMP', $sections) ?: array();
 
         if ($v = $this->getVal('title', $xmp)) {
-            $this->addValT('Title', $v, $return);
+            $this->addVal($this->t('Title'), $v, $return);
         }
 
         if ($v = $this->getVal('headline', $xmp)) {
-            $this->addValT('Headline', $v, $return);
+            $this->addVal($this->t('Headline'), $v, $return);
         }
 
         if ($v = $this->getVal('description', $xmp)) {
-            $this->addValT('Description', $v, $return);
+            $this->addVal($this->t('Description'), $v, $return);
         }
 
         if ($v = $this->getVal('captionWriter', $xmp)) {
-            $this->addValT('Description writer', $v, $return);
+            $this->addVal($this->t('Description writer'), $v, $return);
         }
 
         if ($v = $this->getVal('people', $xmp)) {
-            $this->addValT('People', $v, $return);
+            $this->addVal($this->t('People'), $v, $return);
         }
 
         if ($v = $this->getVal('tags', $xmp)) {
-            $this->addValT('Tags', $v, $return);
+            $this->addVal($this->t('Tags'), $v, $return);
         }
 
         if ($v = $this->getVal('subject', $xmp)) {
-            $this->addValT('Keywords', $v, $return);
+            $this->addVal($this->t('Keywords'), $v, $return);
         }
 
         if ($v = $this->getVal('instructions', $xmp)) {
-            $this->addValT('Instructions', $v, $return);
+            $this->addVal($this->t('Instructions'), $v, $return);
         }
 
         if ($v = $this->getVal('UserComment', $comp)) {
-            $this->addValT('Comment', $v, $return);
+            $this->addVal($this->t('Comment'), $v, $return);
 
         } else if ($v = $this->getVal('Comments', $ifd0)) {
-            $this->addValT('Comment', rtrim(mb_convert_encoding($v, 'UTF-8', 'UTF-16LE'), "\0"), $return);
+            $this->addVal($this->t('Comment'), rtrim(mb_convert_encoding($v, 'UTF-8', 'UTF-16LE'), "\0"), $return);
         }
 
         if (($d = $this->getVal('DateTimeOriginal', $exif)) || ($v = $this->getVal('dateCreated', $xmp))) {
@@ -561,7 +561,7 @@ class MetadataService {
                 $v = $d;
             }
 
-            $this->addValT('Date created', $v, $return);
+            $this->addVal($this->t('Date created'), $v, $return);
         }
 
         if (($w = $this->getVal('ExifImageWidth', $exif)) && ($h = $this->getVal('ExifImageLength', $exif))) {
@@ -579,100 +579,100 @@ class MetadataService {
         }
 
         if ($w && $h) {
-            $this->addValT('Dimensions', $w . ' x ' . $h, $return);
+            $this->addVal($this->t('Dimensions'), $w . ' x ' . $h, $return);
         }
 
         if (($v = $this->getVal('Artist', $ifd0)) || ($v = $this->getVal('creator', $xmp))) {
-            $this->addValT('Author', $v, $return);
+            $this->addVal($this->t('Author'), $v, $return);
         }
 
         if ($v = $this->getVal('authorsPosition', $xmp)) {
-            $this->addValT('Job title', $v, $return);
+            $this->addVal($this->t('Job title'), $v, $return);
         }
 
         if ($v = $this->getVal('credit', $xmp)) {
-            $this->addValT('Credits', $v, $return);
+            $this->addVal($this->t('Credits'), $v, $return);
         }
 
         if ($v = $this->getVal('source', $xmp)) {
-            $this->addValT('Source', $v, $return);
+            $this->addVal($this->t('Source'), $v, $return);
         }
 
         if (($v = $this->getVal('Copyright', $ifd0)) || ($v = $this->getVal('rights', $xmp))) {
-            $this->addValT('Copyright', $v, $return);
+            $this->addVal($this->t('Copyright'), $v, $return);
         }
 
         if ($v = $this->getVal('Make', $ifd0)) {
-            $this->addValT('Camera used', $v, $return);
+            $this->addVal($this->t('Camera used'), $v, $return);
         }
 
         if ($v = $this->getVal('Model', $ifd0)) {
-            $this->addValT('Camera used', $v, $return, null, ' ');
+            $this->addVal($this->t('Camera used'), $v, $return, null, ' ');
         }
 
         if ($v = $this->getVal('Software', $ifd0)) {
-            $this->addValT('Software', $v, $return);
+            $this->addVal($this->t('Software'), $v, $return);
         }
 
         if ($v = $this->getVal('ExposureTime', $exif)) {
-            $this->addValT('Exposure', $this->language->t('%s sec.', array($this->formatRational($v, true))), $return);
+            $this->addVal($this->t('Exposure'), $this->t('%s sec.', array($this->formatRational($v, true))), $return);
         }
 
         if ($v = $this->getVal('ApertureFNumber', $comp)) {
-            $this->addValT('Exposure', $v, $return, null, '&emsp;');
+            $this->addVal($this->t('Exposure'), $v, $return, null, '&emsp;');
         }
 
         if ($v = $this->getVal('ISOSpeedRatings', $exif)) {
-            $this->addValT('Exposure', $this->language->t('ISO-%s', array($v)), $return, null, '&emsp;');
+            $this->addVal($this->t('Exposure'), $this->t('ISO-%s', array($v)), $return, null, '&emsp;');
         }
 
         if ($v = $this->getVal('ExposureProgram', $exif)) {
-            $this->addValT('Exposure program', $this->formatExposureProgram($v), $return);
+            $this->addVal($this->t('Exposure program'), $this->formatExposureProgram($v), $return);
         }
 
         if ($v = $this->getVal('ExposureMode', $exif)) {
-            $this->addValT('Exposure mode', $this->formatExposureMode($v), $return);
+            $this->addVal($this->t('Exposure mode'), $this->formatExposureMode($v), $return);
         }
 
         if ($v = $this->getVal('ExposureBiasValue', $exif)) {
-            $this->addValT('Exposure bias', $this->language->t('%s step', array($this->formatRational($v))), $return);
+            $this->addVal($this->t('Exposure bias'), $this->t('%s step', array($this->formatRational($v))), $return);
         }
 
         if ($v = $this->getVal('FocalLength', $exif)) {
-            $this->addValT('Focal length', $this->language->t('%g mm', array($this->formatRational($v))), $return);
+            $this->addVal($this->t('Focal length'), $this->t('%g mm', array($this->formatRational($v))), $return);
         }
 
         if ($v = $this->getVal('FocalLengthIn35mmFilm', $exif)) {
-            $this->addValT('Focal length', $this->language->t('(35 mm equivalent: %g mm)', array($v)), $return, null, ' ');
+            $this->addVal($this->t('Focal length'), $this->t('(35 mm equivalent: %g mm)', array($v)), $return, null, ' ');
         }
 
         if ($v = $this->getVal('MaxApertureValue', $exif)) {
-            $this->addValT('Max aperture', $this->apexToF($this->evalRational($v)), $return);
+            $this->addVal($this->t('Max aperture'), $this->apexToF($this->evalRational($v)), $return);
         }
 
         if ($v = $this->getVal('MeteringMode', $exif)) {
-            $this->addValT('Metering mode', $this->formatMeteringMode($v), $return);
+            $this->addVal($this->t('Metering mode'), $this->formatMeteringMode($v), $return);
         }
 
         if ($v = $this->getVal('Flash', $exif)) {
-            $this->addValT('Flash mode', $this->formatFlashMode($v), $return);
+            $this->addVal($this->t('Flash mode'), $this->formatFlashMode($v), $return);
         }
 
         if ($v = $this->getVal('GPSLatitude', $gps)) {
             $ref = $this->getVal('GPSLatitudeRef', $gps);
-            $this->addValT('GPS coordinates', $this->formatGpsCoord($v, $ref), $return);
+            $this->addVal($this->t('GPS coordinates'), $this->formatGpsCoord($v, $ref), $return);
             $lat = $this->gpsToDecDegree($v, $ref === 'N');
         }
 
         if ($v = $this->getVal('GPSLongitude', $gps)) {
             $ref = $this->getVal('GPSLongitudeRef', $gps);
-            $this->addValT('GPS coordinates', $this->formatGpsCoord($v, $ref), $return, null, '&emsp;');
+            $this->addVal($this->t('GPS coordinates'), $this->formatGpsCoord($v, $ref), $return, null, '&emsp;');
             $lon = $this->gpsToDecDegree($v, $ref === 'E');
         }
 
         if ($v = $this->getVal('GPSAltitude', $gps)) {
             $ref = $this->getVal('GPSAltitudeRef', $gps);
-            $this->addValT('GPS altitude', $this->formatGpsAlt($v, $ref), $return);
+            $this->addVal($this->t('GPS altitude'), $this->formatGpsAlt($v, $ref), $return);
         }
 
         if ($v = $this->getVal('city', $xmp)) {
@@ -695,11 +695,11 @@ class MetadataService {
     }
 
     protected function formatExposureProgram($code) {
-        return $this->language->t(MetadataService::EXPOSURE_PROGRAMS[$code]);
+        return $this->t(MetadataService::EXPOSURE_PROGRAMS[$code]);
     }
 
     protected function formatExposureMode($mode) {
-        return $this->language->t(MetadataService::EXPOSURE_MODES[$mode]);
+        return $this->t(MetadataService::EXPOSURE_MODES[$mode]);
     }
 
     protected function formatMeteringMode($mode) {
@@ -707,26 +707,26 @@ class MetadataService {
             $mode = 255;
         }
 
-        return $this->language->t(MetadataService::METERING_MODES[$mode]);
+        return $this->t(MetadataService::METERING_MODES[$mode]);
     }
 
     protected function formatFlashMode($mode) {
         if ($mode & 0x20) {
-            return $this->language->t('No flash function');
+            return $this->t('No flash function');
 
         } else {
-            $return = $this->language->t(($mode & 0x01) ? 'Flash' : 'No flash');
+            $return = $this->t(($mode & 0x01) ? 'Flash' : 'No flash');
 
             if (($compuls = ($mode & 0x18)) !== 0) {
-                $return .= ', ' . $this->language->t(($compuls === 0x18) ? 'auto' : 'compulsory');
+                $return .= ', ' . $this->t(($compuls === 0x18) ? 'auto' : 'compulsory');
             }
 
             if ($mode & 0x40) {
-                $return .= ', ' . $this->language->t('red-eye');
+                $return .= ', ' . $this->t('red-eye');
             }
 
             if (($strobe = ($mode & 0x06)) !== 0) {
-                $return .= ', ' . $this->language->t(($strobe === 0x06) ? 'strobe return' : (($strobe === 0x04) ? 'no strobe return' : ''));
+                $return .= ', ' . $this->t(($strobe === 0x06) ? 'strobe return' : (($strobe === 0x04) ? 'no strobe return' : ''));
             }
 
             return $return;
@@ -890,8 +890,8 @@ class MetadataService {
         $array[$key] = $val;
     }
 
-    protected function addValT($key, $val, &$array, $join = null, $sep = null) {
-        $this->addVal($this->language->t($key), $val, $array, $join, $sep);
+    protected function t($text, $parameters = array()) {
+        return $this->language->t($text, $parameters);
     }
 
     protected function dump(&$data, &$array, $prefix = '') {
