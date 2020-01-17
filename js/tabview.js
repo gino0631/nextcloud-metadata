@@ -77,7 +77,7 @@
                         location = address.join(', ');
 
                     } else {
-                        location = t('metadata', 'Resolving, click here to view on map ...');
+                        location = t('metadata', 'Resolving, click here to view on map …');
                     }
 
                     if ((data.lat !== null) && (data.lon !== null)) {
