@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+
+## 0.11.0 – 2020-01-20
 ### Added
 - Compatibility with Nextcloud 18.
 
