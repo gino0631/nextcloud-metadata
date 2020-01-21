@@ -28,7 +28,7 @@ class Application extends App {
 			$policy = new \OCP\AppFramework\Http\EmptyContentSecurityPolicy();
 			$policy->addAllowedConnectDomain('https://nominatim.openstreetmap.org/');
 			$policy->addAllowedFrameDomain('https://www.openstreetmap.org/');
-			$server->getContentSecurityPolicyManager()->addDefaultPolicy($policy);
+			\OC::$server->getContentSecurityPolicyManager()->addDefaultPolicy($policy);
 		});
 	}
 }

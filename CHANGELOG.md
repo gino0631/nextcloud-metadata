@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## 0.11.1 – 2020-01-21
+### Fixed
+- Nextcloud crash since 0.11.0
+  [#49](https://github.com/gino0631/nextcloud-metadata/issues/49)
+
 ## 0.11.0 – 2020-01-20
 ### Added
 - Compatibility with Nextcloud 18.
