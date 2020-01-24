@@ -6,39 +6,6 @@ use OCA\Metadata\AppInfo\Application;
 use OCA\Metadata\GetID3\getID3;
 
 class MetadataService {
-    const EXPOSURE_PROGRAMS = array(
-        0 => 'Not defined',
-        1 => 'Manual',
-        2 => 'Normal program',
-        3 => 'Aperture priority',
-        4 => 'Shutter priority',
-        5 => 'Creative program',
-        6 => 'Action program',
-        7 => 'Portrait mode',
-        8 => 'Landscape mode'
-    );
-
-    const EXPOSURE_MODES = array(
-        0 => 'Auto exposure',
-        1 => 'Manual exposure',
-        2 => 'Auto bracket'
-    );
-
-    const METERING_MODES = array(
-        0 => 'Unknown',
-        1 => 'Average',
-        2 => 'Center Weighted Average',
-        3 => 'Spot',
-        4 => 'Multi Spot',
-        5 => 'Pattern',
-        6 => 'Partial',
-        255 => 'Other'
-    );
-
-    const FOUR_CC = array(
-        'avc1' => 'H.264 - MPEG-4 AVC (part 10)'
-    );
-
     protected $language;
 
     public function __construct() {
@@ -695,19 +662,62 @@ class MetadataService {
     }
 
     protected function formatExposureProgram($code) {
-        return $this->t(MetadataService::EXPOSURE_PROGRAMS[$code]);
+        switch ($code) {
+            case 0:
+                return $this->t('Not defined');
+            case 1:
+                return $this->t('Manual');
+            case 2:
+                return $this->t('Normal program');
+            case 3:
+                return $this->t('Aperture priority');
+            case 4:
+                return $this->t('Shutter priority');
+            case 5:
+                return $this->t('Creative program');
+            case 6:
+                return $this->t('Action program');
+            case 7:
+                return $this->t('Portrait mode');
+            case 8:
+                return $this->t('Landscape mode');
+            default:
+                return null;
+        }
     }
 
     protected function formatExposureMode($mode) {
-        return $this->t(MetadataService::EXPOSURE_MODES[$mode]);
+        switch ($mode) {
+            case 0:
+                return $this->t('Auto exposure');
+            case 1:
+                return $this->t('Manual exposure');
+            case 2:
+                return $this->t('Auto bracket');
+            default:
+                return null;
+        }
     }
 
     protected function formatMeteringMode($mode) {
-        if (!array_key_exists($mode, MetadataService::METERING_MODES)) {
-            $mode = 255;
+        switch ($mode) {
+            case 0:
+                return $this->t('Unknown');
+            case 1:
+                return $this->t('Average');
+            case 2:
+                return $this->t('Center Weighted Average');
+            case 3:
+                return $this->t('Spot');
+            case 4:
+                return $this->t('Multi Spot');
+            case 5:
+                return $this->t('Pattern');
+            case 6:
+                return $this->t('Partial');
+            default:
+                return $this->t('Other');
         }
-
-        return $this->t(MetadataService::METERING_MODES[$mode]);
     }
 
     protected function formatFlashMode($mode) {
@@ -734,7 +744,12 @@ class MetadataService {
     }
 
     protected function formatFourCc($code) {
-        return array_key_exists($code, MetadataService::FOUR_CC) ? MetadataService::FOUR_CC[$code] . ' (' . $code .')' : $code;
+        switch ($code) {
+            case 'avc1':
+                return $this->t('H.264 - MPEG-4 AVC (part 10)');
+            default:
+                return $code;
+        }
     }
 
     protected function formatGpsCoord($coord, $ref) {
