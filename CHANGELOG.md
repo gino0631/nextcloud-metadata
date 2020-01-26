@@ -4,6 +4,8 @@
 ### Fixed
 - Trying to access array offset on value of type bool
   [#54](https://github.com/gino0631/nextcloud-metadata/issues/54)
+- Unparenthesized `a ? b : c ? d : e` is deprecated
+  [#53](https://github.com/gino0631/nextcloud-metadata/issues/53)
 
 ## 0.11.1 – 2020-01-21
 ### Fixed

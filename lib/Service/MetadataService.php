@@ -298,7 +298,7 @@ class MetadataService {
                 $tagId = $this->readShort($hnd, $intel);
                 $tagType = $this->readShort($hnd, $intel);
                 $count = $this->readInt($hnd, $intel);
-                $count = $count * (($tagType === 3) ? 2 : ($tagType === 4) ? 4 : ($tagType === 5) ? 8 : 1);
+                $count = $count * (($tagType === 3) ? 2 : (($tagType === 4) ? 4 : (($tagType === 5) ? 8 : 1)));
                 $offsetOrData = ($count <= 4) ? substr(fread($hnd, 4), 0, $count - 1) : $this->readInt($hnd, $intel);
                 $curr = ftell($hnd);
 
