@@ -25,6 +25,8 @@ env:
 matrix:
   exclude:
     - php: 7.1
+      env: CLOUD=nextcloud CORE_BRANCH=stable18
+    - php: 7.1
       env: CLOUD=nextcloud CORE_BRANCH=master
     - php: 7.3
       env: CLOUD=nextcloud CORE_BRANCH=stable13
