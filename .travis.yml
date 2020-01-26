@@ -17,6 +17,7 @@ env:
     - CLOUD=nextcloud CORE_BRANCH=stable15
     - CLOUD=nextcloud CORE_BRANCH=stable16
     - CLOUD=nextcloud CORE_BRANCH=stable17
+    - CLOUD=nextcloud CORE_BRANCH=stable18
     - CLOUD=nextcloud CORE_BRANCH=master
     - CLOUD=owncloud CORE_BRANCH=v10.1.1
     - CLOUD=owncloud CORE_BRANCH=stable10
@@ -29,6 +30,16 @@ matrix:
       env: CLOUD=nextcloud CORE_BRANCH=stable13
     - php: 7.3
       env: CLOUD=owncloud CORE_BRANCH=v10.1.1
+    - php: 7.4
+      env: CLOUD=nextcloud CORE_BRANCH=stable13
+    - php: 7.4
+      env: CLOUD=nextcloud CORE_BRANCH=stable14
+    - php: 7.4
+      env: CLOUD=nextcloud CORE_BRANCH=stable15
+    - php: 7.4
+      env: CLOUD=nextcloud CORE_BRANCH=stable16
+    - php: 7.4
+      env: CLOUD=nextcloud CORE_BRANCH=stable17
   allow_failures:
     - php: 7.1
       env: CLOUD=owncloud CORE_BRANCH=stable10
