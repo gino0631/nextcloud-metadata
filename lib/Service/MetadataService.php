@@ -14,6 +14,7 @@ class MetadataService {
 
     /**
      * @NoAdminRequired
+     * @throws \Exception
      */
     public function getMetadata($source) {
         $file = Filesystem::getLocalFile($source);
@@ -61,9 +62,11 @@ class MetadataService {
 
             case 'image/jpeg':
                 if ($sections = $this->readExif($file)) {
-                    $sections['XMP'] = $this->readJpegXmpIptc($file);
-                    if (!array_key_exists('GPS', $sections)) {
-                        $sections['GPS'] = $this->readJpegGps($file);
+                    if ($jpegMetadata = JpegMetadata::fromFile($file)) {
+                        $sections['XMP'] = array_merge($jpegMetadata->getIptc(), $jpegMetadata->getXmp());
+                        if (!array_key_exists('GPS', $sections)) {
+                            $sections['GPS'] = $jpegMetadata->getGps();
+                        }
                     }
                     $metadata = $this->getImageMetadata($sections);
 //                        $this->dump($sections, $metadata);
@@ -72,7 +75,9 @@ class MetadataService {
 
             case 'image/tiff':
                 if ($sections = $this->readExif($file)) {
-                    $sections['XMP'] = $this->readTiffXmpIptc($file);
+                    if ($tiffMetadata = TiffMetadata::fromFile($file)) {
+                        $sections['XMP'] = array_merge($tiffMetadata->getIptc(), $tiffMetadata->getXmp());
+                    }
                     $metadata = $this->getImageMetadata($sections);
 //                        $this->dump($sections, $metadata);
                 }
@@ -138,203 +143,6 @@ class MetadataService {
         }
 
         return exif_read_data($file, 0, true);
-    }
-
-    protected function readJpegGps($file) {
-        return $this->readJpegFile($file, function($hnd, $marker, $size) {
-            if (($marker === "\xE1") && ($size > 14)) {                // APP1 with enough data
-                $data = fread($hnd, 6);
-
-                if ($data === 'Exif'."\x00\x00") {
-                    $pos = ftell($hnd);
-
-                    return $this->readTiff($hnd, $pos, function($hnd, $intel, $tagId, $tagType, $count, $offset) use($pos) {
-                        if ($tagId === 0x8825) {
-                            $gps = array();
-                            $this->readTiffIfd($hnd, $pos, $intel, $offset, function($hnd, $intel, $tagId, $tagType, $count, $offsetOrData) use($pos, &$gps) {
-                                switch($tagId) {
-                                    case 0x01:
-                                        $gps['GPSLatitudeRef'] = $offsetOrData;
-                                        break;
-                                    case 0x02:
-                                        fseek($hnd, $pos + $offsetOrData);
-                                        $gps['GPSLatitude'] = array($this->readRat($hnd, $intel), $this->readRat($hnd, $intel), $this->readRat($hnd, $intel));
-                                        break;
-                                    case 0x03:
-                                        $gps['GPSLongitudeRef'] = $offsetOrData;
-                                        break;
-                                    case 0x04:
-                                        fseek($hnd, $pos + $offsetOrData);
-                                        $gps['GPSLongitude'] = array($this->readRat($hnd, $intel), $this->readRat($hnd, $intel), $this->readRat($hnd, $intel));
-                                        break;
-                                    case 0x05:
-                                        $gps['GPSAltitudeRef'] = $offsetOrData;
-                                        break;
-                                    case 0x06:
-                                        fseek($hnd, $pos + $offsetOrData);
-                                        $gps['GPSAltitude'] = $this->readRat($hnd, $intel);
-                                        break;
-                                }
-                            });
-
-                            return $gps;
-                        }
-                    });
-                }
-            }
-        });
-    }
-
-    protected function readJpegXmpIptc($file) {
-        $xmp = array();
-        $iptc = array();
-
-        $this->readJpegFile($file, function($hnd, $marker, $size) use (&$xmp, &$iptc) {
-            if (($marker === "\xE1") && ($size > 29)) {                // APP1 with enough data
-                $data = fread($hnd, 29);
-                $size -= 29;
-
-                if ($data === 'http://ns.adobe.com/xap/1.0/'."\x00") {
-                    $xmpMetadata = XmpMetadata::fromData(fread($hnd, $size));
-                    $xmp = $xmpMetadata->getArray();
-                }
-
-            } else if (($marker === "\xED") && ($size > 0)) {          // APP13
-                $iptcMetadata = IptcMetadata::fromData(fread($hnd, $size));
-                $iptc = $iptcMetadata->getArray();
-            }
-        });
-
-        return array_merge($iptc, $xmp);
-    }
-
-    protected function readJpegFile($file, $callback) {
-        if ($hnd = fopen($file, 'rb')) {
-            try {
-                $data = fread($hnd, 2);
-
-                if ($data === "\xFF\xD8") {     // SOI (Start Of Image)
-                    $data = fread($hnd, 2);
-
-                    // While not EOF, tag is valid, and not SOS (Start Of Scan) or EOI (End Of Image)
-                    while (!feof($hnd) && ($data[0] === "\xFF") && ($data[1] !== "\xDA") && ($data[1] !== "\xD9")) {
-                        if ((ord($data[1]) < 0xD0) || (ord($data[1]) > 0xD7)) {     // All segments but RSTn have size bytes
-                            $size = $this->readShort($hnd, false) - 2;
-
-                            if ($size > 0) {
-                                $pos = ftell($hnd);
-                                $result = call_user_func($callback, $hnd, $data[1], $size);
-                                if ($result) {
-                                    return $result;
-                                }
-
-                                fseek($hnd, $pos + $size);
-                            }
-                        }
-
-                        $data = fread($hnd, 2);
-                    }
-                }
-
-            } finally {
-                fclose($hnd);
-            }
-        }
-
-        return null;
-    }
-
-    protected function readTiffXmpIptc($file) {
-        $xmp = array();
-        $iptc = array();
-
-        $this->readTiffFile($file, function($hnd, $intel, $tagId, $tagType, $count, $offset) use (&$xmp, &$iptc) {
-            if ($tagId === 0x02BC) {
-                fseek($hnd, $offset);           // Go to XMP
-
-                $xmpMetadata = XmpMetadata::fromData(fread($hnd, $count));
-                $xmp = $xmpMetadata->getArray();
-
-            } else if ($tagId === 0x83BB) {
-                fseek($hnd, $offset);           // Go to IPTC
-                $iptcMetadata = IptcMetadata::fromData(fread($hnd, $count));
-                $iptc = $iptcMetadata->getArray();
-            }
-        });
-
-        return array_merge($iptc, $xmp);
-    }
-
-    protected function readTiffFile($file, $callback) {
-        if ($hnd = fopen($file, 'rb')) {
-            try {
-                return $this->readTiff($hnd, 0, $callback);
-
-            } finally {
-                fclose($hnd);
-            }
-        }
-
-        return null;
-    }
-
-    protected function readTiff($hnd, $pos, $callback) {
-        $data = fread($hnd, 4);
-
-        if (($data === "II\x2A\x00") || ($data === "MM\x00\x2A")) {     // ID
-            $intel = ($data[0] === 'I');
-            $ifdOffs = $this->readInt($hnd, $intel);
-
-            return $this->readTiffIfd($hnd, $pos, $intel, $ifdOffs, $callback);
-        }
-    }
-
-    protected function readTiffIfd($hnd, $pos, $intel, $ifdOffs, $callback) {
-        while (!feof($hnd) && ($ifdOffs !== 0)) {
-            fseek($hnd, $pos + $ifdOffs);               // Go to IFD
-            $tagCnt = $this->readShort($hnd, $intel);
-
-            for ($i = 0; $i < $tagCnt; $i++) {
-                $tagId = $this->readShort($hnd, $intel);
-                $tagType = $this->readShort($hnd, $intel);
-                $count = $this->readInt($hnd, $intel);
-                $count = $count * (($tagType === 3) ? 2 : (($tagType === 4) ? 4 : (($tagType === 5) ? 8 : 1)));
-                $offsetOrData = ($count <= 4) ? substr(fread($hnd, 4), 0, $count - 1) : $this->readInt($hnd, $intel);
-                $curr = ftell($hnd);
-
-                $result = call_user_func($callback, $hnd, $intel, $tagId, $tagType, $count, $offsetOrData);
-                if ($result) {
-                    return $result;
-                }
-
-                fseek($hnd, $curr);
-            }
-
-            $ifdOffs = $this->readInt($hnd, $intel);
-            if (($ifdOffs !== 0) && ($ifdOffs < ftell($hnd))) {         // Never go back
-                $ifdOffs = 0;
-            }
-        }
-    }
-
-    protected function readShort($hnd, $intel) {
-        return $this->unpackShort($intel, fread($hnd, 2));
-    }
-
-    protected function readInt($hnd, $intel) {
-        return $this->unpackInt($intel, fread($hnd, 4));
-    }
-
-    protected function readRat($hnd, $intel) {
-        return $this->readInt($hnd, $intel) . '/' . $this->readInt($hnd, $intel);
-    }
-
-    protected function unpackShort($intel, $data) {
-        return unpack(($intel? 'v' : 'n').'d', $data)['d'];
-    }
-
-    protected function unpackInt($intel, $data) {
-        return unpack(($intel? 'V' : 'N').'d', $data)['d'];
     }
 
     protected function getAvMetadata($sections) {
