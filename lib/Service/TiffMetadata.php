@@ -60,39 +60,37 @@ class TiffMetadata extends TiffParser {
                 break;
 
             case self::GPS:
-                $gpsParser = new class($this->gps) extends TiffParser {
-                    protected $gps;
-                    public function __construct($gps) {
-                        $this->gps = $gps;
-                    }
+                $gpsParser = new class() extends TiffParser {
+                    public $gps = array();
 
                     protected function processTag($hnd, $pos, $intel, $tagId, $tagType, $count, $size, $offsetOrData) {
                         switch ($tagId) {
                             case 0x01:
-                                $gps['GPSLatitudeRef'] = $offsetOrData;
+                                $this->gps['GPSLatitudeRef'] = $offsetOrData;
                                 break;
                             case 0x02:
                                 fseek($hnd, $pos + $offsetOrData);
-                                $gps['GPSLatitude'] = array($this->readRat($hnd, $intel), $this->readRat($hnd, $intel), $this->readRat($hnd, $intel));
+                                $this->gps['GPSLatitude'] = array($this->readRat($hnd, $intel), $this->readRat($hnd, $intel), $this->readRat($hnd, $intel));
                                 break;
                             case 0x03:
-                                $gps['GPSLongitudeRef'] = $offsetOrData;
+                                $this->gps['GPSLongitudeRef'] = $offsetOrData;
                                 break;
                             case 0x04:
                                 fseek($hnd, $pos + $offsetOrData);
-                                $gps['GPSLongitude'] = array($this->readRat($hnd, $intel), $this->readRat($hnd, $intel), $this->readRat($hnd, $intel));
+                                $this->gps['GPSLongitude'] = array($this->readRat($hnd, $intel), $this->readRat($hnd, $intel), $this->readRat($hnd, $intel));
                                 break;
                             case 0x05:
-                                $gps['GPSAltitudeRef'] = $offsetOrData;
+                                $this->gps['GPSAltitudeRef'] = $offsetOrData;
                                 break;
                             case 0x06:
                                 fseek($hnd, $pos + $offsetOrData);
-                                $gps['GPSAltitude'] = $this->readRat($hnd, $intel);
+                                $this->gps['GPSAltitude'] = $this->readRat($hnd, $intel);
                                 break;
                         }
                     }
                 };
                 $gpsParser->parseTiffIfd($hnd, $pos, $intel, $offsetOrData);
+                $this->gps = $gpsParser->gps;
                 break;
         }
 
