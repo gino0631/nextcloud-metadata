@@ -7,6 +7,13 @@ class TiffParser {
     const SHORT = 3;
     const LONG = 4;
     const RATIONAL = 5;
+    const SBYTE = 6;
+    const UNDEFINED = 7;
+    const SSHORT = 8;
+    const SLONG = 9;
+    const SRATIONAL = 10;
+    const FLOAT = 11;
+    const DOUBLE = 12;
 
     public function parseTiff($hnd, $pos) {
         $data = fread($hnd, 4);
@@ -32,6 +39,8 @@ class TiffParser {
                 $size = -1;
                 switch ($tagType) {
                     case self::BYTE:
+                    case self::SBYTE:
+                    case self::UNDEFINED:
                         $size = $count;
                         if ($size <= 4) {
                             $offsetOrData = substr($offsetOrData, 0, $size);
@@ -44,6 +53,7 @@ class TiffParser {
                         }
                         break;
                     case self::SHORT:
+                    case self::SSHORT:
                         $size = $count * 2;
                         if ($size <= 4) {
                             $offsetOrData = substr($offsetOrData, 0, $size);
@@ -57,12 +67,14 @@ class TiffParser {
                         }
                         break;
                     case self::LONG:
+                    case self::SLONG:
                         $size = $count * 4;
                         if ($size <= 4) {
                             $offsetOrData = $this->unpackInt($intel, $offsetOrData);
                         }
                         break;
                     case self::RATIONAL:
+                    case self::SRATIONAL:
                         $size = $count * 8;
                         break;
                 }
