@@ -1,0 +1,13 @@
+{ "translations": {
+    "Location" : "Lokasi",
+    "Title" : "Judul",
+    "Copyright" : "Hak cipta",
+    "Date" : "Date",
+    "Comment" : "Komentar",
+    "Description" : "Deskrisi",
+    "Tags" : "Tag",
+    "Credits" : "Kredit",
+    "Unknown" : "Tidak diketahui",
+    "Other" : "Lainnya"
+},"pluralForm" :"nplurals=1; plural=0;"
+}

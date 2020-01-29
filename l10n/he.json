@@ -1,0 +1,27 @@
+{ "translations": {
+    "Metadata" : "נתוני על",
+    "Nominatim service unavailable, click here to view on map" : "שירות ה־Nominatim אינו זמין, יש ללחוץ כאן כדי לראות על המפה",
+    "Location" : "מיקום",
+    "Location could not be determined" : "לא ניתן לאתר את המיקום",
+    "Nominatim service unavailable" : "שירות ה־Nominatim אינו זמין",
+    "No metadata found." : "לא נמצאו נתוני על.",
+    "File not found." : "הקובץ לא נמצא.",
+    "Unsupported MIME type \"%s\"." : "סוג ה־MIME ‏„%s” אינו נתמך.",
+    "EXIF support is missing; you might need to install an appropriate package for your system." : "התמיכה ב־EXIF חסרה, יתכן שיהיה עליך להתקין את החבילה המתאימה עבור המערכת שלך.",
+    "Title" : "תפקיד",
+    "Length" : "אורך",
+    "Copyright" : "זכויות יוצרים",
+    "Date" : "תאריך",
+    "Comment" : "הערה",
+    "Description" : "תיאור",
+    "Tags" : "תגיות",
+    "Credits" : "תודות",
+    "Unknown" : "לא ידוע",
+    "Pattern" : "תבנית",
+    "Other" : "אחר",
+    "No flash function" : "אין תכונת מבזק",
+    "Flash" : "מבזק",
+    "A plugin for displaying file metadata" : "תוסף להצגת נתוני על של קובץ",
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "תוסף שמציג נתוני על של קובץ בסרגל הפירוט הצדי על הקובץ.\n\nניתן לעיין ב־[README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) לצפייה בסוגי הקבצים הנתמכים ובמגבלות."
+},"pluralForm" :"nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;"
+}

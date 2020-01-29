@@ -1,0 +1,11 @@
+{ "translations": {
+    "Location" : "Ligging",
+    "Title" : "Titel",
+    "Date" : "Datum",
+    "Comment" : "Kommentaar",
+    "Description" : "Beskrywing",
+    "Tags" : "Etikette",
+    "Unknown" : "Onbekend",
+    "Other" : "Ander"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

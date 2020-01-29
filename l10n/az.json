@@ -1,0 +1,10 @@
+{ "translations": {
+    "Location" : "Yerləşdiyiniz ünvan",
+    "Title" : "Başlıq",
+    "Date" : "Date",
+    "Comment" : "Komentariya",
+    "Description" : "Açıqlanma",
+    "Tags" : "Işarələr",
+    "Other" : "Digər"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

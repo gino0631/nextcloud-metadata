@@ -1,0 +1,14 @@
+{ "translations": {
+    "Location" : "Llocalización",
+    "Title" : "Títulu",
+    "Copyright" : "Copyright",
+    "Date" : "Date",
+    "Comment" : "Comentariu",
+    "Description" : "Descripción",
+    "Tags" : "Etiquetes",
+    "Credits" : "Creitos",
+    "Unknown" : "Desconozse",
+    "Pattern" : "Patrón",
+    "Other" : "Otru"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

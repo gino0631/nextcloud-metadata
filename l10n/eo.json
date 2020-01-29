@@ -1,0 +1,13 @@
+{ "translations": {
+    "Location" : "Loko",
+    "Title" : "Titolo",
+    "Copyright" : "Kopirajto",
+    "Date" : "Date",
+    "Comment" : "Komento",
+    "Description" : "Priskribo",
+    "Tags" : "Etikedoj",
+    "Manual" : "Permane",
+    "Unknown" : "Nekonata",
+    "Other" : "Alia"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

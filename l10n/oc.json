@@ -1,0 +1,11 @@
+{ "translations": {
+    "Location" : "Emplaçament",
+    "Title" : "Títol",
+    "Copyright" : "Drech d'autor",
+    "Date" : "Date",
+    "Comment" : "Comentar",
+    "Description" : "Descripcion",
+    "Unknown" : "Desconegut",
+    "Other" : "Autre"
+},"pluralForm" :"nplurals=2; plural=(n > 1);"
+}

@@ -1,0 +1,8 @@
+{ "translations": {
+    "Location" : "Lokasi",
+    "Title" : "Judul",
+    "Date" : "Date",
+    "Description" : "Keterangan",
+    "Other" : "Lain"
+},"pluralForm" :"nplurals=1; plural=0;"
+}

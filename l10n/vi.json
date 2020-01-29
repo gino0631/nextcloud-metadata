@@ -1,0 +1,11 @@
+{ "translations": {
+    "Location" : "Vị trí",
+    "Title" : "Tên",
+    "Date" : "Date",
+    "Comment" : "Bình luận",
+    "Description" : "Mô tả",
+    "Tags" : "Thẻ",
+    "Unknown" : "Không xác định",
+    "Other" : "Khác"
+},"pluralForm" :"nplurals=1; plural=0;"
+}

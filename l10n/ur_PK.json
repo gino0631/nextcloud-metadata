@@ -1,0 +1,8 @@
+{ "translations": {
+    "Location" : "مقام",
+    "Title" : "عنوان",
+    "Date" : "Date",
+    "Description" : "تصریح",
+    "Other" : "دیگر"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

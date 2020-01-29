@@ -1,0 +1,12 @@
+{ "translations": {
+    "Location" : "Loco",
+    "Title" : "Titulo",
+    "Copyright" : "Copyright",
+    "Date" : "Date",
+    "Comment" : "Commentario",
+    "Description" : "Description",
+    "Tags" : "Etiquettas",
+    "Unknown" : "Incognite",
+    "Other" : "Altere"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

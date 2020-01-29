@@ -1,0 +1,10 @@
+{ "translations": {
+    "Location" : "இடம்",
+    "Title" : "தலைப்பு",
+    "Date" : "Date",
+    "Description" : "விவரிப்பு",
+    "Tags" : "சீட்டுகள்",
+    "Unknown" : "தெரியாத",
+    "Other" : "மற்றவை"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
