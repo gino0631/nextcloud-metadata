@@ -1,6 +1,7 @@
 OC.L10N.register(
     "metadata",
     {
+    "Metadata" : "Метаданни",
     "Location" : "Местоположение",
     "Title" : "Име",
     "Copyright" : "Авторско право",

@@ -1,6 +1,7 @@
 OC.L10N.register(
     "metadata",
     {
+    "Metadata" : "Метадані",
     "Location" : "Місце",
     "Title" : "Назва",
     "Date" : "Date",
