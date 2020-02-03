@@ -10,6 +10,7 @@ OC.L10N.register(
     "Tags" : "برچسب‌ها",
     "Credits" : "اعتبارات",
     "Unknown" : "نامشخص",
+    "Pattern" : "الگو",
     "Other" : "دیگر"
 },
 "nplurals=2; plural=(n > 1);");
