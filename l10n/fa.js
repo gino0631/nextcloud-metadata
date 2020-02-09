@@ -9,6 +9,7 @@ OC.L10N.register(
     "Description" : "توضیحات",
     "Tags" : "برچسب‌ها",
     "Credits" : "اعتبارات",
+    "Manual" : "کتابچه راهنمای",
     "Unknown" : "نامشخص",
     "Pattern" : "الگو",
     "Other" : "دیگر"
