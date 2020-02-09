@@ -31,4 +31,9 @@ class Application extends App {
 			\OC::$server->getContentSecurityPolicyManager()->addDefaultPolicy($policy);
 		});
 	}
+
+
+	public static function getL10N() {
+		return \OC::$server->getL10N(Application::APP_NAME);
+	}
 }

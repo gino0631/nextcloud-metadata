@@ -1,7 +1,7 @@
 <?php
 namespace OCA\Metadata\Service;
 
-class JpegMetadata extends TiffParser {
+class JpegMetadata extends FileReader {
     const APP1 = "\xE1";
     const APP13 = "\xED";
 
@@ -46,7 +46,7 @@ class JpegMetadata extends TiffParser {
             // While not EOF, tag is valid, and not SOS (Start Of Scan) or EOI (End Of Image)
             while (!feof($hnd) && ($data[0] === "\xFF") && ($data[1] !== "\xDA") && ($data[1] !== "\xD9")) {
                 if ((ord($data[1]) < 0xD0) || (ord($data[1]) > 0xD7)) {     // All segments but RSTn have size bytes
-                    $size = $this->readShort($hnd, false) - 2;
+                    $size = self::readShort($hnd, false) - 2;
 
                     if ($size > 0) {
                         $pos = ftell($hnd);

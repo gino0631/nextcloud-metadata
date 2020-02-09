@@ -7,6 +7,7 @@ A [Nextcloud](https://nextcloud.com/) plugin which displays file metadata in the
 - audio/mpeg (ID3v1 and ID3v2)
 - audio/ogg (VorbisComment)
 - audio/wav (RIFF)
+- image/heic (EXIF)
 - image/jpeg (EXIF, IPTC, XMP-dc, XMP-photoshop, XMP-mwg-rs, XMP-digiKam TagsList)
 - image/tiff (EXIF, IPTC, XMP-dc, XMP-photoshop, XMP-mwg-rs, XMP-digiKam TagsList)
 - image/x-dcraw (EXIF, XMP sidecar files)
