@@ -17,7 +17,7 @@ class HeicMetadata extends BmffParser {
 				$obj = new HeicMetadata();
 				$obj->readHeic($hnd);
 
-				return $obj;
+				return ($obj->exif) ? $obj : null;
 
 			} finally {
 				fclose($hnd);

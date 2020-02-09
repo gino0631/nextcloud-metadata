@@ -1,6 +1,5 @@
 language: php
 php:
-  - 7.1
   - 7.2
   - 7.3
   - 7.4
@@ -24,10 +23,6 @@ env:
 
 matrix:
   exclude:
-    - php: 7.1
-      env: CLOUD=nextcloud CORE_BRANCH=stable18
-    - php: 7.1
-      env: CLOUD=nextcloud CORE_BRANCH=master
     - php: 7.3
       env: CLOUD=nextcloud CORE_BRANCH=stable13
     - php: 7.3
@@ -47,8 +42,6 @@ matrix:
     - php: 7.4
       env: CLOUD=owncloud CORE_BRANCH=stable10
   allow_failures:
-    - php: 7.1
-      env: CLOUD=owncloud CORE_BRANCH=stable10
     - php: 7.2
 
 before_install:
