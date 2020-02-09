@@ -157,6 +157,7 @@
             $(document.createElement('div'))
                 .prop('title', 'OpenStreetMap')
                 .css('background', 'url(' + OC.imagePath('core','loading.gif') + ') center center no-repeat')
+                .css('max-width', 'none')
                 .append(iframe)
                 .appendTo($('body'))
                 .ocdialog({
