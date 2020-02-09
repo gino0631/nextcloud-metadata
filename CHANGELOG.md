@@ -5,6 +5,10 @@
 - Support for image Subject metadata written by Windows
   [#57](https://github.com/gino0631/nextcloud-metadata/issues/57)
 
+### Changed
+- Display of exposure bias
+  [#55](https://github.com/gino0631/nextcloud-metadata/issues/55)
+
 ### Fixed
 - Trying to access array offset on value of type bool
   [#54](https://github.com/gino0631/nextcloud-metadata/issues/54)

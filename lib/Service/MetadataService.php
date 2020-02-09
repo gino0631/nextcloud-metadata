@@ -401,16 +401,20 @@ class MetadataService {
             $this->addVal($this->t('Exposure'), $this->t('ISO-%s', array($v)), $return, null, '&emsp;');
         }
 
+        if ($v = $this->getVal('ExposureBiasValue', $exif)) {
+            $e = $this->formatRational($v, false, 1);
+            if (substr($e, 0, 1) !== '-') {
+                $e = '+' . $e;
+            }
+            $this->addVal($this->t('Exposure'), $this->t('%s EV', array($e)), $return, null, '&emsp;');
+        }
+
         if ($v = $this->getVal('ExposureProgram', $exif)) {
             $this->addVal($this->t('Exposure program'), $this->formatExposureProgram($v), $return);
         }
 
         if ($v = $this->getVal('ExposureMode', $exif)) {
             $this->addVal($this->t('Exposure mode'), $this->formatExposureMode($v), $return);
-        }
-
-        if ($v = $this->getVal('ExposureBiasValue', $exif)) {
-            $this->addVal($this->t('Exposure bias'), $this->t('%s step', array($this->formatRational($v))), $return);
         }
 
         if ($v = $this->getVal('FocalLength', $exif)) {
@@ -606,7 +610,7 @@ class MetadataService {
         return sprintf("%02d:%02d:%02d", floor($val / 3600), floor(fmod(($val / 60), 60)), round(fmod($val, 60)));
     }
 
-    protected function formatRational($val, $fracIfSmall = false) {
+    protected function formatRational($val, $fracIfSmall = false, $precision = 2) {
         if (preg_match('/([\-]?)(\d+)([\/])(\d+)/', $val, $matches) !== false) {
             if ($fracIfSmall && ($matches[2] < $matches[4])) {
                 if ($matches[2] !== 1) {
@@ -614,7 +618,7 @@ class MetadataService {
                 }
 
             } else {
-                $val = round($this->evalFraction($matches[1], $matches[2], $matches[4]), 2);
+                $val = round($this->evalFraction($matches[1], $matches[2], $matches[4]), $precision);
             }
         }
 
