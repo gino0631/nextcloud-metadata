@@ -4,9 +4,10 @@
 ### Added
 - Support for HEIC image files
   [#41](https://github.com/gino0631/nextcloud-metadata/issues/41)
-
 - Support for image Subject metadata written by Windows
   [#57](https://github.com/gino0631/nextcloud-metadata/issues/57)
+- Translations to many languages from
+  [Transifex](https://www.transifex.com/nextcloud/nextcloud/metadata/)
 
 ### Changed
 - Display of exposure bias

@@ -7,19 +7,19 @@ class FileReader {
 	}
 
 	public static function readShort($hnd, $intel) {
-		return ((($data = fread($hnd, 2)) !== false) && (strlen($data) == 2)) ? self::unpackShort($intel, $data) : false;
+		return ((($data = fread($hnd, 2)) !== false) && (strlen($data) === 2)) ? self::unpackShort($intel, $data) : false;
 	}
 
 	public static function readInt($hnd, $intel) {
-		return ((($data = fread($hnd, 4)) !== false) && (strlen($data) == 4)) ? self::unpackInt($intel, $data) : false;
+		return ((($data = fread($hnd, 4)) !== false) && (strlen($data) === 4)) ? self::unpackInt($intel, $data) : false;
 	}
 
 	public static function readLong($hnd, $intel) {
-		return ((($data = fread($hnd, 8)) !== false) && (strlen($data) == 8)) ? self::unpackLong($intel, $data) : false;
+		return ((($data = fread($hnd, 8)) !== false) && (strlen($data) === 8)) ? self::unpackLong($intel, $data) : false;
 	}
 
 	public static function readN($hnd, $n, $intel) {
-		return ((($data = fread($hnd, $n)) !== false) && (strlen($data) == $n)) ? self::unpackN($intel, $n, $data) : false;
+		return ((($data = fread($hnd, $n)) !== false) && (strlen($data) === $n)) ? self::unpackN($intel, $n, $data) : false;
 	}
 
 	public static function readRat($hnd, $intel) {
