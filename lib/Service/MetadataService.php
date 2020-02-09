@@ -299,7 +299,7 @@ class MetadataService {
             $this->addVal($this->t('Headline'), $v, $return);
         }
 
-        if ($v = $this->getVal('description', $xmp)) {
+        if (($v = $this->getVal('Subject', $ifd0)) || ($v = $this->getVal('description', $xmp))) {
             $this->addVal($this->t('Description'), $v, $return);
         }
 
