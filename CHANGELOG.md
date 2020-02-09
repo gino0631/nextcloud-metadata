@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 ### Added
+- Support for HEIC image files
+  [#41](https://github.com/gino0631/nextcloud-metadata/issues/41)
+
 - Support for image Subject metadata written by Windows
   [#57](https://github.com/gino0631/nextcloud-metadata/issues/57)
 

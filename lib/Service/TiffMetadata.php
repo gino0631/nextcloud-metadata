@@ -70,27 +70,27 @@ class TiffMetadata extends TiffParser {
                                 break;
                             case 0x02:
                                 fseek($hnd, $pos + $offsetOrData);
-                                $this->gps['GPSLatitude'] = array($this->readRat($hnd, $intel), $this->readRat($hnd, $intel), $this->readRat($hnd, $intel));
+                                $this->gps['GPSLatitude'] = array(self::readRat($hnd, $intel), self::readRat($hnd, $intel), self::readRat($hnd, $intel));
                                 break;
                             case 0x03:
                                 $this->gps['GPSLongitudeRef'] = $offsetOrData;
                                 break;
                             case 0x04:
                                 fseek($hnd, $pos + $offsetOrData);
-                                $this->gps['GPSLongitude'] = array($this->readRat($hnd, $intel), $this->readRat($hnd, $intel), $this->readRat($hnd, $intel));
+                                $this->gps['GPSLongitude'] = array(self::readRat($hnd, $intel), self::readRat($hnd, $intel), self::readRat($hnd, $intel));
                                 break;
                             case 0x05:
                                 $this->gps['GPSAltitudeRef'] = $offsetOrData;
                                 break;
                             case 0x06:
                                 fseek($hnd, $pos + $offsetOrData);
-                                $this->gps['GPSAltitude'] = $this->readRat($hnd, $intel);
+                                $this->gps['GPSAltitude'] = self::readRat($hnd, $intel);
                                 break;
                         }
                     }
                 };
                 $gpsParser->parseTiffIfd($hnd, $pos, $intel, $offsetOrData);
-                $this->gps = $gpsParser->gps;
+                $this->gps=$gpsParser->gps;
                 break;
         }
 

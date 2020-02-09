@@ -104,6 +104,24 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('0 m', $metadata['GPS altitude']);
     }
 
+    public function testHeic() {
+        $res = $this->controller->get('IMG_20170626_181110.heic');
+        $data = $res->getData();
+        $this->assertEquals('success', $data['response']);
+
+        $metadata = $data['metadata'];
+        $this->assertEquals('2017-06-26 18:11:09', $metadata['Date created']);
+        $this->assertEquals('4032 x 3016', $metadata['Dimensions']);
+        $this->assertEquals('Xiaomi MI 6', $metadata['Camera used']);
+        $this->assertEquals('sagit-user 7.1.1 NMF26X V8.2.2.0.NCAMIEC release-keys', $metadata['Software']);
+        $this->assertEquals('1/649 sec.&emsp;f/1.8&emsp;ISO-100', $metadata['Exposure']);
+        $this->assertEquals('3.82 mm (35 mm equivalent: 27 mm)', $metadata['Focal length']);
+        $this->assertEquals('Center Weighted Average', $metadata['Metering mode']);
+        $this->assertEquals('No flash, compulsory', $metadata['Flash mode']);
+        $this->assertEquals('N 51° 31\' 31.58"&emsp;W 0° 9\' 34.05"', $metadata['GPS coordinates']);
+        $this->assertEquals('0 m', $metadata['GPS altitude']);
+    }
+
     public function testJpgIptc() {
         $res = $this->controller->get('iptc.jpg');
         $data = $res->getData();

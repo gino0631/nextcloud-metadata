@@ -60,6 +60,14 @@ class MetadataService {
                 }
                 break;
 
+            case 'image/heic':
+                if ($heicMetadata = HeicMetadata::fromFile($file)) {
+                    $sections = $heicMetadata->getExif();
+                    $metadata = $this->getImageMetadata($sections);
+//                    $metadata->dump($sections);
+                }
+                break;
+
             case 'image/jpeg':
                 if ($sections = $this->readExif($file)) {
                     if ($jpegMetadata = JpegMetadata::fromFile($file)) {
@@ -69,7 +77,7 @@ class MetadataService {
                         }
                     }
                     $metadata = $this->getImageMetadata($sections);
-//                        $this->dump($sections, $metadata);
+//                    $metadata->dump($sections);
                 }
                 break;
 
@@ -79,7 +87,7 @@ class MetadataService {
                         $sections['XMP'] = array_merge($tiffMetadata->getIptc(), $tiffMetadata->getXmp());
                     }
                     $metadata = $this->getImageMetadata($sections);
-//                        $this->dump($sections, $metadata);
+//                    $metadata->dump($sections);
                 }
                 break;
 
@@ -719,16 +727,5 @@ class MetadataService {
 
     protected function t($text, $parameters = array()) {
         return $this->language->t($text, $parameters);
-    }
-
-    protected function dump(&$data, &$array, $prefix = '') {
-        foreach ($data as $key => $val) {
-            if (is_array($val)) {
-                $this->dump($val, $array, $prefix . $key . '.');
-
-            } else {
-                $this->addVal($prefix . utf8_encode($key), utf8_encode($val), $array);
-            }
-        }
     }
 }
