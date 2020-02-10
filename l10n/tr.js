@@ -58,8 +58,6 @@ OC.L10N.register(
     "ISO-%s" : "ISO-%s",
     "Exposure program" : "Pozlama programı",
     "Exposure mode" : "Pozlama kipi",
-    "Exposure bias" : "Pozlama hazırlığı",
-    "%s step" : "%s. adım",
     "Focal length" : "Odak uzaklığı",
     "%g mm" : "%g mm",
     "(35 mm equivalent: %g mm)" : "(35 mm eşdeğer: %g mm)",

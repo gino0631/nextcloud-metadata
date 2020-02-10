@@ -58,8 +58,6 @@ OC.L10N.register(
     "ISO-%s" : "ISO-%s",
     "Exposure program" : "Belichtingsprogramma",
     "Exposure mode" : "Belichtingsmodus",
-    "Exposure bias" : "Belichtingscorrectie",
-    "%s step" : "%s stap",
     "Focal length" : "Brandpuntsafstanf",
     "%g mm" : "%g mm",
     "(35 mm equivalent: %g mm)" : "(35 mm equivalent: %g mm)",

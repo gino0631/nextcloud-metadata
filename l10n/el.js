@@ -58,8 +58,6 @@ OC.L10N.register(
     "ISO-%s" : "ISO-%s",
     "Exposure program" : "Πρόγραμμα εκθεσης",
     "Exposure mode" : "Λειτουργία έκθεσης",
-    "Exposure bias" : "Προτίμηση έκθεσης",
-    "%s step" : "%s step",
     "Focal length" : "Εστιακό μήκος",
     "%g mm" : "%g mm",
     "(35 mm equivalent: %g mm)" : "(35 mm ισοδύναμο: %g mm)",

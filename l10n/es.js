@@ -58,8 +58,6 @@ OC.L10N.register(
     "ISO-%s" : "ISO-%s",
     "Exposure program" : "Programa de exposición",
     "Exposure mode" : "Modo de exposición",
-    "Exposure bias" : "Compensación de exposición",
-    "%s step" : "%s paso",
     "Focal length" : "Longitud focal",
     "%g mm" : "%g mm",
     "(35 mm equivalent: %g mm)" : "(equivalente en 35mm: %g mm)",

@@ -26,7 +26,6 @@ OC.L10N.register(
     "Credits" : "Zasluge",
     "%s sec." : "%s s",
     "ISO-%s" : "ISO-%s",
-    "%s step" : "%s koraka",
     "%g mm" : "%g mm",
     "(35 mm equivalent: %g mm)" : "(ekvivalent 35 mm: %g mm)",
     "Manual" : "Ručno",

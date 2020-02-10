@@ -24,7 +24,6 @@ OC.L10N.register(
     "Credits" : "Zásluhy",
     "%s sec." : "%s sek.",
     "ISO-%s" : "ISO-%s",
-    "%s step" : "%s krok",
     "%g mm" : "%g mm",
     "(35 mm equivalent: %g mm)" : "(ekvivalent pre 35 mm film: %g mm)",
     "Manual" : "Ručné nastavenia",

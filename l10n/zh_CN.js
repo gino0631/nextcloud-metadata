@@ -58,8 +58,6 @@ OC.L10N.register(
     "ISO-%s" : "ISO-%s",
     "Exposure program" : "曝光程序",
     "Exposure mode" : "曝光模式",
-    "Exposure bias" : "曝光补偿",
-    "%s step" : "%s 步",
     "Focal length" : "焦距",
     "%g mm" : "%g 毫秒",
     "(35 mm equivalent: %g mm)" : "（35 毫秒相当于：%g 毫秒）",

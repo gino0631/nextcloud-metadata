@@ -56,8 +56,6 @@
     "ISO-%s" : "ISO-%s",
     "Exposure program" : "Programma di esposizione",
     "Exposure mode" : "Modalità di esposizione",
-    "Exposure bias" : "Soglia di esposizione",
-    "%s step" : "%s passo",
     "Focal length" : "Lunghezza della focale",
     "%g mm" : "%g mm",
     "(35 mm equivalent: %g mm)" : "(35 mm equivalente: %g mm)",

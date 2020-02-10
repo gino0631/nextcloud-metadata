@@ -51,7 +51,6 @@ OC.L10N.register(
     "Software" : "Szoftver",
     "%s sec." : "%s mp",
     "ISO-%s" : "ISO-%s",
-    "%s step" : "%s lépés",
     "Focal length" : "Fokális hossz",
     "%g mm" : "%g mm",
     "(35 mm equivalent: %g mm)" : "(35 mm-nek megfelelő: %g mm)",

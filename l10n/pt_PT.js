@@ -24,7 +24,6 @@ OC.L10N.register(
     "Credits" : "Créditos",
     "%s sec." : "%s seg.",
     "ISO-%s" : "ISO-%s",
-    "%s step" : "%s passo",
     "%g mm" : "%g mm",
     "(35 mm equivalent: %g mm)" : "(35 mm equivalente: %g mm)",
     "Unknown" : "Desconhecido",

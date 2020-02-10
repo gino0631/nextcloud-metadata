@@ -58,8 +58,6 @@ OC.L10N.register(
     "ISO-%s" : "ISO-%s",
     "Exposure program" : "Expoziční program",
     "Exposure mode" : "Režim expozice",
-    "Exposure bias" : "Kompenzace expozice",
-    "%s step" : "%s krok",
     "Focal length" : "Ohnisková vzdálenost",
     "%g mm" : "%g mm",
     "(35 mm equivalent: %g mm)" : "(ekvivalent pro 35 mm film: %g mm)",
