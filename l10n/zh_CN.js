@@ -56,6 +56,7 @@ OC.L10N.register(
     "Exposure" : "曝光",
     "%s sec." : "%s 秒。",
     "ISO-%s" : "ISO-%s",
+    "%s EV" : "%s EV",
     "Exposure program" : "曝光程序",
     "Exposure mode" : "曝光模式",
     "Focal length" : "焦距",

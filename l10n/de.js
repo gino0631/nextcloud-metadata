@@ -56,6 +56,7 @@ OC.L10N.register(
     "Exposure" : "Belichtung",
     "%s sec." : "%s s",
     "ISO-%s" : "ISO-%s",
+    "%s EV" : "%s EV",
     "Exposure program" : "Belichtungsprogramm",
     "Exposure mode" : "Belichtungsmodus",
     "Focal length" : "Brennweite",

@@ -56,6 +56,7 @@ OC.L10N.register(
     "Exposure" : "Expoziční hodnota",
     "%s sec." : "%s sek",
     "ISO-%s" : "ISO-%s",
+    "%s EV" : "%s EV",
     "Exposure program" : "Expoziční program",
     "Exposure mode" : "Režim expozice",
     "Focal length" : "Ohnisková vzdálenost",

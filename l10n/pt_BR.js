@@ -56,6 +56,7 @@ OC.L10N.register(
     "Exposure" : "Exposição",
     "%s sec." : "%s seg.",
     "ISO-%s" : "ISO-%s",
+    "%s EV" : "%s EV",
     "Exposure program" : "Programa de exposição",
     "Exposure mode" : "Modo de exposição",
     "Focal length" : "Distância focal",

@@ -56,6 +56,7 @@ OC.L10N.register(
     "Exposure" : "Pozlama",
     "%s sec." : "%s sn",
     "ISO-%s" : "ISO-%s",
+    "%s EV" : "%s EV",
     "Exposure program" : "Pozlama programı",
     "Exposure mode" : "Pozlama kipi",
     "Focal length" : "Odak uzaklığı",
