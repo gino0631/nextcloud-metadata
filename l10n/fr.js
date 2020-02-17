@@ -88,6 +88,7 @@ OC.L10N.register(
     "auto" : "auto",
     "red-eye" : "Anti yeux rouges",
     "strobe return" : "retour stroboscopique",
+    "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "A plugin for displaying file metadata" : "Un plugin pour afficher les fichiers de métadonnées",
     "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Un plugin qui affiche les métadonnées du fichier dans la barre latérale des détails du fichier. \nVoir le [README] (https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) pour les types de fichiers pris en charge et les limitations."
 },
