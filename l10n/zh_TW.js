@@ -8,6 +8,7 @@ OC.L10N.register(
     "Comment" : "備註",
     "Description" : "描述",
     "Tags" : "標籤",
+    "Credits" : "致謝",
     "Manual" : "手動",
     "Unknown" : "不明",
     "Other" : "其他"
