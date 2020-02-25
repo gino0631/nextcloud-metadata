@@ -4,6 +4,7 @@ OC.L10N.register(
     "Location" : "地點",
     "Title" : "標題",
     "Copyright" : "著作權",
+    "Year" : "年",
     "Date" : "日期",
     "Comment" : "備註",
     "Description" : "描述",

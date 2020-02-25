@@ -56,6 +56,7 @@ OC.L10N.register(
     "Exposure" : "Экспозиция",
     "%s sec." : "%s сек",
     "ISO-%s" : "ISO %s",
+    "%s EV" : "%s EV",
     "Exposure program" : "Программа экспозиции",
     "Exposure mode" : "Режим экспозиции",
     "Focal length" : "Фокусное расстояние",
