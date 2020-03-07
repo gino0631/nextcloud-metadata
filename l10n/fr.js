@@ -80,6 +80,8 @@ OC.L10N.register(
     "Unknown" : "Inconnu",
     "Average" : "Moyenne",
     "Center Weighted Average" : "Moyenne pondérée centrale",
+    "Spot" : "Lieu",
+    "Multi Spot" : "Lieu multiple",
     "Pattern" : "Modèle",
     "Partial" : "Partiel",
     "Other" : "Divers",
