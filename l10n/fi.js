@@ -13,6 +13,7 @@ OC.L10N.register(
     "Copyright" : "Tekijänoikeus",
     "%s bit" : "%s bit",
     "%s kHz" : "%s kHz",
+    "Year" : "Vuosi",
     "Date" : "Päiväys",
     "Comment" : "Kommentti",
     "Description" : "Kuvaus",
