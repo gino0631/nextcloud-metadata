@@ -44,6 +44,7 @@ OC.L10N.register(
     "People" : "Emberek",
     "Tags" : "Címkék",
     "Keywords" : "Kulcsszavak",
+    "Instructions" : "Leírások",
     "Date created" : "Készítés ideje",
     "Job title" : "Munkakör",
     "Credits" : "Köszönetnyilvánítás",
