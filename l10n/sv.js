@@ -2,6 +2,7 @@ OC.L10N.register(
     "metadata",
     {
     "Metadata" : "Metadata",
+    "Reading metadata …" : "Läser metadata …",
     "Nominatim service unavailable, click here to view on map" : "Nominativtjänsten ej tillgänglig. Klicka för att visa på kartan",
     "Location" : "Plats",
     "Location could not be determined" : "Position kunde inte bestämmas",
