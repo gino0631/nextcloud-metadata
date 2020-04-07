@@ -5,6 +5,7 @@ OC.L10N.register(
     "Title" : "Titill",
     "Length" : "Lengd",
     "Copyright" : "Höfundarréttur",
+    "Year" : "Ár",
     "Date" : "Dagsetning",
     "Comment" : "Athugasemd",
     "Description" : "Lýsing",
