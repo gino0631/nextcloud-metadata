@@ -9,7 +9,9 @@ OC.L10N.register(
     "Comment" : "Komentārs",
     "Description" : "Apraksts",
     "Tags" : "Birkas",
+    "Instructions" : "Norādes gatavošanai",
     "Credits" : "Kredīti",
+    "Source" : "Avots",
     "Unknown" : "Nezināms",
     "Other" : "Cits"
 },

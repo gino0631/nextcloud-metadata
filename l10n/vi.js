@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Location" : "Vị trí",
     "Title" : "Tên",
+    "Copyright" : "Bản quyền",
     "Date" : "Date",
     "Comment" : "Bình luận",
     "Description" : "Mô tả",

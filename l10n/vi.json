@@ -1,6 +1,7 @@
 { "translations": {
     "Location" : "Vị trí",
     "Title" : "Tên",
+    "Copyright" : "Bản quyền",
     "Date" : "Date",
     "Comment" : "Bình luận",
     "Description" : "Mô tả",
