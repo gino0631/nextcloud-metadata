@@ -50,7 +50,7 @@ OC.L10N.register(
     "Instructions" : "Instrucións",
     "Date created" : "Data de creación",
     "Job title" : "Título do traballo",
-    "Credits" : "Créditos",
+    "Credits" : "Recoñecementos",
     "Source" : "Orixe",
     "Software" : "Software",
     "Exposure" : "Exposición",
