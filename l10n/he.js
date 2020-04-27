@@ -18,6 +18,7 @@ OC.L10N.register(
     "Description" : "תיאור",
     "Tags" : "תגיות",
     "Credits" : "תודות",
+    "Manual" : "ידני",
     "Unknown" : "לא ידוע",
     "Pattern" : "תבנית",
     "Other" : "אחר",
