@@ -13,6 +13,7 @@ OC.L10N.register(
     "Title" : "תפקיד",
     "Length" : "אורך",
     "Copyright" : "זכויות יוצרים",
+    "Year" : "שנה",
     "Date" : "תאריך",
     "Comment" : "הערה",
     "Description" : "תיאור",
