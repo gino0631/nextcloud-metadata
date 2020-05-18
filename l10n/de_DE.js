@@ -48,7 +48,7 @@ OC.L10N.register(
     "Tags" : "Tags",
     "Keywords" : "Schlüsselwörter",
     "Instructions" : "Anweisungen",
-    "Date created" : "Erstelldatum",
+    "Date created" : "Erstellungsdatum",
     "Job title" : "Berufsbezeichnung",
     "Credits" : "Credits",
     "Source" : "Quelle",
