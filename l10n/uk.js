@@ -4,6 +4,7 @@ OC.L10N.register(
     "Metadata" : "Метадані",
     "Location" : "Місце",
     "Title" : "Назва",
+    "Copyright" : "Права на копіюівння",
     "Date" : "Date",
     "Comment" : "Коментар",
     "Description" : "Опис",
