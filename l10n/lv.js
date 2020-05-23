@@ -12,6 +12,7 @@ OC.L10N.register(
     "Instructions" : "Norādes gatavošanai",
     "Credits" : "Kredīti",
     "Source" : "Avots",
+    "Manual" : "Manuāli",
     "Unknown" : "Nezināms",
     "Other" : "Cits"
 },
