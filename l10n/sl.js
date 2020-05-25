@@ -66,6 +66,7 @@ OC.L10N.register(
     "GPS altitude" : "Nadmorska višina GPS",
     "Manual" : "Ročno",
     "Unknown" : "Neznano",
+    "Average" : "Povprečje",
     "Pattern" : "Maska",
     "Other" : "Drugo",
     "No flash function" : "Ni bliskaveice",
