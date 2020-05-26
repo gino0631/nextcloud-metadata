@@ -5,7 +5,7 @@ use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IConfig;
 use OCP\Settings\ISettings;
 
-class PersonalSettings implements ISettings {
+class Personal implements ISettings {
 
         /** @var IConfig */
         private $config;
@@ -33,27 +33,24 @@ class PersonalSettings implements ISettings {
                 'migrate_existing' => false
             ];
 
-            return new TemplateResponse('metadata', 'admin', $parameters);
+            // return new TemplateResponse('metadata', 'admin', $parameters);
+            return new TemplateResponse('metadata', 'personal', $parameters);
         }
 
         /**
          * @return string the section ID, e.g. 'sharing'
          */
-        /*
         public function getSection() {
-                return 'survey_client';
+                return 'metadata';
         }
-         */
 
         /**
          * @return int whether the form should be rather on the top or bottom of
          * the admin section. The forms are arranged in ascending order of the
          * priority values. It is required to return a value between 0 and 100.
          */
-        /*
         public function getPriority() {
                 return 50;
         }
-         */
 
 }
