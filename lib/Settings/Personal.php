@@ -28,12 +28,11 @@ class Personal implements ISettings {
             // $lastSentReportTime = (int) $this->config->getAppValue('survey_client', 'last_sent', 0);
 
             $parameters = [
-                'metadata_options' => ['foo', 'bar', 'baz'],
-                'user_metadata_tags' => ['foo'],
+                'metadata_options' => ['keywords', 'bar', 'baz'],
+                'user_metadata_tags' => ['keywords'],
                 'migrate_existing' => false
             ];
 
-            // return new TemplateResponse('metadata', 'admin', $parameters);
             return new TemplateResponse('metadata', 'personal', $parameters);
         }
 

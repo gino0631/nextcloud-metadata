@@ -299,6 +299,7 @@ class MetadataService {
         $gps = $this->getVal('GPS', $sections) ?: array();
         $xmp = $this->getVal('XMP', $sections) ?: array();
 
+
         if ($v = $this->getVal('title', $xmp)) {
             $this->addVal($this->t('Title'), $v, $return);
         }

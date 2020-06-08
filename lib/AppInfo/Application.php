@@ -3,6 +3,12 @@
 namespace OCA\Metadata\AppInfo;
 
 use OCP\AppFramework\App;
+use OCP\IContainer;
+use OCP\Files\Events\FileCacheUpdated;
+use OCP\EventDispatcher\IEventDispatcher;
+use OCA\Metadata\Hooks\FileHooks;
+use OCA\Metadata\Service\MetadataService;
+use OCP\Util;
 
 class Application extends App {
 	const APP_NAME = 'metadata';
@@ -30,8 +36,12 @@ class Application extends App {
 			$policy->addAllowedFrameDomain('https://www.openstreetmap.org/');
 			\OC::$server->getContentSecurityPolicyManager()->addDefaultPolicy($policy);
 		});
+        $this->registerHooks();
 	}
 
+    public function registerHooks() {
+		Util::connectHook('OC_Filesystem', 'post_create', FileHooks::class, 'onNewFile');
+    }
 
 	public static function getL10N() {
 		return \OC::$server->getL10N(Application::APP_NAME);

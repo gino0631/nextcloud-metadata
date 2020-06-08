@@ -26,4 +26,7 @@ See the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/READ
 		<personal>OCA\Metadata\Settings\Personal</personal>
 		<personal-section>OCA\Metadata\Settings\PersonalSection</personal-section>
 	</settings>
+	<types>
+		<filesystem/>
+	</types>
 </info>
