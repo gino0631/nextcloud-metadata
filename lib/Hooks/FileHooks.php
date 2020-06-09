@@ -6,12 +6,8 @@ use OCA\Metadata\Service\MetadataService;
 
 class FileHooks {
 
-	public function onNewFile(array $params) {
+	public function onUpdatedFile(array $params) {
         /* TODO: (first iteration)
-         * - test file update hook
-         * - test data structure for keys/options to use to write tags
-         * - test tag writing
-         * - only use hard-coded IPTC 'keys' (for now)
          * - extract tag writing to "service"
          * - trigger queued job to write existing tags on update/install?
          * - create personal settings branch

@@ -40,7 +40,8 @@ class Application extends App {
 	}
 
     public function registerHooks() {
-		Util::connectHook('OC_Filesystem', 'post_create', FileHooks::class, 'onNewFile');
+		Util::connectHook('OC_Filesystem', 'post_create', FileHooks::class, 'onUpdatedFile');
+		Util::connectHook('OC_Filesystem', 'post_update', FileHooks::class, 'onUpdatedFile');
     }
 
 	public static function getL10N() {
