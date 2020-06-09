@@ -8,6 +8,7 @@ class FileHooks {
 
 	public function onNewFile(array $params) {
         /* TODO: (first iteration)
+         * - test file update hook
          * - test data structure for keys/options to use to write tags
          * - test tag writing
          * - only use hard-coded IPTC 'keys' (for now)
@@ -25,16 +26,29 @@ class FileHooks {
 		$logger = \OC::$server->getLogger();
         $logger->error("FUCKINNN FILE!!!!!!!!!!!");
         $logger->error($params['path']);
+        $logger->error(json_encode($params));
         $metadataService = new MetadataService();
         $metadata = $metadataService->getMetadata($params['path'])->getArray();
 
+        $view = \OC\Files\Filesystem::getView();
+        $fileInfo = $view->getFileInfo($params['path']);
+        $logger->error($fileInfo->getType());
+        $fileId = $fileInfo->getId();
+        $objectType = $fileInfo->getType();
+
         // convert IPTC keywords to tags
+        $tagIds = [];
         foreach ($metadata['Keywords'] as $keyword) {
-            // create system tag if doesn't exist and add systemtag object
-            // mapping record based on file id and tag id
-            // - OC\SystemTag\SystemTagManager::createTag
-            // - OC\SystemTag\SystemTagObjectMapper::assignTags
+            $tagManager = \OC::$server->getSystemTagManager();
+            $tag = $tagManager->getTag($keyword, True, True);
+            if (!$tag) {
+                $tag = $tagManager->createTag($keyword, True, True);
+            }
+            array_push($tagIds, $tag->getId());
         }
+        $tagObjectMapper = \OC::$server->getSystemTagObjectMapper();
+        // how are object types defined?
+        $tagObjectMapper->assignTags($fileId, 'files', $tagIds);
 	}
 
 }
