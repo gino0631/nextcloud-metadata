@@ -19,6 +19,10 @@ class FileHooks {
          */
 
         $metadataTagService = new MetadataTagService();
+		$logger = \OC::$server->getLogger();
+        $logger->error("PAAAAAAAAAATH");
+        $logger->error($params['path']);
+        $logger->error(get_class($params['path']));
         $tagIds = $metadataTagService->getOrCreateTags($params['path']);
         if ($tagIds) {
             $metadataTagService->assignTags($tagIds);
