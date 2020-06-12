@@ -3,8 +3,6 @@ namespace OCA\Metadata\Cron;
 
 use \OC\BackgroundJob\QueuedJob;
 
-use OCA\Metadata\Service\MetadataTagService;
-
 
 class MetadataTagJob extends QueuedJob {
 
@@ -12,12 +10,16 @@ class MetadataTagJob extends QueuedJob {
 		$logger = \OC::$server->getLogger();
         $this->logger = $logger;
 		$this->userManager = \OC::$server->getUserManager();
-        $this->metadataTagService = new MetadataTagService();
 
         $this->logger->error(json_encode(get_class_methods($this->userManager)));
         $users = $this->userManager->search('');
         $this->logger->error(json_encode($users));
         $user = $users['tony'];
+
+        // TODO: pass in files as associative array of files and users
+        //
+        //
+        $this->user = $user;
         $this->logger->error(json_encode(get_class_methods($user)));
         $this->logger->error($user->getHome());
 
@@ -29,30 +31,36 @@ class MetadataTagJob extends QueuedJob {
     }
 
     protected function run($arguments) {
-        print("WTF!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        $this->logger->error("FIIIIIIIIIIIIIIIIIILES:");
+		\OC_Util::tearDownFS();
+		\OC_Util::setupFS($this->user->getUID());
+        $metadataTagService = new \OCA\Metadata\Service\MetadataTagService;
         foreach ($this->files as $file) {
-            // $this->logger->error(json_encode($file));
-            //$relativePath = $this->filesystem->getLocalFile($file[0]);
-            $view = new \OC\Files\View($file[0]);
-            /*
-            $relativePath = $filesystem->getRelativePath($file[0]);
-            $absolutePath = $filesystem->getAbsolutePath($file[0]);
-            $this->logger->error("RELATIVE: $relativePath, ABSOLUTE: $absolutePath");
-             */
-            // $this->logger->error("ROOT: $view->getRoot($file[0]");
-            // $this->logger->error(json_encode(get_class_methods($view)));
-            // $this->logger->error(json_encode(get_class_methods($view)));
-            $this->logger->error("BASEEEEEEEEEEEE:"); 
+            $view = \OC\Files\Filesystem::getView();
+            $this->logger->error("RELATIVE: $file[0]");
+            $config = new \OC\Config('config/');
+            $base_path = $config->getValue('datadirectory');
+            $relative_path = str_replace($base_path . '/tony/files/', '', $file[0]);
+            $this->logger->error("DATADIR: $base_path");
+            $this->logger->error("BASEEEEEEEEEEEE:");
             $this->logger->error(basename($file[0]));
-            $tagIds = $this->metadataTagService->getOrCreateTags('//' . basename($file[0]));
+            $tagIds = $metadataTagService->getOrCreateTags('//' . $relative_path);
             if ($tagIds) {
                 // test existing and new tags on new file
-                $this->metadataTagService->assignTags($tagIds);
+                $metadataTagService->assignTags($tagIds);
             }
         }
         // TODO: extract metadata tag creation file hook into service and
         // recurse users, files and directories from here
     }
+
+	protected function setupFS($user) {
+		\OC_Util::tearDownFS();
+		\OC_Util::setupFS($user);
+
+		// Check if this user has a trashbin directory
+		$view = new \OC\Files\View('/' . $user);
+
+		return true;
+	}
 
 }
