@@ -8,7 +8,6 @@ class FileHooks {
 
 	public function onUpdatedFile(array $params) {
         /* TODO: (first iteration)
-         * - trigger queued job to write existing tags on update/install?
          * - create personal settings branch
          * - push WIP branch and start working on feature to share tagged photos
          * (second iteration)
@@ -19,10 +18,6 @@ class FileHooks {
          */
 
         $metadataTagService = new MetadataTagService();
-		$logger = \OC::$server->getLogger();
-        $logger->error("PAAAAAAAAAATH");
-        $logger->error($params['path']);
-        $logger->error(get_class($params['path']));
         $tagIds = $metadataTagService->getOrCreateTags($params['path']);
         if ($tagIds) {
             $metadataTagService->assignTags($tagIds);
