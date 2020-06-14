@@ -3,11 +3,7 @@
 namespace OCA\Metadata\AppInfo;
 
 use OCP\AppFramework\App;
-use OCP\IContainer;
-use OCP\Files\Events\FileCacheUpdated;
-use OCP\EventDispatcher\IEventDispatcher;
 use OCA\Metadata\Hooks\FileHooks;
-use OCA\Metadata\Service\MetadataService;
 use OCP\Util;
 
 class Application extends App {
