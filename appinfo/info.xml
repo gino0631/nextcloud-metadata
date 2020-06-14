@@ -22,10 +22,6 @@ See the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/READ
         <owncloud min-version="10" max-version="11" />
         <nextcloud min-version="13" max-version="19" />
     </dependencies>
-    <settings>
-		<personal>OCA\Metadata\Settings\Personal</personal>
-		<personal-section>OCA\Metadata\Settings\PersonalSection</personal-section>
-	</settings>
 	<types>
 		<filesystem/>
 	</types>
