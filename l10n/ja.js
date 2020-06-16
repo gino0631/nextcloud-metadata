@@ -12,6 +12,7 @@ OC.L10N.register(
     "Copyright" : "著作権",
     "%s bit" : "%s bit",
     "%s kHz" : "%s kHz",
+    "Year" : "年",
     "Date" : "日付",
     "Comment" : "コメント",
     "Description" : "説明",
