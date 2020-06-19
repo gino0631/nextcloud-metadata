@@ -21,7 +21,7 @@ OC.L10N.register(
     "Bit rate" : "Ρυθμός μετάδοσης",
     "%s kbps" : "%s kbps",
     "Author" : "Δημιουργός",
-    "Copyright" : "Copyright",
+    "Copyright" : "Δικαιώματα",
     "Camera used" : "Φωτογραφική",
     "Android version" : "Έκδοση Android",
     "Video codec" : "Κωδικοποίηση video",
