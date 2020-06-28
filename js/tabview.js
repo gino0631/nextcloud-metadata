@@ -54,15 +54,18 @@
         },
 
         updateDisplay: function(data) {
-            var html = '';
+            var table;
             var showLocation = false;
 
             if (data.response === 'success') {
-                html += '<table>';
+                table = $('<table>');
 
                 var metadata = data.metadata;
                 for (m in metadata) {
-                    html += '<tr><td class="key">' + m + ':</td><td class="value">' + this.formatValue(metadata[m]) + '</td></tr>';
+                    var row = $('<tr>')
+                        .append($('<td>').addClass('key').text(m + ':'))
+                        .append($('<td>').addClass('value').text(this.formatValue(metadata[m])));
+                    table.append(row);
                 }
 
                 showLocation = (data.loc !== null) || ((data.lat !== null) && (data.lon !== null));
@@ -101,16 +104,17 @@
                         });
                     }
 
-                    html += '<tr><td class="key">' + t('metadata', 'Location') + ':</td><td class="value"><a href="#" class="get-location">' + location + '</a></td></tr>';
+                    var row = $('<tr>')
+                        .append($('<td>').addClass('key').text(t('metadata', 'Location') + ':'))
+                        .append($('<td>').addClass('value').append($('<a>').attr('href', '#').addClass('get-location').text(location)));
+                    table.append(row);
                 }
 
-                html += '</table>';
-
             } else {
-                html = data.msg;
+                table = $('<p>').text(data.msg);
             }
 
-            this.$el.find('.get-metadata').html(html);
+            this.$el.find('.get-metadata').empty().append(table);
 
             if (showLocation) {
                 var _self = this;
@@ -175,10 +179,10 @@
         },
 
         updateLocation: function(data) {
-            var html = '';
+            var text = '';
 
             if (data.error) {
-                html = data.error;
+                text = data.error;
 
             } else {
                 var location = data.address;
@@ -187,10 +191,10 @@
                 this.add(location.road || location.pedestrian || location.path || location.steps || location.footway || location.cycleway || location.bridleway || location.construction, address);
                 this.add(location.city || location.town || location.village || location.hamlet || location.isolated_dwelling, address);
                 this.add(location.country, address);
-                html = address.join(', ');
+                text = address.join(', ');
             }
 
-            this.$el.find('.get-location').html(html);
+            this.$el.find('.get-location').text(text);
         },
 
         add: function(val, array) {

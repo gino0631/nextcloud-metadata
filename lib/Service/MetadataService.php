@@ -6,6 +6,8 @@ use OCA\Metadata\AppInfo\Application;
 use OCA\Metadata\GetID3\getID3;
 
 class MetadataService {
+    const EMSP = "\xe2\x80\x83";
+
     protected $language;
 
     public function __construct() {
@@ -281,7 +283,7 @@ class MetadataService {
 
         if ($v = $this->getVal('gps_longitude', $quicktime)) {
             $lon = $v[0];
-            $this->addVal($this->t('GPS coordinates'), $this->formatGpsDegree($lon, 'E', 'W'), $return, null, '&emsp;');
+            $this->addVal($this->t('GPS coordinates'), $this->formatGpsDegree($lon, 'E', 'W'), $return, null, self::EMSP);
         }
 
         return new Metadata($return, $lat, $lon);
@@ -402,11 +404,11 @@ class MetadataService {
         }
 
         if ($v = $this->getVal('ApertureFNumber', $comp)) {
-            $this->addVal($this->t('Exposure'), $v, $return, null, '&emsp;');
+            $this->addVal($this->t('Exposure'), $v, $return, null, self::EMSP);
         }
 
         if ($v = $this->getVal('ISOSpeedRatings', $exif)) {
-            $this->addVal($this->t('Exposure'), $this->t('ISO-%s', array($v)), $return, null, '&emsp;');
+            $this->addVal($this->t('Exposure'), $this->t('ISO-%s', array($v)), $return, null, self::EMSP);
         }
 
         if ($v = $this->getVal('ExposureBiasValue', $exif)) {
@@ -414,7 +416,7 @@ class MetadataService {
             if (substr($e, 0, 1) !== '-') {
                 $e = '+' . $e;
             }
-            $this->addVal($this->t('Exposure'), $this->t('%s EV', array($e)), $return, null, '&emsp;');
+            $this->addVal($this->t('Exposure'), $this->t('%s EV', array($e)), $return, null, self::EMSP);
         }
 
         if ($v = $this->getVal('ExposureProgram', $exif)) {
@@ -453,7 +455,7 @@ class MetadataService {
 
         if ($v = $this->getVal('GPSLongitude', $gps)) {
             $ref = $this->getVal('GPSLongitudeRef', $gps);
-            $this->addVal($this->t('GPS coordinates'), $this->formatGpsCoord($v, $ref), $return, null, '&emsp;');
+            $this->addVal($this->t('GPS coordinates'), $this->formatGpsCoord($v, $ref), $return, null, self::EMSP);
             $lon = $this->gpsToDecDegree($v, $ref === 'E');
         }
 
