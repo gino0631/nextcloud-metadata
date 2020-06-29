@@ -48,6 +48,8 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('success', $data['response']);
 
         $metadata = $data['metadata'];
+        $this->assertEquals('WinTitle', $metadata['Title']);
+        $this->assertEquals('WinSubject', $metadata['Description']);
         $this->assertEquals('2017-06-26 18:11:09', $metadata['Date created']);
         $this->assertEquals('4032 x 3016', $metadata['Dimensions']);
         $this->assertEquals('Xiaomi MI 6', $metadata['Camera used']);

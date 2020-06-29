@@ -309,7 +309,7 @@ class MetadataService {
             $this->addVal($this->t('Headline'), $v, $return);
         }
 
-        if (($v = $this->getVal('Subject', $ifd0)) || ($v = $this->getVal('description', $xmp))) {
+        if (($v = $this->convertUcs2($this->getVal('Subject', $ifd0))) || ($v = $this->getVal('description', $xmp))) {
             $this->addVal($this->t('Description'), $v, $return);
         }
 
@@ -333,11 +333,8 @@ class MetadataService {
             $this->addVal($this->t('Instructions'), $v, $return);
         }
 
-        if ($v = $this->getVal('UserComment', $comp)) {
+        if (($v = $this->getVal('UserComment', $comp)) || ($v = $this->convertUcs2($this->getVal('Comments', $ifd0)))) {
             $this->addVal($this->t('Comment'), $v, $return);
-
-        } else if ($v = $this->getVal('Comments', $ifd0)) {
-            $this->addVal($this->t('Comment'), rtrim(mb_convert_encoding($v, 'UTF-8', 'UTF-16LE'), "\0"), $return);
         }
 
         if (($d = $this->getVal('DateTimeOriginal', $exif)) || ($v = $this->getVal('dateCreated', $xmp))) {
@@ -448,20 +445,26 @@ class MetadataService {
         }
 
         if ($v = $this->getVal('GPSLatitude', $gps)) {
-            $ref = $this->getVal('GPSLatitudeRef', $gps);
-            $this->addVal($this->t('GPS coordinates'), $this->formatGpsCoord($v, $ref), $return);
-            $lat = $this->gpsToDecDegree($v, $ref === 'N');
+            if (($v = $this->evalGpsCoord($v)) !== null) {
+                $ref = $this->getVal('GPSLatitudeRef', $gps);
+                $this->addVal($this->t('GPS coordinates'), $this->formatGpsCoord($v, $ref), $return);
+                $lat = $this->gpsToDecDegree($v, $ref === 'N');
+            }
         }
 
         if ($v = $this->getVal('GPSLongitude', $gps)) {
-            $ref = $this->getVal('GPSLongitudeRef', $gps);
-            $this->addVal($this->t('GPS coordinates'), $this->formatGpsCoord($v, $ref), $return, null, self::EMSP);
-            $lon = $this->gpsToDecDegree($v, $ref === 'E');
+            if (($v = $this->evalGpsCoord($v)) !== null) {
+                $ref = $this->getVal('GPSLongitudeRef', $gps);
+                $this->addVal($this->t('GPS coordinates'), $this->formatGpsCoord($v, $ref), $return, null, self::EMSP);
+                $lon = $this->gpsToDecDegree($v, $ref === 'E');
+            }
         }
 
         if ($v = $this->getVal('GPSAltitude', $gps)) {
-            $ref = $this->getVal('GPSAltitudeRef', $gps);
-            $this->addVal($this->t('GPS altitude'), $this->formatGpsAlt($v, $ref), $return);
+            if (($v = $this->evalGpsAlt($v)) !== null) {
+                $ref = $this->getVal('GPSAltitudeRef', $gps);
+                $this->addVal($this->t('GPS altitude'), $this->formatGpsAlt($v, $ref), $return);
+            }
         }
 
         if ($v = $this->getVal('city', $xmp)) {
@@ -574,22 +577,40 @@ class MetadataService {
         }
     }
 
-    protected function formatGpsCoord($coord, $ref) {
-        $return = $ref . ' ' . $this->evalRational($coord[0]) . '°';
+    protected function evalGpsCoord($coord) {
+        $return = null;
 
-        if (($coord[1] !== '0/1') || ($coord[2] !== '0/1')) {
-            $return .= ' ' . $this->evalRational($coord[1]) . '\'';
-        }
+        if ((count($coord) === 3) && ($coord[0] !== '0/0')) {
+            $return = array();
 
-        if ($coord[2] !== '0/1') {
-            $return .= ' ' . round($this->evalRational($coord[2]), 2) . '"';
+            foreach ($coord as $c) {
+                $return[] = strncmp($c, '0/', 2) ? $this->evalRational($c) : 0;
+            }
         }
 
         return $return;
     }
 
+    protected function formatGpsCoord($coord, $ref) {
+        $return = $ref . ' ' . $coord[0] . '°';
+
+        if ($coord[1] || $coord[2]) {
+            $return .= ' ' . $coord[1] . '\'';
+        }
+
+        if ($coord[2]) {
+            $return .= ' ' . round($coord[2], 2) . '"';
+        }
+
+        return $return;
+    }
+
+    protected function evalGpsAlt($coord) {
+        return ($coord !== '0/0') ? $this->evalRational($coord) : null;
+    }
+
     protected function formatGpsAlt($coord, $ref) {
-        return (($ref === 1) ? '-' : '') . round($this->evalRational($coord), 1) . ' m';
+        return (($ref === 1) ? '-' : '') . round($coord, 1) . ' m';
     }
 
     protected function formatGpsDegree($deg, $posRef, $negRef) {
@@ -611,7 +632,7 @@ class MetadataService {
     }
 
     protected function gpsToDecDegree($coord, $pos) {
-        $return = round($this->evalRational($coord[0]) + ($this->evalRational($coord[1]) / 60) + ($this->evalRational($coord[2]) / 3600), 8);
+        $return = round($coord[0] + ($coord[1] / 60) + ($coord[2] / 3600), 8);
 
         return $pos? $return : -$return;
     }
@@ -663,6 +684,14 @@ class MetadataService {
                 $array[$key] = '('.$key.') '.$val;
             }
         }
+    }
+
+    protected function convertUcs2($v) {
+        if ($v) {
+            $v = rtrim(mb_convert_encoding($v, 'UTF-8', 'UCS-2LE'), "\0");
+        }
+
+        return $v;
     }
 
     protected function getVal($key, &$array, &$array2 = null, &$array3 = null) {

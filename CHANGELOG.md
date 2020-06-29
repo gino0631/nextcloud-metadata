@@ -18,6 +18,8 @@
   [#54](https://github.com/gino0631/nextcloud-metadata/issues/54)
 - Unparenthesized `a ? b : c ? d : e` is deprecated
   [#53](https://github.com/gino0631/nextcloud-metadata/issues/53)
+- Handling of GPS coordinates encoded as all zeros
+  [#61](https://github.com/gino0631/nextcloud-metadata/issues/61)
 
 ## 0.11.1 – 2020-01-21
 ### Fixed
