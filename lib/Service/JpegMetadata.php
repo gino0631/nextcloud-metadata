@@ -5,6 +5,7 @@ class JpegMetadata extends FileReader {
     const APP1 = "\xE1";
     const APP13 = "\xED";
 
+    private $ifd0 = array();
     private $xmp = array();
     private $iptc = array();
     private $gps = array();
@@ -23,6 +24,10 @@ class JpegMetadata extends FileReader {
         }
 
         return null;
+    }
+
+    public function getIfd0() {
+        return $this->ifd0;
     }
 
     public function getXmp() {
@@ -106,6 +111,7 @@ class JpegMetadata extends FileReader {
             if ($data === 'Exif'."\x00\x00") {
                 $pos = ftell($hnd);
                 $tiffMetadata = TiffMetadata::fromFileData($hnd, $pos);
+                $this->ifd0 = $tiffMetadata->getIfd0();
                 $this->gps = $tiffMetadata->getGps();
                 return true;
             }

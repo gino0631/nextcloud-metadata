@@ -7,6 +7,8 @@ use OCA\Metadata\GetID3\getID3;
 
 class MetadataService {
     const EMSP = "\xe2\x80\x83";
+    const BLACK_STAR = "\xE2\x98\x85";
+    const WHITE_STAR = "\xE2\x98\x86";
 
     protected $language;
 
@@ -74,6 +76,7 @@ class MetadataService {
                 if ($sections = $this->readExif($file)) {
                     if ($jpegMetadata = JpegMetadata::fromFile($file)) {
                         $sections['XMP'] = array_merge($jpegMetadata->getIptc(), $jpegMetadata->getXmp());
+                        $sections['IFD0'] = array_merge($sections['IFD0'], $jpegMetadata->getIfd0());
                         if (!array_key_exists('GPS', $sections)) {
                             $sections['GPS'] = $jpegMetadata->getGps();
                         }
@@ -87,6 +90,7 @@ class MetadataService {
                 if ($sections = $this->readExif($file)) {
                     if ($tiffMetadata = TiffMetadata::fromFile($file)) {
                         $sections['XMP'] = array_merge($tiffMetadata->getIptc(), $tiffMetadata->getXmp());
+                        $sections['IFD0'] = array_merge($sections['IFD0'], $tiffMetadata->getIfd0());
                     }
                     $metadata = $this->getImageMetadata($sections);
 //                    $metadata->dump($sections);
@@ -311,6 +315,10 @@ class MetadataService {
 
         if (($v = $this->convertUcs2($this->getVal('Subject', $ifd0))) || ($v = $this->getVal('description', $xmp))) {
             $this->addVal($this->t('Description'), $v, $return);
+        }
+
+        if ($v = $this->getVal('Rating', $ifd0)) {
+            $this->addVal($this->t('Rating'), $this->formatRating($v), $return);
         }
 
         if ($v = $this->getVal('captionWriter', $xmp)) {
@@ -575,6 +583,16 @@ class MetadataService {
             default:
                 return $code;
         }
+    }
+
+    protected function formatRating($rating) {
+        $return = '';
+        $rating = min($rating, 5);
+
+        $return = str_pad($return, $rating * strlen(self::BLACK_STAR), self::BLACK_STAR);
+        $return = str_pad($return, 5 * strlen(self::WHITE_STAR), self::WHITE_STAR);
+
+        return $return;
     }
 
     protected function evalGpsCoord($coord) {

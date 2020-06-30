@@ -10,6 +10,8 @@ use Test\TestCase;
  */
 class MetadataControllerTest extends TestCase {
     const EMSP = "\xe2\x80\x83";
+    const BLACK_STAR = "\xE2\x98\x85";
+    const WHITE_STAR = "\xE2\x98\x86";
 
     private $user;
     private $controller;
@@ -74,6 +76,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals(['Rose2', 'Rose1'], $metadata['People']);
         $this->assertEquals(['Rose/Rose1', 'Rose/Rose2'], $metadata['Tags']);
         $this->assertEquals(['Rose', 'Rose1', 'Rose2'], $metadata['Keywords']);
+        $this->assertEquals(self::BLACK_STAR . self::BLACK_STAR . self::BLACK_STAR . self::WHITE_STAR . self::WHITE_STAR, $metadata['Rating']);
         $this->assertEquals('2017-06-26 18:11:09', $metadata['Date created']);
         $this->assertEquals('96 x 128', $metadata['Dimensions']);
         $this->assertEquals('Xiaomi MI 6', $metadata['Camera used']);
@@ -97,6 +100,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals(['Rose2', 'Rose1'], $metadata['People']);
         $this->assertEquals(['Rose/Rose1', 'Rose/Rose2'], $metadata['Tags']);
         $this->assertEquals(['Rose', 'Rose1', 'Rose2'], $metadata['Keywords']);
+        $this->assertEquals(self::BLACK_STAR . self::BLACK_STAR . self::BLACK_STAR . self::WHITE_STAR . self::WHITE_STAR, $metadata['Rating']);
         $this->assertEquals('2017-06-26 18:11:09', $metadata['Date created']);
         $this->assertEquals('96 x 128', $metadata['Dimensions']);
         $this->assertEquals('Xiaomi MI 6', $metadata['Camera used']);

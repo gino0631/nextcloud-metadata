@@ -2,10 +2,12 @@
 namespace OCA\Metadata\Service;
 
 class TiffMetadata extends TiffParser {
+    const RATING = 0x4746;
     const XMP = 0x02BC;
     const IPTC = 0x83BB;
     const GPS = 0x8825;
 
+    private $ifd0 = array();
     private $xmp = array();
     private $iptc = array();
     private $gps = array();
@@ -33,6 +35,10 @@ class TiffMetadata extends TiffParser {
         return $obj;
     }
 
+    public function getIfd0() {
+        return $this->ifd0;
+    }
+
     public function getXmp() {
         return $this->xmp;
     }
@@ -47,6 +53,10 @@ class TiffMetadata extends TiffParser {
 
     protected function processTag($hnd, $pos, $intel, $tagId, $tagType, $count, $size, $offsetOrData) {
         switch ($tagId) {
+            case self::RATING:
+                $this->ifd0['Rating'] = $offsetOrData;
+                break;
+
             case self::XMP:
                 fseek($hnd, $offsetOrData);           // Go to XMP
                 $xmpMetadata = XmpMetadata::fromData(fread($hnd, $size));
@@ -90,7 +100,7 @@ class TiffMetadata extends TiffParser {
                     }
                 };
                 $gpsParser->parseTiffIfd($hnd, $pos, $intel, $offsetOrData);
-                $this->gps=$gpsParser->gps;
+$this->gps=$gpsParser->gps;
                 break;
         }
 
