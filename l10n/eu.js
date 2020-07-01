@@ -43,6 +43,7 @@ OC.L10N.register(
     "GPS coordinates" : "GPS koordenatuak",
     "Headline" : "Izenburua",
     "Description" : "Deskribapena",
+    "Rating" : "Balorazioa",
     "Description writer" : "Deskribapenaren egilea",
     "People" : "Jendea",
     "Tags" : "Etiketak",

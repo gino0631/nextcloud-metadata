@@ -7,6 +7,7 @@ OC.L10N.register(
     "Date" : "Date",
     "Comment" : "Komentar",
     "Description" : "Deskrisi",
+    "Rating" : "Nilai",
     "Tags" : "Tag",
     "Credits" : "Kredit",
     "Unknown" : "Tidak diketahui",

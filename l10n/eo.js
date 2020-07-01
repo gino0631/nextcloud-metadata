@@ -7,6 +7,7 @@ OC.L10N.register(
     "Date" : "Date",
     "Comment" : "Komento",
     "Description" : "Priskribo",
+    "Rating" : "Pritakso",
     "Tags" : "Etikedoj",
     "Manual" : "Permane",
     "Unknown" : "Nekonata",

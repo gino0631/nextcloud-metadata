@@ -16,6 +16,7 @@ OC.L10N.register(
     "Date" : "日付",
     "Comment" : "コメント",
     "Description" : "説明",
+    "Rating" : "評価",
     "Tags" : "タグ",
     "Credits" : "クレジット",
     "%s sec." : "%s sec.",

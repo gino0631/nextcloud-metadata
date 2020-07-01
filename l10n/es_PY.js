@@ -7,6 +7,7 @@ OC.L10N.register(
     "Date" : "Fecha",
     "Comment" : "Comentario",
     "Description" : "Descripción",
+    "Rating" : "Calificación",
     "Tags" : "Etiquetas",
     "Credits" : "Créditos",
     "Unknown" : "Desconocido",

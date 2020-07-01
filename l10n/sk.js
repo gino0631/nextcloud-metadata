@@ -43,6 +43,7 @@ OC.L10N.register(
     "GPS coordinates" : "Súradnice GPS",
     "Headline" : "Titulok",
     "Description" : "Popis",
+    "Rating" : "Hodnotenie",
     "Description writer" : "Autor popisu",
     "People" : "Ľudia",
     "Tags" : "Štítky",

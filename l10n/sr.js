@@ -43,6 +43,7 @@ OC.L10N.register(
     "GPS coordinates" : "GPS координате",
     "Headline" : "Наслов",
     "Description" : "Опис",
+    "Rating" : "По оцени",
     "Description writer" : "Писац описа",
     "People" : "Људи",
     "Tags" : "Ознаке",

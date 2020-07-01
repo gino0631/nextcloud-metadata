@@ -7,6 +7,7 @@ OC.L10N.register(
     "Date" : "Date",
     "Comment" : "Comment",
     "Description" : "Description",
+    "Rating" : "Rating",
     "Tags" : "Tags",
     "Credits" : "Credits",
     "Unknown" : "Unknown",

@@ -41,6 +41,7 @@ OC.L10N.register(
     "GPS coordinates" : "GPS koordináták",
     "Headline" : "Fejléc",
     "Description" : "Leírás",
+    "Rating" : "Értékelés",
     "People" : "Emberek",
     "Tags" : "Címkék",
     "Keywords" : "Kulcsszavak",

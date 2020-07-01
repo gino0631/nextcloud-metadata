@@ -43,6 +43,7 @@ OC.L10N.register(
     "GPS coordinates" : "GPS 坐标",
     "Headline" : "标题",
     "Description" : "描述",
+    "Rating" : "评分",
     "Description writer" : "说明作者",
     "People" : "人物",
     "Tags" : "标签",

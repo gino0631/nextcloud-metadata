@@ -8,6 +8,7 @@ OC.L10N.register(
     "Date" : "Datums",
     "Comment" : "Komentārs",
     "Description" : "Apraksts",
+    "Rating" : "Vērtējums",
     "Tags" : "Birkas",
     "Instructions" : "Norādes gatavošanai",
     "Credits" : "Kredīti",

@@ -7,6 +7,7 @@ OC.L10N.register(
     "Date" : "Dato",
     "Comment" : "Kommentar",
     "Description" : "Beskrivelse",
+    "Rating" : "Vurdering",
     "Tags" : "Merkelapper",
     "Credits" : "Bidragsytere",
     "Manual" : "Manuell",

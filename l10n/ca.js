@@ -20,6 +20,7 @@ OC.L10N.register(
     "Date" : "Data",
     "Comment" : "Comentari",
     "Description" : "Descripció",
+    "Rating" : "Puntuació",
     "Tags" : "Etiquetes",
     "Instructions" : "Instruccions",
     "Credits" : "Crèdits",

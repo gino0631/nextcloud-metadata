@@ -43,6 +43,7 @@ OC.L10N.register(
     "GPS coordinates" : "Coordenadas GPS",
     "Headline" : "Título",
     "Description" : "Descrição",
+    "Rating" : "Classificação",
     "Description writer" : "Escritor de descrição",
     "People" : "Pessoas",
     "Tags" : "Marcações",

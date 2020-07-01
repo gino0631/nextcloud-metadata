@@ -7,6 +7,7 @@ OC.L10N.register(
     "Date" : "Он сар өдөр",
     "Comment" : "undefined",
     "Description" : "Тодорхойлолт",
+    "Rating" : "Зэрэглэл",
     "Tags" : "Tag-үүд",
     "Credits" : "Кредит",
     "Unknown" : "Үл танигдах зүйл",

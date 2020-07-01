@@ -7,6 +7,7 @@ OC.L10N.register(
     "Date" : "날짜",
     "Comment" : "설명",
     "Description" : "설명",
+    "Rating" : "평가",
     "Tags" : "태그",
     "Credits" : "크레딧",
     "Manual" : "수동",

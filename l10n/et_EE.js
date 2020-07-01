@@ -7,6 +7,7 @@ OC.L10N.register(
     "Date" : "Kuupäev",
     "Comment" : "Kommentaar",
     "Description" : "Kirjeldus",
+    "Rating" : "Hinnang",
     "Tags" : "Sildid",
     "Unknown" : "Teadmata",
     "Other" : "Muu"

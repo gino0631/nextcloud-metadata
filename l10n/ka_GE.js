@@ -7,6 +7,7 @@ OC.L10N.register(
     "Date" : "თარიღი",
     "Comment" : "კომენტარი",
     "Description" : "აღწერილობა",
+    "Rating" : "რეიტინგი",
     "Tags" : "ტეგები",
     "Credits" : "კრედიტები",
     "Unknown" : "ამოუცნობი",

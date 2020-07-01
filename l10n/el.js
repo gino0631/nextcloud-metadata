@@ -43,6 +43,7 @@ OC.L10N.register(
     "GPS coordinates" : "Συντεταγμένες GPS",
     "Headline" : "Επικεφαλίδα",
     "Description" : "Περιγραφή",
+    "Rating" : "Βαθμολογία",
     "Description writer" : "Συγγραφέας περιγραφή",
     "People" : "Άτομα",
     "Tags" : "Ετικέτες",

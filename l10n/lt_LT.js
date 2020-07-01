@@ -33,6 +33,7 @@ OC.L10N.register(
     "Comment" : "Komentaras",
     "GPS coordinates" : "GPS koordinatės",
     "Description" : "Aprašas",
+    "Rating" : "Įvertinimas",
     "Tags" : "Žymės",
     "Keywords" : "Raktažodžiai",
     "Instructions" : "Instrukcija",
