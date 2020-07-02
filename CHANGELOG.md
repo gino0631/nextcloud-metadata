@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+
+## 0.12.0 – 2020-07-03
 ### Added
 - Support for HEIC image files
   [#41](https://github.com/gino0631/nextcloud-metadata/issues/41)
