@@ -8,6 +8,7 @@ OC.L10N.register(
     "Date" : "日期",
     "Comment" : "備註",
     "Description" : "描述",
+    "Rating" : "評價",
     "Tags" : "標籤",
     "Instructions" : "說明",
     "Credits" : "致謝",

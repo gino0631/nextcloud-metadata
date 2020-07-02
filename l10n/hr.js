@@ -43,6 +43,7 @@ OC.L10N.register(
     "GPS coordinates" : "GPS koordinate",
     "Headline" : "Naslov",
     "Description" : "Opis",
+    "Rating" : "Ocjena",
     "Description writer" : "Pisac opisa",
     "People" : "Ljudi",
     "Tags" : "Oznake",

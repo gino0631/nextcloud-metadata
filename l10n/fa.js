@@ -43,6 +43,7 @@ OC.L10N.register(
     "GPS coordinates" : "مختصات GPS",
     "Headline" : "عنوان",
     "Description" : "توضیحات",
+    "Rating" : "رتبه بندی",
     "Description writer" : "نویسنده توضیحات",
     "People" : "مردم",
     "Tags" : "برچسب‌ها",

@@ -8,6 +8,7 @@ OC.L10N.register(
     "Date" : "Дата",
     "Comment" : "Коментар",
     "Description" : "Описание",
+    "Rating" : "Оценка",
     "Tags" : "Етикети",
     "Manual" : "Ръчно",
     "Unknown" : "Непознат",

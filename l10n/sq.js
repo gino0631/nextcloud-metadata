@@ -7,6 +7,7 @@ OC.L10N.register(
     "Date" : "Data",
     "Comment" : "Koment",
     "Description" : "Përshkrim",
+    "Rating" : "Rankim",
     "Tags" : "Etiketat",
     "Credits" : "Kreditet",
     "Unknown" : "I/E panjohur",

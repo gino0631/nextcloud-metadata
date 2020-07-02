@@ -8,6 +8,7 @@ OC.L10N.register(
     "Date" : "Dato",
     "Comment" : "Kommentér",
     "Description" : "Beskrivelse",
+    "Rating" : "Bedømmelse",
     "Tags" : "Tags",
     "Credits" : "Credits",
     "Manual" : "Manuel",

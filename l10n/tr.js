@@ -43,6 +43,7 @@ OC.L10N.register(
     "GPS coordinates" : "GPS koordinatları",
     "Headline" : "Başlık",
     "Description" : "Açıklama",
+    "Rating" : "Değerlendirme",
     "Description writer" : "Açıklamayı yazan",
     "People" : "Kişiler",
     "Tags" : "Etiketler",

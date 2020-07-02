@@ -39,6 +39,7 @@ OC.L10N.register(
     "GPS coordinates" : "GPS-hnit",
     "Headline" : "Fyrirsögn",
     "Description" : "Lýsing",
+    "Rating" : "Einkunn",
     "Description writer" : "Höfundur lýsingar",
     "People" : "Fólk",
     "Tags" : "Merki",

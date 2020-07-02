@@ -21,6 +21,7 @@ OC.L10N.register(
     "Date" : "Datum",
     "Comment" : "Kommentar",
     "Description" : "Beskrivning",
+    "Rating" : "Betyg",
     "Tags" : "Taggar",
     "Instructions" : "Instruktioner",
     "Credits" : "Tack",

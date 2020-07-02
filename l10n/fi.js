@@ -23,6 +23,7 @@ OC.L10N.register(
     "Comment" : "Kommentti",
     "Headline" : "Otsikko",
     "Description" : "Kuvaus",
+    "Rating" : "Arviointi",
     "Tags" : "Tunnisteet",
     "Credits" : "Tekijät",
     "%g mm" : "%g mm",

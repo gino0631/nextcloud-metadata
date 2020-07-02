@@ -17,6 +17,7 @@ OC.L10N.register(
     "Date" : "תאריך",
     "Comment" : "הערה",
     "Description" : "תיאור",
+    "Rating" : "דירוג",
     "Tags" : "תגיות",
     "Instructions" : "הנחיות",
     "Credits" : "תודות",
