@@ -58,6 +58,10 @@ namespace OCA\Metadata\GetID3\AudioVideo;
 use OCA\Metadata\GetID3\getid3_handler;
 use OCA\Metadata\GetID3\getid3_lib;
 
+if (!defined('GETID3_INCLUDEPATH')) { // prevent path-exposing attacks that access modules directly on public webservers
+	exit;
+}
+
 define('GETID3_FLV_TAG_AUDIO',          8);
 define('GETID3_FLV_TAG_VIDEO',          9);
 define('GETID3_FLV_TAG_META',          18);

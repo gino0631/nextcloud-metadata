@@ -46,7 +46,7 @@ class MetadataService {
             case 'video/x-msvideo':
                 if ($sections = $this->readId3($file)) {
                     $metadata = $this->getAvMetadata($sections);
-//                        $this->dump($sections, $metadata);
+//                        $metadata->dump($sections);
                 }
                 break;
 
@@ -120,7 +120,7 @@ class MetadataService {
 
     protected function readId3($file) {
         $getId3 = new getID3();
-        $getId3->option_save_attachments = getID3::ATTACHMENTS_NONE;
+        $getId3->option_save_attachments = false;
 
         return $getId3->analyze($file);
     }

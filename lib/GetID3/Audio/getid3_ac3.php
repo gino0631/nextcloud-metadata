@@ -19,6 +19,10 @@ namespace OCA\Metadata\GetID3\Audio;
 use OCA\Metadata\GetID3\getid3_handler;
 use OCA\Metadata\GetID3\getid3_lib;
 
+if (!defined('GETID3_INCLUDEPATH')) { // prevent path-exposing attacks that access modules directly on public webservers
+	exit;
+}
+
 class getid3_ac3 extends getid3_handler
 {
 	/**

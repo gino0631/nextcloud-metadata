@@ -101,6 +101,13 @@ class getID3
 	 */
 	public $encoding_id3v1  = 'ISO-8859-1';
 
+	/**
+	 * ID3v1 should always be 'ISO-8859-1', but some tags may be written in other encodings such as 'Windows-1251' or 'KOI8-R'. If true attempt to detect these encodings, but may return incorrect values for some tags actually in ISO-8859-1 encoding
+	 *
+	 * @var bool
+	 */
+	public $encoding_id3v1_autodetect  = false;
+
 	/*
 	 * Optional tag checks - disable for speed.
 	 */
@@ -252,7 +259,7 @@ class getID3
 	 */
 	protected $startup_warning = '';
 
-	const VERSION           = '1.9.19-201912131005';
+	const VERSION           = '1.9.20-202006061653';
 	const FREAD_BUFFER_SIZE = 32768;
 
 	const ATTACHMENTS_NONE   = false;
@@ -853,6 +860,14 @@ class getID3
 							'mime_type' => 'application/octet-stream',
 						),
 
+				// DSDIFF - audio     - Direct Stream Digital Interchange File Format
+				'dsdiff' => array(
+							'pattern'   => '^FRM8',
+							'group'     => 'audio',
+							'module'    => 'dsdiff',
+							'mime_type' => 'audio/dsd',
+						),
+
 				// DTS  - audio       - Dolby Theatre System
 				'dts'  => array(
 							'pattern'   => '^\\x7F\\xFE\\x80\\x01',
@@ -980,6 +995,14 @@ class getID3
 							'fail_ape'  => 'ERROR',
 						),
 
+				// TAK  - audio       - Tom's lossless Audio Kompressor
+				'tak'  => array(
+							'pattern'   => '^tBaK',
+							'group'     => 'audio',
+							'module'    => 'tak',
+							'mime_type' => 'application/octet-stream',
+						),
+
 				// TTA  - audio       - TTA Lossless Audio Compressor (http://tta.corecodec.org)
 				'tta'  => array(
 							'pattern'   => '^TTA',  // could also be '^TTA(\\x01|\\x02|\\x03|2|1)'
@@ -1038,6 +1061,14 @@ class getID3
 							'group'     => 'audio-video',
 							'module'    => 'flv',
 							'mime_type' => 'video/x-flv',
+						),
+
+				// IVF - audio/video - IVF
+				'ivf' => array(
+							'pattern'   => '^DKIF',
+							'group'     => 'audio-video',
+							'module'    => 'ivf',
+							'mime_type' => 'video/x-ivf',
 						),
 
 				// MKAV - audio/video - Mastroka
@@ -1224,12 +1255,22 @@ class getID3
 							'iconv_req' => false,
 						),
 
+				// HPK  - data        - HPK compressed data
+				'hpk'  => array(
+							'pattern'   => '^BPUL',
+							'group'     => 'archive',
+							'module'    => 'hpk',
+							'mime_type' => 'application/octet-stream',
+							'fail_id3'  => 'ERROR',
+							'fail_ape'  => 'ERROR',
+						),
+
 				// RAR  - data        - RAR compressed data
 				'rar'  => array(
 							'pattern'   => '^Rar\\!',
 							'group'     => 'archive',
 							'module'    => 'rar',
-							'mime_type' => 'application/octet-stream',
+							'mime_type' => 'application/vnd.rar',
 							'fail_id3'  => 'ERROR',
 							'fail_ape'  => 'ERROR',
 						),
@@ -1431,6 +1472,7 @@ class getID3
 				'flac'      => array('vorbiscomment' , 'UTF-8'),
 				'divxtag'   => array('divx'          , 'ISO-8859-1'),
 				'iptc'      => array('iptc'          , 'ISO-8859-1'),
+				'dsdiff'    => array('dsdiff'        , 'ISO-8859-1'),
 			);
 		}
 
@@ -1530,6 +1572,17 @@ class getID3
 			}
 		}
 		return true;
+	}
+
+	/**
+	 * Calls getid3_lib::CopyTagsToComments() but passes in the option_tags_html setting from this instance of getID3
+	 *
+	 * @param array $ThisFileInfo
+	 *
+	 * @return bool
+	 */
+	public function CopyTagsToComments(&$ThisFileInfo) {
+	    return getid3_lib::CopyTagsToComments($ThisFileInfo, $this->option_tags_html);
 	}
 
 	/**
