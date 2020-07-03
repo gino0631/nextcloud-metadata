@@ -43,7 +43,7 @@ OC.L10N.register(
     "GPS coordinates" : "Coordenadas GPS",
     "Headline" : "Titular",
     "Description" : "Descrición",
-    "Rating" : "Cualificación",
+    "Rating" : "Valoración",
     "Description writer" : "Escritor da descrición",
     "People" : "Xente",
     "Tags" : "Etiquetas",
