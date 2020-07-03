@@ -21,6 +21,10 @@ use OCA\Metadata\GetID3\getid3_handler;
 use OCA\Metadata\GetID3\getid3_lib;
 use OCA\Metadata\GetID3\Audio\getid3_mp3;
 
+if (!defined('GETID3_INCLUDEPATH')) { // prevent path-exposing attacks that access modules directly on public webservers
+	exit;
+}
+
 class getid3_mpeg extends getid3_handler
 {
 
@@ -396,7 +400,7 @@ $PackedElementaryStream['additional_header_bytes'] = $additional_header_bytes;
 					$info['mpeg']['packed_elementary_streams'][$PackedElementaryStream['stream_type']][$PackedElementaryStream['stream_id']][] = $PackedElementaryStream;
 */
 					$getid3_temp = new getID3();
-					$getid3_temp->openfile($this->getid3->filename);
+					$getid3_temp->openfile($this->getid3->filename, $this->getid3->info['filesize'], $this->getid3->fp);
 					$getid3_temp->info = $info;
 					$getid3_mp3 = new getid3_mp3($getid3_temp);
 					for ($i = 0; $i <= 7; $i++) {

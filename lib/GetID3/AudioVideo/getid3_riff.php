@@ -34,6 +34,10 @@ use OCA\Metadata\GetID3\Tags\getid3_id3v2;
 * @todo Rewrite RIFF parser totally
 */
 
+if (!defined('GETID3_INCLUDEPATH')) { // prevent path-exposing attacks that access modules directly on public webservers
+	exit;
+}
+
 class getid3_riff extends getid3_handler
 {
 	protected $container = 'riff'; // default

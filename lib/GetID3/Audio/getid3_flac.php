@@ -20,6 +20,10 @@ use OCA\Metadata\GetID3\getid3;
 use OCA\Metadata\GetID3\getid3_handler;
 use OCA\Metadata\GetID3\getid3_lib;
 
+if (!defined('GETID3_INCLUDEPATH')) { // prevent path-exposing attacks that access modules directly on public webservers
+	exit;
+}
+
 /**
 * @tutorial http://flac.sourceforge.net/format.html
 */

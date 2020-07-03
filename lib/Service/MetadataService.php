@@ -120,7 +120,8 @@ class MetadataService {
 
     protected function readId3($file) {
         $getId3 = new getID3();
-        $getId3->option_save_attachments = getID3::ATTACHMENTS_NONE;
+        $getId3->option_save_attachments = false;
+        $getId3->option_tags_html = false;
 
         return $getId3->analyze($file);
     }

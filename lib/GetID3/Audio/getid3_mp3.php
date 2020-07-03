@@ -19,6 +19,10 @@ namespace OCA\Metadata\GetID3\Audio;
 use OCA\Metadata\GetID3\getid3_handler;
 use OCA\Metadata\GetID3\getid3_lib;
 
+if (!defined('GETID3_INCLUDEPATH')) { // prevent path-exposing attacks that access modules directly on public webservers
+	exit;
+}
+
 // number of frames to scan to determine if MPEG-audio sequence is valid
 // Lower this number to 5-20 for faster scanning
 // Increase this number to 50+ for most accurate detection of valid VBR/CBR
