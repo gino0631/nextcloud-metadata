@@ -4,6 +4,8 @@
 ### Fixed
 - PHP 7.4 errors fixed by updating GetID3 to 1.9.20
   [#62](https://github.com/gino0631/nextcloud-metadata/issues/62)
+- Null parameter in array_merge()
+  [#66](https://github.com/gino0631/nextcloud-metadata/issues/66)
 
 ## 0.12.0 – 2020-07-03
 ### Added
