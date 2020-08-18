@@ -30,6 +30,7 @@ OC.L10N.register(
     "Comment" : "Коментар",
     "GPS coordinates" : "GPS координати",
     "Description" : "Опис",
+    "Rating" : "Рејтинг",
     "Tags" : "Ознаки",
     "Instructions" : "Инструкции",
     "Date created" : "Датум на креирање",
