@@ -76,7 +76,7 @@ class MetadataService {
                 if ($sections = $this->readExif($file)) {
                     if ($jpegMetadata = JpegMetadata::fromFile($file)) {
                         $sections['XMP'] = array_merge($jpegMetadata->getIptc(), $jpegMetadata->getXmp());
-                        $sections['IFD0'] = array_merge((array)$sections['IFD0'], $jpegMetadata->getIfd0());
+                        $sections['IFD0'] = array_merge((array)$this->getVal('IFD0', $sections), $jpegMetadata->getIfd0());
                         if (!array_key_exists('GPS', $sections)) {
                             $sections['GPS'] = $jpegMetadata->getGps();
                         }
@@ -90,7 +90,7 @@ class MetadataService {
                 if ($sections = $this->readExif($file)) {
                     if ($tiffMetadata = TiffMetadata::fromFile($file)) {
                         $sections['XMP'] = array_merge($tiffMetadata->getIptc(), $tiffMetadata->getXmp());
-                        $sections['IFD0'] = array_merge((array)$sections['IFD0'], $tiffMetadata->getIfd0());
+                        $sections['IFD0'] = array_merge((array)$this->getVal('IFD0', $sections), $tiffMetadata->getIfd0());
                     }
                     $metadata = $this->getImageMetadata($sections);
 //                    $metadata->dump($sections);
