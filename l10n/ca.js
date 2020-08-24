@@ -21,6 +21,7 @@ OC.L10N.register(
     "Android version" : "Versió d'Android",
     "%s bit" : "%s bit",
     "%s kHz" : "%s kHz",
+    "Year" : "Any",
     "Date" : "Data",
     "Comment" : "Comentari",
     "Description" : "Descripció",
