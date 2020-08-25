@@ -1,6 +1,7 @@
 OC.L10N.register(
     "metadata",
     {
+    "Date" : "Deizat",
     "Description" : "Diskrivadur",
     "Tags" : "Klavioù",
     "Unknown" : "Dianv",
