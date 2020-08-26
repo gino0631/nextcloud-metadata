@@ -2,6 +2,7 @@ OC.L10N.register(
     "metadata",
     {
     "Date" : "Deizat",
+    "Comment" : "Displegadenn",
     "Description" : "Diskrivadur",
     "Tags" : "Klavioù",
     "Unknown" : "Dianv",
