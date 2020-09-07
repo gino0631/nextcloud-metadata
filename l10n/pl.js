@@ -12,7 +12,7 @@ OC.L10N.register(
     "File not found." : "Nie znaleziono pliku.",
     "Unsupported MIME type \"%s\"." : "Nieobsługiwany typ MIME \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Brakuje obsługi EXIF; może być konieczne zainstalowanie odpowiedniego pakietu dla systemu.",
-    "Title" : "Tutuł",
+    "Title" : "Tytuł",
     "Artist" : "Artysta",
     "Length" : "Długość",
     "Dimensions" : "Wymiary",
