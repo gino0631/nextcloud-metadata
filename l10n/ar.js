@@ -8,6 +8,7 @@ OC.L10N.register(
     "Comment" : "تعليق",
     "Description" : "الوصف",
     "Tags" : "الوسوم",
+    "Credits" : "الشكر ل",
     "Manual" : "يدوي",
     "Unknown" : "مجهول",
     "Other" : "آخر"
