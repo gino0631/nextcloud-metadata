@@ -9,7 +9,9 @@ OC.L10N.register(
     "Description" : "Description",
     "Rating" : "Rating",
     "Tags" : "Tags",
+    "Instructions" : "Instructions",
     "Credits" : "Credits",
+    "Source" : "Source",
     "Unknown" : "Unknown",
     "Pattern" : "Pattern",
     "Other" : "Other"
