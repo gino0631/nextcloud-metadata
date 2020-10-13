@@ -10,6 +10,7 @@ OC.L10N.register(
     "Rating" : "Hinnang",
     "Tags" : "Sildid",
     "Unknown" : "Teadmata",
+    "Pattern" : "Muster",
     "Other" : "Muu"
 },
 "nplurals=2; plural=(n != 1);");
