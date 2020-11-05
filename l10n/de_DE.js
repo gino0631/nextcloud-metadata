@@ -46,7 +46,7 @@ OC.L10N.register(
     "Rating" : "Bewertung",
     "Description writer" : "Autor Beschreibung ",
     "People" : "Personen",
-    "Tags" : "Tags",
+    "Tags" : "Schlagworte",
     "Keywords" : "Schlüsselwörter",
     "Instructions" : "Anweisungen",
     "Date created" : "Erstellungsdatum",
