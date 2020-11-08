@@ -88,7 +88,7 @@ OC.L10N.register(
     "Partial" : "Teilweise",
     "Other" : "Andere",
     "No flash function" : "Ohne Blitzlicht",
-    "Flash" : "Blitzlicht",
+    "Flash" : "Blitz",
     "auto" : "auto",
     "red-eye" : "Rote Augen",
     "strobe return" : "Rückwurf des Blitzes",
