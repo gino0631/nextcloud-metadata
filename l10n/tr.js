@@ -15,7 +15,7 @@ OC.L10N.register(
     "Title" : "Başlık",
     "Artist" : "Sanatçı",
     "Length" : "Uzunluk",
-    "Dimensions" : "Boyutlar",
+    "Dimensions" : "Ölçüler",
     "Frame rate" : "Kare hızı",
     "%g fps" : "%g fps",
     "Bit rate" : "Bit hızı",
