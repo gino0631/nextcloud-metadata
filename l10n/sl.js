@@ -71,6 +71,8 @@ OC.L10N.register(
     "Normal program" : "Običajen program",
     "Aperture priority" : "Prednost zaslonke",
     "Shutter priority" : "Prednost zaklopke",
+    "Creative program" : "Ustvarjalni program",
+    "Action program" : "Dejavni program",
     "Portrait mode" : "Pokončni način",
     "Landscape mode" : "Ležeči način",
     "Auto exposure" : "Samodejna osvetlitev",
