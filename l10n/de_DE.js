@@ -3,7 +3,7 @@ OC.L10N.register(
     {
     "Metadata" : "Metadaten",
     "Reading metadata …" : "Lese Metadaten …",
-    "Resolving, click here to view on map …" : "Auflösen, klicken Sie hier um die Karte zu sehen …",
+    "Resolving, click here to view on map …" : "Auflösen, klicken Sie hier um auf der Karte zu sehen …",
     "Nominatim service unavailable, click here to view on map" : "Nominatim-Dienst nicht verfügbar. Klicken Sie hier um die Karte zu sehen",
     "Location" : "Ort",
     "Location could not be determined" : "Ort konnte nicht bestimmt werden",
