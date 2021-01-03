@@ -47,7 +47,7 @@ OC.L10N.register(
     "Description writer" : "Escritor da descrición",
     "People" : "Xente",
     "Tags" : "Etiquetas",
-    "Keywords" : "Palabras chave",
+    "Keywords" : "Palabras clave",
     "Instructions" : "Instrucións",
     "Date created" : "Data de creación",
     "Job title" : "Título do traballo",
