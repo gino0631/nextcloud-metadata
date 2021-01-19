@@ -16,6 +16,8 @@ class XmpMetadata {
     const EL_PS_INSTRUCTIONS = 'photoshop:Instructions';
     const EL_PS_SOURCE = 'photoshop:Source';
     const EL_PS_STATE = 'photoshop:State';
+    const EL_AS_CAPTION = 'acdsee:caption';
+    const EL_AS_CATEGORIES = 'acdsee:categories';
     const EL_DC_CREATOR = 'dc:creator';
     const EL_DC_DESCRIPTION = 'dc:description';
     const EL_DC_RIGHTS = 'dc:rights';
@@ -141,7 +143,12 @@ class XmpMetadata {
             case self::EL_PS_INSTRUCTIONS:
             case self::EL_PS_SOURCE:
             case self::EL_PS_STATE:
+            case self::EL_AS_CAPTION:
                 $this->addVal($this->formatKey($name), $this->text);
+                break;
+
+            case self::EL_AS_CATEGORIES:
+                $this->addVal($this->formatKey($name), AcdsCategories::fromData($this->text)->getArray());
                 break;
 
             case self::EL_RDF_LI:

@@ -9,7 +9,8 @@ use Test\TestCase;
  * @group DB
  */
 class MetadataControllerTest extends TestCase {
-    const EMSP = "\xe2\x80\x83";
+    const CRLF = "\x0D\x0A";
+    const EMSP = "\xE2\x80\x83";
     const BLACK_STAR = "\xE2\x98\x85";
     const WHITE_STAR = "\xE2\x98\x86";
 
@@ -142,6 +143,16 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('This is a byline', $metadata['Author']);
         $this->assertEquals('This is a byline title', $metadata['Job title']);
         $this->assertEquals('This is a credit', $metadata['Credits']);
+    }
+
+    public function testJpgAcdsee() {
+        $res = $this->controller->get('acdsee.jpg');
+        $data = $res->getData();
+        $this->assertEquals('success', $data['response']);
+
+        $metadata = $data['metadata'];
+        $this->assertEquals('Feuerwehr Kesternich  Schlauchpflege' . self::CRLF . 'v.l.: Jakob Krings (Köbes), Winfried Stollenwerk (Winnes)', $metadata['Description']);
+        $this->assertEquals(['Personen', 'Vereine/Feuerwehr'], $metadata['Tags']);
     }
 
     public function testJpgUnicode() {

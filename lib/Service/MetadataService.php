@@ -313,7 +313,7 @@ class MetadataService {
             $this->addVal($this->t('Headline'), $v, $return);
         }
 
-        if (($v = $this->convertUcs2($this->getVal('Subject', $ifd0))) || ($v = $this->getVal('description', $xmp))) {
+        if (($v = $this->convertUcs2($this->getVal('Subject', $ifd0))) || ($v = $this->getVal('description', $xmp)) || ($v = $this->getVal('caption', $xmp))) {
             $this->addVal($this->t('Description'), $v, $return);
         }
 
@@ -329,7 +329,7 @@ class MetadataService {
             $this->addVal($this->t('People'), $v, $return);
         }
 
-        if ($v = $this->getVal('tags', $xmp)) {
+        if (($v = $this->getVal('tags', $xmp)) || ($v = $this->getVal('categories', $xmp))) {
             $this->addVal($this->t('Tags'), $v, $return);
         }
 
