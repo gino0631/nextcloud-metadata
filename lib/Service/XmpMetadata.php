@@ -148,7 +148,8 @@ class XmpMetadata {
                 break;
 
             case self::EL_AS_CATEGORIES:
-                $this->addVal($this->formatKey($name), AcdsCategories::fromData($this->text)->getArray());
+                $categories = AcdsCategories::fromData($this->text)->getArray();
+                $this->addVal($this->formatKey($name), $categories);
                 break;
 
             case self::EL_RDF_LI:

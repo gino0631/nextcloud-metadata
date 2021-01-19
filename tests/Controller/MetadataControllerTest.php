@@ -9,7 +9,6 @@ use Test\TestCase;
  * @group DB
  */
 class MetadataControllerTest extends TestCase {
-    const CRLF = "\x0D\x0A";
     const EMSP = "\xE2\x80\x83";
     const BLACK_STAR = "\xE2\x98\x85";
     const WHITE_STAR = "\xE2\x98\x86";
@@ -151,7 +150,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('success', $data['response']);
 
         $metadata = $data['metadata'];
-        $this->assertEquals('Feuerwehr Kesternich  Schlauchpflege' . self::CRLF . 'v.l.: Jakob Krings (Köbes), Winfried Stollenwerk (Winnes)', $metadata['Description']);
+        $this->assertEquals("Feuerwehr Kesternich  Schlauchpflege\nv.l.: Jakob Krings (Köbes), Winfried Stollenwerk (Winnes)", $metadata['Description']);
         $this->assertEquals(['Personen', 'Vereine/Feuerwehr'], $metadata['Tags']);
     }
 
