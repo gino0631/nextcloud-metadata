@@ -49,7 +49,7 @@ class TiffParser extends FileReader {
                     case self::ASCII:
                         $size = $count;
                         if ($size <= 4) {
-                            $offsetOrData = substr($offsetOrData, 0, $size- 1);
+                            $offsetOrData = substr($offsetOrData, 0, $size - 1);
                         }
                         break;
                     case self::SHORT:
@@ -59,7 +59,7 @@ class TiffParser extends FileReader {
                             $offsetOrData = substr($offsetOrData, 0, $size);
                             if ($count === 1) {
                                 $offsetOrData = self::unpackShort($intel, $offsetOrData);
-                            } else {
+                            } else if ($count === 2) {
                                 $f = $intel? 'v' : 'n';
                                 $d = unpack($f.'a/'.$f.'b', $offsetOrData);
                                 $offsetOrData = array($d['a'], $d['b']);
