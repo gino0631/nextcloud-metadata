@@ -4,7 +4,7 @@ OC.L10N.register(
     "Metadata" : "Metadane",
     "Reading metadata …" : "Odczytywanie metadanych…",
     "Resolving, click here to view on map …" : "Dla rozstrzygnięcia, kliknij tutaj, aby wyświetlić na mapie…",
-    "Nominatim service unavailable, click here to view on map" : "Usługa Nominatim niedostępna, kliknij tutaj, aby wyświetlić mapę.",
+    "Nominatim service unavailable, click here to view on map" : "Usługa Nominatim niedostępna. Kliknij tutaj, aby wyświetlić mapę",
     "Location" : "Lokalizacja",
     "Location could not be determined" : "Nie można ustalić lokalizacji",
     "Nominatim service unavailable" : "Usługa Nominatim niedostępna",
