@@ -21,6 +21,7 @@ class MetadataService {
      * @throws \Exception
      */
     public function getMetadata($source) {
+        \OC_Util::setupFS();
         $file = Filesystem::getLocalFile($source);
         if (!$file) {
             throw new \Exception($this->t('File not found.'));

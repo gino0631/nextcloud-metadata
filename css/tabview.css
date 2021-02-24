@@ -1,5 +1,5 @@
 #metadataTabView table {
-    margin-left: 1em;
+    margin-left: .5em;
 }
 
 #metadataTabView tr:hover {
@@ -13,7 +13,7 @@
 
 #metadataTabView .key {
     color: #999;
-    padding-right: 1em;
+    padding-right: .5em;
     vertical-align: top;
 }
 

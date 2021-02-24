@@ -4,6 +4,7 @@
 ### Added
 - Support for ACDSee caption and categories metadata
   [#67](https://github.com/gino0631/nextcloud-metadata/issues/67)
+- Compatibility with Nextcloud 21.
 
 ### Fixed
 - PHP 7.4 errors fixed by updating GetID3 to 1.9.20
