@@ -248,7 +248,7 @@ class MetadataService {
             $this->addVal($this->t('Audio sample size'), $this->t('%s bit', array($v)), $return);
         }
 
-        if ($v = $this->getVal('album', $id3v2) ?: $this->getVal('album', $id3v1) ?: $this->getVal('product', $riff)) {
+        if ($v = $this->getValM('album', $tags) ?: $this->getVal('product', $riff)) {
             $this->addVal($this->t('Album'), $v, $return);
         }
 
