@@ -181,7 +181,7 @@ class MetadataService {
             $this->addVal($this->t('Title'), $v, $return);
         }
 
-        if ($v = $this->getVal('artist', $id3v2) ?: $this->getVal('artist', $id3v1)) {
+        if ($v = $this->getValM('artist', $tags)) {
             $this->addVal($this->t('Artist'), $v, $return);
         }
 
