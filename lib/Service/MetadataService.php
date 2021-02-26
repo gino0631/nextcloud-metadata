@@ -177,11 +177,11 @@ class MetadataService {
 
         krsort($tags);  // make a predictable order with 'id3v2' before 'id3v1'
 
-        if ($v = $this->getVal('title', $id3v2) ?: $this->getVal('title', $id3v1)) {
+        if ($v = $this->getValM('title', $tags)) {
             $this->addVal($this->t('Title'), $v, $return);
         }
 
-        if ($v = $this->getVal('artist', $id3v2) ?: $this->getVal('artist', $id3v1)) {
+        if ($v = $this->getValM('artist', $tags)) {
             $this->addVal($this->t('Artist'), $v, $return);
         }
 
