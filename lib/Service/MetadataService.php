@@ -167,7 +167,7 @@ class MetadataService {
 
         $audio = $this->getVal('audio', $sections) ?: array();
         $video = $this->getVal('video', $sections) ?: array();
-        $tags = $this->getVal('tags_html', $sections) ?: array();
+        $tags = $this->getVal('tags', $sections) ?: array();
         $vorbis = $this->getVal('vorbiscomment', $tags) ?: array();
         $id3v2 = $this->getVal('id3v2', $tags) ?: array();
         $id3v1 = $this->getVal('id3v1', $tags) ?: array();
@@ -177,11 +177,11 @@ class MetadataService {
 
         krsort($tags);  // make a predictable order with 'id3v2' before 'id3v1'
 
-        if ($v = $this->getValM('title', $tags)) {
+        if ($v = $this->getVal('title', $id3v2) ?: $this->getVal('title', $id3v1)) {
             $this->addVal($this->t('Title'), $v, $return);
         }
 
-        if ($v = $this->getValM('artist', $tags)) {
+        if ($v = $this->getVal('artist', $id3v2) ?: $this->getVal('artist', $id3v1)) {
             $this->addVal($this->t('Artist'), $v, $return);
         }
 
@@ -248,7 +248,7 @@ class MetadataService {
             $this->addVal($this->t('Audio sample size'), $this->t('%s bit', array($v)), $return);
         }
 
-        if ($v = $this->getValM('album', $tags) ?: $this->getVal('product', $riff)) {
+        if ($v = $this->getVal('album', $id3v2) ?: $this->getVal('album', $id3v1) ?: $this->getVal('product', $riff)) {
             $this->addVal($this->t('Album'), $v, $return);
         }
 
