@@ -1,9 +1,12 @@
 # Changelog
 
 ## [Unreleased]
+
+## 0.13.0 – 2021-02-27
 ### Added
 - Support for ACDSee caption and categories metadata
   [#67](https://github.com/gino0631/nextcloud-metadata/issues/67)
+- Support for PHP 8.0
 - Compatibility with Nextcloud 21.
 
 ### Fixed

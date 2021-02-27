@@ -8,7 +8,7 @@
 
 See the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations.]]>
     </description>
-    <version>0.12.0</version>
+    <version>0.13.0</version>
     <licence>agpl</licence>
     <author>gino0631</author>
     <category>files</category>
