@@ -261,4 +261,14 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('ENCODER234567890123456789012345', $metadata['Encoded by']);
         $this->assertEquals('Lavf57.76.100', $metadata['Encoding tool']);
     }
+
+    public function testZip() {
+        $res = $this->controller->get('sample.zip');
+        $data = $res->getData();
+        $this->assertEquals('success', $data['response']);
+
+        $metadata = $data['metadata'];
+        $this->assertEquals('3', $metadata['Number of files']);
+        $this->assertEquals('Sample comment', $metadata['Comment']);
+    }
 }

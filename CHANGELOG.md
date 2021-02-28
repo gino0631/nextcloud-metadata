@@ -1,6 +1,9 @@
 # Changelog
 
 ## [Unreleased]
+### Added
+- ZIP support (number of files, archive comment)
+
 ### Fixed
 - HEIC metadata not being pulled
   [#76](https://github.com/gino0631/nextcloud-metadata/issues/76)

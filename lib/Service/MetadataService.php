@@ -112,6 +112,12 @@ class MetadataService {
                 }
                 break;
 
+            case 'application/zip':
+                if ($sections = $this->readZip($file)) {
+                    $metadata = $this->getArchiveMetadata($sections);
+                }
+                break;
+
             default:
                 throw new \Exception($this->t('Unsupported MIME type "%s".', array($mimetype)));
         }
@@ -158,6 +164,21 @@ class MetadataService {
         }
 
         return exif_read_data($file, 0, true);
+    }
+
+    protected function readZip($file) {
+        $computed = array();
+
+        $zip = new \ZipArchive();
+        if ($zip->open($file) === true) {
+            $computed['numFiles'] = $zip->numFiles;
+            $computed['comment'] = $zip->comment;
+            $zip->close();
+        }
+
+        return array(
+            'COMPUTED' => $computed
+        );
     }
 
     protected function getAvMetadata($sections) {
@@ -489,6 +510,22 @@ class MetadataService {
         }
 
         return new Metadata($return, $lat, $lon, $loc);
+    }
+
+    protected function getArchiveMetadata($sections) {
+        $return = array();
+
+        $comp = $this->getVal('COMPUTED', $sections) ?: array();
+
+        if ($v = $this->getVal('numFiles', $comp)) {
+            $this->addVal($this->t('Number of files'), $v, $return);
+        }
+
+        if ($v = $this->getVal('comment', $comp)) {
+            $this->addVal($this->t('Comment'), $v, $return);
+        }
+
+        return new Metadata($return);
     }
 
     protected function apexToF($val) {
