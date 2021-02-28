@@ -2,12 +2,13 @@
 namespace OCA\Metadata\Service;
 
 class BmffParser extends FileReader {
-	public function parseBmff($hnd, $limit = 0) {
+	public function parseBmff($hnd, $size = 0) {
 		$current = ftell($hnd);
+		$limit = $current + $size;
 		$continue = true;
 
 		while (!feof($hnd) && ($continue !== false)) {
-			if (($limit > 0) && ($current >= $limit)) {
+			if (($size > 0) && ($current >= $limit)) {
 				return;
 			}
 

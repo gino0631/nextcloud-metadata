@@ -1,6 +1,9 @@
 # Changelog
 
 ## [Unreleased]
+### Fixed
+- HEIC metadata not being pulled
+  [#76](https://github.com/gino0631/nextcloud-metadata/issues/76)
 
 ## 0.13.0 – 2021-02-27
 ### Added
