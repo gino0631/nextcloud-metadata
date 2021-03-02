@@ -44,6 +44,8 @@ OC.L10N.register(
     "%s sec." : "%s sek.",
     "ISO-%s" : "ISO-%s",
     "%g mm" : "%g mm",
+    "Number of files" : "Failų skaičius",
+    "Not defined" : "Neapibrėžta",
     "Manual" : "Rankiniu būdu",
     "Unknown" : "Nežinoma",
     "Pattern" : "Šablonas",

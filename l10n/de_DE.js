@@ -67,6 +67,7 @@ OC.L10N.register(
     "Metering mode" : "Dosiermodus",
     "Flash mode" : "Blitzmodus",
     "GPS altitude" : "GPS-Höhe",
+    "Number of files" : "Anzahl der Dateien",
     "Not defined" : "Nicht definiert",
     "Manual" : "Benutzerhandbuch",
     "Normal program" : "Normal-Programm",

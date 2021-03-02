@@ -67,6 +67,7 @@ OC.L10N.register(
     "Metering mode" : "Modo de medição",
     "Flash mode" : "Modo do flash",
     "GPS altitude" : "Altitude GPS",
+    "Number of files" : "Número de arquivos",
     "Not defined" : "Não definido",
     "Manual" : "Manual",
     "Normal program" : "Programa normal",
