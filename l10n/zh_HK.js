@@ -67,6 +67,7 @@ OC.L10N.register(
     "Metering mode" : "測光模式",
     "Flash mode" : "閃光模式",
     "GPS altitude" : "GPS高度",
+    "Number of files" : "檔案數目",
     "Not defined" : "未定義",
     "Manual" : "手動",
     "Normal program" : "普通程序",

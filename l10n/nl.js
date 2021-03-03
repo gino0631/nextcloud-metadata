@@ -67,6 +67,7 @@ OC.L10N.register(
     "Metering mode" : "Meter modus",
     "Flash mode" : "Flits modus",
     "GPS altitude" : "GPS hoogte",
+    "Number of files" : "Aantal bestanden",
     "Not defined" : "Niet bepaald",
     "Manual" : "Handmatig",
     "Normal program" : "Normaal programma",
