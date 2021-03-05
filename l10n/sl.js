@@ -67,6 +67,7 @@ OC.L10N.register(
     "Metering mode" : "Metrični način",
     "Flash mode" : "Način bliskanja",
     "GPS altitude" : "Nadmorska višina GPS",
+    "Number of files" : "Število datotek",
     "Not defined" : "Ni določeno",
     "Manual" : "Ročno",
     "Normal program" : "Običajen program",

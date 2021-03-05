@@ -67,6 +67,7 @@ OC.L10N.register(
     "Metering mode" : "Ölçüm kipi",
     "Flash mode" : "Flaş kipi",
     "GPS altitude" : "GPS yüksekliği",
+    "Number of files" : "Dosya sayısı",
     "Not defined" : "Belirtilmemiş",
     "Manual" : "Rehber",
     "Normal program" : "Normal program",
