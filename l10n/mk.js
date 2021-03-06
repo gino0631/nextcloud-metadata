@@ -67,6 +67,7 @@ OC.L10N.register(
     "Metering mode" : "Режим на мерење",
     "Flash mode" : "Мод на блицот",
     "GPS altitude" : "GPS надморска висина",
+    "Number of files" : "Број на датотеки",
     "Not defined" : "Не е дефинирано",
     "Manual" : "Рачно",
     "Normal program" : "Нормален програм",
