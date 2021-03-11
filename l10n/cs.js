@@ -84,7 +84,7 @@ OC.L10N.register(
     "Average" : "Poměrové",
     "Center Weighted Average" : "Poměrové s důrazem na střed",
     "Spot" : "Bodové",
-    "Multi Spot" : "Více bodové",
+    "Multi Spot" : "Vícebodové",
     "Pattern" : "Vzor",
     "Partial" : "Poměrové",
     "Other" : "Ostatní",
