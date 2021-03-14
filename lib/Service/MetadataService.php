@@ -163,7 +163,7 @@ class MetadataService {
             throw new \Exception($this->t('EXIF support is missing; you might need to install an appropriate package for your system.'));
         }
 
-        return exif_read_data($file, 0, true);
+        return @exif_read_data($file, 0, true);
     }
 
     protected function readZip($file) {

@@ -4,6 +4,10 @@
 ### Added
 - ZIP support (number of files, archive comment)
 
+### Changed
+- Warnings produced by `exif_read_data` will be ignored
+  [#78](https://github.com/gino0631/nextcloud-metadata/issues/78)
+
 ### Fixed
 - HEIC metadata not being pulled
   [#76](https://github.com/gino0631/nextcloud-metadata/issues/76)
