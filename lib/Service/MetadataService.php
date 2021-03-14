@@ -385,6 +385,14 @@ class MetadataService {
                 }
             }
 
+            if (is_array($w)) {
+                $w = $w[0];
+            }
+
+            if (is_array($h)) {
+                $h = $h[0];
+            }
+
         } else {
             $w = $this->getVal('Width', $comp);
             $h = $this->getVal('Height', $comp);
