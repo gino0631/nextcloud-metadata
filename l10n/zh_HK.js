@@ -2,7 +2,7 @@ OC.L10N.register(
     "metadata",
     {
     "Metadata" : "元數據",
-    "Reading metadata …" : "正在讀取元數據 ...",
+    "Reading metadata …" : "正在讀取元數據 。。。",
     "Resolving, click here to view on map …" : "正在解決，請點擊此處在地圖上查看…",
     "Nominatim service unavailable, click here to view on map" : "按名字的服務不可用，請單擊此處在地圖上查看",
     "Location" : "地點",
@@ -93,8 +93,8 @@ OC.L10N.register(
     "auto" : "自動",
     "red-eye" : "紅眼",
     "strobe return" : "頻閃回歸",
-    "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
+    "H.264 - MPEG-4 AVC (part 10)" : "H。264 - MPEG-4 AVC（part 10)",
     "A plugin for displaying file metadata" : "用於顯示文件元數據的插件",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "一個在文件詳細信息側欄中顯示文件元數據的插件。 有關受支持的文件類型和限制，請參見 [自述文件] (https://github.com/gino0631/nextcloud-metadata/blob/master/README.md)。"
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "一個在文件詳細信息側欄中顯示文件元數據的插件。 有關受支持的文件類型和限制，請參見 [自述文件]（https：//github。com/gino0631/nextcloud-metadata/blob/master/README。md)。"
 },
 "nplurals=1; plural=0;");
