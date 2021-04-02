@@ -67,6 +67,7 @@ OC.L10N.register(
     "Metering mode" : "Način mjerenja",
     "Flash mode" : "Način rada bljeskalice",
     "GPS altitude" : "GPS nadmorska visina",
+    "Number of files" : "Broj datoteka",
     "Not defined" : "Nedefinirano",
     "Manual" : "Ručno",
     "Normal program" : "Uobičajeni program",
