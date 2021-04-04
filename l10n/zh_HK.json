@@ -1,6 +1,6 @@
 { "translations": {
     "Metadata" : "元數據",
-    "Reading metadata …" : "正在讀取元數據 。。。",
+    "Reading metadata …" : "正在讀取元數據 ...",
     "Resolving, click here to view on map …" : "正在解決，請點擊此處在地圖上查看…",
     "Nominatim service unavailable, click here to view on map" : "按名字的服務不可用，請單擊此處在地圖上查看",
     "Location" : "地點",
