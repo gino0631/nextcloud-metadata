@@ -67,6 +67,7 @@ OC.L10N.register(
     "Metering mode" : "Neurketa modua",
     "Flash mode" : "Flash modua",
     "GPS altitude" : "GPS altitudea",
+    "Number of files" : "Fitxategi kopurua",
     "Not defined" : "Definitu gabe",
     "Manual" : "Eskuzkoa",
     "Normal program" : "Programa normala",
