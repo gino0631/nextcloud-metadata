@@ -67,6 +67,7 @@ OC.L10N.register(
     "Metering mode" : "Режим замера",
     "Flash mode" : "Режим вспышки",
     "GPS altitude" : "Широта GPS",
+    "Number of files" : "Количество файлов",
     "Not defined" : "Не задана",
     "Manual" : "Вручную",
     "Normal program" : "Обычная программа",
