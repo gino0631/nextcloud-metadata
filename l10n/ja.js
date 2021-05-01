@@ -2,7 +2,7 @@ OC.L10N.register(
     "metadata",
     {
     "Metadata" : "メタデータ",
-    "Reading metadata …" : "メタデータ読込中",
+    "Reading metadata …" : "メタデータを読込中...",
     "Location" : "場所",
     "No metadata found." : "メタデータが見つかりません。",
     "File not found." : "ファイルが見つかりません",

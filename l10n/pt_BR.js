@@ -46,7 +46,7 @@ OC.L10N.register(
     "Rating" : "Classificação",
     "Description writer" : "Escritor de descrição",
     "People" : "Pessoas",
-    "Tags" : "Marcações",
+    "Tags" : "Etiquetas",
     "Keywords" : "Palavras-chave",
     "Instructions" : "Instruções",
     "Date created" : "Data de criação",
