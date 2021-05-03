@@ -1518,6 +1518,7 @@ class getid3_riff extends getid3_handler
 
 		$RIFFchunk = false;
 		$FoundAllChunksWeNeed = false;
+		$AC3syncwordBytes = pack('n', getid3_ac3::syncword); // 0x0B77 -> "\x0B\x77"
 
 		try {
 			$this->fseek($startoffset);
@@ -1579,7 +1580,7 @@ class getid3_riff extends getid3_handler
 											unset($getid3_temp, $getid3_mp3);
 										}
 
-									} elseif (strpos($FirstFourBytes, getid3_ac3::syncword) === 0) {
+									} elseif (strpos($FirstFourBytes, $AC3syncwordBytes) === 0) {
 
 										// AC3
 										$getid3_temp = new getID3();
@@ -1656,7 +1657,7 @@ class getid3_riff extends getid3_handler
 										unset($getid3_temp, $getid3_mp3);
 									}
 
-								} elseif (($isRegularAC3 = (substr($testData, 0, 2) == getid3_ac3::syncword)) || substr($testData, 8, 2) == strrev(getid3_ac3::syncword)) {
+								} elseif (($isRegularAC3 = (substr($testData, 0, 2) == $AC3syncwordBytes)) || substr($testData, 8, 2) == strrev($AC3syncwordBytes)) {
 
 									// This is probably AC-3 data
 									$getid3_temp = new getID3();
