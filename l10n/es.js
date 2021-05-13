@@ -2,7 +2,7 @@ OC.L10N.register(
     "metadata",
     {
     "Metadata" : "Metadatos",
-    "Reading metadata …" : "Leyendo metadatos...",
+    "Reading metadata …" : "Leyendo metadatos …",
     "Resolving, click here to view on map …" : "Resolviendo. Clic aquí para ver en el mapa...",
     "Nominatim service unavailable, click here to view on map" : "Servicio Nominatim no disponible, haz clic aquí para ver en un mapa",
     "Location" : "Localización",
@@ -22,7 +22,7 @@ OC.L10N.register(
     "%s kbps" : "%s bkps",
     "Author" : "Autor",
     "Copyright" : "Derechos de Autor",
-    "Camera used" : "Cámara usada",
+    "Camera used" : "Cámara utilizada",
     "Android version" : "Versión de Android",
     "Video codec" : "Códec de vídeo",
     "Video sample size" : "Frecuencia de muestreo de vídeo",
@@ -95,6 +95,6 @@ OC.L10N.register(
     "strobe return" : "retorno de parpadeo de luz",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "A plugin for displaying file metadata" : "Un plugin para mostrar los metadatos de los archivos",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Un plugin que muestra los metadatos de archivos en la barra lateral de detalles de los archivos.\n\nVéase el [LÉEME](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) para los tipos de archivo soportados y las limitaciones."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Un plugin que muestra los metadatos de archivos en la barra lateral de detalles de los archivos.\n\nVéase el [LÉEME](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) para los tipos de archivo compatible y las limitaciones."
 },
 "nplurals=2; plural=(n != 1);");
