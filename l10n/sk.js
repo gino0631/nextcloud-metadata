@@ -67,6 +67,7 @@ OC.L10N.register(
     "Metering mode" : "Režim merania",
     "Flash mode" : "Režim blesku",
     "GPS altitude" : "Nadmorská výška z GPS",
+    "Number of files" : "Počet súborov",
     "Not defined" : "Nedefinované",
     "Manual" : "Ručné nastavenia",
     "Normal program" : "Normálny program",
