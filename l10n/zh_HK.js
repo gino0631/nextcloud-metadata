@@ -25,7 +25,7 @@ OC.L10N.register(
     "Camera used" : "使用的相機",
     "Android version" : "Android 版本",
     "Video codec" : "視訊編解碼器",
-    "Video sample size" : "視頻樣本大小",
+    "Video sample size" : "視像樣本大小",
     "%s bit" : "%s bit",
     "Audio codec" : "音頻編解碼器",
     "Audio channels" : "音頻頻道",
