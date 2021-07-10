@@ -1,8 +1,11 @@
 # Changelog
 
 ## [Unreleased]
+
+## 0.14.0 – 2021-07-10
 ### Added
 - ZIP support (number of files, archive comment)
+- Compatibility with Nextcloud 22.
 
 ### Changed
 - Warnings produced by `exif_read_data` will be ignored
