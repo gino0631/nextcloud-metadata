@@ -92,7 +92,7 @@
     "red-eye" : "ogru ruju",
     "strobe return" : "Torrada strobo",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
-    "A plugin for displaying file metadata" : "Unu plugin pro mustrare archìvios metadatos",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Unu plugin chi mustrat archìvios metadatos in s'istanga de is detàllios de is archìvios.\n\nCàstia [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) pro is genias de archìvios suportados e pro is limitatziones."
+    "A plugin for displaying file metadata" : "Un'estensione pro mustrare archìvios metadatos",
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Un'estensione chi mustrat archìvios metadatos in s'istanga de is detàllios de is archìvios.\n\nCàstia [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) pro is genias de archìvios suportados e pro is limitatziones."
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
