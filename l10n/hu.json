@@ -76,11 +76,11 @@
     "Portrait mode" : "Portré mód",
     "Landscape mode" : "Tájkép mód",
     "Auto exposure" : "Automata mód",
-    "Manual exposure" : "Manuális mód",
+    "Manual exposure" : "Kézi expozíció",
     "Auto bracket" : "Automata sorozat",
     "Unknown" : "Ismeretlen",
     "Average" : "Átlag",
-    "Center Weighted Average" : "Közép hangsúlyos mérés",
+    "Center Weighted Average" : "Középen súlyozott átlag",
     "Spot" : "Spot",
     "Multi Spot" : "Többszörös spot",
     "Pattern" : "Minta",
@@ -91,7 +91,7 @@
     "auto" : "automatikus",
     "red-eye" : "vörös szem",
     "strobe return" : "visszajelzés",
-    "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
+    "H.264 - MPEG-4 AVC (part 10)" : "H.264 – MPEG-4 AVC (part 10)",
     "A plugin for displaying file metadata" : "Bővítmény a fájl-metaadatok megjelenítéséhez",
     "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Bővítmény, amely megjeleníti a fájlok metaadatait a fájlrészletező oldalsávban.\n\nLásd a [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) fájlt a támogatott fájltípusok és korlátozások megtekintéséhez."
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
