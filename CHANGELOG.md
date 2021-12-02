@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+## 0.15.0 – 2021-12-02
+### Added
+- Compatibility with Nextcloud 23.
+
+### Changed
+- Required PHP version changed from 5.6 to 7.3.
+
 ## 0.14.0 – 2021-07-10
 ### Added
 - ZIP support (number of files, archive comment)
