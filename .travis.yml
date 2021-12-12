@@ -3,6 +3,7 @@ php:
   - 7.3
   - 7.4
   - 8.0
+  - 8.1
 
 services:
   - postgresql
@@ -20,6 +21,8 @@ env:
     - CLOUD=nextcloud CORE_BRANCH=stable19
     - CLOUD=nextcloud CORE_BRANCH=stable20
     - CLOUD=nextcloud CORE_BRANCH=stable21
+    - CLOUD=nextcloud CORE_BRANCH=stable22
+    - CLOUD=nextcloud CORE_BRANCH=stable23
     - CLOUD=nextcloud CORE_BRANCH=master
     - CLOUD=owncloud CORE_BRANCH=stable10
 
@@ -56,6 +59,30 @@ matrix:
     - php: 8.0
       env: CLOUD=nextcloud CORE_BRANCH=stable20
     - php: 8.0
+      env: CLOUD=owncloud CORE_BRANCH=stable10
+    - php: 8.1
+      env: CLOUD=nextcloud CORE_BRANCH=stable13
+    - php: 8.1
+      env: CLOUD=nextcloud CORE_BRANCH=stable14
+    - php: 8.1
+      env: CLOUD=nextcloud CORE_BRANCH=stable15
+    - php: 8.1
+      env: CLOUD=nextcloud CORE_BRANCH=stable16
+    - php: 8.1
+      env: CLOUD=nextcloud CORE_BRANCH=stable17
+    - php: 8.1
+      env: CLOUD=nextcloud CORE_BRANCH=stable18
+    - php: 8.1
+      env: CLOUD=nextcloud CORE_BRANCH=stable19
+    - php: 8.1
+      env: CLOUD=nextcloud CORE_BRANCH=stable20
+    - php: 8.1
+      env: CLOUD=nextcloud CORE_BRANCH=stable21
+    - php: 8.1
+      env: CLOUD=nextcloud CORE_BRANCH=stable22
+    - php: 8.1
+      env: CLOUD=nextcloud CORE_BRANCH=stable23
+    - php: 8.1
       env: CLOUD=owncloud CORE_BRANCH=stable10
   allow_failures:
     - env: CLOUD=nextcloud CORE_BRANCH=master
