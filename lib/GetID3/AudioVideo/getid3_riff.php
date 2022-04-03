@@ -816,6 +816,9 @@ class getid3_riff extends getid3_handler
 								if (isset($thisfile_riff['AVI ']['hdrl']['strl']['strf'][$i]['data'])) {
 									$strfData = $thisfile_riff['AVI ']['hdrl']['strl']['strf'][$i]['data'];
 
+									if (!isset($thisfile_riff_raw['strf'][$strhfccType][$streamindex])) {
+										$thisfile_riff_raw['strf'][$strhfccType][$streamindex] = null;
+									}
 									// shortcut
 									$thisfile_riff_raw_strf_strhfccType_streamindex = &$thisfile_riff_raw['strf'][$strhfccType][$streamindex];
 
@@ -1583,7 +1586,7 @@ class getid3_riff extends getid3_handler
 	public function ParseRIFF($startoffset, $maxoffset) {
 		$info = &$this->getid3->info;
 
-		$RIFFchunk = false;
+		$RIFFchunk = array();
 		$FoundAllChunksWeNeed = false;
 		$LISTchunkParent = null;
 		$LISTchunkMaxOffset = null;
@@ -1938,7 +1941,7 @@ class getid3_riff extends getid3_handler
 			}
 		}
 
-		return $RIFFchunk;
+		return !empty($RIFFchunk) ? $RIFFchunk : false;
 	}
 
 	/**
