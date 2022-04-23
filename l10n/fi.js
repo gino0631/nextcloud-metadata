@@ -86,6 +86,7 @@ OC.L10N.register(
     "Spot" : "Piste",
     "Multi Spot" : "Monipiste",
     "Pattern" : "Kuvio",
+    "Partial" : "Osittainen",
     "Other" : "Muu",
     "No flash function" : "Ei salamatoimintoa",
     "Flash" : "Salama",
