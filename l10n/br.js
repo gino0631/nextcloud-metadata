@@ -1,6 +1,8 @@
 OC.L10N.register(
     "metadata",
     {
+    "Location" : "Lec'hiadur",
+    "Title" : "Titl",
     "Date" : "Deizat",
     "Comment" : "Displegadenn",
     "Description" : "Diskrivadur",

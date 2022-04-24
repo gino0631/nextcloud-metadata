@@ -1,6 +1,7 @@
 { "translations": {
     "Location" : "Stad",
     "Title" : "Tittel",
+    "Year" : "År",
     "Date" : "Date",
     "Comment" : "Kommentér",
     "Description" : "Skildring",

@@ -7,6 +7,7 @@ OC.L10N.register(
     "Comment" : "Kommentaar",
     "Description" : "Beskrywing",
     "Tags" : "Etikette",
+    "Manual" : "Handmatig",
     "Unknown" : "Onbekend",
     "Other" : "Ander"
 },

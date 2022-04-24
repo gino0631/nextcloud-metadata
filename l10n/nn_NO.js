@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Location" : "Stad",
     "Title" : "Tittel",
+    "Year" : "År",
     "Date" : "Date",
     "Comment" : "Kommentér",
     "Description" : "Skildring",

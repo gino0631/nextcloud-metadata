@@ -4,6 +4,7 @@ OC.L10N.register(
     "Location" : "Sted",
     "Title" : "Tittel",
     "Copyright" : "Opphavsrett",
+    "Year" : "År",
     "Date" : "Dato",
     "Comment" : "Kommentar",
     "Description" : "Beskrivelse",
