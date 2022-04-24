@@ -20,6 +20,6 @@ See the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/READ
         <php min-version="7.3" max-version="8.1" />
         <lib>exif</lib>
         <owncloud min-version="10" max-version="11" />
-        <nextcloud min-version="13" max-version="24" />
+        <nextcloud min-version="13" max-version="25" />
     </dependencies>
 </info>
