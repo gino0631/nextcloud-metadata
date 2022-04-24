@@ -1,8 +1,11 @@
 # Changelog
 
 ## [Unreleased]
+
+## 0.16.0 – 2022-04-24
 ### Added
 - Support for PHP 8.1
+- Compatibility with Nextcloud 24
 
 ## 0.15.0 – 2021-12-02
 ### Added
