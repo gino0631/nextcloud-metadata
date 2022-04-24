@@ -1,4 +1,5 @@
 language: php
+os: linux
 php:
   - 7.3
   - 7.4
@@ -12,10 +13,6 @@ env:
   global:
     - APP_NAME=metadata
   matrix:
-    - CLOUD=nextcloud CORE_BRANCH=stable14
-    - CLOUD=nextcloud CORE_BRANCH=stable15
-    - CLOUD=nextcloud CORE_BRANCH=stable16
-    - CLOUD=nextcloud CORE_BRANCH=stable17
     - CLOUD=nextcloud CORE_BRANCH=stable18
     - CLOUD=nextcloud CORE_BRANCH=stable19
     - CLOUD=nextcloud CORE_BRANCH=stable20
@@ -30,23 +27,7 @@ matrix:
     - php: 7.3
       env: CLOUD=nextcloud CORE_BRANCH=master
     - php: 7.4
-      env: CLOUD=nextcloud CORE_BRANCH=stable14
-    - php: 7.4
-      env: CLOUD=nextcloud CORE_BRANCH=stable15
-    - php: 7.4
-      env: CLOUD=nextcloud CORE_BRANCH=stable16
-    - php: 7.4
-      env: CLOUD=nextcloud CORE_BRANCH=stable17
-    - php: 7.4
       env: CLOUD=owncloud CORE_BRANCH=stable10
-    - php: 8.0
-      env: CLOUD=nextcloud CORE_BRANCH=stable14
-    - php: 8.0
-      env: CLOUD=nextcloud CORE_BRANCH=stable15
-    - php: 8.0
-      env: CLOUD=nextcloud CORE_BRANCH=stable16
-    - php: 8.0
-      env: CLOUD=nextcloud CORE_BRANCH=stable17
     - php: 8.0
       env: CLOUD=nextcloud CORE_BRANCH=stable18
     - php: 8.0
@@ -55,14 +36,6 @@ matrix:
       env: CLOUD=nextcloud CORE_BRANCH=stable20
     - php: 8.0
       env: CLOUD=owncloud CORE_BRANCH=stable10
-    - php: 8.1
-      env: CLOUD=nextcloud CORE_BRANCH=stable14
-    - php: 8.1
-      env: CLOUD=nextcloud CORE_BRANCH=stable15
-    - php: 8.1
-      env: CLOUD=nextcloud CORE_BRANCH=stable16
-    - php: 8.1
-      env: CLOUD=nextcloud CORE_BRANCH=stable17
     - php: 8.1
       env: CLOUD=nextcloud CORE_BRANCH=stable18
     - php: 8.1
@@ -83,7 +56,7 @@ matrix:
 before_install:
   - if [ $CLOUD = 'nextcloud' ]; then wget https://raw.githubusercontent.com/nextcloud/travis_ci/master/before_install.sh; fi
   - if [ $CLOUD = 'owncloud' ]; then wget https://raw.githubusercontent.com/owncloud/administration/master/travis-ci/before_install.sh; fi
-  - if [ $CLOUD = 'owncloud' ]; then nvm install stable; fi
+  - if [ $CLOUD = 'owncloud' ]; then nvm install 17; fi
   - if [ $CLOUD = 'owncloud' ]; then curl -sSfL -o ~/.phpenv/versions/$(phpenv version-name)/bin/phpunit https://phar.phpunit.de/phpunit-6.5.phar; fi
   - if [ $CLOUD = 'owncloud' ]; then ln -s $PWD ../$APP_NAME; fi
   - . ./before_install.sh $APP_NAME $CORE_BRANCH pgsql
