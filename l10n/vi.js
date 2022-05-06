@@ -12,6 +12,7 @@ OC.L10N.register(
     "Rating" : "Đánh giá",
     "Tags" : "Thẻ",
     "Credits" : "Ghi nhận",
+    "Source" : "Nguồn",
     "Manual" : "Thủ công",
     "Unknown" : "Không xác định",
     "Other" : "Khác"
