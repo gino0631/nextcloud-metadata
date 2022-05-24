@@ -97,4 +97,4 @@ OC.L10N.register(
     "A plugin for displaying file metadata" : "Un plugin para mostrar los metadatos de los archivos",
     "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Un plugin que muestra los metadatos de archivos en la barra lateral de detalles de los archivos.\n\nVéase el [LÉEME](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) para los tipos de archivo compatible y las limitaciones."
 },
-"nplurals=2; plural=(n != 1);");
+"nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
