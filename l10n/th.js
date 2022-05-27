@@ -7,6 +7,7 @@ OC.L10N.register(
     "Date" : "Date",
     "Comment" : "แสดงความคิดเห็น",
     "Description" : "รายละเอียด",
+    "Rating" : "คะแนน",
     "Tags" : "ป้ายกำกับ",
     "Unknown" : "ไม่ทราบ",
     "Other" : "อื่นๆ"
