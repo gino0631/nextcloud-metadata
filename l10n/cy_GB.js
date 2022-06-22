@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Location" : "Lleoliad",
     "Title" : "Teitl",
+    "Year" : "Blwyddyn",
     "Date" : "Date",
     "Description" : "Disgrifiad",
     "Tags" : "Tagiau",
