@@ -15,6 +15,7 @@ OC.L10N.register(
     "Comment" : "Comentar",
     "Headline" : "Títol",
     "Description" : "Descripcion",
+    "People" : "Gent",
     "Tags" : "Etiquetas",
     "Credits" : "Crèdits",
     "Unknown" : "Desconegut",
