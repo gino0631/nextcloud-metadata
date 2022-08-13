@@ -7,6 +7,7 @@ OC.L10N.register(
     "Year" : "År",
     "Date" : "Dato",
     "Comment" : "Kommentar",
+    "Headline" : "Overskrift",
     "Description" : "Beskrivelse",
     "Rating" : "Vurdering",
     "Tags" : "Merkelapper",
