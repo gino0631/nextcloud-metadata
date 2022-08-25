@@ -34,6 +34,7 @@ OC.L10N.register(
     "GPS coordinates" : "GPS koordinatės",
     "Description" : "Aprašas",
     "Rating" : "Įvertinimas",
+    "People" : "Žmonės",
     "Tags" : "Žymės",
     "Keywords" : "Raktažodžiai",
     "Instructions" : "Instrukcija",
