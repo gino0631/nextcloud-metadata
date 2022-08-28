@@ -3,20 +3,20 @@
 /**
  * This file is part of FPDI
  *
- * @package   setasign\Fpdi
+ * @package   OCA\Metadata\Fpdi
  * @copyright Copyright (c) 2020 Setasign GmbH & Co. KG (https://www.setasign.com)
  * @license   http://opensource.org/licenses/mit-license The MIT License
  */
 
-namespace setasign\Fpdi\PdfParser\CrossReference;
+namespace OCA\Metadata\Fpdi\PdfParser\CrossReference;
 
-use setasign\Fpdi\PdfParser\PdfParser;
-use setasign\Fpdi\PdfParser\Type\PdfDictionary;
-use setasign\Fpdi\PdfParser\Type\PdfIndirectObject;
-use setasign\Fpdi\PdfParser\Type\PdfNumeric;
-use setasign\Fpdi\PdfParser\Type\PdfStream;
-use setasign\Fpdi\PdfParser\Type\PdfToken;
-use setasign\Fpdi\PdfParser\Type\PdfTypeException;
+use OCA\Metadata\Fpdi\PdfParser\PdfParser;
+use OCA\Metadata\Fpdi\PdfParser\Type\PdfDictionary;
+use OCA\Metadata\Fpdi\PdfParser\Type\PdfIndirectObject;
+use OCA\Metadata\Fpdi\PdfParser\Type\PdfNumeric;
+use OCA\Metadata\Fpdi\PdfParser\Type\PdfStream;
+use OCA\Metadata\Fpdi\PdfParser\Type\PdfToken;
+use OCA\Metadata\Fpdi\PdfParser\Type\PdfTypeException;
 
 /**
  * Class CrossReference

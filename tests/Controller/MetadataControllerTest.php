@@ -262,6 +262,22 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('Lavf57.76.100', $metadata['Encoding tool']);
     }
 
+    public function testPdf() {
+        $res = $this->controller->get('sampleunsecuredpdf.pdf');
+        $data = $res->getData();
+        $this->assertEquals('success', $data['response']);
+
+        $metadata = $data['metadata'];
+        $this->assertEquals('Microsoft Word - Placeholder Documentation.docx', $metadata['Title']);
+        $this->assertEquals('c8clark', $metadata['Author']);
+        $this->assertEquals('2012-03-30 11:25:26 +04:00', $metadata['Created']);
+        $this->assertEquals('2012-03-30 11:25:26 +04:00', $metadata['Modified']);
+        $this->assertEquals('PrimoPDF http://www.primopdf.com', $metadata['Application']);
+        $this->assertEquals('1', $metadata['Number of pages']);
+        $this->assertEquals('Nitro PDF PrimoPDF', $metadata['PDF producer']);
+        $this->assertEquals('1.3', $metadata['PDF version']);
+    }
+
     public function testZip() {
         $res = $this->controller->get('sample.zip');
         $data = $res->getData();

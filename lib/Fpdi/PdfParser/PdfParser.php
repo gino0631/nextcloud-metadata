@@ -3,28 +3,28 @@
 /**
  * This file is part of FPDI
  *
- * @package   setasign\Fpdi
+ * @package   OCA\Metadata\Fpdi
  * @copyright Copyright (c) 2020 Setasign GmbH & Co. KG (https://www.setasign.com)
  * @license   http://opensource.org/licenses/mit-license The MIT License
  */
 
-namespace setasign\Fpdi\PdfParser;
+namespace OCA\Metadata\Fpdi\PdfParser;
 
-use setasign\Fpdi\PdfParser\CrossReference\CrossReference;
-use setasign\Fpdi\PdfParser\CrossReference\CrossReferenceException;
-use setasign\Fpdi\PdfParser\Type\PdfArray;
-use setasign\Fpdi\PdfParser\Type\PdfBoolean;
-use setasign\Fpdi\PdfParser\Type\PdfDictionary;
-use setasign\Fpdi\PdfParser\Type\PdfHexString;
-use setasign\Fpdi\PdfParser\Type\PdfIndirectObject;
-use setasign\Fpdi\PdfParser\Type\PdfIndirectObjectReference;
-use setasign\Fpdi\PdfParser\Type\PdfName;
-use setasign\Fpdi\PdfParser\Type\PdfNull;
-use setasign\Fpdi\PdfParser\Type\PdfNumeric;
-use setasign\Fpdi\PdfParser\Type\PdfStream;
-use setasign\Fpdi\PdfParser\Type\PdfString;
-use setasign\Fpdi\PdfParser\Type\PdfToken;
-use setasign\Fpdi\PdfParser\Type\PdfType;
+use OCA\Metadata\Fpdi\PdfParser\CrossReference\CrossReference;
+use OCA\Metadata\Fpdi\PdfParser\CrossReference\CrossReferenceException;
+use OCA\Metadata\Fpdi\PdfParser\Type\PdfArray;
+use OCA\Metadata\Fpdi\PdfParser\Type\PdfBoolean;
+use OCA\Metadata\Fpdi\PdfParser\Type\PdfDictionary;
+use OCA\Metadata\Fpdi\PdfParser\Type\PdfHexString;
+use OCA\Metadata\Fpdi\PdfParser\Type\PdfIndirectObject;
+use OCA\Metadata\Fpdi\PdfParser\Type\PdfIndirectObjectReference;
+use OCA\Metadata\Fpdi\PdfParser\Type\PdfName;
+use OCA\Metadata\Fpdi\PdfParser\Type\PdfNull;
+use OCA\Metadata\Fpdi\PdfParser\Type\PdfNumeric;
+use OCA\Metadata\Fpdi\PdfParser\Type\PdfStream;
+use OCA\Metadata\Fpdi\PdfParser\Type\PdfString;
+use OCA\Metadata\Fpdi\PdfParser\Type\PdfToken;
+use OCA\Metadata\Fpdi\PdfParser\Type\PdfType;
 
 /**
  * A PDF parser class

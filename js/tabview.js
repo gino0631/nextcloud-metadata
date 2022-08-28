@@ -47,7 +47,7 @@
                 'image/gif', 'image/heic', 'image/jpeg', 'image/png', 'image/tiff', 'image/x-dcraw',
                 'video/3gpp', 'video/dvd', 'video/mp4', 'video/mpeg', 'video/quicktime',
                 'video/webm', 'video/x-flv', 'video/x-matroska', 'video/x-msvideo',
-                'application/zip'].indexOf(mimetype) > -1);
+                'application/pdf', 'application/zip'].indexOf(mimetype) > -1);
         },
 
         formatValue: function(value) {

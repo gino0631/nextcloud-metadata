@@ -112,6 +112,21 @@ class MetadataService {
                 }
                 break;
 
+            case 'application/pdf':
+                if ($pdfMetadata = PdfMetadata::fromFile($file)) {
+                    $sections = array(
+                        'COMPUTED' => array(
+                            'version' => $pdfMetadata->getPdfVersionString(),
+                            'pageCount' => $pdfMetadata->getPageCount()
+                        ),
+                        'INFO' => $pdfMetadata->getInfo()
+                    );
+
+                    $metadata = $this->getPdfMetadata($sections);
+//                    $metadata->dump($sections);
+                }
+                break;
+
             case 'application/zip':
                 if ($sections = $this->readZip($file)) {
                     $metadata = $this->getArchiveMetadata($sections);
@@ -518,6 +533,59 @@ class MetadataService {
         }
 
         return new Metadata($return, $lat, $lon, $loc);
+    }
+
+    protected function getPdfMetadata($sections) {
+        $return = array();
+
+        $comp = $this->getVal('COMPUTED', $sections) ?: array();
+        $info = $this->getVal('INFO', $sections) ?: array();
+
+        // Description
+
+        if ($v = $this->getVal('Title', $info)) {
+            $this->addVal($this->t('Title'), $v, $return);
+        }
+
+        if ($v = $this->getVal('Author', $info)) {
+            $this->addVal($this->t('Author'), $v, $return);
+        }
+
+        if ($v = $this->getVal('Subject', $info)) {
+            $this->addVal($this->t('Subject'), $v, $return);
+        }
+
+        if ($v = $this->getVal('Keywords', $info)) {
+            $this->addVal($this->t('Keywords'), $v, $return);
+        }
+
+        if ($v = $this->getVal('CreationDate', $info)) {
+            $this->addVal($this->t('Created'), $v, $return);
+        }
+
+        if ($v = $this->getVal('ModDate', $info)) {
+            $this->addVal($this->t('Modified'), $v, $return);
+        }
+
+        if ($v = $this->getVal('Creator', $info)) {
+            $this->addVal($this->t('Application'), $v, $return);
+        }
+
+        // Advanced
+
+        if ($v = $this->getVal('pageCount', $comp)) {
+            $this->addVal($this->t('Number of pages'), $v, $return);
+        }
+
+        if ($v = $this->getVal('Producer', $info)) {
+            $this->addVal($this->t('PDF producer'), $v, $return);
+        }
+
+        if ($v = $this->getVal('version', $comp)) {
+            $this->addVal($this->t('PDF version'), $v, $return);
+        }
+
+        return new Metadata($return);
     }
 
     protected function getArchiveMetadata($sections) {

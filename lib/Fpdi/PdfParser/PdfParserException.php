@@ -3,14 +3,14 @@
 /**
  * This file is part of FPDI
  *
- * @package   setasign\Fpdi
+ * @package   OCA\Metadata\Fpdi
  * @copyright Copyright (c) 2020 Setasign GmbH & Co. KG (https://www.setasign.com)
  * @license   http://opensource.org/licenses/mit-license The MIT License
  */
 
-namespace setasign\Fpdi\PdfParser;
+namespace OCA\Metadata\Fpdi\PdfParser;
 
-use setasign\Fpdi\FpdiException;
+use OCA\Metadata\Fpdi\FpdiException;
 
 /**
  * Exception for the pdf parser class

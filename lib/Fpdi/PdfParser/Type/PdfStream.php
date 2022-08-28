@@ -3,23 +3,23 @@
 /**
  * This file is part of FPDI
  *
- * @package   setasign\Fpdi
+ * @package   OCA\Metadata\Fpdi
  * @copyright Copyright (c) 2020 Setasign GmbH & Co. KG (https://www.setasign.com)
  * @license   http://opensource.org/licenses/mit-license The MIT License
  */
 
-namespace setasign\Fpdi\PdfParser\Type;
+namespace OCA\Metadata\Fpdi\PdfParser\Type;
 
-use setasign\Fpdi\PdfParser\CrossReference\CrossReferenceException;
-use setasign\Fpdi\PdfParser\Filter\Ascii85;
-use setasign\Fpdi\PdfParser\Filter\AsciiHex;
-use setasign\Fpdi\PdfParser\Filter\FilterException;
-use setasign\Fpdi\PdfParser\Filter\Flate;
-use setasign\Fpdi\PdfParser\Filter\Lzw;
-use setasign\Fpdi\PdfParser\PdfParser;
-use setasign\Fpdi\PdfParser\PdfParserException;
-use setasign\Fpdi\PdfParser\StreamReader;
-use setasign\FpdiPdfParser\PdfParser\Filter\Predictor;
+use OCA\Metadata\Fpdi\PdfParser\CrossReference\CrossReferenceException;
+use OCA\Metadata\Fpdi\PdfParser\Filter\Ascii85;
+use OCA\Metadata\Fpdi\PdfParser\Filter\AsciiHex;
+use OCA\Metadata\Fpdi\PdfParser\Filter\FilterException;
+use OCA\Metadata\Fpdi\PdfParser\Filter\Flate;
+use OCA\Metadata\Fpdi\PdfParser\Filter\Lzw;
+use OCA\Metadata\Fpdi\PdfParser\PdfParser;
+use OCA\Metadata\Fpdi\PdfParser\PdfParserException;
+use OCA\Metadata\Fpdi\PdfParser\StreamReader;
+use OCA\Metadata\FpdiPdfParser\PdfParser\Filter\Predictor;
 
 /**
  * Class representing a PDF stream object

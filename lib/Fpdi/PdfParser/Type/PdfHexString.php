@@ -3,14 +3,14 @@
 /**
  * This file is part of FPDI
  *
- * @package   setasign\Fpdi
+ * @package   OCA\Metadata\Fpdi
  * @copyright Copyright (c) 2020 Setasign GmbH & Co. KG (https://www.setasign.com)
  * @license   http://opensource.org/licenses/mit-license The MIT License
  */
 
-namespace setasign\Fpdi\PdfParser\Type;
+namespace OCA\Metadata\Fpdi\PdfParser\Type;
 
-use setasign\Fpdi\PdfParser\StreamReader;
+use OCA\Metadata\Fpdi\PdfParser\StreamReader;
 
 /**
  * Class representing a hexadecimal encoded PDF string object
