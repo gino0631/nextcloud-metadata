@@ -8,6 +8,9 @@
     "Rating" : "Зэрэглэл",
     "Tags" : "Tag-үүд",
     "Credits" : "Кредит",
+    "Subject" : "Сэдэв",
+    "Created" : "Үүсгэсэн",
+    "Modified" : "Өөрчлөгдсөн",
     "Unknown" : "Үл танигдах зүйл",
     "Other" : "Бусад"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"

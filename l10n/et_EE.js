@@ -9,6 +9,9 @@ OC.L10N.register(
     "Description" : "Kirjeldus",
     "Rating" : "Hinnang",
     "Tags" : "Sildid",
+    "Subject" : "Teema",
+    "Created" : "Loodud",
+    "Modified" : "Muudetud",
     "Unknown" : "Teadmata",
     "Pattern" : "Muster",
     "Other" : "Muu"

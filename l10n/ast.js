@@ -10,6 +10,9 @@ OC.L10N.register(
     "Rating" : "Valoración",
     "Tags" : "Etiquetes",
     "Credits" : "Creitos",
+    "Subject" : "Asuntu",
+    "Created" : "Creóse",
+    "Modified" : "Modificóse'l",
     "Unknown" : "Desconozse",
     "Pattern" : "Patrón",
     "Other" : "Otru"

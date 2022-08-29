@@ -10,6 +10,9 @@ OC.L10N.register(
     "Rating" : "Nilai",
     "Tags" : "Tag",
     "Credits" : "Kredit",
+    "Subject" : "Subjek",
+    "Created" : "Dibuat",
+    "Modified" : "Dimodifikasi",
     "Unknown" : "Tidak diketahui",
     "Other" : "Lainnya"
 },

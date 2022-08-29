@@ -10,6 +10,9 @@ OC.L10N.register(
     "Rating" : "Rankim",
     "Tags" : "Etiketat",
     "Credits" : "Kreditet",
+    "Subject" : "Temë",
+    "Created" : "U krijua",
+    "Modified" : "Modifikuar ",
     "Unknown" : "I/E panjohur",
     "Pattern" : "Strukturë",
     "Other" : "Tjetër"

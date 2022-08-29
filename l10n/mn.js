@@ -10,6 +10,9 @@ OC.L10N.register(
     "Rating" : "Зэрэглэл",
     "Tags" : "Tag-үүд",
     "Credits" : "Кредит",
+    "Subject" : "Сэдэв",
+    "Created" : "Үүсгэсэн",
+    "Modified" : "Өөрчлөгдсөн",
     "Unknown" : "Үл танигдах зүйл",
     "Other" : "Бусад"
 },

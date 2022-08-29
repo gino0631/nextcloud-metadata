@@ -10,6 +10,9 @@ OC.L10N.register(
     "Rating" : "Calificación",
     "Tags" : "Etiquetas",
     "Credits" : "Créditos",
+    "Subject" : "Asunto",
+    "Created" : "Creado",
+    "Modified" : "Modificado",
     "Unknown" : "Desconocido",
     "Pattern" : "Patrón",
     "Other" : "Otro"

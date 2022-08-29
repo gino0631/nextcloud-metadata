@@ -12,6 +12,9 @@ OC.L10N.register(
     "Instructions" : "Instructions",
     "Credits" : "Credits",
     "Source" : "Source",
+    "Subject" : "Subject",
+    "Created" : "Created",
+    "Modified" : "Modified",
     "Unknown" : "Unknown",
     "Pattern" : "Pattern",
     "Other" : "Other"

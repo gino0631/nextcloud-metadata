@@ -9,6 +9,9 @@ OC.L10N.register(
     "Description" : "الوصف",
     "Tags" : "الوسوم",
     "Credits" : "الشكر ل",
+    "Subject" : "الموضوع",
+    "Created" : "أُنشئ",
+    "Modified" : "عُدل",
     "Manual" : "يدوي",
     "Unknown" : "مجهول",
     "Other" : "آخر"

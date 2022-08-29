@@ -7,6 +7,7 @@ OC.L10N.register(
     "Comment" : "Displegadenn",
     "Description" : "Diskrivadur",
     "Tags" : "Klavioù",
+    "Modified" : "Cheñchet",
     "Unknown" : "Dianv",
     "Pattern" : "Pattern",
     "Other" : "All"

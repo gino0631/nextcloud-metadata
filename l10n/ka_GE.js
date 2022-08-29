@@ -10,6 +10,9 @@ OC.L10N.register(
     "Rating" : "რეიტინგი",
     "Tags" : "ტეგები",
     "Credits" : "კრედიტები",
+    "Subject" : "სათაური",
+    "Created" : "შექმნილია",
+    "Modified" : "შეიცვალა",
     "Unknown" : "ამოუცნობი",
     "Pattern" : "ნიმუში",
     "Other" : "სხვა"

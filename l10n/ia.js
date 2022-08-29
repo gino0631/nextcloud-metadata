@@ -8,6 +8,7 @@ OC.L10N.register(
     "Comment" : "Commentario",
     "Description" : "Description",
     "Tags" : "Etiquettas",
+    "Modified" : "Modificate",
     "Unknown" : "Incognite",
     "Other" : "Altere"
 },

@@ -9,6 +9,7 @@ OC.L10N.register(
     "Description" : "รายละเอียด",
     "Rating" : "คะแนน",
     "Tags" : "ป้ายกำกับ",
+    "Modified" : "แก้ไขเมื่อ",
     "Unknown" : "ไม่ทราบ",
     "Other" : "อื่นๆ"
 },

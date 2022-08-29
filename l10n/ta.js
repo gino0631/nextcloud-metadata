@@ -6,6 +6,7 @@ OC.L10N.register(
     "Date" : "Date",
     "Description" : "விவரிப்பு",
     "Tags" : "சீட்டுகள்",
+    "Modified" : "மாற்றப்பட்டது",
     "Unknown" : "தெரியாத",
     "Other" : "மற்றவை"
 },

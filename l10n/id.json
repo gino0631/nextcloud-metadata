@@ -8,6 +8,9 @@
     "Rating" : "Nilai",
     "Tags" : "Tag",
     "Credits" : "Kredit",
+    "Subject" : "Subjek",
+    "Created" : "Dibuat",
+    "Modified" : "Dimodifikasi",
     "Unknown" : "Tidak diketahui",
     "Other" : "Lainnya"
 },"pluralForm" :"nplurals=1; plural=0;"

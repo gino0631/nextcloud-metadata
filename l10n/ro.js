@@ -10,6 +10,8 @@ OC.L10N.register(
     "Rating" : "Evaluare",
     "Tags" : "Etichete",
     "Credits" : "Realizatori",
+    "Subject" : "Subiect",
+    "Modified" : "Modificat",
     "Manual" : "Manual",
     "Unknown" : "Necunoscut",
     "Other" : "Altele"

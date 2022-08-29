@@ -8,6 +8,8 @@ OC.L10N.register(
     "Description" : "Disgrifiad",
     "Tags" : "Tagiau",
     "Credits" : "Diolchiadau",
+    "Subject" : "Pwnc",
+    "Modified" : "Addaswyd",
     "Manual" : "Â Llaw",
     "Unknown" : "Anhysbys",
     "Other" : "Arall"

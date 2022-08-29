@@ -3,6 +3,7 @@
     "Title" : "Judul",
     "Date" : "Date",
     "Description" : "Keterangan",
+    "Modified" : "Dimodifikasi",
     "Other" : "Lain"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

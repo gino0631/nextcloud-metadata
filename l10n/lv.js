@@ -13,6 +13,9 @@ OC.L10N.register(
     "Instructions" : "Norādes gatavošanai",
     "Credits" : "Kredīti",
     "Source" : "Avots",
+    "Subject" : "Temats",
+    "Created" : "Izveidots",
+    "Modified" : "Mainīts",
     "Manual" : "Manuāli",
     "Unknown" : "Nezināms",
     "Other" : "Cits"

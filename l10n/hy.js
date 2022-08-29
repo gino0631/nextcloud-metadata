@@ -7,6 +7,7 @@ OC.L10N.register(
     "Comment" : "Մեկնաբանել",
     "Description" : "Նկարագրություն",
     "Credits" : "անվանացանկ",
+    "Modified" : "Փոփոխված",
     "Unknown" : "Անհայտ",
     "Other" : "Այլ"
 },

@@ -18,6 +18,7 @@ OC.L10N.register(
     "People" : "Gent",
     "Tags" : "Etiquetas",
     "Credits" : "Crèdits",
+    "Modified" : "Modificat",
     "Unknown" : "Desconegut",
     "Other" : "Autre"
 },

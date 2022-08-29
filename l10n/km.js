@@ -11,6 +11,7 @@ OC.L10N.register(
     "Comment" : "មតិ",
     "Description" : "ការ​អធិប្បាយ",
     "Tags" : "ស្លាក",
+    "Modified" : "បាន​កែ​ប្រែ",
     "Other" : "ផ្សេងៗ"
 },
 "nplurals=1; plural=0;");

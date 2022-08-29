@@ -5,6 +5,7 @@ OC.L10N.register(
     "Title" : "Judul",
     "Date" : "Date",
     "Description" : "Keterangan",
+    "Modified" : "Dimodifikasi",
     "Other" : "Lain"
 },
 "nplurals=1; plural=0;");

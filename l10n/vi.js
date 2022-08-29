@@ -16,6 +16,9 @@ OC.L10N.register(
     "Date created" : "Ngày tạo",
     "Credits" : "Ghi nhận",
     "Source" : "Nguồn",
+    "Subject" : "Chủ đề",
+    "Created" : "Đã tạo",
+    "Modified" : "Thay đổi",
     "Manual" : "Thủ công",
     "Unknown" : "Không xác định",
     "Other" : "Khác"

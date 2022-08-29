@@ -9,6 +9,9 @@ OC.L10N.register(
     "Description" : "Priskribo",
     "Rating" : "Pritakso",
     "Tags" : "Etikedoj",
+    "Subject" : "Temo",
+    "Created" : "Kreita",
+    "Modified" : "Modifita",
     "Manual" : "Permane",
     "Unknown" : "Nekonata",
     "Other" : "Alia"
