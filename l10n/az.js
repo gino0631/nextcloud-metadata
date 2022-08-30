@@ -7,6 +7,7 @@ OC.L10N.register(
     "Comment" : "Komentariya",
     "Description" : "Açıqlanma",
     "Tags" : "Işarələr",
+    "Modified" : "Dəyişdirildi",
     "Other" : "Digər"
 },
 "nplurals=2; plural=(n != 1);");

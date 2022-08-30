@@ -8,6 +8,8 @@ OC.L10N.register(
     "Comment" : "Kommentér",
     "Description" : "Skildring",
     "Tags" : "Emneord",
+    "Created" : "Lagd",
+    "Modified" : "Endra",
     "Unknown" : "Ukjend",
     "Other" : "Anna"
 },
