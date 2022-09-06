@@ -5,6 +5,7 @@ OC.L10N.register(
     "Location" : "Місце",
     "Title" : "Назва",
     "Copyright" : "Права на копіюівння",
+    "Year" : "рік",
     "Date" : "Date",
     "Comment" : "Коментар",
     "Description" : "Опис",

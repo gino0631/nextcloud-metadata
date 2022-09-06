@@ -16,6 +16,7 @@ OC.L10N.register(
     "Headline" : "Overskrift",
     "Description" : "Beskrivelse",
     "Rating" : "Bedømmelse",
+    "People" : "Personer",
     "Tags" : "Tags",
     "Keywords" : "Nøgleord",
     "Instructions" : "Instruktioner",
