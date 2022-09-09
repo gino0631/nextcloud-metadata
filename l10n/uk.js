@@ -8,6 +8,7 @@ OC.L10N.register(
     "Year" : "рік",
     "Date" : "Date",
     "Comment" : "Коментар",
+    "Headline" : "Заголовок",
     "Description" : "Опис",
     "Rating" : "Оцінка",
     "Tags" : "Позначки",
