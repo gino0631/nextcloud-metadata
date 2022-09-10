@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Metadata" : "Метадані",
     "Location" : "Місце",
+    "File not found." : "Файл не знайдено.",
     "Title" : "Назва",
     "Copyright" : "Права на копіюівння",
     "Year" : "рік",
