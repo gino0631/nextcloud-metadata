@@ -32,6 +32,7 @@ OC.L10N.register(
     "Genre" : "Žanras",
     "Comment" : "Komentaras",
     "GPS coordinates" : "GPS koordinatės",
+    "Headline" : "Antraštė",
     "Description" : "Aprašas",
     "Rating" : "Įvertinimas",
     "People" : "Žmonės",
