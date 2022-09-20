@@ -66,6 +66,7 @@ OC.L10N.register(
     "Subject" : "Viðfangsefni",
     "Created" : "Búið til þann",
     "Modified" : "Breytt",
+    "Number of files" : "Fjöldi skráa",
     "Not defined" : "Ekki skilgreint",
     "Manual" : "Handvirkt",
     "Normal program" : "Hefðbundin stilling",
