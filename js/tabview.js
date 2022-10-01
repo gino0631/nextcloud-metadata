@@ -188,7 +188,7 @@
             } else {
                 var location = data.address;
                 var address = [];
-                this.add(location.building || location.attraction || location.artwork || location.monument || location.viewpoint || location.museum || location.cafe || location.garden || location.aerodrome || location.address29 || location.house_number, address);
+                this.add(location.building || location.attraction || location.artwork || location.monument || location.viewpoint || location.museum || location.cafe || location.shop || location.garden || location.aerodrome || location.address29 || location.house_number, address);
                 this.add(location.road || location.pedestrian || location.path || location.steps || location.footway || location.cycleway || location.bridleway || location.construction, address);
                 this.add(location.city || location.town || location.village || location.hamlet || location.isolated_dwelling, address);
                 this.add(location.country, address);

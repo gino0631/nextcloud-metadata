@@ -203,6 +203,7 @@ class MetadataService {
 
         $audio = $this->getVal('audio', $sections) ?: array();
         $video = $this->getVal('video', $sections) ?: array();
+        $qts = $this->getVal('quicktime', $sections) ?: array();
         $tags = $this->getVal('tags', $sections) ?: array();
         $vorbis = $this->getVal('vorbiscomment', $tags) ?: array();
         $id3v2 = $this->getVal('id3v2', $tags) ?: array();
@@ -219,6 +220,20 @@ class MetadataService {
 
         if ($v = $this->getValM('artist', $tags)) {
             $this->addVal($this->t('Artist'), $v, $return);
+        }
+
+        if (is_array($u = $this->getVal('timestamps_unix', $qts))) {
+            if (is_array($c = $this->getVal('create', $u))) {
+                if ($v = $this->getVal('moov mvhd', $c)) {
+                    $this->addVal($this->t('Date created'), $this->formatTimestamp($v), $return);
+                }
+            }
+
+            if (is_array($c = $this->getVal('modify', $u))) {
+                if ($v = $this->getVal('moov mvhd', $c)) {
+                    $this->addVal($this->t('Date modified'), $this->formatTimestamp($v), $return);
+                }
+            }
         }
 
         if ($v = $this->getVal('playtime_seconds', $sections)) {
@@ -771,6 +786,10 @@ class MetadataService {
 
     protected function formatSeconds($val) {
         return sprintf("%02d:%02d:%02d", floor($val / 3600), floor(fmod(($val / 60), 60)), round(fmod($val, 60)));
+    }
+
+    protected function formatTimestamp($val) {
+        return date('Y-m-d H:i:s', $val);
     }
 
     protected function formatRational($val, $fracIfSmall = false, $precision = 2) {
