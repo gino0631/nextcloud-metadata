@@ -19,7 +19,7 @@ use OCA\Metadata\Fpdi\PdfParser\Filter\Lzw;
 use OCA\Metadata\Fpdi\PdfParser\PdfParser;
 use OCA\Metadata\Fpdi\PdfParser\PdfParserException;
 use OCA\Metadata\Fpdi\PdfParser\StreamReader;
-use OCA\Metadata\FpdiPdfParser\PdfParser\Filter\Predictor;
+use OCA\Metadata\Fpdi\PdfParser\Filter\Predictor;
 
 /**
  * Class representing a PDF stream object
@@ -271,14 +271,14 @@ class PdfStream extends PdfType
                     if ($decodeParam instanceof PdfDictionary) {
                         $predictor = PdfDictionary::get($decodeParam, 'Predictor', PdfNumeric::create(1));
                         if ($predictor->value !== 1) {
-                            if (!\class_exists(Predictor::class)) {
-                                throw new PdfParserException(
-                                    'This PDF document makes use of features which are only implemented in the ' .
-                                    'commercial "FPDI PDF-Parser" add-on (see https://www.setasign.com/fpdi-pdf-' .
-                                    'parser).',
-                                    PdfParserException::IMPLEMENTED_IN_FPDI_PDF_PARSER
-                                );
-                            }
+//                            if (!\class_exists(Predictor::class)) {
+//                                throw new PdfParserException(
+//                                    'This PDF document makes use of features which are only implemented in the ' .
+//                                    'commercial "FPDI PDF-Parser" add-on (see https://www.setasign.com/fpdi-pdf-' .
+//                                    'parser).',
+//                                    PdfParserException::IMPLEMENTED_IN_FPDI_PDF_PARSER
+//                                );
+//                            }
 
                             $colors = PdfDictionary::get($decodeParam, 'Colors', PdfNumeric::create(1));
                             $bitsPerComponent = PdfDictionary::get(

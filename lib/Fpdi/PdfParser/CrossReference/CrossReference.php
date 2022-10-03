@@ -215,7 +215,7 @@ class CrossReference
 
             if (!isset($object)) {
                 throw new CrossReferenceException(
-                    sprintf('Object %s was not found.', $objectNumber),
+                    \sprintf('Object %s was not found in stream %s at index %s.', $objectNumber, $objectStream, $objectIndex),
                     CrossReferenceException::OBJECT_NOT_FOUND
                 );
             }
