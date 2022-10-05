@@ -15,6 +15,7 @@ OC.L10N.register(
     "Title" : "Nadpis",
     "Artist" : "Umělec",
     "Date created" : "Datum vytvoření",
+    "Date modified" : "Datum změny",
     "Length" : "Délka",
     "Dimensions" : "Rozměry",
     "Frame rate" : "Snímková frekvence",

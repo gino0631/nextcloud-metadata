@@ -15,6 +15,7 @@ OC.L10N.register(
     "Title" : "標題",
     "Artist" : "藝術家",
     "Date created" : "建立日期",
+    "Date modified" : "修改日期",
     "Length" : "長度",
     "Dimensions" : "尺寸",
     "Frame rate" : "影格率",

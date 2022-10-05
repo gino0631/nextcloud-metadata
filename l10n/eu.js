@@ -15,6 +15,7 @@ OC.L10N.register(
     "Title" : "Izenburua",
     "Artist" : "Artista",
     "Date created" : "Sorrera-data",
+    "Date modified" : "Data aldatuta",
     "Length" : "Iraupena",
     "Dimensions" : "Dimentsioak",
     "Frame rate" : "Fotograma-abiadura",

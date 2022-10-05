@@ -15,6 +15,7 @@ OC.L10N.register(
     "Title" : "Titel",
     "Artist" : "Künstler",
     "Date created" : "Erstellungsdatum",
+    "Date modified" : "Datum geändert",
     "Length" : "Länge",
     "Dimensions" : "Dimensionen",
     "Frame rate" : "Bildwiederholrate",
