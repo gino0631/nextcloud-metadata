@@ -15,6 +15,7 @@ OC.L10N.register(
     "Title" : "Başlık",
     "Artist" : "Sanatçı",
     "Date created" : "Oluşturulma tarihi",
+    "Date modified" : "Değiştirilme tarihi",
     "Length" : "Uzunluk",
     "Dimensions" : "Ölçüler",
     "Frame rate" : "Kare hızı",
