@@ -2,6 +2,8 @@
 [![Build Status](https://api.travis-ci.com/gino0631/nextcloud-metadata.svg?branch=master)](https://app.travis-ci.com/gino0631/nextcloud-metadata)
 
 A [Nextcloud](https://nextcloud.com/) plugin which displays file metadata in the file details sidebar. Currently, the supported file types include:
+- application/pdf (Document information dictionary)
+- application/zip (Comment, number of files)
 - audio/flac (VorbisComment)
 - audio/mp4 (QuickTime)
 - audio/mpeg (ID3v1 and ID3v2)

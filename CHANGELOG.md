@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## 0.17.0 – 2022-10-24
+### Added
+- Support for PDF
+- Compatibility with Nextcloud 25
+
 ## 0.16.0 – 2022-04-24
 ### Added
 - Support for PHP 8.1
