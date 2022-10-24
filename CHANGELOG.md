@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+### Added
+- Compatibility with Nextcloud 26
 
 ## 0.17.0 – 2022-10-24
 ### Added

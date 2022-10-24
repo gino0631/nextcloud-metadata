@@ -12,7 +12,7 @@ services:
 env:
   global:
     - APP_NAME=metadata
-  matrix:
+  jobs:
     - CLOUD=nextcloud CORE_BRANCH=stable18
     - CLOUD=nextcloud CORE_BRANCH=stable19
     - CLOUD=nextcloud CORE_BRANCH=stable20
@@ -24,7 +24,7 @@ env:
     - CLOUD=nextcloud CORE_BRANCH=master
     - CLOUD=owncloud CORE_BRANCH=stable10
 
-matrix:
+jobs:
   exclude:
     - php: 7.3
       env: CLOUD=nextcloud CORE_BRANCH=stable24
