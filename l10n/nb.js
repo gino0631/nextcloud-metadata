@@ -1,11 +1,16 @@
 OC.L10N.register(
     "metadata",
     {
+    "Metadata" : "Metadata",
     "Location" : "Sted",
     "Title" : "Tittel",
+    "Artist" : "Artist",
+    "Length" : "Varighet",
     "Copyright" : "Opphavsrett",
+    "Album" : "Album",
     "Year" : "År",
     "Date" : "Dato",
+    "Genre" : "Sjanger",
     "Comment" : "Kommentar",
     "Headline" : "Overskrift",
     "Description" : "Beskrivelse",
