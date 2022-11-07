@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Metadata" : "Metadata",
     "Location" : "Sted",
+    "File not found." : "Filen ble ikke funnet.",
     "Title" : "Tittel",
     "Artist" : "Artist",
     "Length" : "Varighet",
