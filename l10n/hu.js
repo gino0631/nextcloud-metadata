@@ -15,6 +15,7 @@ OC.L10N.register(
     "Title" : "Cím",
     "Artist" : "Előadó",
     "Date created" : "Létrehozás dátuma",
+    "Date modified" : "Módosítás dátuma",
     "Length" : "Hossz",
     "Dimensions" : "Méretek",
     "Frame rate" : "Képkockasebesség",
