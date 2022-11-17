@@ -161,7 +161,8 @@ class MetadataService {
         $this->getImageSize($file, $computed);
 
         return array(
-            'COMPUTED' => $computed
+            'COMPUTED' => $computed,
+            'PNG_COMMENT' =>  $this->readPngChunks($file)
         );
     }
 
@@ -179,6 +180,31 @@ class MetadataService {
         }
 
         return @exif_read_data($file, 0, true);
+    }
+
+    protected function readPngChunks($file) {
+        $return = array();
+        $fp = fopen($file, 'r');
+        if (fread($fp, 8) !== "\x89\x50\x4e\x47\x0d\x0a\x1a\x0a") {
+            throw new \Exception($this->t('This image is not a png'));
+        }
+        while ($chunkHeader = fread($fp, 8)) {
+            $chunk = unpack('Nsize/a4type', $chunkHeader);
+            $data = (0 < $chunk['size']) ? fread($fp, $chunk['size']) : '';
+            fread($fp, 4);
+            switch ($chunk['type']) {
+                case "\x74\x45\x58\x74":
+                case "\x7a\x54\x58\x74":
+                case "\x69\x54\x58\x74":
+                    $strpos = mb_strpos($data, "\x00");
+                    $key = substr($data, 0, $strpos);
+                    $value = substr($data, $strpos + 1);
+                    $return[$key] = $value;
+                    break;
+            }
+        }
+        fclose($fp);
+        return $return;
     }
 
     protected function readZip($file) {
@@ -354,6 +380,7 @@ class MetadataService {
         $comp = $this->getVal('COMPUTED', $sections) ?: array();
         $ifd0 = $this->getVal('IFD0', $sections) ?: array();
         $exif = $this->getVal('EXIF', $sections) ?: array();
+        $png_comment = $this->getVal('PNG_COMMENT', $sections) ?: array();
         $gps = $this->getVal('GPS', $sections) ?: array();
         $xmp = $this->getVal('XMP', $sections) ?: array();
 
@@ -510,6 +537,10 @@ class MetadataService {
 
         if ($v = $this->getVal('Flash', $exif)) {
             $this->addVal($this->t('Flash mode'), $this->formatFlashMode($v), $return);
+        }
+
+        foreach ($png_comment as $k => $v) {
+            $this->addVal($k, $v, $return);
         }
 
         if ($v = $this->getVal('GPSLatitude', $gps)) {
