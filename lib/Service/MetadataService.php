@@ -162,7 +162,7 @@ class MetadataService {
 
         return array(
             'COMPUTED' => $computed,
-            'PNG_COMMENT' =>  $this->readPngChunks($file)
+            'PNG_METADATA' =>  $this->readPngChunks($file)
         );
     }
 
@@ -380,7 +380,7 @@ class MetadataService {
         $comp = $this->getVal('COMPUTED', $sections) ?: array();
         $ifd0 = $this->getVal('IFD0', $sections) ?: array();
         $exif = $this->getVal('EXIF', $sections) ?: array();
-        $png_comment = $this->getVal('PNG_COMMENT', $sections) ?: array();
+        $png_metadata = $this->getVal('PNG_METADATA', $sections) ?: array();
         $gps = $this->getVal('GPS', $sections) ?: array();
         $xmp = $this->getVal('XMP', $sections) ?: array();
 
@@ -539,7 +539,7 @@ class MetadataService {
             $this->addVal($this->t('Flash mode'), $this->formatFlashMode($v), $return);
         }
 
-        foreach ($png_comment as $k => $v) {
+        foreach ($png_metadata as $k => $v) {
             $this->addVal($k, $v, $return);
         }
 
