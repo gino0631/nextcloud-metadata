@@ -197,8 +197,8 @@ class MetadataService {
                 case "\x7a\x54\x58\x74":
                 case "\x69\x54\x58\x74":
                     $strpos = mb_strpos($data, "\x00");
-                    $key = substr($data, 0, $strpos);
-                    $value = substr($data, $strpos + 1);
+                    $key = trim(substr($data, 0, $strpos));
+                    $value = trim(substr($data, $strpos + 1));
                     $return[$key] = $value;
                     break;
             }
