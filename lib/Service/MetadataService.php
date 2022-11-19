@@ -60,6 +60,9 @@ class MetadataService {
 
             case 'image/png':
                 if ($sections = $this->readPng($file)) {
+                    if ($pngMetadata = PngMetadata::fromFile($file)) {
+                        $sections['PNG_TEXT_CHUNKS'] = $pngMetadata->getTextChunks();
+                    }
                     $metadata = $this->getImageMetadata($sections);
 //                        $this->dump($sections, $metadata);
                 }
@@ -162,7 +165,6 @@ class MetadataService {
 
         return array(
             'COMPUTED' => $computed,
-            'PNG_METADATA' =>  $this->readPngChunks($file)
         );
     }
 
@@ -180,32 +182,6 @@ class MetadataService {
         }
 
         return @exif_read_data($file, 0, true);
-    }
-
-    protected function readPngChunks($file) {
-        $return = array();
-        $fp = fopen($file, 'r');
-        if (fread($fp, 8) !== "\x89\x50\x4e\x47\x0d\x0a\x1a\x0a") {
-            throw new \Exception($this->t('This image is not a png'));
-        }
-        while ($chunkHeader = fread($fp, 8)) {
-            $pos = ftell($fp);
-            $chunk = unpack('Nsize/a4type', $chunkHeader);
-            switch ($chunk['type']) {
-                case "\x74\x45\x58\x74":
-                case "\x7a\x54\x58\x74":
-                case "\x69\x54\x58\x74":
-                    $data = fread($fp, $chunk['size']);
-                    $strpos = mb_strpos($data, "\x00");
-                    $key = trim(substr($data, 0, $strpos));
-                    $value = trim(substr($data, $strpos + 1));
-                    $return[$key] = gzuncompress($value) ?: $value;
-                    break;
-            }
-            fseek($fp, $pos + $chunk['size'] + 4);
-        }
-        fclose($fp);
-        return $return;
     }
 
     protected function readZip($file) {
@@ -381,7 +357,7 @@ class MetadataService {
         $comp = $this->getVal('COMPUTED', $sections) ?: array();
         $ifd0 = $this->getVal('IFD0', $sections) ?: array();
         $exif = $this->getVal('EXIF', $sections) ?: array();
-        $png_metadata = $this->getVal('PNG_METADATA', $sections) ?: array();
+        $png_text_chunks = $this->getVal('PNG_TEXT_CHUNKS', $sections) ?: array();
         $gps = $this->getVal('GPS', $sections) ?: array();
         $xmp = $this->getVal('XMP', $sections) ?: array();
 
@@ -540,8 +516,19 @@ class MetadataService {
             $this->addVal($this->t('Flash mode'), $this->formatFlashMode($v), $return);
         }
 
-        foreach ($png_metadata as $k => $v) {
-            $this->addVal($k, $v, $return);
+        foreach ($png_text_chunks as $v) {
+            switch ($v['keyword']) {
+                case 'Creation Time':
+                    $this->addVal($this->t('Date created'), $v['text'], $return);
+                    break;
+                default:
+                    if (str_replace("-", "_", $v['language']) === $this->language->getLocaleCode()) {
+                        $this->addVal($v['translated'], $v['text'], $return);
+                    } else {
+                        $this->addVal($this->t($v['keyword']), $v['text'], $return);
+                    }
+                    break;
+            }
         }
 
         if ($v = $this->getVal('GPSLatitude', $gps)) {
