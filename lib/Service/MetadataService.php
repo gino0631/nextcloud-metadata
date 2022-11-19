@@ -199,7 +199,7 @@ class MetadataService {
                     $strpos = mb_strpos($data, "\x00");
                     $key = trim(substr($data, 0, $strpos));
                     $value = trim(substr($data, $strpos + 1));
-                    $return[$key] = $value;
+                    $return[$key] = gzuncompress($value) ?: $value;
                     break;
             }
             fseek($fp, $pos + $chunk['size'] + 4);
