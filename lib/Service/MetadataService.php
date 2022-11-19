@@ -189,19 +189,20 @@ class MetadataService {
             throw new \Exception($this->t('This image is not a png'));
         }
         while ($chunkHeader = fread($fp, 8)) {
+            $pos = ftell($fp);
             $chunk = unpack('Nsize/a4type', $chunkHeader);
-            $data = (0 < $chunk['size']) ? fread($fp, $chunk['size']) : '';
-            fread($fp, 4);
             switch ($chunk['type']) {
                 case "\x74\x45\x58\x74":
                 case "\x7a\x54\x58\x74":
                 case "\x69\x54\x58\x74":
+                    $data = fread($fp, $chunk['size']);
                     $strpos = mb_strpos($data, "\x00");
                     $key = trim(substr($data, 0, $strpos));
                     $value = trim(substr($data, $strpos + 1));
                     $return[$key] = $value;
                     break;
             }
+            fseek($fp, $pos + $chunk['size'] + 4);
         }
         fclose($fp);
         return $return;
