@@ -15,6 +15,7 @@ OC.L10N.register(
     "Title" : "Títol",
     "Artist" : "Artista",
     "Date created" : "Data de creació",
+    "Date modified" : "Data de modificació",
     "Length" : "Longitud",
     "Dimensions" : "Dimensions",
     "Frame rate" : "Quadres per segon",
@@ -61,7 +62,7 @@ OC.L10N.register(
     "Exposure program" : "Programa d'exposició",
     "Exposure mode" : "Mode d'exposició",
     "Focal length" : "Longitud focal",
-    "%g mm" : "%s mm",
+    "%g mm" : "%g mm",
     "(35 mm equivalent: %g mm)" : "(equivalència 35 mm: %g mm)",
     "Max aperture" : "Obertura màxima",
     "Metering mode" : "Mode de mesura",
@@ -70,6 +71,10 @@ OC.L10N.register(
     "Subject" : "Assumpte",
     "Created" : "Creat",
     "Modified" : "Darrera modificació",
+    "Application" : "Aplicació",
+    "Number of pages" : "Nombre de pàgines",
+    "PDF producer" : "productor de PDF",
+    "PDF version" : "Versió PDF",
     "Number of files" : "Nombre de fitxers",
     "Not defined" : "Indefinit",
     "Manual" : "Manual",
@@ -98,6 +103,6 @@ OC.L10N.register(
     "strobe return" : "retorn estroboscòpic",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "A plugin for displaying file metadata" : "Connector per mostrar les metadades d'un fitxer",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Connector que mostra les metadades d'un fitxer a  la barra lateral de detalls dels fitxers.\n\nVeure a [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) els tipus de fitxer compatibles i les limitacions."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Connector que mostra les metadades d'un fitxer a la barra lateral de detalls dels fitxers.\n\nVeure a [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) els tipus de fitxer compatibles i les limitacions."
 },
 "nplurals=2; plural=(n != 1);");
