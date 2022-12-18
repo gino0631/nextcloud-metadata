@@ -1,5 +1,8 @@
 # Metadata
 [![Build Status](https://api.travis-ci.com/gino0631/nextcloud-metadata.svg?branch=master)](https://app.travis-ci.com/gino0631/nextcloud-metadata)
+[![Last Commit](https://img.shields.io/github/last-commit/gino0631/nextcloud-metadata)](https://github.com/gino0631/nextcloud-metadata/commits/master)
+[![Repo Size](https://img.shields.io/github/repo-size/gino0631/nextcloud-metadata)](https://github.com/gino0631/nextcloud-metadata)
+[![Buy Me a Coffee](https://shields.io/badge/buy_me-a_coffee-ffdd00?logo=buymeacoffee)](https://www.buymeacoffee.com/gino0631)
 
 A [Nextcloud](https://nextcloud.com/) plugin which displays file metadata in the file details sidebar. Currently, the supported file types include:
 - application/pdf (Document information dictionary)
