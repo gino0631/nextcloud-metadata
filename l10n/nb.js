@@ -17,6 +17,8 @@ OC.L10N.register(
     "Description" : "Beskrivelse",
     "Rating" : "Vurdering",
     "Tags" : "Merkelapper",
+    "Keywords" : "Nøkkelord",
+    "Instructions" : "Instruksjoner",
     "Credits" : "Bidragsytere",
     "Subject" : "Emne",
     "Created" : "Opprettet",
