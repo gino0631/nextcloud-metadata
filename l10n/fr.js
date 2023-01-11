@@ -73,6 +73,7 @@ OC.L10N.register(
     "Modified" : "Modifié",
     "Application" : "Application",
     "Number of pages" : "Nombre de pages",
+    "PDF producer" : "Générateur PDF",
     "PDF version" : "Version PDF",
     "Number of files" : "Nombre de fichiers",
     "Not defined" : "Non défini",
