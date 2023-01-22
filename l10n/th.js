@@ -8,6 +8,7 @@ OC.L10N.register(
     "Comment" : "แสดงความคิดเห็น",
     "Description" : "รายละเอียด",
     "Rating" : "คะแนน",
+    "People" : "ผู้คน",
     "Tags" : "ป้ายกำกับ",
     "Modified" : "แก้ไขเมื่อ",
     "Unknown" : "ไม่ทราบ",
