@@ -12,6 +12,6 @@ OC.L10N.register(
     "Tags" : "ป้ายกำกับ",
     "Modified" : "แก้ไขเมื่อ",
     "Unknown" : "ไม่ทราบ",
-    "Other" : "อื่นๆ"
+    "Other" : "อื่น ๆ"
 },
 "nplurals=1; plural=0;");
