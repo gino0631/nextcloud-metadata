@@ -5,6 +5,7 @@ OC.L10N.register(
     "Title" : "Azwel",
     "Comment" : "Commentaire",
     "Tags" : "Tibzimin",
+    "Created" : "Yettwarna.",
     "Modified" : "Yettwabeddel",
     "Unknown" : "Arussin",
     "Other" : "Wayeḍ"
