@@ -43,7 +43,7 @@ OC.L10N.register(
     "Encoded by" : "Kódoló:",
     "Encoding tool" : "Kódoló eszköz",
     "GPS coordinates" : "GPS koordináták",
-    "Headline" : "Fejléc",
+    "Headline" : "Címsor",
     "Description" : "Leírás",
     "Rating" : "Értékelés",
     "Description writer" : "Leírás írója",
