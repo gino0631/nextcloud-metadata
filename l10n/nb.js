@@ -16,6 +16,7 @@ OC.L10N.register(
     "Headline" : "Overskrift",
     "Description" : "Beskrivelse",
     "Rating" : "Vurdering",
+    "People" : "Mennesker",
     "Tags" : "Merkelapper",
     "Keywords" : "Nøkkelord",
     "Instructions" : "Instruksjoner",
