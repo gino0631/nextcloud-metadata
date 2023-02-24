@@ -2,7 +2,7 @@ OC.L10N.register(
     "metadata",
     {
     "Metadata" : "Metatiedot",
-    "Reading metadata …" : "Luetaan metadataa ...",
+    "Reading metadata …" : "Luetaan metatietoja...",
     "Resolving, click here to view on map …" : "Ratkaistaan, klikkaa tästä näyttääksesi kartalla ...",
     "Nominatim service unavailable, click here to view on map" : "Nominatim-palvelu ei käytettävissä, klikkaa tästä näyttääksesi kartalla",
     "Location" : "Sijainti",
@@ -15,6 +15,7 @@ OC.L10N.register(
     "Title" : "Otsikko",
     "Artist" : "Artisti",
     "Date created" : "Luontipäivä",
+    "Date modified" : "Muokkauspäivä",
     "Length" : "Kesto",
     "Dimensions" : "Mitat",
     "Frame rate" : "Kuvanopeus",
