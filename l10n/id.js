@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Location" : "Lokasi",
     "Title" : "Judul",
+    "Author" : "Penulis",
     "Copyright" : "Hak cipta",
     "Date" : "Date",
     "Comment" : "Komentar",
