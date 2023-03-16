@@ -9,6 +9,7 @@ OC.L10N.register(
     "Comment" : "Komentar",
     "Description" : "Deskrisi",
     "Rating" : "Nilai",
+    "People" : "Orang",
     "Tags" : "Tag",
     "Credits" : "Kredit",
     "Subject" : "Subjek",
