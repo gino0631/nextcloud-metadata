@@ -5,6 +5,10 @@
 - Support for PHP 8.2
 - Compatibility with Nextcloud 26
 
+### Changed
+- Minimum required PHP version changed from 7.3 to 7.4
+- Minimum supported Nextcloud version changed from 18 to 24
+
 ## 0.17.0 – 2022-10-24
 ### Added
 - Support for PDF

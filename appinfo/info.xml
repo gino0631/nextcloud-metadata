@@ -17,9 +17,9 @@ See the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/READ
     <bugs>https://github.com/gino0631/nextcloud-metadata/issues</bugs>
     <screenshot>https://raw.githubusercontent.com/gino0631/nextcloud-metadata/master/screenshots/jpg-metadata.png</screenshot>
     <dependencies>
-        <php min-version="7.3" max-version="8.2" />
+        <php min-version="7.4" max-version="8.2" />
         <lib>exif</lib>
         <owncloud min-version="10" max-version="11" />
-        <nextcloud min-version="18" max-version="26" />
+        <nextcloud min-version="24" max-version="26" />
     </dependencies>
 </info>

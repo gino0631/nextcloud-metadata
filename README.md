@@ -29,5 +29,5 @@ Support for other formats may be implemented in future releases (feel free to ma
 The plugin makes use of [Transifex](https://www.transifex.com/), so you can contribute [here](https://www.transifex.com/nextcloud/nextcloud/metadata/).
 
 ## Requirements
-* PHP 7.3 or later (tested successfully with 7.3, 7.4, 8.0, and 8.1; problems with EXIF exist in 7.2; other versions may or may not work)
-* EXIF support for PHP (if `php --ri exif` returns `Extension 'exif' not present`, you might need to install an appropriate package for your system, e.g. by running `pkg install php71-exif` on FreeBSD/NAS4Free)
+* PHP 7.4 or later (tested successfully with 7.4, 8.0, 8.1, and 8.2; other versions may or may not work)
+* EXIF support for PHP (if `php --ri exif` returns `Extension 'exif' not present`, you might need to install an appropriate package for your system, e.g. by running `pkg install php74-exif` on FreeBSD/NAS4Free)

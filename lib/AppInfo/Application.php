@@ -3,8 +3,11 @@
 namespace OCA\Metadata\AppInfo;
 
 use OCP\AppFramework\App;
+use OCP\AppFramework\Bootstrap\IBootContext;
+use OCP\AppFramework\Bootstrap\IBootstrap;
+use OCP\AppFramework\Bootstrap\IRegistrationContext;
 
-class Application extends App {
+class Application extends App implements IBootstrap {
 	const APP_NAME = 'metadata';
 
 	/**
@@ -15,9 +18,13 @@ class Application extends App {
 	 */
 	public function __construct(array $params = []) {
 		parent::__construct(self::APP_NAME, $params);
+	}
 
-		$container = $this->getContainer();
-		$server = $container->getServer();
+	public function register(IRegistrationContext $context): void {
+	}
+
+	public function boot(IBootContext $context): void {
+		$server = $context->getServerContainer();
 		$eventDispatcher = $server->getEventDispatcher();
 
 		$eventDispatcher->addListener('OCA\Files::loadAdditionalScripts', function() {
@@ -31,7 +38,6 @@ class Application extends App {
 			\OC::$server->getContentSecurityPolicyManager()->addDefaultPolicy($policy);
 		});
 	}
-
 
 	public static function getL10N() {
 		return \OC::$server->getL10N(Application::APP_NAME);
