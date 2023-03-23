@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 ### Added
+- Support for PHP 8.2
 - Compatibility with Nextcloud 26
 
 ## 0.17.0 – 2022-10-24
