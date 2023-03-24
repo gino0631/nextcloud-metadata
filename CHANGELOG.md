@@ -9,6 +9,10 @@
 - Minimum required PHP version changed from 7.3 to 7.4
 - Minimum supported Nextcloud version changed from 18 to 24
 
+### Fixed
+- Division by zero error for pictures with ExposureTime encoded as 0/1000
+  [#97](https://github.com/gino0631/nextcloud-metadata/issues/97)
+
 ## 0.17.0 – 2022-10-24
 ### Added
 - Support for PDF

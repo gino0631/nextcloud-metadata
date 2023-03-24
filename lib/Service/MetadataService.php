@@ -794,8 +794,8 @@ class MetadataService {
 
     protected function formatRational($val, $fracIfSmall = false, $precision = 2) {
         if (preg_match('/([\-]?)(\d+)([\/])(\d+)/', $val, $matches) !== false) {
-            if ($fracIfSmall && ($matches[2] < $matches[4])) {
-                if ($matches[2] !== 1) {
+            if ($fracIfSmall && ($matches[2] < $matches[4]) && ($matches[2] !== '0')) {
+                if ($matches[2] !== '1') {
                     $val = $matches[1] . 1 . '/' . round($matches[4] / $matches[2]);
                 }
 
