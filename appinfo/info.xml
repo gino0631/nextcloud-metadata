@@ -22,4 +22,10 @@ See the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/READ
         <owncloud min-version="10" max-version="11" />
         <nextcloud min-version="18" max-version="26" />
     </dependencies>
+    <types>
+        <filesystem/>
+    </types>
+    <background-jobs>
+        <job>OCA\Metadata\Cron\MetadataTagJob</job>
+    </background-jobs>
 </info>
