@@ -7,6 +7,11 @@ php:
   - 8.1
   - 8.2
 
+addons:
+  apt:
+    packages:
+      - libonig4
+
 services:
   - postgresql
 
@@ -33,7 +38,6 @@ jobs:
     - env: CLOUD=nextcloud CORE_BRANCH=master
 
 before_install:
-  - sudo apt-get -y install libonig4
   - if [ $CLOUD = 'nextcloud' ]; then wget -O before_install.sh https://raw.githubusercontent.com/gino0631/nextcloud-metadata/master/tests/travis_nextcloud_install.sh; fi
   - . ./before_install.sh $APP_NAME $CORE_BRANCH pgsql
 
