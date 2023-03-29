@@ -1,6 +1,6 @@
 language: php
 os: linux
-dist: focal
+dist: bionic
 php:
   - 7.4
   - 8.0
@@ -12,8 +12,6 @@ services:
 
 env:
   global:
-    - PGPORT=5433
-    - PGUSER=travis
     - APP_NAME=metadata
   jobs:
     - CLOUD=nextcloud CORE_BRANCH=stable24
