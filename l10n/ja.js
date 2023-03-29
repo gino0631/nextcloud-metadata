@@ -21,6 +21,7 @@ OC.L10N.register(
     "Camera used" : "使ったカメラ",
     "Android version" : "Androidバージョン",
     "%s bit" : "%s bit",
+    "Audio channels" : "オーディオ・チャンネル",
     "%s kHz" : "%s kHz",
     "Album" : "アルバム",
     "Year" : "年",
