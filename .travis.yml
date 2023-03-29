@@ -28,7 +28,7 @@ jobs:
     - env: CLOUD=nextcloud CORE_BRANCH=master
 
 before_install:
-  - wget -O before_install.sh https://raw.githubusercontent.com/gino0631/nextcloud-metadata/master/travis_${CLOUD}_install.sh
+  - if [ $CLOUD = 'nextcloud' ]; then wget -O before_install.sh https://raw.githubusercontent.com/gino0631/nextcloud-metadata/master/travis_nextcloud_install.sh; fi
   - . ./before_install.sh $APP_NAME $CORE_BRANCH pgsql
 
 script:
