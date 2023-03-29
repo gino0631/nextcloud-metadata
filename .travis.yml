@@ -1,5 +1,6 @@
 language: php
 os: linux
+dist: focal
 php:
   - 7.4
   - 8.0
@@ -20,6 +21,10 @@ env:
 
 jobs:
   exclude:
+    - php: 7.4
+      env: CLOUD=nextcloud CORE_BRANCH=stable26
+    - php: 7.4
+      env: CLOUD=nextcloud CORE_BRANCH=master
     - php: 8.2
       env: CLOUD=nextcloud CORE_BRANCH=stable24
     - php: 8.2
