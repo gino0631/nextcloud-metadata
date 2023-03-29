@@ -23,7 +23,7 @@ DATADIR=$PWD/data-autotest
 
 case $DB in
   pgsql)
-    sudo -u postgres psql -c "CREATE USER oc_autotest WITH LOGIN SUPERUSER PASSWORD 'oc_autotest'"
+    psql -c "CREATE USER oc_autotest WITH LOGIN SUPERUSER PASSWORD 'oc_autotest'"
     cat > config/autoconfig.php <<DELIM
 <?php
 \$AUTOCONFIG = array (
