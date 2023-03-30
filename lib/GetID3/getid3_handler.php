@@ -134,6 +134,11 @@ abstract class getid3_handler
 			$this->data_string_position += $bytes;
 			return substr($this->data_string, $this->data_string_position - $bytes, $bytes);
 		}
+		if ($bytes == 0) {
+			return '';
+		} elseif ($bytes < 0) {
+			throw new getid3_exception('cannot fread('.$bytes.' from '.$this->ftell().')', 10);
+		}
 		$pos = $this->ftell() + $bytes;
 		if (!getid3_lib::intValueSupported($pos)) {
 			throw new getid3_exception('cannot fread('.$bytes.' from '.$this->ftell().') because beyond PHP filesystem limit', 10);
