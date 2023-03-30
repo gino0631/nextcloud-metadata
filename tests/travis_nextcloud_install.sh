@@ -13,31 +13,14 @@ echo "Database: $DB"
 
 # Clone Nextcloud and copy the app
 cd ..
-git clone --depth 1 -b $CORE_BRANCH https://github.com/nextcloud/server
+git clone --recursive --depth 1 -b $CORE_BRANCH https://github.com/nextcloud/server
 cd server
-git submodule update --init
 cp -R $WORKDIR apps/$APP_NAME
 
-# Create DB user and configure automatic setup parameters
-DATADIR=$PWD/data-autotest
-
+# Configure DB
 case $DB in
   pgsql)
-    psql -c "CREATE USER oc_autotest WITH LOGIN SUPERUSER PASSWORD 'oc_autotest'"
-    cat > config/autoconfig.php <<DELIM
-<?php
-\$AUTOCONFIG = array (
-  'dbtype' => 'pgsql',
-  'dbname' => 'oc_autotest',
-  'dbuser' => 'oc_autotest',
-  'dbpass' => 'oc_autotest',
-  'dbhost' => 'localhost',
-  'dbtableprefix' => 'oc_',
-  'adminlogin' => 'admin',
-  'adminpass' => 'admin',
-  'directory' => '$DATADIR',
-);
-DELIM
+    psql -c "CREATE USER nc_autotest WITH LOGIN SUPERUSER PASSWORD 'nc_autotest'"
     ;;
 
   *)
@@ -46,10 +29,8 @@ DELIM
     ;;
 esac
 
-# Trigger Nextcloud installation
-echo "Executing index.php"
-php -f index.php
-echo "DONE"
+# Install Nextcloud
+php -f occ maintenance:install --database $DB --database-name nc_autotest --database-user nc_autotest --database-pass nc_autotest --admin-user admin --admin-pass admin
 
 # Show status and enable the app
 ./occ check
