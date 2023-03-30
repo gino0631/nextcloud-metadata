@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+
+## 0.18.0 – 2023-03-30
 ### Added
 - Support for PHP 8.2
 - Compatibility with Nextcloud 26
