@@ -1,6 +1,9 @@
 # Changelog
 
 ## [Unreleased]
+### Fixed
+- Incorrect audio metadata with some MP4 files
+  [96](https://github.com/gino0631/nextcloud-metadata/issues/96)
 
 ## 0.18.0 – 2023-03-30
 ### Added

@@ -900,7 +900,6 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 										break;
 
 									case 'mp4a':
-									default:
 										$info['quicktime']['audio']['codec']       = $this->QuicktimeAudioCodecLookup($atom_structure['sample_description_table'][$i]['data_format']);
 										$info['quicktime']['audio']['sample_rate'] = $atom_structure['sample_description_table'][$i]['audio_sample_rate'];
 										$info['quicktime']['audio']['channels']    = $atom_structure['sample_description_table'][$i]['audio_channels'];
@@ -925,6 +924,9 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 												$info['audio']['lossless'] = false;
 												break;
 										}
+										break;
+
+									default:
 										break;
 								}
 								break;
