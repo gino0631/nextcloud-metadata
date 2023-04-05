@@ -318,7 +318,7 @@ class MetadataService {
 
         if ($v = $this->getVal('description', $vorbis) ?: $this->getValM('comment', $tags)) {
             if (is_array($v)) {
-                $this->formatComments($v);
+                $v = $this->formatComments($v);
             }
 
             $this->addVal($this->t('Comment'), $v, $return);
@@ -824,17 +824,26 @@ class MetadataService {
         return $val;
     }
 
-    protected function formatComments(&$array) {
+    protected function formatComments($array) {
+        $return = array();
+
         foreach ($array as $key => $val) {
             while (substr_compare($val, '&#0;', -4) === 0) {
                 $val = substr($val, 0, -4);
-                $array[$key] = $val;
             }
 
             if (!is_numeric($key)) {
-                $array[$key] = '('.$key.') '.$val;
+                if ((($key = mb_convert_encoding($key, 'UTF-8', 'UTF-8, UTF-16')) !== false) && ($key !== $val)) {
+                    $val = '('.$key.') '.$val;
+                }
+            }
+
+            if (!in_array($val, $return)) {
+                $return[] = $val;
             }
         }
+
+        return $return;
     }
 
     protected function convertUcs2($v) {
