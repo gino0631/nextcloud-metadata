@@ -2,6 +2,7 @@ OC.L10N.register(
     "metadata",
     {
     "Location" : "Llocalización",
+    "File not found." : "Nun s'atopó'l ficheru.",
     "Title" : "Títulu",
     "Copyright" : "Copyright",
     "Date" : "Date",
