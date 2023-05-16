@@ -1,0 +1,11 @@
+{ "translations": {
+    "Metadata" : "Metadatos",
+    "Album" : "Álbum",
+    "Year" : "Añu",
+    "Date" : "Data",
+    "Genre" : "Xéneru",
+    "Description" : "Descripción",
+    "Tags" : "Etiquetes",
+    "Credits" : "Creitos"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
