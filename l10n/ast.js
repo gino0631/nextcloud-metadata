@@ -2,6 +2,7 @@ OC.L10N.register(
     "metadata",
     {
     "Metadata" : "Metadatos",
+    "File not found." : "Nun s'atopó'l ficheru.",
     "Album" : "Álbum",
     "Year" : "Añu",
     "Date" : "Data",
