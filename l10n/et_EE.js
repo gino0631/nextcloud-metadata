@@ -2,6 +2,7 @@ OC.L10N.register(
     "metadata",
     {
     "Location" : "Asukoht",
+    "File not found." : "Faili ei leitud",
     "Title" : "Pealkiri",
     "Copyright" : "Autoriõigused",
     "Date" : "Kuupäev",
