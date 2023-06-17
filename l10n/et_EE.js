@@ -9,6 +9,7 @@ OC.L10N.register(
     "Comment" : "Kommentaar",
     "Description" : "Kirjeldus",
     "Rating" : "Hinnang",
+    "People" : "Inimese",
     "Tags" : "Sildid",
     "Subject" : "Teema",
     "Created" : "Loodud",
