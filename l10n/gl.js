@@ -97,7 +97,7 @@ OC.L10N.register(
     "red-eye" : "ollos vermellos",
     "strobe return" : "retorno estroboscópico",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (parte 10)",
-    "A plugin for displaying file metadata" : "Un engadido para amosar metadatos de ficheiros",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Un engadido que amosa os metadatos do ficheiro na barra lateral de detalles do ficheiro.\n\nConsulte o [LÉEME] (https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) para ver os tipos e limitacións de ficheiros admitidos."
+    "A plugin for displaying file metadata" : "Un complemento para amosar metadatos de ficheiros",
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Un complemento que amosa os metadatos do ficheiro na barra lateral de detalles do ficheiro.\n\nConsulte o [LÉEME] (https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) para ver os tipos e limitacións de ficheiros admitidos."
 },
 "nplurals=2; plural=(n != 1);");
