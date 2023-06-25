@@ -21,6 +21,7 @@ OC.L10N.register(
     "Date" : "التاريخ",
     "Comment" : "تعليق",
     "Description" : "الوصف",
+    "Rating" : "تقييم",
     "Tags" : "الوسوم",
     "Credits" : "الشكر ل",
     "Subject" : "الموضوع",

@@ -40,6 +40,7 @@ OC.L10N.register(
     "Headline" : "표제",
     "Description" : "설명",
     "Rating" : "평가",
+    "People" : "사람들",
     "Tags" : "태그",
     "Keywords" : "키워드",
     "Credits" : "크레딧",
