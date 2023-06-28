@@ -8,9 +8,9 @@
 
 ### Fixed
 - Incorrect audio metadata with some MP4 files
-  [96](https://github.com/gino0631/nextcloud-metadata/issues/96)
+  [#96](https://github.com/gino0631/nextcloud-metadata/issues/96)
 - Failure to read some Jamendo-encoded MP3 files
-  [94](https://github.com/gino0631/nextcloud-metadata/issues/94)
+  [#94](https://github.com/gino0631/nextcloud-metadata/issues/94)
 
 ## 0.18.0 – 2023-03-30
 ### Added
