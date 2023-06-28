@@ -54,6 +54,5 @@ before_script:
 
 script:
   # Run phpunit tests
-  - cd tests
   - phpunit --version
-  - phpunit --configuration phpunit.xml
+  - phpunit --configuration tests/phpunit.xml
