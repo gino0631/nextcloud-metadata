@@ -23,6 +23,7 @@ OC.L10N.register(
     "Description" : "الوصف",
     "Rating" : "تقييم",
     "Tags" : "الوسوم",
+    "Instructions" : "التعليمات",
     "Credits" : "الشكر ل",
     "Subject" : "الموضوع",
     "Created" : "أُنشئ",
