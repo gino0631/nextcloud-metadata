@@ -46,4 +46,5 @@ script:
 
   # Run phpunit tests
   - cd tests
+  - phpunit --version
   - phpunit --configuration phpunit.xml

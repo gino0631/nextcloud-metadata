@@ -1,6 +1,11 @@
 # Changelog
 
 ## [Unreleased]
+
+## 0.19.0 – 2023-06-29
+### Added
+- Compatibility with Nextcloud 27
+
 ### Fixed
 - Incorrect audio metadata with some MP4 files
   [96](https://github.com/gino0631/nextcloud-metadata/issues/96)
