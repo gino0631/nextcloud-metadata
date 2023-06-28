@@ -1,0 +1,7 @@
+{
+    "name": "gino0631/nextcloud-metadata",
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "require": {}
+}

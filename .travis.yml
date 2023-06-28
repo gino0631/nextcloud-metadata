@@ -15,6 +15,10 @@ addons:
 services:
   - postgresql
 
+cache:
+  directories:
+    - $HOME/.composer/cache
+
 env:
   global:
     - APP_NAME=metadata
@@ -22,12 +26,15 @@ env:
     - CLOUD=nextcloud CORE_BRANCH=stable24
     - CLOUD=nextcloud CORE_BRANCH=stable25
     - CLOUD=nextcloud CORE_BRANCH=stable26
+    - CLOUD=nextcloud CORE_BRANCH=stable27
     - CLOUD=nextcloud CORE_BRANCH=master
 
 jobs:
   exclude:
     - php: 7.4
       env: CLOUD=nextcloud CORE_BRANCH=stable26
+    - php: 7.4
+      env: CLOUD=nextcloud CORE_BRANCH=stable27
     - php: 7.4
       env: CLOUD=nextcloud CORE_BRANCH=master
     - php: 8.2
@@ -40,6 +47,9 @@ jobs:
 before_install:
   - if [ $CLOUD = 'nextcloud' ]; then wget -O before_install.sh https://raw.githubusercontent.com/gino0631/nextcloud-metadata/master/tests/travis_nextcloud_install.sh; fi
   - . ./before_install.sh $APP_NAME $CORE_BRANCH pgsql
+
+install:
+  - composer install --prefer-dist --no-interaction
 
 script:
   - cd apps/$APP_NAME/
