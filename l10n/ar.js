@@ -20,6 +20,7 @@ OC.L10N.register(
     "Copyright" : "حقوق التأليف",
     "Date" : "التاريخ",
     "Comment" : "تعليق",
+    "Headline" : "عنوان ",
     "Description" : "الوصف",
     "Rating" : "تقييم",
     "Tags" : "الوسوم",
