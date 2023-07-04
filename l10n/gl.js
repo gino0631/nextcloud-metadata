@@ -35,7 +35,7 @@ OC.L10N.register(
     "%s kHz" : "%s kHz",
     "Audio sample size" : "Tamaño da mostra de son",
     "Album" : "Álbum",
-    "Track #" : "Núm. pista",
+    "Track #" : "Nº pista",
     "Year" : "Ano",
     "Date" : "Data",
     "Genre" : "Xénero",
