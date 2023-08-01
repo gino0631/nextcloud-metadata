@@ -70,6 +70,7 @@ OC.L10N.register(
     "Subject" : "Oggetto",
     "Created" : "Creato il",
     "Modified" : "Modificato",
+    "Application" : "Applicazione",
     "Number of files" : "Numero di file",
     "Not defined" : "Non definito",
     "Manual" : "Manuale",
