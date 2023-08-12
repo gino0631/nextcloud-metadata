@@ -15,6 +15,7 @@ OC.L10N.register(
     "Title" : "عنوان",
     "Artist" : "هنرمند",
     "Date created" : "تاریخ ایجاد",
+    "Date modified" : "Date modified",
     "Length" : "طول",
     "Dimensions" : "ابعاد",
     "Frame rate" : "نرخ فریم",
@@ -70,6 +71,11 @@ OC.L10N.register(
     "Subject" : "موضوع",
     "Created" : "ایجاد شده",
     "Modified" : "تغییر یافته",
+    "Application" : "Application",
+    "Number of pages" : "Number of pages",
+    "PDF producer" : "PDF producer",
+    "PDF version" : "PDF version",
+    "Number of files" : "Number of files",
     "Not defined" : "تعریف نشده",
     "Manual" : "کتابچه راهنمای",
     "Normal program" : "برنامه عادی",
@@ -96,6 +102,7 @@ OC.L10N.register(
     "red-eye" : "چشم قرمز",
     "strobe return" : "بازگشت بارق",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (قسمت 10)",
-    "A plugin for displaying file metadata" : "افزونه ای برای نمایش ابرداده پرونده"
+    "A plugin for displaying file metadata" : "افزونه ای برای نمایش ابرداده پرونده",
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations."
 },
 "nplurals=2; plural=(n > 1);");
