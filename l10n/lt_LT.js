@@ -49,6 +49,7 @@ OC.L10N.register(
     "Subject" : "Tema",
     "Created" : "Sukurta",
     "Modified" : "Pakeistas",
+    "PDF version" : "PDF versija",
     "Number of files" : "Failų skaičius",
     "Not defined" : "Neapibrėžta",
     "Manual" : "Rankiniu būdu",
