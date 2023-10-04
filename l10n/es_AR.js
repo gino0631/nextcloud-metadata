@@ -4,6 +4,7 @@ OC.L10N.register(
     "Location" : "Ubicación",
     "Title" : "Título",
     "Copyright" : "Derechos de autor",
+    "Year" : "Año",
     "Date" : "Fecha",
     "Comment" : "Comentario",
     "Description" : "Descripción",

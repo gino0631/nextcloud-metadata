@@ -18,6 +18,7 @@ OC.L10N.register(
     "Copyright" : "Direitos de Autor",
     "%s bit" : "%s bit",
     "%s kHz" : "%s kHz",
+    "Year" : "Year",
     "Date" : "Data",
     "Comment" : "Comentário",
     "Headline" : "Título ",
