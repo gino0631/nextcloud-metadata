@@ -8,6 +8,7 @@ OC.L10N.register(
     "Date" : "Data",
     "Genre" : "Xéneru",
     "Description" : "Descripción",
+    "People" : "Persones",
     "Tags" : "Etiquetes",
     "Credits" : "Creitos"
 },

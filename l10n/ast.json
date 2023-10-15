@@ -6,6 +6,7 @@
     "Date" : "Data",
     "Genre" : "Xéneru",
     "Description" : "Descripción",
+    "People" : "Persones",
     "Tags" : "Etiquetes",
     "Credits" : "Creitos"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
