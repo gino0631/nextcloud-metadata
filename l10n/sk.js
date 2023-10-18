@@ -43,7 +43,7 @@ OC.L10N.register(
     "Encoded by" : "Kódované",
     "Encoding tool" : "Kódovací nástroj",
     "GPS coordinates" : "Súradnice GPS",
-    "Headline" : "Titulok",
+    "Headline" : "Titul",
     "Description" : "Popis",
     "Rating" : "Hodnotenie",
     "Description writer" : "Autor popisu",
