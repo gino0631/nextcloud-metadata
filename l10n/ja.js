@@ -31,6 +31,7 @@ OC.L10N.register(
     "Headline" : "見出し",
     "Description" : "説明",
     "Rating" : "評価",
+    "People" : "人間",
     "Tags" : "タグ",
     "Keywords" : "キーワード",
     "Instructions" : "手順",
