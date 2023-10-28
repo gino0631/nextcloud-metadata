@@ -20,6 +20,7 @@ OC.L10N.register(
     "Subject" : "Тема",
     "Created" : "Створено",
     "Modified" : "Змінено",
+    "Application" : "Застосунок",
     "Manual" : "Вручну",
     "Unknown" : "Невідомо",
     "Pattern" : "Шаблон",
