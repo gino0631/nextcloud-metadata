@@ -1,10 +1,12 @@
 OC.L10N.register(
     "metadata",
     {
+    "Metadata" : "Metaandmed",
     "Location" : "Asukoht",
     "File not found." : "Faili ei leitud",
     "Title" : "Pealkiri",
     "Copyright" : "Autoriõigused",
+    "Year" : "Aasta",
     "Date" : "Kuupäev",
     "Comment" : "Kommentaar",
     "Description" : "Kirjeldus",
