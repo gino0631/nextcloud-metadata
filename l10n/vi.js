@@ -9,6 +9,7 @@ OC.L10N.register(
     "Year" : "Năm",
     "Date" : "Date",
     "Comment" : "Bình luận",
+    "Headline" : "Tiêu đề",
     "Description" : "Mô tả",
     "Rating" : "Đánh giá",
     "Tags" : "Thẻ",
