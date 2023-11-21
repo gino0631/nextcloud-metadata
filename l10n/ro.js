@@ -8,6 +8,7 @@ OC.L10N.register(
     "Comment" : "Comentariu",
     "Description" : "Descriere",
     "Rating" : "Evaluare",
+    "People" : "Persoane",
     "Tags" : "Etichete",
     "Credits" : "Realizatori",
     "Subject" : "Subiect",
