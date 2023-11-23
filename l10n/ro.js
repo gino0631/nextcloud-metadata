@@ -12,6 +12,7 @@ OC.L10N.register(
     "Tags" : "Etichete",
     "Credits" : "Realizatori",
     "Subject" : "Subiect",
+    "Created" : "A fost creat",
     "Modified" : "Modificat",
     "Manual" : "Manual",
     "Unknown" : "Necunoscut",
