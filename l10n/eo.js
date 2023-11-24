@@ -9,6 +9,7 @@ OC.L10N.register(
     "Description" : "Priskribo",
     "Rating" : "Pritakso",
     "Tags" : "Etikedoj",
+    "Keywords" : "Ŝlosilvortoj",
     "Subject" : "Temo",
     "Created" : "Kreita",
     "Modified" : "Modifita",
