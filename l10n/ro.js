@@ -3,9 +3,11 @@ OC.L10N.register(
     {
     "Location" : "Locație",
     "Title" : "Titlu",
+    "Author" : "Autor",
     "Year" : "An",
     "Date" : "Date",
     "Comment" : "Comentariu",
+    "Headline" : "Titlu",
     "Description" : "Descriere",
     "Rating" : "Evaluare",
     "People" : "Persoane",
