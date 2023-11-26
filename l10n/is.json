@@ -1,14 +1,19 @@
 { "translations": {
     "Metadata" : "Lýsigögn",
     "Reading metadata …" : "Les lýsigögn …",
+    "Resolving, click here to view on map …" : "Leysi, smelltu hér til að skoða á korti …",
+    "Nominatim service unavailable, click here to view on map" : "Nominatim-þjónusta ekki tiltæk, smelltu hér til að skoða á korti",
     "Location" : "Staðsetning",
     "Location could not be determined" : "Ekki var hægt að ákvarða staðsetningu",
+    "Nominatim service unavailable" : "Nominatim-þjónusta ekki tiltæk",
     "No metadata found." : "Engin lýsigögn fundust.",
     "File not found." : "Skrá fannst ekki.",
     "Unsupported MIME type \"%s\"." : "Óstudd MIME-tegund \"%s\".",
+    "EXIF support is missing; you might need to install an appropriate package for your system." : "Vantar stuðning við EXIF, þú þurft að setja upp viðeigandi pakka á kerfið þitt.",
     "Title" : "Titill",
     "Artist" : "Flytjandi",
     "Date created" : "Búið til þann",
+    "Date modified" : "Breytt þann",
     "Length" : "Lengd",
     "Dimensions" : "Stærðir",
     "Frame rate" : "Rammatíðni",
@@ -64,6 +69,10 @@
     "Subject" : "Viðfangsefni",
     "Created" : "Búið til þann",
     "Modified" : "Breytt",
+    "Application" : "Forrit",
+    "Number of pages" : "Fjöldi síðna",
+    "PDF producer" : "PDF-framleiðandi",
+    "PDF version" : "PDF-útgáfa",
     "Number of files" : "Fjöldi skráa",
     "Not defined" : "Ekki skilgreint",
     "Manual" : "Handvirkt",
@@ -89,6 +98,8 @@
     "Flash" : "Leifturljós",
     "auto" : "sjálfvirkt",
     "red-eye" : "rauð-augu",
-    "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)"
+    "strobe return" : "endurkast af leiftri",
+    "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
+    "A plugin for displaying file metadata" : "Viðbót til að birta lýsigögn skráa"
 },"pluralForm" :"nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);"
 }
