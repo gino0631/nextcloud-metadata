@@ -102,6 +102,7 @@ OC.L10N.register(
     "red-eye" : "rauð-augu",
     "strobe return" : "endurkast af leiftri",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
-    "A plugin for displaying file metadata" : "Viðbót til að birta lýsigögn skráa"
+    "A plugin for displaying file metadata" : "Viðbót til að birta lýsigögn skráa",
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Viðbót sem birtir lýsigögn skráa á hliðarspjaldi með nánari skráaupplýsingum.\n\nSkoðaðu [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) til að sjá takmarkanir og hvaða skráategundir eru studdar."
 },
 "nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);");
