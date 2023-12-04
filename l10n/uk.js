@@ -6,6 +6,7 @@ OC.L10N.register(
     "File not found." : "Файл не знайдено.",
     "Title" : "Назва",
     "Date created" : "Створено",
+    "Author" : "Автор",
     "Copyright" : "Права на копіюівння",
     "Year" : "рік",
     "Date" : "Date",
