@@ -2,10 +2,10 @@ language: php
 os: linux
 dist: bionic
 php:
-  - 7.4
   - 8.0
   - 8.1
   - 8.2
+  - 8.3
 
 services:
   - postgresql
@@ -18,24 +18,17 @@ env:
   global:
     - APP_NAME=metadata
   jobs:
-    - CLOUD=nextcloud CORE_BRANCH=stable24
-    - CLOUD=nextcloud CORE_BRANCH=stable25
     - CLOUD=nextcloud CORE_BRANCH=stable26
     - CLOUD=nextcloud CORE_BRANCH=stable27
+    - CLOUD=nextcloud CORE_BRANCH=stable28
     - CLOUD=nextcloud CORE_BRANCH=master
 
 jobs:
   exclude:
-    - php: 7.4
+    - php: 8.3
       env: CLOUD=nextcloud CORE_BRANCH=stable26
-    - php: 7.4
+    - php: 8.3
       env: CLOUD=nextcloud CORE_BRANCH=stable27
-    - php: 7.4
-      env: CLOUD=nextcloud CORE_BRANCH=master
-    - php: 8.2
-      env: CLOUD=nextcloud CORE_BRANCH=stable24
-    - php: 8.2
-      env: CLOUD=nextcloud CORE_BRANCH=stable25
   allow_failures:
     - env: CLOUD=nextcloud CORE_BRANCH=master
 
