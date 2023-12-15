@@ -5,6 +5,7 @@ OC.L10N.register(
     "Location" : "Vieta",
     "Title" : "Amats",
     "Copyright" : "Autortiesības",
+    "Year" : "Gads",
     "Date" : "Datums",
     "Comment" : "Komentārs",
     "Description" : "Apraksts",
