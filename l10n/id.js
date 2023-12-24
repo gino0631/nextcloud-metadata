@@ -5,6 +5,7 @@ OC.L10N.register(
     "Title" : "Judul",
     "Author" : "Penulis",
     "Copyright" : "Hak cipta",
+    "Year" : "Tahun",
     "Date" : "Date",
     "Comment" : "Komentar",
     "Description" : "Deskrisi",
