@@ -9,6 +9,7 @@ OC.L10N.register(
     "Comment" : "Comentario",
     "Description" : "Descripción",
     "Rating" : "Calificación",
+    "People" : "Personas",
     "Tags" : "Etiquetas",
     "Credits" : "Créditos",
     "Subject" : "Asunto",
