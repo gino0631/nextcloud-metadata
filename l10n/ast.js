@@ -12,6 +12,7 @@ OC.L10N.register(
     "Description" : "Descripción",
     "People" : "Persones",
     "Tags" : "Etiquetes",
-    "Credits" : "Creitos"
+    "Credits" : "Creitos",
+    "Modified" : "Modificóse"
 },
 "nplurals=2; plural=(n != 1);");
