@@ -10,6 +10,7 @@ OC.L10N.register(
     "Genre" : "Xéneru",
     "Comment" : "Comentariu",
     "Description" : "Descripción",
+    "Rating" : "Valoración",
     "People" : "Persones",
     "Tags" : "Etiquetes",
     "Credits" : "Creitos",
