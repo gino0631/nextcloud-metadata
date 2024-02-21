@@ -7,6 +7,7 @@ use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
 
+
 class Application extends App implements IBootstrap {
 	const APP_NAME = 'metadata';
 
@@ -25,7 +26,7 @@ class Application extends App implements IBootstrap {
 
 	public function boot(IBootContext $context): void {
 		$server = $context->getServerContainer();
-		$eventDispatcher = $server->getEventDispatcher();
+                $eventDispatcher = $this->getContainer()->query(IEventDispatcher::class);
 
 		$eventDispatcher->addListener('OCA\Files::loadAdditionalScripts', function() {
 			\OCP\Util::addStyle('metadata', 'tabview' );
