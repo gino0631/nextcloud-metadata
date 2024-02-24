@@ -7,6 +7,7 @@ OC.L10N.register(
     "Album" : "Álbum",
     "Date" : "Fecha",
     "Comment" : "Comentario",
+    "Headline" : "Título",
     "Description" : "Descripción",
     "Rating" : "Calificación",
     "People" : "Personas",

@@ -34,4 +34,4 @@ OC.L10N.register(
     "A plugin for displaying file metadata" : "תוסף להצגת נתוני על של קובץ",
     "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "תוסף שמציג נתוני על של קובץ בסרגל הפירוט הצדי על הקובץ.\n\nניתן לעיין ב־[README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) לצפייה בסוגי הקבצים הנתמכים ובמגבלות."
 },
-"nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;");
+"nplurals=3; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;");
