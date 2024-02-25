@@ -8,6 +8,7 @@ OC.L10N.register(
     "Comment" : "Komento",
     "Description" : "Priskribo",
     "Rating" : "Pritakso",
+    "People" : "Homoj",
     "Tags" : "Etikedoj",
     "Keywords" : "Ŝlosilvortoj",
     "Subject" : "Temo",
