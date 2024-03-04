@@ -5,6 +5,7 @@ OC.L10N.register(
     "Location" : "Llocalización",
     "File not found." : "Nun s'atopó'l ficheru.",
     "Title" : "Tñitulu",
+    "Artist" : "Artista",
     "Date created" : "Data de creación",
     "Author" : "Autoría",
     "Album" : "Álbum",
