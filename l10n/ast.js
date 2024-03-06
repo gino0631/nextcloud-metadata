@@ -21,6 +21,7 @@ OC.L10N.register(
     "Instructions" : "Instrucciones",
     "Credits" : "Creitos",
     "Source" : "Orixe",
-    "Modified" : "Modificóse"
+    "Modified" : "Modificóse",
+    "Application" : "Aplicación"
 },
 "nplurals=2; plural=(n != 1);");
