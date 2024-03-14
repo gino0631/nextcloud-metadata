@@ -3,8 +3,10 @@ OC.L10N.register(
     {
     "Location" : "Ubicación",
     "Title" : "Título",
+    "Author" : "Autor",
     "Copyright" : "Derechos de autor",
     "Album" : "Álbum",
+    "Year" : "Año",
     "Date" : "Fecha",
     "Comment" : "Comentario",
     "Headline" : "Título",
