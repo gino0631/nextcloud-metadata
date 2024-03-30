@@ -8,6 +8,7 @@ OC.L10N.register(
     "Artist" : "Artista",
     "Date created" : "Data de creación",
     "Author" : "Autoría",
+    "Android version" : "Versión d'Android",
     "Album" : "Álbum",
     "Year" : "Añu",
     "Date" : "Data",
