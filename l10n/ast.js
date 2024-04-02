@@ -22,6 +22,7 @@ OC.L10N.register(
     "Instructions" : "Instrucciones",
     "Credits" : "Creitos",
     "Source" : "Orixe",
+    "Subject" : "Asuntu",
     "Modified" : "Modificóse",
     "Application" : "Aplicación"
 },
