@@ -8,6 +8,7 @@ OC.L10N.register(
     "Artist" : "Kunster",
     "Date created" : "Oprettet den",
     "Length" : "Længde",
+    "Author" : "Forfatter",
     "Copyright" : "Ophavsret",
     "Album" : "Album",
     "Year" : "År",
