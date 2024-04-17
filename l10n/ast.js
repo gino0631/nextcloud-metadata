@@ -29,6 +29,7 @@ OC.L10N.register(
     "Comment" : "Comentariu",
     "Encoding tool" : "Ferramienta de codificación",
     "GPS coordinates" : "Coordenaes GPS",
+    "Headline" : "Titular",
     "Description" : "Descripción",
     "Rating" : "Valoración",
     "People" : "Persones",
