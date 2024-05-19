@@ -47,7 +47,7 @@ OC.L10N.register(
     "Description" : "Descrición",
     "Rating" : "Valoración",
     "Description writer" : "Escritor da descrición",
-    "People" : "Xente",
+    "People" : "Persoas",
     "Tags" : "Etiquetas",
     "Keywords" : "Palabras clave",
     "Instructions" : "Instrucións",
