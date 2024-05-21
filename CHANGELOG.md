@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 ### Added
-- Compatibility with Nextcloud 28
+- Compatibility with Nextcloud 28 and 29
 
 ## 0.19.0 – 2023-06-29
 ### Added

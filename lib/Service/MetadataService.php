@@ -13,7 +13,7 @@ class MetadataService {
     protected $language;
 
     public function __construct() {
-        $this->language = \OC::$server->getL10N(Application::APP_NAME);
+        $this->language = \OC::$server->getL10N(Application::APP_ID);
     }
 
     /**
