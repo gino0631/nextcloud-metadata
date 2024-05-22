@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+
+## 0.20.0 – 2024-05-22
 ### Added
 - Compatibility with Nextcloud 28 and 29
 
