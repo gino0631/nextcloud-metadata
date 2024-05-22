@@ -1,11 +1,11 @@
 { "translations": {
-    "Metadata" : "元數據",
     "Reading metadata …" : "正在讀取元數據 ...",
     "Resolving, click here to view on map …" : "正在解決，請點擊此處在地圖上查看…",
     "Nominatim service unavailable, click here to view on map" : "按名字的服務不可用，請單擊此處在地圖上查看",
     "Location" : "地點",
     "Location could not be determined" : "無法確定位置",
     "Nominatim service unavailable" : "按名字服務無法使用",
+    "Metadata" : "元數據",
     "No metadata found." : "找不到元數據。",
     "File not found." : "找不到檔案。",
     "Unsupported MIME type \"%s\"." : "不支援的 MIME 格式 \"%s\"。",

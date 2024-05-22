@@ -1,9 +1,9 @@
 OC.L10N.register(
     "metadata",
     {
-    "Metadata" : "メタデータ",
     "Reading metadata …" : "メタデータを読込中...",
     "Location" : "場所",
+    "Metadata" : "メタデータ",
     "No metadata found." : "メタデータが見つかりません。",
     "File not found." : "ファイルが見つかりません",
     "Unsupported MIME type \"%s\"." : "\"%s\" はサポートされていないMIMEタイプです。",

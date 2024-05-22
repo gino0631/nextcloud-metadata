@@ -1,11 +1,11 @@
 { "translations": {
-    "Metadata" : "Metapodaci",
     "Reading metadata …" : "Čitanje metapodataka...",
     "Resolving, click here to view on map …" : "Obrađivanje u tijeku, kliknite ovdje za prikaz karte...",
     "Nominatim service unavailable, click here to view on map" : "Usluga Nominatim je nedostupna, kliknite ovdje za prikaz karte",
     "Location" : "Lokacija",
     "Location could not be determined" : "Lokacija nije pronađena",
     "Nominatim service unavailable" : "Usluga Nominatim je nedostupna",
+    "Metadata" : "Metapodaci",
     "No metadata found." : "Metapodaci nisu pronađeni.",
     "File not found." : "Datoteka nije pronađena.",
     "Unsupported MIME type \"%s\"." : "MIME vrsta „%s“ nije podržan.",

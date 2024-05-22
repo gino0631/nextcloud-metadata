@@ -1,8 +1,8 @@
 OC.L10N.register(
     "metadata",
     {
-    "Metadata" : "Metadonadas",
     "Location" : "Emplaçament",
+    "Metadata" : "Metadonadas",
     "File not found." : "Fichièr pas trobat",
     "Title" : "Títol",
     "Artist" : "Artista",

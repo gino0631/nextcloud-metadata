@@ -1,13 +1,13 @@
 OC.L10N.register(
     "metadata",
     {
-    "Metadata" : "Метаданные",
     "Reading metadata …" : "Чтение метаданных...",
     "Resolving, click here to view on map …" : "Запрос выполняется, нажмите здесь чтобы просмотреть местоположение на карте...",
     "Nominatim service unavailable, click here to view on map" : "Cервис геокодирования Nominatim недоступен. Нажмите здесь чтобы просмотреть местоположение на карте. ",
     "Location" : "Местоположение",
     "Location could not be determined" : "Невозможно определить местоположение",
     "Nominatim service unavailable" : "Недоступен сервис геокодирования Nominatim ",
+    "Metadata" : "Метаданные",
     "No metadata found." : "Метаданные не найдены.",
     "File not found." : "Файл не найден.",
     "Unsupported MIME type \"%s\"." : "Неподдерживаемый MIME-тип «%s»",

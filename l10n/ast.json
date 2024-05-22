@@ -1,9 +1,9 @@
 { "translations": {
-    "Metadata" : "Metadatos",
     "Reading metadata …" : "Lleendo los metadatos…",
     "Location" : "Llocalización",
     "Location could not be determined" : "Nun se pudo determinar la llocalización",
     "Nominatim service unavailable" : "El serviciu de Nominatim nun ta disponible",
+    "Metadata" : "Metadatos",
     "No metadata found." : "Nun s'atopó nengún metadatu.",
     "File not found." : "Nun s'atopó'l ficheru.",
     "Title" : "Tñitulu",

@@ -1,13 +1,13 @@
 OC.L10N.register(
     "metadata",
     {
-    "Metadata" : "Metaadatok",
     "Reading metadata …" : "Metaadatok olvasása…",
     "Resolving, click here to view on map …" : "Meghatározás, kattintson ide a térképen való megtekintéshez…",
     "Nominatim service unavailable, click here to view on map" : "A Nominatim szolgáltatás nem érhető el, kattintson ide a térképen való megjelenítéshez",
     "Location" : "Hely",
     "Location could not be determined" : "A hely nem határozható meg",
     "Nominatim service unavailable" : "A Nominatim szolgáltatás nem érhető el",
+    "Metadata" : "Metaadatok",
     "No metadata found." : "Nem találhatók metaadatok.",
     "File not found." : "A fájl nem található.",
     "Unsupported MIME type \"%s\"." : "Nem támogatott MIME-típus: „%s”.",

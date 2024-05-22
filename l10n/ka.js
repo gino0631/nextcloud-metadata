@@ -1,8 +1,8 @@
 OC.L10N.register(
     "metadata",
     {
-    "Metadata" : "Metadata",
     "Location" : "Location",
+    "Metadata" : "Metadata",
     "Author" : "Author",
     "Year" : "Year",
     "Date" : "Date",

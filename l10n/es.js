@@ -1,13 +1,13 @@
 OC.L10N.register(
     "metadata",
     {
-    "Metadata" : "Metadatos",
     "Reading metadata …" : "Leyendo metadatos …",
     "Resolving, click here to view on map …" : "Resolviendo. Clic aquí para ver en el mapa...",
     "Nominatim service unavailable, click here to view on map" : "Servicio Nominatim no disponible, haz clic aquí para ver en un mapa",
     "Location" : "Localización",
     "Location could not be determined" : "No se ha podido determinar la localización",
     "Nominatim service unavailable" : "Servicio Nominatim no disponible",
+    "Metadata" : "Metadatos",
     "No metadata found." : "No se han encontrado metadatos.",
     "File not found." : "Archivo no encontrado.",
     "Unsupported MIME type \"%s\"." : "Tipo MIME \"%s\" no soportado.",

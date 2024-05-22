@@ -1,13 +1,13 @@
 OC.L10N.register(
     "metadata",
     {
-    "Metadata" : "Метаподаци",
     "Reading metadata …" : "Читам метаподатке…",
     "Resolving, click here to view on map …" : "Разрешавам, кликните овде да погледате на карти…",
     "Nominatim service unavailable, click here to view on map" : "Номинатим сервис није доступан, кликните овде да погледате на карти",
     "Location" : "Локација",
     "Location could not be determined" : "Локација није могла да се установи",
     "Nominatim service unavailable" : "Номинатим сервис недоступан",
+    "Metadata" : "Метаподаци",
     "No metadata found." : "Нису пронађени метаподаци.",
     "File not found." : "Фајл није нађен.",
     "Unsupported MIME type \"%s\"." : "Неподржани MIME тип „%s”.",

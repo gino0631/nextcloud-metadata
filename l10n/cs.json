@@ -1,11 +1,11 @@
 { "translations": {
-    "Metadata" : "Metadata",
     "Reading metadata …" : "Čtení metadat…",
     "Resolving, click here to view on map …" : "Řeší se, pro zobrazení na mapě klikněte sem…",
     "Nominatim service unavailable, click here to view on map" : "Nominační služba není k dispozici, pro zobrazení na mapě klikněte sem",
     "Location" : "Umístění",
     "Location could not be determined" : "Umístění se nepodařilo zjistit",
     "Nominatim service unavailable" : "Nominační služba není dostupná",
+    "Metadata" : "Metadata",
     "No metadata found." : "Nenalezena žádná metadata.",
     "File not found." : "Soubor nenalezen.",
     "Unsupported MIME type \"%s\"." : "Nepodporovaný MIME typ „%s“",

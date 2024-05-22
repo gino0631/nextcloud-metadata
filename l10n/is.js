@@ -1,13 +1,13 @@
 OC.L10N.register(
     "metadata",
     {
-    "Metadata" : "Lýsigögn",
     "Reading metadata …" : "Les lýsigögn …",
     "Resolving, click here to view on map …" : "Leysi, smelltu hér til að skoða á korti …",
     "Nominatim service unavailable, click here to view on map" : "Nominatim-þjónusta ekki tiltæk, smelltu hér til að skoða á korti",
     "Location" : "Staðsetning",
     "Location could not be determined" : "Ekki var hægt að ákvarða staðsetningu",
     "Nominatim service unavailable" : "Nominatim-þjónusta ekki tiltæk",
+    "Metadata" : "Lýsigögn",
     "No metadata found." : "Engin lýsigögn fundust.",
     "File not found." : "Skrá fannst ekki.",
     "Unsupported MIME type \"%s\"." : "Óstudd MIME-tegund \"%s\".",

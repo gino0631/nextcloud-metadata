@@ -1,8 +1,8 @@
 OC.L10N.register(
     "metadata",
     {
-    "Metadata" : "Метадані",
     "Location" : "Місце",
+    "Metadata" : "Метадані",
     "File not found." : "Файл не знайдено.",
     "Title" : "Назва",
     "Date created" : "Створено",

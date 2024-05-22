@@ -1,13 +1,13 @@
 OC.L10N.register(
     "metadata",
     {
-    "Metadata" : "البيانات الوصفية Metadata",
     "Reading metadata …" : "قراءة البيانات الوصفية Metadata",
     "Resolving, click here to view on map …" : "التحليل، أنقر هنا للعرض على الخريطة",
     "Nominatim service unavailable, click here to view on map" : "خدمة Nominatim الجغرافية غير متاحة، أنقر هنا للعرض على الخريطة",
     "Location" : "المكان",
     "Location could not be determined" : "تعذر تعيين الموقع",
     "Nominatim service unavailable" : "خدمة Nominatim الجغرافية غير متاحة",
+    "Metadata" : "البيانات الوصفية Metadata",
     "No metadata found." : "تعذر العثور على البيانات الوصفية ",
     "File not found." : "الملف غير موجود",
     "Unsupported MIME type \"%s\"." : "الملف من هذا النوع MIME غير مدعوم  \"%s\".",

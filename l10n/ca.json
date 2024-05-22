@@ -1,11 +1,11 @@
 { "translations": {
-    "Metadata" : "Metadades",
     "Reading metadata …" : "S'estan llegint les metadades…",
     "Resolving, click here to view on map …" : "Resolent, feu clic aquí per veure al mapa …",
     "Nominatim service unavailable, click here to view on map" : "Servei Nominatim no disponible, fer click per veure al mapa",
     "Location" : "Ubicació",
     "Location could not be determined" : "No es pot determinar la ubicació",
     "Nominatim service unavailable" : "Servei Nominatim no disponible",
+    "Metadata" : "Metadades",
     "No metadata found." : "No s'han trobat metades.",
     "File not found." : "No s'ha trobat el fitxer.",
     "Unsupported MIME type \"%s\"." : "Tipus MIME \"%s\" no compatible.",

@@ -1,11 +1,11 @@
 { "translations": {
-    "Metadata" : "Metadata",
     "Reading metadata …" : "Reading metadata …",
     "Resolving, click here to view on map …" : "Resolving, click here to view on map …",
     "Nominatim service unavailable, click here to view on map" : "Nominatim service unavailable, click here to view on map",
     "Location" : "Location",
     "Location could not be determined" : "Location could not be determined",
     "Nominatim service unavailable" : "Nominatim service unavailable",
+    "Metadata" : "Metadata",
     "No metadata found." : "No metadata found.",
     "File not found." : "File not found.",
     "Unsupported MIME type \"%s\"." : "Unsupported MIME type \"%s\".",

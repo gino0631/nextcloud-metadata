@@ -1,11 +1,11 @@
 { "translations": {
-    "Metadata" : "메타데이터",
     "Reading metadata …" : "메타데이터를 읽는 중....",
     "Resolving, click here to view on map …" : "분석중, 지도에서 보려면 클릭해 주세요 ...",
     "Nominatim service unavailable, click here to view on map" : "Nominatim 서비스 이용 불가, 지도에서 보려면 클릭해 주세요.",
     "Location" : "위치",
     "Location could not be determined" : "위치를 결정할 수 없습니다.",
     "Nominatim service unavailable" : "Nominatim 서비스 이용불능",
+    "Metadata" : "메타데이터",
     "No metadata found." : "메타데이터를 찾을 수 없습니다.",
     "File not found." : "파일을 찾을 수 없습니다.",
     "Unsupported MIME type \"%s\"." : "\"%s\" MIME 타입은 지원하지 않습니다.",

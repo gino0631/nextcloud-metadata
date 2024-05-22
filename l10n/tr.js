@@ -1,13 +1,13 @@
 OC.L10N.register(
     "metadata",
     {
-    "Metadata" : "Üst veriler",
     "Reading metadata …" : "Üst veriler okunuyor …",
     "Resolving, click here to view on map …" : "Çözümleniyor, harita üzerinde görüntülemek için buraya tıklayın …",
     "Nominatim service unavailable, click here to view on map" : "Nominatim hizmeti kullanılamıyor, harita üzerinde görüntülemek için buraya tıklayın",
     "Location" : "Konum",
     "Location could not be determined" : "Konum belirlenemedi",
     "Nominatim service unavailable" : "Nominatim hizmeti kullanılamıyor",
+    "Metadata" : "Üst veriler",
     "No metadata found." : "Herhangi bir üst veri bulunamadı.",
     "File not found." : "Dosya bulunamadı.",
     "Unsupported MIME type \"%s\"." : "Desteklenmeyen MIME türü \"%s\".",

@@ -1,10 +1,10 @@
 OC.L10N.register(
     "metadata",
     {
-    "Metadata" : "Metaduomenys",
     "Reading metadata …" : "Skaitomi metaduomenys…",
     "Location" : "Vieta",
     "Location could not be determined" : "Nepavyko nustatyti vietos",
+    "Metadata" : "Metaduomenys",
     "No metadata found." : "Nerasta jokių metaduomenų.",
     "File not found." : "Failas nerastas.",
     "Unsupported MIME type \"%s\"." : "Nepalaikomas MIME tipas \"%s\".",

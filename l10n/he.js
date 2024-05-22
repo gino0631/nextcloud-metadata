@@ -1,11 +1,11 @@
 OC.L10N.register(
     "metadata",
     {
-    "Metadata" : "נתוני על",
     "Nominatim service unavailable, click here to view on map" : "שירות ה־Nominatim אינו זמין, יש ללחוץ כאן כדי לראות על המפה",
     "Location" : "מיקום",
     "Location could not be determined" : "לא ניתן לאתר את המיקום",
     "Nominatim service unavailable" : "שירות ה־Nominatim אינו זמין",
+    "Metadata" : "נתוני על",
     "No metadata found." : "לא נמצאו נתוני על.",
     "File not found." : "הקובץ לא נמצא.",
     "Unsupported MIME type \"%s\"." : "סוג ה־MIME ‏„%s” אינו נתמך.",
