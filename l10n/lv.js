@@ -7,7 +7,7 @@ OC.L10N.register(
     "Copyright" : "Autortiesības",
     "Year" : "Gads",
     "Date" : "Datums",
-    "Comment" : "Komentārs",
+    "Comment" : "Piebilde",
     "Description" : "Apraksts",
     "Rating" : "Vērtējums",
     "Tags" : "Birkas",
