@@ -1,10 +1,12 @@
 OC.L10N.register(
     "metadata",
     {
+    "Location" : "Suíomh",
     "Title" : "Teideal",
     "Author" : "Údar",
     "Date" : "Dáta",
     "Comment" : "Trácht",
+    "Headline" : "Ceannlíne",
     "Description" : "Cur síos",
     "People" : "Daoine",
     "Modified" : "Athraithe"
