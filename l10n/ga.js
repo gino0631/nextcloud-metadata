@@ -4,6 +4,7 @@ OC.L10N.register(
     "Location" : "Suíomh",
     "Title" : "Teideal",
     "Author" : "Údar",
+    "Year" : "Bliain",
     "Date" : "Dáta",
     "Comment" : "Trácht",
     "Headline" : "Ceannlíne",
