@@ -15,6 +15,7 @@ OC.L10N.register(
     "Credits" : "Creidmheasanna",
     "Created" : "Cruthaithe",
     "Modified" : "Athraithe",
+    "Application" : "Iarratas",
     "Unknown" : "Anaithnid",
     "Other" : "Eile"
 },
