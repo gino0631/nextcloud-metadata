@@ -2,6 +2,7 @@ OC.L10N.register(
     "metadata",
     {
     "Location" : "Suíomh",
+    "File not found." : "Comhad gan aimsiú.",
     "Title" : "Teideal",
     "Author" : "Údar",
     "Year" : "Bliain",
@@ -12,6 +13,7 @@ OC.L10N.register(
     "Rating" : "Rátáil",
     "People" : "Daoine",
     "Tags" : "Clibeanna",
+    "Instructions" : "Comhaid Nextcloud ag teastáil",
     "Credits" : "Creidmheasanna",
     "Created" : "Cruthaithe",
     "Modified" : "Athraithe",
