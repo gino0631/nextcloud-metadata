@@ -18,6 +18,7 @@ OC.L10N.register(
     "Created" : "Cruthaithe",
     "Modified" : "Athraithe",
     "Application" : "Iarratas",
+    "Manual" : "Lámhleabhar",
     "Unknown" : "Anaithnid",
     "Other" : "Eile"
 },
