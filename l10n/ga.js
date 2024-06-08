@@ -15,6 +15,7 @@ OC.L10N.register(
     "Tags" : "Clibeanna",
     "Instructions" : "Comhaid Nextcloud ag teastáil",
     "Credits" : "Creidmheasanna",
+    "Subject" : "Ábhar",
     "Created" : "Cruthaithe",
     "Modified" : "Athraithe",
     "Application" : "Iarratas",
