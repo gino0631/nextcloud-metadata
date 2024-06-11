@@ -5,6 +5,7 @@ OC.L10N.register(
     "File not found." : "Comhad gan aimsiú.",
     "Title" : "Teideal",
     "Author" : "Údar",
+    "Android version" : "leagan Android",
     "Year" : "Bliain",
     "Date" : "Dáta",
     "Comment" : "Trácht",
