@@ -6,6 +6,7 @@ OC.L10N.register(
     "File not found." : "Comhad gan aimsiú.",
     "Title" : "Teideal",
     "Artist" : "Ealaíontóir",
+    "Date created" : "Dáta cruthaithe",
     "Length" : "Fad",
     "Author" : "Údar",
     "Copyright" : "Cóipcheart",
