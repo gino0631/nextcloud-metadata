@@ -10,6 +10,7 @@ OC.L10N.register(
     "Comment" : "Piebilde",
     "Description" : "Apraksts",
     "Rating" : "Vērtējums",
+    "People" : "Cilvēki",
     "Tags" : "Birkas",
     "Instructions" : "Norādes gatavošanai",
     "Credits" : "Kredīti",
