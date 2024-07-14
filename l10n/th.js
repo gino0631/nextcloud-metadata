@@ -3,7 +3,9 @@ OC.L10N.register(
     {
     "Location" : "ตำแหน่ง",
     "Title" : "ชื่อเรื่อง",
+    "Length" : "ความยาวเพลง",
     "Copyright" : "ลิขสิทธิ์",
+    "Year" : "ปี",
     "Date" : "วันที่",
     "Comment" : "ความคิดเห็น",
     "Description" : "คำอธิบาย",
