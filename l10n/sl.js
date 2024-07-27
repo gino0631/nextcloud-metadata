@@ -70,6 +70,7 @@ OC.L10N.register(
     "Subject" : "Zadeva",
     "Created" : "Ustvarjeno",
     "Modified" : "Spremenjeno",
+    "Application" : "Program",
     "Number of files" : "Število datotek",
     "Not defined" : "Ni določeno",
     "Manual" : "Ročno",
