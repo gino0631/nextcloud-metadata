@@ -50,7 +50,7 @@ OC.L10N.register(
     "People" : "Kişiler",
     "Tags" : "Etiketler",
     "Keywords" : "Anahtar sözcükler",
-    "Instructions" : "Yönergeler",
+    "Instructions" : "Yönerge",
     "Job title" : "İş unvanı",
     "Credits" : "Emeği geçenler",
     "Source" : "Kaynak",
