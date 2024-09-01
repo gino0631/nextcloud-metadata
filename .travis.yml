@@ -1,82 +1,43 @@
 language: php
 os: linux
+dist: bionic
 php:
-  - 7.3
-  - 7.4
-  - 8.0
   - 8.1
+  - 8.2
+  - 8.3
 
 services:
   - postgresql
+
+cache:
+  directories:
+    - $HOME/.composer/cache
 
 env:
   global:
     - APP_NAME=metadata
   jobs:
-    - CLOUD=nextcloud CORE_BRANCH=stable18
-    - CLOUD=nextcloud CORE_BRANCH=stable19
-    - CLOUD=nextcloud CORE_BRANCH=stable20
-    - CLOUD=nextcloud CORE_BRANCH=stable21
-    - CLOUD=nextcloud CORE_BRANCH=stable22
-    - CLOUD=nextcloud CORE_BRANCH=stable23
-    - CLOUD=nextcloud CORE_BRANCH=stable24
-    - CLOUD=nextcloud CORE_BRANCH=stable25
+    - CLOUD=nextcloud CORE_BRANCH=stable27
+    - CLOUD=nextcloud CORE_BRANCH=stable28
+    - CLOUD=nextcloud CORE_BRANCH=stable29
     - CLOUD=nextcloud CORE_BRANCH=master
-    - CLOUD=owncloud CORE_BRANCH=stable10
 
 jobs:
   exclude:
-    - php: 7.3
-      env: CLOUD=nextcloud CORE_BRANCH=stable24
-    - php: 7.3
-      env: CLOUD=nextcloud CORE_BRANCH=stable25
-    - php: 7.3
-      env: CLOUD=nextcloud CORE_BRANCH=master
-    - php: 7.4
-      env: CLOUD=owncloud CORE_BRANCH=stable10
-    - php: 8.0
-      env: CLOUD=nextcloud CORE_BRANCH=stable18
-    - php: 8.0
-      env: CLOUD=nextcloud CORE_BRANCH=stable19
-    - php: 8.0
-      env: CLOUD=nextcloud CORE_BRANCH=stable20
-    - php: 8.0
-      env: CLOUD=owncloud CORE_BRANCH=stable10
-    - php: 8.1
-      env: CLOUD=nextcloud CORE_BRANCH=stable18
-    - php: 8.1
-      env: CLOUD=nextcloud CORE_BRANCH=stable19
-    - php: 8.1
-      env: CLOUD=nextcloud CORE_BRANCH=stable20
-    - php: 8.1
-      env: CLOUD=nextcloud CORE_BRANCH=stable21
-    - php: 8.1
-      env: CLOUD=nextcloud CORE_BRANCH=stable22
-    - php: 8.1
-      env: CLOUD=nextcloud CORE_BRANCH=stable23
-    - php: 8.1
-      env: CLOUD=owncloud CORE_BRANCH=stable10
+    - php: 8.3
+      env: CLOUD=nextcloud CORE_BRANCH=stable27
   allow_failures:
     - env: CLOUD=nextcloud CORE_BRANCH=master
 
 before_install:
-  - if [ $CLOUD = 'nextcloud' ]; then wget https://raw.githubusercontent.com/nextcloud/travis_ci/master/before_install.sh; fi
-  - if [ $CLOUD = 'owncloud' ]; then wget https://raw.githubusercontent.com/owncloud/administration/master/travis-ci/before_install.sh; fi
-  - if [ $CLOUD = 'owncloud' ]; then nvm install 17; fi
-  - if [ $CLOUD = 'owncloud' ]; then curl -sSfL -o ~/.phpenv/versions/$(phpenv version-name)/bin/phpunit https://phar.phpunit.de/phpunit-6.5.phar; fi
-  - if [ $CLOUD = 'owncloud' ]; then ln -s $PWD ../$APP_NAME; fi
+  - if [ $CLOUD = 'nextcloud' ]; then wget -O before_install.sh https://raw.githubusercontent.com/gino0631/nextcloud-metadata/master/tests/travis_nextcloud_install.sh; fi
   - . ./before_install.sh $APP_NAME $CORE_BRANCH pgsql
-  - if [ $CLOUD = 'nextcloud' ]; then cd ../server; fi
-  - if [ $CLOUD = 'owncloud' ]; then cd ../core; fi
 
-  - ./occ check
-  - ./occ status
-  - ./occ app:enable $APP_NAME
-  - ./occ app:list
+before_script:
+  - cd apps/$APP_NAME/
+  - composer install --prefer-dist --no-interaction
 
 script:
-  - cd apps/$APP_NAME/
-
   # Run phpunit tests
-  - cd tests
-  - phpunit --configuration phpunit.xml
+  - ./vendor/bin/phpunit --version
+  - ./vendor/bin/phpunit --configuration tests/phpunit.xml

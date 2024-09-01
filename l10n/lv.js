@@ -1,14 +1,16 @@
 OC.L10N.register(
     "metadata",
     {
-    "Metadata" : "Metadati",
     "Location" : "Vieta",
+    "Metadata" : "Metadati",
     "Title" : "Amats",
     "Copyright" : "Autortiesības",
+    "Year" : "Gads",
     "Date" : "Datums",
-    "Comment" : "Komentārs",
+    "Comment" : "Piebilde",
     "Description" : "Apraksts",
     "Rating" : "Vērtējums",
+    "People" : "Cilvēki",
     "Tags" : "Birkas",
     "Instructions" : "Norādes gatavošanai",
     "Credits" : "Kredīti",

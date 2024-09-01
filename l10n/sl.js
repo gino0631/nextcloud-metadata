@@ -1,13 +1,13 @@
 OC.L10N.register(
     "metadata",
     {
-    "Metadata" : "Metapodatki",
     "Reading metadata …" : "Poteka branje metapodatkov ...",
     "Resolving, click here to view on map …" : "Poteka razreševanje; s klikom je mogoč pregled ...",
     "Nominatim service unavailable, click here to view on map" : "Storitev Nominatim ni na voljo; s klikom je mogoče pregled",
     "Location" : "Mesto",
     "Location could not be determined" : "Mesta ni mogoče določiti",
     "Nominatim service unavailable" : "Storitev Nominatim ni na voljo",
+    "Metadata" : "Metapodatki",
     "No metadata found." : "Ni najdenih metapodatkov.",
     "File not found." : "Datoteke ni mogoče najti.",
     "Unsupported MIME type \"%s\"." : "Nepodprta vrsta MIME »%s«.",
@@ -70,6 +70,7 @@ OC.L10N.register(
     "Subject" : "Zadeva",
     "Created" : "Ustvarjeno",
     "Modified" : "Spremenjeno",
+    "Application" : "Program",
     "Number of files" : "Število datotek",
     "Not defined" : "Ni določeno",
     "Manual" : "Ročno",

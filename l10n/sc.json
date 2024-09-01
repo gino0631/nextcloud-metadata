@@ -1,11 +1,11 @@
 { "translations": {
-    "Metadata" : "Metadatos",
     "Reading metadata …" : "Letura de is metadatos",
     "Resolving, click here to view on map …" : "Risolutzione. Incarca inoghe pro visualizare in sa mapa ...",
     "Nominatim service unavailable, click here to view on map" : "Su servìtziu Nominatim no est a disponimentu, incarca inoghe pro visualizare in sa mapa",
     "Location" : "Positzione",
     "Location could not be determined" : "No at fatu a determinare sa positzione",
     "Nominatim service unavailable" : "Su servìtziu Nominatim no est a disponimentu",
+    "Metadata" : "Metadatos",
     "No metadata found." : "Perunu metadatu agatadu.",
     "File not found." : "Archìviu no agatadu.",
     "Unsupported MIME type \"%s\"." : "Genia MIME \"%s\" non suportada.",

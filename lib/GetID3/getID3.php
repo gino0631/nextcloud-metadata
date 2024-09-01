@@ -184,7 +184,7 @@ class getID3
 	public $option_md5_data          = false;
 
 	/**
-	 * Use MD5 of source file if availble - only FLAC and OptimFROG
+	 * Use MD5 of source file if available - only FLAC and OptimFROG
 	 *
 	 * @var bool
 	 */
@@ -389,12 +389,15 @@ class getID3
 	 */
 	protected $startup_warning = '';
 
-	const VERSION           = '1.9.21-202109171300';
+	const VERSION           = '1.9.22-202207161647';
 	const FREAD_BUFFER_SIZE = 32768;
 
 	const ATTACHMENTS_NONE   = false;
 	const ATTACHMENTS_INLINE = true;
 
+	/**
+	 * @throws getid3_exception
+	 */
 	public function __construct() {
 
 		// Check for PHP version
@@ -567,7 +570,7 @@ class getID3
 			$this->info['php_memory_limit'] = (($this->memory_limit > 0) ? $this->memory_limit : false);
 
 			// remote files not supported
-			if (preg_match('#^(ht|f)tp://#', $filename)) {
+			if (preg_match('#^(ht|f)tps?://#', $filename)) {
 				throw new getid3_exception('Remote files are not supported - please copy the file locally first');
 			}
 
@@ -670,6 +673,7 @@ class getID3
 			foreach (array('id3v2'=>'id3v2', 'id3v1'=>'id3v1', 'apetag'=>'ape', 'lyrics3'=>'lyrics3') as $tag_name => $tag_key) {
 				$option_tag = 'option_tag_'.$tag_name;
 				if ($this->$option_tag) {
+//					$this->include_module('tag.'.$tag_name);
 					try {
 						$tag_class = '\OCA\Metadata\GetID3\Tags\getid3_'.$tag_name;
 						$tag = new $tag_class($this);
@@ -746,7 +750,6 @@ class getID3
 			// module requires mb_convert_encoding/iconv support
 			// Check encoding/iconv support
 			if (!empty($determined_format['iconv_req']) && !function_exists('mb_convert_encoding') && !function_exists('iconv') && !in_array($this->encoding, array('ISO-8859-1', 'UTF-8', 'UTF-16LE', 'UTF-16BE', 'UTF-16'))) {
-				fclose($this->fp);
 				$errormessage = 'mb_convert_encoding() or iconv() support is required for this module ('.$determined_format['include'].') for encodings other than ISO-8859-1, UTF-8, UTF-16LE, UTF16-BE, UTF-16. ';
 				if (GETID3_OS_ISWINDOWS) {
 					$errormessage .= 'PHP does not have mb_convert_encoding() or iconv() support. Please enable php_mbstring.dll / php_iconv.dll in php.ini, and copy php_mbstring.dll / iconv.dll from c:/php/dlls to c:/windows/system32';
@@ -1058,15 +1061,16 @@ class getID3
 							'mime_type' => 'audio/x-monkeys-audio',
 						),
 
-// has been known to produce false matches in random files (e.g. JPEGs), leave out until more precise matching available
-//				// MOD  - audio       - MODule (assorted sub-formats)
-//				'mod'  => array(
-//							'pattern'   => '^.{1080}(M\\.K\\.|M!K!|FLT4|FLT8|[5-9]CHN|[1-3][0-9]CH)',
-//							'group'     => 'audio',
-//							'module'    => 'mod',
-//							'option'    => 'mod',
-//							'mime_type' => 'audio/mod',
-//						),
+
+				// MOD  - audio       - MODule (SoundTracker)
+				'mod'  => array(
+							//'pattern'   => '^.{1080}(M\\.K\\.|M!K!|FLT4|FLT8|[5-9]CHN|[1-3][0-9]CH)', // has been known to produce false matches in random files (e.g. JPEGs), leave out until more precise matching available
+							'pattern'   => '^.{1080}(M\\.K\\.)',
+							'group'     => 'audio',
+							'module'    => 'mod',
+							'option'    => 'mod',
+							'mime_type' => 'audio/mod',
+						),
 
 				// MOD  - audio       - MODule (Impulse Tracker)
 				'it'   => array(
@@ -1097,7 +1101,7 @@ class getID3
 
 				// MPC  - audio       - Musepack / MPEGplus
 				'mpc'  => array(
-							'pattern'   => '^(MPCK|MP\\+|[\\x00\\x01\\x10\\x11\\x40\\x41\\x50\\x51\\x80\\x81\\x90\\x91\\xC0\\xC1\\xD0\\xD1][\\x20-\\x37][\\x00\\x20\\x40\\x60\\x80\\xA0\\xC0\\xE0])',
+							'pattern'   => '^(MPCK|MP\\+)',
 							'group'     => 'audio',
 							'module'    => 'mpc',
 							'mime_type' => 'audio/x-musepack',
@@ -1552,6 +1556,13 @@ class getID3
 			// use assume format on these if format detection failed
 			$GetFileFormatArray = $this->GetFileFormatArray();
 			$info = $GetFileFormatArray['mp3'];
+			$info['include'] = 'module.'.$info['group'].'.'.$info['module'].'.php';
+			return $info;
+		} elseif (preg_match('#\\.mp[cp\\+]$#i', $filename) && preg_match('#[\x00\x01\x10\x11\x40\x41\x50\x51\x80\x81\x90\x91\xC0\xC1\xD0\xD1][\x20-37][\x00\x20\x40\x60\x80\xA0\xC0\xE0]#s', $filedata)) {
+			// old-format (SV4-SV6) Musepack header that has a very loose pattern match and could falsely match other data (e.g. corrupt mp3)
+			// only enable this pattern check if the filename ends in .mpc/mpp/mp+
+			$GetFileFormatArray = $this->GetFileFormatArray();
+			$info = $GetFileFormatArray['mpc'];
 			$info['include'] = 'module.'.$info['group'].'.'.$info['module'].'.php';
 			return $info;
 		} elseif (preg_match('#\\.cue$#i', $filename) && preg_match('#FILE "[^"]+" (BINARY|MOTOROLA|AIFF|WAVE|MP3)#', $filedata)) {
@@ -2044,21 +2055,21 @@ class getID3
 		return tempnam($this->tempdir, 'gI3');
 	}
 
-//	/**
-//	 * @param string $name
-//	 *
-//	 * @return bool
-//	 *
-//	 * @throws getid3_exception
-//	 */
-//	public function include_module($name) {
+	/**
+	 * @param string $name
+	 *
+	 * @return bool
+	 *
+	 * @throws getid3_exception
+	 */
+	public function include_module($name) {
 //		//if (!file_exists($this->include_path.'module.'.$name.'.php')) {
 //		if (!file_exists(GETID3_INCLUDEPATH.'module.'.$name.'.php')) {
 //			throw new getid3_exception('Required module.'.$name.'.php is missing.');
 //		}
 //		include_once(GETID3_INCLUDEPATH.'module.'.$name.'.php');
-//		return true;
-//	}
+		return true;
+	}
 
 	/**
 	 * @param string $filename

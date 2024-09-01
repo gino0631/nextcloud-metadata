@@ -1,8 +1,33 @@
 # Changelog
 
 ## [Unreleased]
+
+## 0.20.0 – 2024-05-22
 ### Added
+- Compatibility with Nextcloud 28 and 29
+
+## 0.19.0 – 2023-06-29
+### Added
+- Compatibility with Nextcloud 27
+
+### Fixed
+- Incorrect audio metadata with some MP4 files
+  [#96](https://github.com/gino0631/nextcloud-metadata/issues/96)
+- Failure to read some Jamendo-encoded MP3 files
+  [#94](https://github.com/gino0631/nextcloud-metadata/issues/94)
+
+## 0.18.0 – 2023-03-30
+### Added
+- Support for PHP 8.2
 - Compatibility with Nextcloud 26
+
+### Changed
+- Minimum required PHP version changed from 7.3 to 7.4
+- Minimum supported Nextcloud version changed from 18 to 24
+
+### Fixed
+- Division by zero error for pictures with ExposureTime encoded as 0/1000
+  [#97](https://github.com/gino0631/nextcloud-metadata/issues/97)
 
 ## 0.17.0 – 2022-10-24
 ### Added

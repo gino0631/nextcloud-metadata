@@ -1,13 +1,14 @@
 OC.L10N.register(
     "metadata",
     {
-    "Metadata" : "Metadata",
     "Location" : "Sted",
+    "Metadata" : "Metadata",
     "File not found." : "Fil ikke fundet.",
     "Title" : "Titel",
     "Artist" : "Kunster",
     "Date created" : "Oprettet den",
     "Length" : "Længde",
+    "Author" : "Forfatter",
     "Copyright" : "Ophavsret",
     "Album" : "Album",
     "Year" : "År",

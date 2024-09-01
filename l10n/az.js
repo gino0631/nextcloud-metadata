@@ -6,7 +6,9 @@ OC.L10N.register(
     "Date" : "Date",
     "Comment" : "Komentariya",
     "Description" : "Açıqlanma",
+    "Rating" : "Reytinq",
     "Tags" : "Işarələr",
+    "Subject" : "Mövzu",
     "Modified" : "Dəyişdirildi",
     "Other" : "Digər"
 },

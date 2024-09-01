@@ -1,11 +1,15 @@
 <?php
-
 namespace OCA\Metadata\AppInfo;
 
+use OCA\Files\Event\LoadSidebar;
+use OCA\Metadata\Listener\LoadSidebarListener;
 use OCP\AppFramework\App;
+use OCP\AppFramework\Bootstrap\IBootContext;
+use OCP\AppFramework\Bootstrap\IBootstrap;
+use OCP\AppFramework\Bootstrap\IRegistrationContext;
 
-class Application extends App {
-	const APP_NAME = 'metadata';
+class Application extends App implements IBootstrap {
+	const APP_ID = 'metadata';
 
 	/**
 	 * Application constructor.
@@ -14,26 +18,17 @@ class Application extends App {
 	 * @throws \OCP\AppFramework\QueryException
 	 */
 	public function __construct(array $params = []) {
-		parent::__construct(self::APP_NAME, $params);
-
-		$container = $this->getContainer();
-		$server = $container->getServer();
-		$eventDispatcher = $server->getEventDispatcher();
-
-		$eventDispatcher->addListener('OCA\Files::loadAdditionalScripts', function() {
-			\OCP\Util::addStyle('metadata', 'tabview' );
-			\OCP\Util::addScript('metadata', 'tabview' );
-			\OCP\Util::addScript('metadata', 'plugin' );
-
-			$policy = new \OCP\AppFramework\Http\EmptyContentSecurityPolicy();
-			$policy->addAllowedConnectDomain('https://nominatim.openstreetmap.org/');
-			$policy->addAllowedFrameDomain('https://www.openstreetmap.org/');
-			\OC::$server->getContentSecurityPolicyManager()->addDefaultPolicy($policy);
-		});
+		parent::__construct(self::APP_ID, $params);
 	}
 
+	public function register(IRegistrationContext $context): void {
+		$context->registerEventListener(LoadSidebar::class, LoadSidebarListener::class);
+	}
+
+	public function boot(IBootContext $context): void {
+	}
 
 	public static function getL10N() {
-		return \OC::$server->getL10N(Application::APP_NAME);
+		return \OC::$server->getL10N(Application::APP_ID);
 	}
 }

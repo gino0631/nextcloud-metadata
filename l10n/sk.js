@@ -1,13 +1,13 @@
 OC.L10N.register(
     "metadata",
     {
-    "Metadata" : "Metadáta",
     "Reading metadata …" : "Čítanie meta údajov…",
     "Resolving, click here to view on map …" : "Ak chcete zobraziť mapu, kliknite sem...",
     "Nominatim service unavailable, click here to view on map" : "Nominačná služba nie je k dispozícii, pre zobrazenie na mape kliknite sem",
     "Location" : "Umiestnenie",
     "Location could not be determined" : "Nepodarilo sa zistiť umiestnenie",
     "Nominatim service unavailable" : "Nominačná služba nie je k dispozícii",
+    "Metadata" : "Metadáta",
     "No metadata found." : "Nenašli sa žiadne metadáta.",
     "File not found." : "Súbor sa nenašiel.",
     "Unsupported MIME type \"%s\"." : "Nepodporovaný MIME typ \"%s\".",
@@ -43,7 +43,7 @@ OC.L10N.register(
     "Encoded by" : "Kódované",
     "Encoding tool" : "Kódovací nástroj",
     "GPS coordinates" : "Súradnice GPS",
-    "Headline" : "Titulok",
+    "Headline" : "Titul",
     "Description" : "Popis",
     "Rating" : "Hodnotenie",
     "Description writer" : "Autor popisu",

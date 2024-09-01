@@ -1,13 +1,13 @@
 OC.L10N.register(
     "metadata",
     {
-    "Metadata" : "Μεταδεδομένα",
     "Reading metadata …" : "Ανάγνωση μεταδεδομένων …",
     "Resolving, click here to view on map …" : "Επίλυση, κλικ εδώ για εμφάνιση στο χάρτη …",
     "Nominatim service unavailable, click here to view on map" : "Η υπηρεσία Nominatim δεν είναι διαθέσιμη, κλικ εδώ για εμφάνιση στο χάρτη",
     "Location" : "Τοποθεσία",
     "Location could not be determined" : "Δεν ήταν δυνατό να προσδιοριστεί η τοποθεσία",
     "Nominatim service unavailable" : "Η υπηρεσία Nominatim δεν είναι διαθέσιμη",
+    "Metadata" : "Μεταδεδομένα",
     "No metadata found." : "Δεν βρέθηκαν μεταδεδομένα.",
     "File not found." : "Το αρχείο δεν βρέθηκε.",
     "Unsupported MIME type \"%s\"." : "Μη υποστηριζόμενος τύπος ΜΙΜΕ \"%s\".",

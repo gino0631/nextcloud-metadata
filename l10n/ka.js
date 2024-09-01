@@ -1,0 +1,25 @@
+OC.L10N.register(
+    "metadata",
+    {
+    "Location" : "Location",
+    "Metadata" : "Metadata",
+    "Author" : "Author",
+    "Year" : "Year",
+    "Date" : "Date",
+    "Comment" : "Comment",
+    "Headline" : "Headline",
+    "Description" : "Description",
+    "Rating" : "Rating",
+    "People" : "People",
+    "Tags" : "Tags",
+    "Credits" : "Credits",
+    "Subject" : "Subject",
+    "Created" : "Created",
+    "Modified" : "Modified",
+    "Application" : "Application",
+    "Manual" : "Manual",
+    "Unknown" : "Unknown",
+    "Pattern" : "Pattern",
+    "Other" : "Other"
+},
+"nplurals=2; plural=(n!=1);");

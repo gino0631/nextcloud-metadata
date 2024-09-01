@@ -13,7 +13,7 @@ class MetadataService {
     protected $language;
 
     public function __construct() {
-        $this->language = \OC::$server->getL10N(Application::APP_NAME);
+        $this->language = \OC::$server->getL10N(Application::APP_ID);
     }
 
     /**
@@ -321,7 +321,7 @@ class MetadataService {
 
         if ($v = $this->getVal('description', $vorbis) ?: $this->getValM('comment', $tags)) {
             if (is_array($v)) {
-                $this->formatComments($v);
+                $v = $this->formatComments($v);
             }
 
             $this->addVal($this->t('Comment'), $v, $return);
@@ -813,8 +813,8 @@ class MetadataService {
 
     protected function formatRational($val, $fracIfSmall = false, $precision = 2) {
         if (preg_match('/([\-]?)(\d+)([\/])(\d+)/', $val, $matches) !== false) {
-            if ($fracIfSmall && ($matches[2] < $matches[4])) {
-                if ($matches[2] !== 1) {
+            if ($fracIfSmall && ($matches[2] < $matches[4]) && ($matches[2] !== '0')) {
+                if ($matches[2] !== '1') {
                     $val = $matches[1] . 1 . '/' . round($matches[4] / $matches[2]);
                 }
 
@@ -843,17 +843,26 @@ class MetadataService {
         return $val;
     }
 
-    protected function formatComments(&$array) {
+    protected function formatComments($array) {
+        $return = array();
+
         foreach ($array as $key => $val) {
             while (substr_compare($val, '&#0;', -4) === 0) {
                 $val = substr($val, 0, -4);
-                $array[$key] = $val;
             }
 
             if (!is_numeric($key)) {
-                $array[$key] = '('.$key.') '.$val;
+                if ((($key = mb_convert_encoding($key, 'UTF-8', 'UTF-8, UTF-16')) !== false) && ($key !== $val)) {
+                    $val = '('.$key.') '.$val;
+                }
+            }
+
+            if (!in_array($val, $return)) {
+                $return[] = $val;
             }
         }
+
+        return $return;
     }
 
     protected function convertUcs2($v) {

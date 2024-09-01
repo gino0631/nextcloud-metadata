@@ -1,16 +1,19 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "ตำแหน่งที่อยู่",
+    "Location" : "ตำแหน่ง",
     "Title" : "ชื่อเรื่อง",
+    "Length" : "ความยาวเพลง",
     "Copyright" : "ลิขสิทธิ์",
-    "Date" : "Date",
-    "Comment" : "แสดงความคิดเห็น",
-    "Description" : "รายละเอียด",
+    "Year" : "ปี",
+    "Date" : "วันที่",
+    "Comment" : "ความคิดเห็น",
+    "Description" : "คำอธิบาย",
     "Rating" : "คะแนน",
-    "Tags" : "ป้ายกำกับ",
+    "People" : "ผู้คน",
+    "Tags" : "แท็ก",
     "Modified" : "แก้ไขเมื่อ",
     "Unknown" : "ไม่ทราบ",
-    "Other" : "อื่นๆ"
+    "Other" : "อื่น ๆ"
 },
 "nplurals=1; plural=0;");

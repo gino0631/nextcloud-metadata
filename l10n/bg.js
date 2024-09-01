@@ -1,13 +1,13 @@
 OC.L10N.register(
     "metadata",
     {
-    "Metadata" : "Метаданни",
     "Reading metadata …" : "Четене на метаданни …",
     "Resolving, click here to view on map …" : "Разрешаване, щракнете тук, за да видите на картата ...",
     "Nominatim service unavailable, click here to view on map" : "Услугата Nominatim не е налична, щракнете тук, за да видите на картата",
     "Location" : "Местоположение",
     "Location could not be determined" : "Местоположението не може да бъде определено",
     "Nominatim service unavailable" : "Услугата Nominatim не е налична",
+    "Metadata" : "Метаданни",
     "No metadata found." : "Няма намерени метаданни.",
     "File not found." : "Файлът не е намерен",
     "Unsupported MIME type \"%s\"." : "Неподдържан MIME тип \"%s\".",

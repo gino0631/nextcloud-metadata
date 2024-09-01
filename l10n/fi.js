@@ -1,13 +1,13 @@
 OC.L10N.register(
     "metadata",
     {
-    "Metadata" : "Metatiedot",
-    "Reading metadata …" : "Luetaan metadataa ...",
+    "Reading metadata …" : "Luetaan metatietoja...",
     "Resolving, click here to view on map …" : "Ratkaistaan, klikkaa tästä näyttääksesi kartalla ...",
     "Nominatim service unavailable, click here to view on map" : "Nominatim-palvelu ei käytettävissä, klikkaa tästä näyttääksesi kartalla",
     "Location" : "Sijainti",
     "Location could not be determined" : "Sijaintia ei voitu määrittää",
     "Nominatim service unavailable" : "Nominatim-palvelu ei käytettävissä",
+    "Metadata" : "Metatiedot",
     "No metadata found." : "Metatietoja ei löytynyt.",
     "File not found." : "Tiedostoa ei löytynyt.",
     "Unsupported MIME type \"%s\"." : "MIME-tyyppi \"%s\" ei ole tuettu.",
@@ -15,6 +15,7 @@ OC.L10N.register(
     "Title" : "Otsikko",
     "Artist" : "Artisti",
     "Date created" : "Luontipäivä",
+    "Date modified" : "Muokkauspäivä",
     "Length" : "Kesto",
     "Dimensions" : "Mitat",
     "Frame rate" : "Kuvanopeus",
