@@ -8,7 +8,7 @@
 
 See the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations.]]>
     </description>
-    <version>0.21.0</version>
+    <version>0.22.0</version>
     <licence>agpl</licence>
     <author>gino0631</author>
     <category>files</category>
@@ -19,6 +19,6 @@ See the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/READ
     <dependencies>
         <php min-version="8.0" max-version="8.3" />
         <lib>exif</lib>
-        <nextcloud min-version="27" max-version="30" />
+        <nextcloud min-version="27" max-version="31" />
     </dependencies>
 </info>
