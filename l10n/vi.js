@@ -12,6 +12,7 @@ OC.L10N.register(
     "Headline" : "Tiêu đề",
     "Description" : "Mô tả",
     "Rating" : "Đánh giá",
+    "People" : "Mọi người",
     "Tags" : "Thẻ",
     "Keywords" : "Từ khóa",
     "Instructions" : "Hướng dẫn",
