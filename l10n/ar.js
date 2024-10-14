@@ -47,7 +47,7 @@ OC.L10N.register(
     "Description" : "الوصف",
     "Rating" : "تقييم",
     "Description writer" : "كاتب الوصف",
-    "People" : "الناس",
+    "People" : "الأشخاص",
     "Tags" : "الوسوم",
     "Keywords" : "الكلمات المفتاحية",
     "Instructions" : "التعليمات",
