@@ -24,6 +24,7 @@ OC.L10N.register(
     "Headline" : "Título ",
     "Description" : "Descrição",
     "Rating" : "Avaliação",
+    "People" : "Pessoas",
     "Tags" : "Marcações",
     "Keywords" : "Palavras-chave",
     "Instructions" : "Instruções",
