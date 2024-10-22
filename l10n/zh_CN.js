@@ -47,7 +47,7 @@ OC.L10N.register(
     "Description" : "描述",
     "Rating" : "评分",
     "Description writer" : "说明作者",
-    "People" : "人物",
+    "People" : "用户",
     "Tags" : "标签",
     "Keywords" : "关键词",
     "Instructions" : "说明",
