@@ -1,7 +1,7 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "Vieta",
+    "Location" : "Atrašanās vieta",
     "Metadata" : "Metadati",
     "Title" : "Amats",
     "Copyright" : "Autortiesības",
