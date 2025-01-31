@@ -1,7 +1,7 @@
 { "translations": {
     "Reading metadata …" : "Lese Metadaten …",
-    "Resolving, click here to view on map …" : "Auflösen, klicken Sie hier, um die Karte zu sehen …",
-    "Nominatim service unavailable, click here to view on map" : "Nominatim-Dienst nicht verfügbar. Klicken Sie hier, um die Karte zu sehen.",
+    "Resolving, click here to view on map …" : "Auflösen, klicke hier, um die Karte zu sehen …",
+    "Nominatim service unavailable, click here to view on map" : "Nominatim-Dienst nicht verfügbar. Klicke hier, um die Karte zu sehen.",
     "Location" : "Ort",
     "Location could not be determined" : "Ort konnte nicht bestimmt werden.",
     "Nominatim service unavailable" : "Nominatim-Dienst nicht verfügbar",
@@ -9,7 +9,7 @@
     "No metadata found." : "Keine Metadaten gefunden. ",
     "File not found." : "Datei nicht gefunden. ",
     "Unsupported MIME type \"%s\"." : "Nicht unterstützter MIME-Typ „%s“.",
-    "EXIF support is missing; you might need to install an appropriate package for your system." : "EXIF-Unterstützung fehlt. Möglicherweise müssen Sie ein entsprechendes Paket für Ihr System installieren.",
+    "EXIF support is missing; you might need to install an appropriate package for your system." : "EXIF-Unterstützung fehlt. Möglicherweise musst du ein entsprechendes Paket für dein System installieren.",
     "Title" : "Titel",
     "Artist" : "Künstler",
     "Date created" : "Erstelldatum",
