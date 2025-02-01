@@ -10,7 +10,7 @@ OC.L10N.register(
     "Metadata" : "Metadaten",
     "No metadata found." : "Keine Metadaten gefunden. ",
     "File not found." : "Datei nicht gefunden. ",
-    "Unsupported MIME type \"%s\"." : "Nicht unterstützter MIME-Typ „%s“.",
+    "Unsupported MIME type \"%s\"." : "Nicht unterstützter MIME-Typ \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "EXIF-Unterstützung fehlt. Möglicherweise musst du ein entsprechendes Paket für dein System installieren.",
     "Title" : "Titel",
     "Artist" : "Künstler",
