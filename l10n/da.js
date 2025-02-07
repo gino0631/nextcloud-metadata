@@ -1,7 +1,7 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "Sted",
+    "Location" : "Placering",
     "Metadata" : "Metadata",
     "File not found." : "Fil ikke fundet.",
     "Title" : "Titel",
@@ -14,7 +14,7 @@ OC.L10N.register(
     "Year" : "År",
     "Date" : "Dato",
     "Genre" : "Genre",
-    "Comment" : "Kommentér",
+    "Comment" : "Kommentar",
     "Headline" : "Overskrift",
     "Description" : "Beskrivelse",
     "Rating" : "Bedømmelse",
@@ -22,7 +22,7 @@ OC.L10N.register(
     "Tags" : "Tags",
     "Keywords" : "Nøgleord",
     "Instructions" : "Instruktioner",
-    "Credits" : "Credits",
+    "Credits" : "Krediteringer",
     "Source" : "Kilde",
     "Subject" : "Emne",
     "Created" : "Oprettet",
