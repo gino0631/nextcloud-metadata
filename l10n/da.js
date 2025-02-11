@@ -10,6 +10,7 @@ OC.L10N.register(
     "Length" : "Længde",
     "Author" : "Forfatter",
     "Copyright" : "Ophavsret",
+    "Android version" : "Android version",
     "Album" : "Album",
     "Year" : "År",
     "Date" : "Dato",
