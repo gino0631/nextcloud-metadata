@@ -28,6 +28,7 @@ OC.L10N.register(
     "Subject" : "Emne",
     "Created" : "Oprettet",
     "Modified" : "Ændret",
+    "Application" : "Anvendelse",
     "Manual" : "Manuel",
     "Unknown" : "Ukendt",
     "Pattern" : "Mønster",
