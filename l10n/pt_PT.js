@@ -15,6 +15,7 @@ OC.L10N.register(
     "Length" : "Comprimento",
     "%g fps" : "%g fps",
     "%s kbps" : "%s kbps",
+    "Author" : "Autor",
     "Copyright" : "Direitos de Autor",
     "%s bit" : "%s bit",
     "%s kHz" : "%s kHz",
