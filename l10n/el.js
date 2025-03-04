@@ -70,6 +70,7 @@ OC.L10N.register(
     "Subject" : "Θέμα",
     "Created" : "Δημιουργήθηκε",
     "Modified" : "Τροποποιήθηκε",
+    "Application" : "Εφαρμογή",
     "Number of files" : "Αριθμός αρχείων",
     "Not defined" : "Ακαθόριστο",
     "Manual" : "Χειροκίνητα",
