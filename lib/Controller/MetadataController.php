@@ -7,6 +7,7 @@ use OCA\Metadata\Service\MetadataService;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\IRequest;
+use Psr\Log\LoggerInterface;
 
 class MetadataController extends Controller {
 	protected $metadataService;
