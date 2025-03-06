@@ -44,7 +44,7 @@ class MetadataController extends Controller {
 			}
 
 		} catch (\Exception $e) {
-			\OC::$server->getLogger()->logException($e, ['app' => 'metadata']);
+			\OCP\Server::get(LoggerInterface::class)->error($e->getMessage(), ['app' => 'metadata']);
 
 			return new JSONResponse(
 				array(
