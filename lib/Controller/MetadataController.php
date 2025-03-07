@@ -7,6 +7,7 @@ use OCA\Metadata\Service\MetadataService;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\IRequest;
+use Psr\Log\LoggerInterface;
 
 class MetadataController extends Controller {
 	protected $metadataService;
@@ -44,7 +45,7 @@ class MetadataController extends Controller {
 			}
 
 		} catch (\Exception $e) {
-			\OC::$server->getLogger()->logException($e, ['app' => 'metadata']);
+			\OCP\Server::get(LoggerInterface::class)->error($e->getMessage(), ['app' => 'metadata']);
 
 			return new JSONResponse(
 				array(

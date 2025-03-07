@@ -19,6 +19,7 @@ OC.L10N.register(
     "Created" : "Creado",
     "Modified" : "Modificado",
     "Application" : "Aplicación",
+    "Manual" : "Manual",
     "Unknown" : "Desconocido",
     "Pattern" : "Patrón",
     "Other" : "Otro"

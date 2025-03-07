@@ -70,6 +70,7 @@ OC.L10N.register(
     "Subject" : "Onderwerp",
     "Created" : "Gemaakt",
     "Modified" : "Aangepast",
+    "Application" : "Applicatie",
     "Number of files" : "Aantal bestanden",
     "Not defined" : "Niet bepaald",
     "Manual" : "Handmatig",

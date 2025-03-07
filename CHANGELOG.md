@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## 0.22.0 – 2025-03-07
+### Added
+- Compatibility with Nextcloud 31
+
+## 0.21.0 – 2024-09-19
+### Added
+- Compatibility with Nextcloud 30
+
 ## 0.20.0 – 2024-05-22
 ### Added
 - Compatibility with Nextcloud 28 and 29

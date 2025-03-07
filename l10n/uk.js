@@ -14,7 +14,7 @@ OC.L10N.register(
     "Headline" : "Заголовок",
     "Description" : "Опис",
     "Rating" : "Оцінка",
-    "People" : "Люди",
+    "People" : "Користувачі",
     "Tags" : "Мітки",
     "Credits" : "Подяки",
     "Source" : "Джерело",
