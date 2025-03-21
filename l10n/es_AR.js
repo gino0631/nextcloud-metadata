@@ -7,6 +7,7 @@ OC.L10N.register(
     "Year" : "Año",
     "Date" : "Fecha",
     "Comment" : "Comentario",
+    "Headline" : "Títular",
     "Description" : "Descripción",
     "Rating" : "Calificación",
     "Tags" : "Etiquetas",
