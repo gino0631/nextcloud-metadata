@@ -18,6 +18,7 @@ OC.L10N.register(
     "Subject" : "Teema",
     "Created" : "Loodud",
     "Modified" : "Muudetud",
+    "Application" : "Rakendus",
     "Unknown" : "Teadmata",
     "Pattern" : "Muster",
     "Other" : "Muu"
