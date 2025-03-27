@@ -5,6 +5,7 @@ OC.L10N.register(
     "Metadata" : "Metaandmed",
     "File not found." : "Faili ei leitud",
     "Title" : "Pealkiri",
+    "Author" : "Autor",
     "Copyright" : "Autoriõigused",
     "Android version" : "Androidi versioon",
     "Year" : "Aasta",
