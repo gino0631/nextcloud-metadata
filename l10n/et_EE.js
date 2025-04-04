@@ -16,6 +16,7 @@ OC.L10N.register(
     "People" : "Inimese",
     "Tags" : "Sildid",
     "Credits" : "Tänuavaldused",
+    "%g mm" : "%g mm",
     "Subject" : "Teema",
     "Created" : "Loodud",
     "Modified" : "Muudetud",
