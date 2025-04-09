@@ -11,6 +11,7 @@ OC.L10N.register(
     "Year" : "Aasta",
     "Date" : "Kuupäev",
     "Comment" : "Kommentaar",
+    "Headline" : "Alapealkiri",
     "Description" : "Kirjeldus",
     "Rating" : "Hinnang",
     "People" : "Inimese",

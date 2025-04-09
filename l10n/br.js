@@ -3,10 +3,13 @@ OC.L10N.register(
     {
     "Location" : "Lec'hiadur",
     "Title" : "Titl",
+    "Copyright" : "Copyright",
     "Date" : "Deizat",
     "Comment" : "Displegadenn",
     "Description" : "Diskrivadur",
+    "People" : "Tud",
     "Tags" : "Klavioù",
+    "ISO-%s" : "ISO-%s",
     "Created" : "Krouet",
     "Modified" : "Cheñchet",
     "Unknown" : "Dianv",
