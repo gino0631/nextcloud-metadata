@@ -37,7 +37,7 @@ OC.L10N.register(
     "Description" : "Aprašas",
     "Rating" : "Įvertinimas",
     "People" : "Žmonės",
-    "Tags" : "Žymės",
+    "Tags" : "Žymos",
     "Keywords" : "Raktažodžiai",
     "Instructions" : "Instrukcija",
     "Credits" : "Padėkos",
