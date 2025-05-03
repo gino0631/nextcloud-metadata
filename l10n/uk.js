@@ -16,6 +16,7 @@ OC.L10N.register(
     "Rating" : "Оцінка",
     "People" : "Користувачі",
     "Tags" : "Мітки",
+    "Instructions" : "Інструкції",
     "Credits" : "Подяки",
     "Source" : "Джерело",
     "Subject" : "Тема",
