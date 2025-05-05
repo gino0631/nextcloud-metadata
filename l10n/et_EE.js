@@ -16,6 +16,7 @@ OC.L10N.register(
     "Rating" : "Hinnang",
     "People" : "Inimese",
     "Tags" : "Sildid",
+    "Instructions" : "Juhend",
     "Credits" : "Tänuavaldused",
     "%g mm" : "%g mm",
     "Subject" : "Teema",
