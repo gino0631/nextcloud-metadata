@@ -18,7 +18,8 @@ OC.L10N.register(
     "Subject" : "Temats",
     "Created" : "Izveidots",
     "Modified" : "Mainīts",
-    "Manual" : "Manuāli",
+    "Application" : "Lietotne",
+    "Manual" : "Pašrocīgi",
     "Unknown" : "Nezināms",
     "Other" : "Cits"
 },
