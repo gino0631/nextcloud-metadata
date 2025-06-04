@@ -61,6 +61,7 @@ OC.L10N.register(
     "PDF producer" : "PDF-faili valmistaja",
     "PDF version" : "PDF-i versioon",
     "Number of files" : "Failide arv",
+    "Manual" : "Käsitsi",
     "Unknown" : "Teadmata",
     "Average" : "Keskmine",
     "Pattern" : "Muster",
