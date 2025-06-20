@@ -5,6 +5,7 @@ OC.L10N.register(
     "Year" : "Mwaka",
     "Date" : "Tarehe",
     "Description" : "Maelezo",
+    "People" : "Watu",
     "Tags" : "Maoni",
     "Created" : "Imetengenezwa",
     "Modified" : "Boresha",
