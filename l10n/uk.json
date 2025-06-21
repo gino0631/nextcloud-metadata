@@ -1,6 +1,10 @@
 { "translations": {
+    "Reading metadata …" : "Отримання метаданих...",
+    "Resolving, click here to view on map …" : "Визначення, клацніть тут для перегляду на мапі ...",
     "Location" : "Місце",
+    "Location could not be determined" : "Неможливо визначити розташування",
     "Metadata" : "Метадані",
+    "No metadata found." : "Відсутні метадані.",
     "File not found." : "Файл не знайдено.",
     "Title" : "Назва",
     "Date created" : "Створено",
@@ -21,9 +25,16 @@
     "Created" : "Створено",
     "Modified" : "Змінено",
     "Application" : "Застосунок",
+    "Number of files" : "Кількість файлів",
+    "Not defined" : "Не визначено",
     "Manual" : "Вручну",
+    "Normal program" : "Нормальна програма",
+    "Portrait mode" : "Портретний режим",
+    "Landscape mode" : "Альбомний режим",
     "Unknown" : "Невідомо",
     "Pattern" : "Шаблон",
-    "Other" : "Інший"
+    "Partial" : "Частково",
+    "Other" : "Інший",
+    "A plugin for displaying file metadata" : "Плаґін для показу метаданих файлів"
 },"pluralForm" :"nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);"
 }
