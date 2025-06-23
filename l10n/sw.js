@@ -5,6 +5,7 @@ OC.L10N.register(
     "Title" : "Kichwa cha habari",
     "Year" : "Mwaka",
     "Date" : "Tarehe",
+    "Comment" : "Maoni",
     "Description" : "Maelezo",
     "People" : "Watu",
     "Tags" : "Maoni",
