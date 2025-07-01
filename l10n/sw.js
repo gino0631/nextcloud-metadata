@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Location" : "Mahali/eneo",
     "Title" : "Kichwa cha habari",
+    "Android version" : "Android version",
     "Year" : "Mwaka",
     "Date" : "Tarehe",
     "Comment" : "Maoni",
