@@ -2,6 +2,7 @@ OC.L10N.register(
     "metadata",
     {
     "Location" : "Mahali/eneo",
+    "File not found." : "Faili halipo",
     "Title" : "Kichwa cha habari",
     "Android version" : "Android version",
     "Year" : "Mwaka",
