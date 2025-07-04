@@ -11,6 +11,7 @@ OC.L10N.register(
     "Description" : "Maelezo",
     "People" : "Watu",
     "Tags" : "Maoni",
+    "Instructions" : "Maelekezo",
     "Credits" : "Alama",
     "Created" : "Imetengenezwa",
     "Modified" : "Boresha",
