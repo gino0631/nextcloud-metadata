@@ -14,6 +14,7 @@ OC.L10N.register(
     "People" : "Orang",
     "Tags" : "Tag",
     "Credits" : "Kredit",
+    "%g mm" : "%g mm",
     "Subject" : "Subjek",
     "Created" : "Dibuat",
     "Modified" : "Dimodifikasi",
