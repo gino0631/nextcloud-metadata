@@ -2,6 +2,7 @@ OC.L10N.register(
     "metadata",
     {
     "Location" : "Ubicación",
+    "File not found." : "Archivo no encontrado.",
     "Title" : "Título",
     "Copyright" : "Derechos de autor",
     "Date" : "Fecha",
