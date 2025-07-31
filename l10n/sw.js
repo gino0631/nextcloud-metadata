@@ -19,6 +19,7 @@ OC.L10N.register(
     "Tags" : "Maoni",
     "Instructions" : "Maelekezo",
     "Credits" : "Alama",
+    "%g mm" : "%g mm",
     "Created" : "Imetengenezwa",
     "Modified" : "Boresha",
     "Application" : "Maombi",
