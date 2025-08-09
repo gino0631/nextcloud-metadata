@@ -7,6 +7,7 @@ OC.L10N.register(
     "Title" : "Kichwa cha habari",
     "Artist" : "Artist",
     "Length" : "Urefu",
+    "Author" : "Author",
     "Copyright" : "Copyright",
     "Android version" : "Android version",
     "Album" : "Album",
