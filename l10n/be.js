@@ -2,7 +2,9 @@ OC.L10N.register(
     "metadata",
     {
     "Title" : "Загаловак",
+    "Copyright" : "Аўтарскае права",
     "Date" : "Дата",
+    "Description" : "Апісанне",
     "People" : "Людзі",
     "Tags" : "Тэгі",
     "Modified" : "Зменены",
