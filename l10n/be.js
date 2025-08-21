@@ -1,6 +1,7 @@
 OC.L10N.register(
     "metadata",
     {
+    "Location" : "Месцазнаходжанне",
     "Title" : "Загаловак",
     "Copyright" : "Аўтарскае права",
     "Date" : "Дата",
@@ -8,6 +9,7 @@ OC.L10N.register(
     "Description" : "Апісанне",
     "People" : "Людзі",
     "Tags" : "Тэгі",
+    "Subject" : "Тэма",
     "Modified" : "Зменены",
     "Unknown" : "Невядомы"
 },
