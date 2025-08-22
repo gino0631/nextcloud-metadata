@@ -6,6 +6,7 @@ OC.L10N.register(
     "Copyright" : "Аўтарскае права",
     "Date" : "Дата",
     "Comment" : "Каментарый",
+    "Headline" : "Загаловак",
     "Description" : "Апісанне",
     "People" : "Людзі",
     "Tags" : "Тэгі",
