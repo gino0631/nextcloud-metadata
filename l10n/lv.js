@@ -19,6 +19,7 @@ OC.L10N.register(
     "Created" : "Izveidots",
     "Modified" : "Mainīts",
     "Application" : "Lietotne",
+    "Number of files" : "Datņu skaits",
     "Manual" : "Pašrocīgi",
     "Unknown" : "Nezināms",
     "Other" : "Cits"
