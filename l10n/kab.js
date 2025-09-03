@@ -3,6 +3,8 @@ OC.L10N.register(
     {
     "Location" : "Adig",
     "Title" : "Azwel",
+    "Year" : "Aseggas",
+    "Date" : "Azemz",
     "Comment" : "Commentaire",
     "Tags" : "Tibzimin",
     "Created" : "Yettwarna.",
