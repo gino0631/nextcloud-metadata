@@ -27,6 +27,7 @@ OC.L10N.register(
     "ISO-%s" : "ISO-%s",
     "Subject" : "Тэма",
     "Modified" : "Зменены",
+    "Application" : "Праграма",
     "Portrait mode" : "Кніжны рэжым",
     "Landscape mode" : "Альбомны рэжым",
     "Auto exposure" : "Аўтаматычная экспазіцыя",
