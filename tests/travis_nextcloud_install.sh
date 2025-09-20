@@ -31,6 +31,7 @@ esac
 
 # Install Nextcloud
 php -f occ maintenance:install --database $DB --database-name nc_autotest --database-user nc_autotest --database-pass nc_autotest --admin-user admin --admin-pass admin
+./occ app:enable files_external
 
 # Show status and enable the app
 ./occ check
