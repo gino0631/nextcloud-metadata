@@ -3,6 +3,7 @@ namespace OCA\Metadata\Tests\Controller;
 
 use OCA\Metadata\Controller\MetadataController;
 use OCA\Metadata\Service\MetadataService;
+use OCP\IUserManager;
 use Test\TestCase;
 
 /**
@@ -19,12 +20,12 @@ class MetadataControllerTest extends TestCase {
     public function setUp(): void {
         parent::setUp();
 
-        $this->user = 'user_' . uniqid();
-        $backend = new \Test\Util\User\Dummy();
-        $userManager = \OC::$server->getUserManager();
-        $userManager->registerBackend($backend);
-        $userManager->createUserFromBackend($this->user, $this->user, $backend);
-        $this->assertNotNull($userManager->get($this->user));
+        $userBackend = new \Test\Util\User\Dummy();
+        Server::get(IUserManager::class)->registerBackend($userBackend);
+
+        $this->user = $this->getUniqueID('user_');
+        $userBackend->createUser($this->user, '');
+
         $this->loginAsUser($this->user);
 
         \OC\Files\Filesystem::tearDown();
