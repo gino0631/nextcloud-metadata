@@ -4,6 +4,10 @@
 ### Added
 - Compatibility with Nextcloud 32
 
+### Fixed
+- Division by zero error for pictures with ExposureBiasValue encoded as 0/0
+  [#117](https://github.com/gino0631/nextcloud-metadata/issues/117)
+
 ## 0.22.0 – 2025-03-07
 ### Added
 - Compatibility with Nextcloud 31

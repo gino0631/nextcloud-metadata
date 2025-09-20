@@ -799,7 +799,7 @@ class MetadataService {
                     $val = $matches[1] . 1 . '/' . round($matches[4] / $matches[2]);
                 }
 
-            } else {
+            } else if ($matches[4] !== '0') {
                 $val = round($this->evalFraction($matches[1], $matches[2], $matches[4]), $precision);
             }
         }
