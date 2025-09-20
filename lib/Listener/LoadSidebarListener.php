@@ -5,6 +5,7 @@ use OCA\Metadata\AppInfo\Application;
 use OCA\Files\Event\LoadSidebar;
 use OCP\EventDispatcher\Event;
 use OCP\EventDispatcher\IEventListener;
+use OCP\Security\IContentSecurityPolicyManager;
 use OCP\Util;
 
 class LoadSidebarListener implements IEventListener {
@@ -16,7 +17,7 @@ class LoadSidebarListener implements IEventListener {
 			$policy = new \OCP\AppFramework\Http\EmptyContentSecurityPolicy();
 			$policy->addAllowedConnectDomain('https://nominatim.openstreetmap.org/');
 			$policy->addAllowedFrameDomain('https://www.openstreetmap.org/');
-			\OC::$server->getContentSecurityPolicyManager()->addDefaultPolicy($policy);
+			\OC::$server->query(IContentSecurityPolicyManager::class)->addDefaultPolicy($policy);
 		}
 	}
 }

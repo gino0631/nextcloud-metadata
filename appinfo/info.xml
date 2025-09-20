@@ -19,6 +19,6 @@ See the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/READ
     <dependencies>
         <php min-version="8.0" max-version="8.4" />
         <lib>exif</lib>
-        <nextcloud min-version="29" max-version="32" />
+        <nextcloud min-version="30" max-version="32" />
     </dependencies>
 </info>
