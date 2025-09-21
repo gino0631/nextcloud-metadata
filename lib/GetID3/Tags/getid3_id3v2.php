@@ -22,6 +22,7 @@ use OCA\Metadata\GetID3\getid3_lib;
 if (!defined('GETID3_INCLUDEPATH')) { // prevent path-exposing attacks that access modules directly on public webservers
 	exit;
 }
+//getid3_lib::IncludeDependency(GETID3_INCLUDEPATH.'module.tag.id3v1.php', __FILE__, true);
 
 class getid3_id3v2 extends getid3_handler
 {
@@ -1498,7 +1499,7 @@ class getid3_id3v2 extends getid3_handler
 							unset($comments_picture_data);
 						}
 					}
-				} while (false);
+				} while (false); // @phpstan-ignore-line
 			}
 
 		} elseif ((($id3v2_majorversion >= 3) && ($parsedFrame['frame_name'] == 'GEOB')) || // 4.15  GEOB General encapsulated object
@@ -3757,18 +3758,12 @@ class getid3_id3v2 extends getid3_handler
 	 * @return bool
 	 */
 	public static function IsANumber($numberstring, $allowdecimal=false, $allownegative=false) {
-		for ($i = 0; $i < strlen($numberstring); $i++) {
-			if ((chr($numberstring[$i]) < chr('0')) || (chr($numberstring[$i]) > chr('9'))) {
-				if (($numberstring[$i] == '.') && $allowdecimal) {
-					// allowed
-				} elseif (($numberstring[$i] == '-') && $allownegative && ($i == 0)) {
-					// allowed
-				} else {
-					return false;
-				}
-			}
-		}
-		return true;
+		$pattern  = '#^';
+		$pattern .= ($allownegative ? '\\-?' : '');
+		$pattern .= '[0-9]+';
+		$pattern .= ($allowdecimal  ? '(\\.[0-9]+)?' : '');
+		$pattern .= '$#';
+		return preg_match($pattern, $numberstring);
 	}
 
 	/**
@@ -3777,10 +3772,7 @@ class getid3_id3v2 extends getid3_handler
 	 * @return bool
 	 */
 	public static function IsValidDateStampString($datestamp) {
-		if (strlen($datestamp) != 8) {
-			return false;
-		}
-		if (!self::IsANumber($datestamp, false)) {
+		if (!preg_match('#^[12][0-9]{3}[01][0-9][0123][0-9]$#', $datestamp)) {
 			return false;
 		}
 		$year  = substr($datestamp, 0, 4);

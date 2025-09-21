@@ -113,6 +113,8 @@ abstract class getid3_handler
 	}
 
 	/**
+	 * @phpstan-impure
+	 *
 	 * @return int|bool
 	 */
 	protected function ftell() {
@@ -124,6 +126,8 @@ abstract class getid3_handler
 
 	/**
 	 * @param int $bytes
+	 *
+	 * @phpstan-impure
 	 *
 	 * @return string|false
 	 *
@@ -170,6 +174,8 @@ abstract class getid3_handler
 	 * @param int $bytes
 	 * @param int $whence
 	 *
+	 * @phpstan-impure
+	 *
 	 * @return int
 	 *
 	 * @throws getid3_exception
@@ -211,6 +217,8 @@ abstract class getid3_handler
 	}
 
 	/**
+	 * @phpstan-impure
+	 *
 	 * @return string|false
 	 *
 	 * @throws getid3_exception
@@ -266,6 +274,8 @@ abstract class getid3_handler
 	}
 
 	/**
+	 * @phpstan-impure
+	 *
 	 * @return bool
 	 */
 	protected function feof() {
