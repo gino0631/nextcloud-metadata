@@ -6,6 +6,7 @@ OC.L10N.register(
     "Year" : "Aseggas",
     "Date" : "Azemz",
     "Comment" : "Commentaire",
+    "People" : "Imdanen",
     "Tags" : "Tibzimin",
     "Created" : "Yettwarna.",
     "Modified" : "Yettwabeddel",
