@@ -16,6 +16,7 @@ A [Nextcloud](https://nextcloud.com/) plugin which displays file metadata in the
 - image/jpeg (EXIF, IPTC, XMP-dc, XMP-photoshop, XMP-mwg-rs, XMP-digiKam TagsList)
 - image/tiff (EXIF, IPTC, XMP-dc, XMP-photoshop, XMP-mwg-rs, XMP-digiKam TagsList)
 - image/x-dcraw (EXIF, XMP sidecar files)
+- video/MP2T (streams, H.264 MDPM)
 - video/mp4 (QuickTime)
 - video/quicktime (QuickTime)
 - video/webm (Matroska)

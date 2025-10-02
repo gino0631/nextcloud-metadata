@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 ### Added
+- Support for MPEG transport streams
+  [#102](https://github.com/gino0631/nextcloud-metadata/issues/102)
 - Compatibility with Nextcloud 32
 
 ### Fixed

@@ -30,16 +30,16 @@ class FileReader {
 		return fread($hnd, 4);
 	}
 
-	protected static function unpackByte($data) {
-		return unpack(('C').'d', $data)['d'];
+	protected static function unpackByte($data, int $offset = 0) {
+		return unpack(('C').'d', $data, $offset)['d'];
 	}
 
-	protected static function unpackShort($intel, $data) {
-		return unpack(($intel? 'v' : 'n').'d', $data)['d'];
+	protected static function unpackShort($intel, $data, int $offset = 0) {
+		return unpack(($intel? 'v' : 'n').'d', $data, $offset)['d'];
 	}
 
-	protected static function unpackInt($intel, $data) {
-		return unpack(($intel? 'V' : 'N').'d', $data)['d'];
+	protected static function unpackInt($intel, $data, int $offset = 0) {
+		return unpack(($intel? 'V' : 'N').'d', $data, $offset)['d'];
 	}
 
 	protected static function unpackLong($intel, $data) {

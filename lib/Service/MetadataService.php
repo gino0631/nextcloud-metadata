@@ -51,6 +51,13 @@ class MetadataService {
                 }
                 break;
 
+            case 'video/MP2T':
+                if ($sections = MtsMetadata::fromFile($file)) {
+                    $metadata = $this->getAvMetadata($sections);
+//                    $metadata->dump($sections);
+                }
+                break;
+
             case 'image/gif':
                 if ($sections = $this->readGif($file)) {
                     $metadata = $this->getImageMetadata($sections);
@@ -234,6 +241,9 @@ class MetadataService {
                     $this->addVal($this->t('Date modified'), $this->formatTimestamp($v), $return);
                 }
             }
+
+        } else if ($v = $this->getVal('creation_date', $video)) {
+            $this->addVal($this->t('Date created'), $v, $return);
         }
 
         if ($v = $this->getVal('playtime_seconds', $sections)) {
@@ -260,7 +270,7 @@ class MetadataService {
             $this->addVal($this->t('Copyright'), $v, $return);
         }
 
-        if ($v = $this->getVal('make', $quicktime)) {
+        if ($v = $this->getVal('make', $quicktime) ?: $this->getVal('camera', $video)) {
             $this->addVal($this->t('Camera used'), $v, $return);
         }
 
@@ -297,6 +307,13 @@ class MetadataService {
 
         if ($v = $this->getVal('bits_per_sample', $audio)) {
             $this->addVal($this->t('Audio sample size'), $this->t('%s bit', array($v)), $return);
+        }
+
+        if ($v = $this->getVal('bitrate', $audio)) {
+            $b = $this->getVal('bitrate', $sections);
+            if (!$b || $v !== $b) {
+                $this->addVal($this->t('Audio bit rate'), $this->t('%s kbps', array(floor($v/1000))), $return);
+            }
         }
 
         if ($v = $this->getValM('album', $tags) ?: $this->getVal('product', $riff)) {
