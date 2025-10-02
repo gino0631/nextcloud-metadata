@@ -11,11 +11,13 @@
 namespace OCA\Metadata\Fpdi\PdfParser\CrossReference;
 
 use OCA\Metadata\Fpdi\PdfParser\PdfParser;
+use OCA\Metadata\Fpdi\PdfParser\StreamReader;
 use OCA\Metadata\Fpdi\PdfParser\Type\PdfDictionary;
 use OCA\Metadata\Fpdi\PdfParser\Type\PdfIndirectObject;
 use OCA\Metadata\Fpdi\PdfParser\Type\PdfNumeric;
 use OCA\Metadata\Fpdi\PdfParser\Type\PdfStream;
 use OCA\Metadata\Fpdi\PdfParser\Type\PdfToken;
+use OCA\Metadata\Fpdi\PdfParser\Type\PdfType;
 use OCA\Metadata\Fpdi\PdfParser\Type\PdfTypeException;
 
 /**
@@ -31,6 +33,11 @@ class CrossReference
      * @var int
      */
     public static $trailerSearchLength = 5500;
+
+    /**
+     * @var int
+     */
+    public static $trailerSearchLengthMax = 512 * 1024;
 
     /**
      * @var int
@@ -167,17 +174,51 @@ class CrossReference
         $parser = $this->parser;
 
         $parser->getTokenizer()->clearStack();
-        $parser->getStreamReader()->reset($offset + $this->fileHeaderOffset);
 
-        try {
-            /** @var PdfIndirectObject $object */
-            $object = $parser->readValue(null, PdfIndirectObject::class);
-        } catch (PdfTypeException $e) {
-            throw new CrossReferenceException(
-                \sprintf('Object (id:%s) not found at location (%s).', $objectNumber, $offset),
-                CrossReferenceException::OBJECT_NOT_FOUND,
-                $e
-            );
+        if (is_int($offset)) {
+            $parser->getStreamReader()->reset($offset + $this->fileHeaderOffset);
+
+            try {
+                /** @var PdfIndirectObject $object */
+                $object = $parser->readValue(null, PdfIndirectObject::class);
+            } catch (PdfTypeException $e) {
+                throw new CrossReferenceException(
+                    \sprintf('Object (id:%s) not found at location (%s).', $objectNumber, $offset),
+                    CrossReferenceException::OBJECT_NOT_FOUND,
+                    $e
+                );
+            }
+
+        } else {
+            $objectStream = PdfStream::ensure(PdfType::resolve($this->getIndirectObject($offset[0]), $this->parser));
+            $objectIndex = $offset[1];
+
+            $dict = $objectStream->value;
+            $count = $dict->value['N']->value;
+            $first = $dict->value['First']->value;
+            $parser = new PdfParser(StreamReader::createByString($objectStream->getUnfilteredStream()));
+
+            for ($i = 0; $i < $count; $i++) {
+                $objNumber = PdfNumeric::ensure($parser->readValue())->value;
+                $objOffset = PdfNumeric::ensure($parser->readValue())->value;
+
+                if ($i === $objectIndex) {
+                    $parser->getStreamReader()->reset($first + $objOffset);
+                    $parser->getTokenizer()->clearStack();
+                    $value = $parser->readValue();
+                    if ($value !== false) {
+                        $object = PdfIndirectObject::create($objNumber, 0, $value);
+                    }
+                    break;
+                }
+            }
+
+            if (!isset($object)) {
+                throw new CrossReferenceException(
+                    \sprintf('Object %s was not found in stream %s at index %s.', $objectNumber, $objectStream, $objectIndex),
+                    CrossReferenceException::OBJECT_NOT_FOUND
+                );
+            }
         }
 
         if ($object->objectNumber !== $objectNumber) {
@@ -298,6 +339,12 @@ class CrossReference
         $buffer = $reader->getBuffer(false);
         $pos = \strrpos($buffer, 'startxref');
         $addOffset = 9;
+        if ($pos === false) {
+            // Retry with a larger buffer
+            $reader->reset(-self::$trailerSearchLengthMax, self::$trailerSearchLengthMax);
+            $buffer = $reader->getBuffer(false);
+            $pos = \strrpos($buffer, 'startxref');
+        }
         if ($pos === false) {
             // Some corrupted documents uses startref, instead of startxref
             $pos = \strrpos($buffer, 'startref');
