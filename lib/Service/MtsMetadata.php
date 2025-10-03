@@ -45,7 +45,7 @@ class MtsMetadata extends MtsParser {
 		if ($hnd = fopen($file, 'rb')) {
 			try {
 				$obj = new MtsMetadata();
-				$obj->parseMts($hnd, 0);
+				$obj->parseMts($hnd, 1024);
 				return $obj->sections;
 
 			} finally {
@@ -113,6 +113,8 @@ class MtsMetadata extends MtsParser {
 							if ($id === "\x17\xee\x8c\x60\xf8\x4d\x11\xd9\x8c\xd6\x08\0\x20\x0c\x9a\x66MDPM") {	// MDPM
 								$cnt = $nalStream->readByte();
 								$dt = '';
+								$maker = '';
+								$model = '';
 
 								for ($i = 0; $i < $cnt; $i++) {
 									$tag = $nalStream->readByte();
@@ -122,18 +124,25 @@ class MtsMetadata extends MtsParser {
 										case 0x18:
 											$dt = $buf;
 											break;
-
 										case 0x19:
-											$dt = $dt . $buf;
+											$dt .= $buf;
 											break;
 
 										case 0xE0:
-											$this->decodeCamera($buf);
+											$maker = $buf;
+											break;
+										case 0xE4:
+											$model = $buf;
+											break;
+										case 0xE5:
+										case 0xE6:
+											$model .= $buf;
 											break;
 									}
 								}
 
 								$this->decodeCreationDate($dt);
+								$this->decodeCamera($maker, $model);
 								$this->mdpmParsed = true;
 							}
 						}
@@ -225,13 +234,21 @@ class MtsMetadata extends MtsParser {
 		}
 	}
 
-	private function decodeCamera(&$buf) {
-		$maker = $this->unpackShort(false, $buf);
-		$this->sections['video']['camera'] = $this->decode($maker, self::CAMERA_MAKERS);
+	private function decodeCamera(&$makerBuf, &$modelBuf) {
+		if (strlen($makerBuf) === 4) {
+			$maker = $this->unpackShort(false, $makerBuf);
+			$this->sections['video']['camera'] = $this->decode($maker, self::CAMERA_MAKERS);
 
-		if (array_key_exists($maker, self::CAMERA_MODELS)) {
-			$model = $this->unpackShort(false, $buf, 2);
-			$this->sections['video']['camera'] .= ' ' . $this->decode($model, self::CAMERA_MODELS[$maker]);
+			$model = rtrim($modelBuf);
+			if ((strlen($model) > 0) && (ctype_print($model))) {
+				$this->sections['video']['camera'] .= ' ' . $model;
+
+			} else {
+				if (array_key_exists($maker, self::CAMERA_MODELS)) {
+					$model = $this->unpackShort(false, $makerBuf, 2);
+					$this->sections['video']['camera'] .= ' ' . $this->decode($model, self::CAMERA_MODELS[$maker]);
+				}
+			}
 		}
 	}
 
