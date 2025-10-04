@@ -67,9 +67,6 @@ class MetadataService {
 
             case 'image/png':
                 if ($sections = $this->readPng($file)) {
-                    if ($pngMetadata = PngMetadata::fromFile($file)) {
-                        $sections['PNG_TEXT_CHUNKS'] = $pngMetadata->getTextChunks();
-                    }
                     $metadata = $this->getImageMetadata($sections);
 //                        $this->dump($sections, $metadata);
                 }
@@ -170,8 +167,11 @@ class MetadataService {
         $computed = array();
         $this->getImageSize($file, $computed);
 
+        $pngMetadata = PngMetadata::fromFile($file);
+
         return array(
             'COMPUTED' => $computed,
+            'PNG_TEXT_CHUNKS' => $pngMetadata ? $pngMetadata->getTextChunks() : null
         );
     }
 
@@ -374,7 +374,6 @@ class MetadataService {
         $comp = $this->getVal('COMPUTED', $sections) ?: array();
         $ifd0 = $this->getVal('IFD0', $sections) ?: array();
         $exif = $this->getVal('EXIF', $sections) ?: array();
-        $png_text_chunks = $this->getVal('PNG_TEXT_CHUNKS', $sections) ?: array();
         $gps = $this->getVal('GPS', $sections) ?: array();
         $xmp = $this->getVal('XMP', $sections) ?: array();
 
@@ -533,18 +532,20 @@ class MetadataService {
             $this->addVal($this->t('Flash mode'), $this->formatFlashMode($v), $return);
         }
 
-        foreach ($png_text_chunks as $v) {
-            switch ($v['keyword']) {
-                case 'Creation Time':
-                    $this->addVal($this->t('Date created'), $v['text'], $return);
-                    break;
-                default:
-                    if (str_replace("-", "_", $v['language']) === $this->language->getLocaleCode()) {
-                        $this->addVal($v['translated'], $v['text'], $return);
-                    } else {
-                        $this->addVal($this->t($v['keyword']), $v['text'], $return);
-                    }
-                    break;
+        if ($pngTextChunks = $this->getVal('PNG_TEXT_CHUNKS', $sections)) {
+            foreach ($pngTextChunks as $v) {
+                switch ($v['keyword']) {
+                    case 'Creation Time':
+                        $this->addVal($this->t('Date created'), $v['text'], $return);
+                        break;
+                    default:
+                        if (array_key_exists('language', $v) && (str_replace("-", "_", $v['language']) === $this->language->getLocaleCode())) {
+                            $this->addVal($v['translated'], $v['text'], $return);
+                        } else {
+                            $this->addVal($this->t($v['keyword']), $v['text'], $return);
+                        }
+                        break;
+                }
             }
         }
 

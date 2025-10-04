@@ -1,9 +1,13 @@
 # Changelog
 
 ## [Unreleased]
+
+## 0.23.0 – 2025-10-05
 ### Added
 - Support for MPEG transport streams
   [#102](https://github.com/gino0631/nextcloud-metadata/issues/102)
+- Support for PNG metadata in tEXt, zTXt, iTXt chunks
+  [#92](https://github.com/gino0631/nextcloud-metadata/issues/92)
 - Compatibility with Nextcloud 32
 
 ### Fixed

@@ -182,6 +182,29 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('415 m', $metadata['GPS altitude']);
     }
 
+    public function testPng() {
+        $res = $this->controller->get('sample.png');
+        $data = $res->getData();
+        $this->assertEquals('success', $data['response']);
+
+        $metadata = $data['metadata'];
+        $this->assertEquals('1 x 1', $metadata['Dimensions']);
+        $this->assertEquals('Short (one line) title or caption for image', $metadata['Title']);
+        $this->assertEquals('Name of image\'s creator', $metadata['Author']);
+        $this->assertEquals('Description of image (possibly long)', $metadata['Description']);
+        $this->assertEquals('Copyright notice', $metadata['Copyright']);
+        $this->assertEquals('Time of original image creation', $metadata['Date created']);
+        $this->assertEquals('Software used to create the image', $metadata['Software']);
+        $this->assertEquals('Legal disclaimer', $metadata['Disclaimer']);
+        $this->assertEquals('Warning of nature of content', $metadata['Warning']);
+        $this->assertEquals('Device used to create the image', $metadata['Source']);
+        $this->assertEquals('Miscellaneous comment; conversion from GIF comment', $metadata['Comment']);
+        $this->assertEquals('Information on AI-generated images is often contained in \'parameters\'. But this is not a predefined keyword.', $metadata['parameters']);
+        $this->assertEquals('This is tEXt chunks.', $metadata['Text1']);
+        $this->assertEquals('This is zTxt chunks. This content is compressed.', $metadata['Test2']);
+        $this->assertEquals('This is tTXt chunks. Contains ja_JP translation keyword.', $metadata['Test3']);
+    }
+
     public function testMp3() {
         $res = $this->controller->get('sample_id3v1_id3v23.mp3');
         $data = $res->getData();
