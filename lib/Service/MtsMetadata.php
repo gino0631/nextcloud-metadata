@@ -20,7 +20,8 @@ class MtsMetadata extends MtsParser {
 			0x0333 => 'HDC-SD60',
 			0x0335 => 'HDC-HS60',
 			0x0336 => 'HDC-SDT750',
-			0x0411 => 'AG-HMC41'
+			0x0411 => 'AG-HMC41',
+			0x0822 => 'DMC-GH4'
 		),
 		0x1011 => array (	// Canon
 			0x2001 => 'HG20',
