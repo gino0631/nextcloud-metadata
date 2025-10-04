@@ -34,6 +34,7 @@ OC.L10N.register(
     "Audio sample rate" : "Hang mintavételi frekvenciája",
     "%s kHz" : "%s kHz",
     "Audio sample size" : "Hang mintamérete",
+    "Audio bit rate" : "Hang bitsebessége",
     "Album" : "Album",
     "Track #" : "Szám #",
     "Year" : "Év",

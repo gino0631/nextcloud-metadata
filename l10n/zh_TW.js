@@ -34,6 +34,7 @@ OC.L10N.register(
     "Audio sample rate" : "音訊採樣率",
     "%s kHz" : "%s kHz",
     "Audio sample size" : "音訊採樣大小",
+    "Audio bit rate" : "音訊位元率",
     "Album" : "相簿",
     "Track #" : "曲目數",
     "Year" : "年",

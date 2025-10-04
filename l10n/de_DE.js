@@ -34,6 +34,7 @@ OC.L10N.register(
     "Audio sample rate" : "Audio-Abtastrate",
     "%s kHz" : "%s kHz",
     "Audio sample size" : "Audio-Abtastgröße",
+    "Audio bit rate" : "Audio-Bitrate",
     "Album" : "Album",
     "Track #" : "Titel #",
     "Year" : "Jahr",
