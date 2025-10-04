@@ -46,14 +46,19 @@ class NalStream {
 		$y = 0;
 		$zeroBits = 0;
 
-		while ((($b = $this->readBit()) !== false) && ($b === 0)) {
-			$zeroBits++;
+		while (true) {
+			$b = $this->readBit();
+			if ($b === false) {
+				return false;
+			}
+
+			if ($b === 0) {
+				$zeroBits++;
+			} else {
+				break;
+			}
 		}
 
-		if ($b === false) {
-			return false;
-		}
-		
 		for ($i = 0; $i < $zeroBits; $i++) {
 			if (($b = $this->readBit()) === false) {
 				return false;
