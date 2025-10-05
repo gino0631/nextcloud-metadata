@@ -18,15 +18,14 @@ env:
   global:
     - APP_NAME=metadata
   jobs:
-    - CLOUD=nextcloud CORE_BRANCH=stable30
     - CLOUD=nextcloud CORE_BRANCH=stable31
     - CLOUD=nextcloud CORE_BRANCH=stable32
     - CLOUD=nextcloud CORE_BRANCH=master
 
 jobs:
   exclude:
-    - php: 8.4
-      env: CLOUD=nextcloud CORE_BRANCH=stable30
+    - php: 8.1
+      env: CLOUD=nextcloud CORE_BRANCH=master
   allow_failures:
     - env: CLOUD=nextcloud CORE_BRANCH=master
 

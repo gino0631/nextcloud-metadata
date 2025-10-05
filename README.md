@@ -25,6 +25,8 @@ A [Nextcloud](https://nextcloud.com/) plugin which displays file metadata in the
 
 Support for other formats may be implemented in future releases (feel free to make feature requests).
 
+If you find this app useful and would like to support the development, you can [buy me a coffee](https://www.buymeacoffee.com/gino0631) (or two).
+
 <br><kbd><img src="screenshots/jpg-metadata.png?raw=true"></kbd>
 
 ## Localization

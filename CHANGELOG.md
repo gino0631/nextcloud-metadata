@@ -1,6 +1,7 @@
 # Changelog
 
 ## [Unreleased]
+- Compatibility with Nextcloud 33
 
 ## 0.23.0 – 2025-10-05
 ### Added
