@@ -34,6 +34,7 @@ OC.L10N.register(
     "Audio sample rate" : "Ráta samplach fuaime",
     "%s kHz" : "%s kHz",
     "Audio sample size" : "Méid sampla fuaime",
+    "Audio bit rate" : "Ráta giotán fuaime",
     "Album" : "Albam",
     "Track #" : "Rian #",
     "Year" : "Bliain",
