@@ -623,10 +623,20 @@ class MetadataService {
             $this->addVal($this->t('Application'), $v, $return);
         }
 
+        // Custom
+        $custom = array_diff_key($info, array_fill_keys(array('Title', 'Author', 'Subject', 'Keywords', 'CreationDate', 'ModDate', 'Creator', 'Producer', 'Trapped', 'pageCount', 'version'), 1));
+        foreach ($custom as $k => $v) {
+            $this->addVal($this->t($k), $v, $return);
+        }
+
         // Advanced
 
         if ($v = $this->getVal('pageCount', $comp)) {
             $this->addVal($this->t('Number of pages'), $v, $return);
+        }
+
+        if ($v = $this->getVal('Trapped', $info)) {
+            $this->addVal($this->t('Trapped'), ($v === 'True') ? $this->t('Yes') : (($v === 'False') ? $this->t('No') : $this->t('Unknown')), $return);
         }
 
         if ($v = $this->getVal('Producer', $info)) {

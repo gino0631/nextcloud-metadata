@@ -293,13 +293,18 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('success', $data['response']);
 
         $metadata = $data['metadata'];
-        $this->assertEquals('Microsoft Word - Placeholder Documentation.docx', $metadata['Title']);
-        $this->assertEquals('c8clark', $metadata['Author']);
+        $this->assertEquals('Sample title', $metadata['Title']);
+        $this->assertEquals('Sample author', $metadata['Author']);
+        $this->assertEquals('Sample subject', $metadata['Subject']);
+        $this->assertEquals('keyword1, keyword2', $metadata['Keywords']);
         $this->assertEquals('2012-03-30 11:25:26 +04:00', $metadata['Created']);
-        $this->assertEquals('2012-03-30 11:25:26 +04:00', $metadata['Modified']);
-        $this->assertEquals('PrimoPDF http://www.primopdf.com', $metadata['Application']);
+        $this->assertEquals('2025-10-06 12:09:05 +00:00', $metadata['Modified']);
+        $this->assertEquals('Aspose Pty Ltd.', $metadata['Application']);
+        $this->assertEquals('1234', $metadata['ISSN']);
+        $this->assertEquals('Sample abstract', $metadata['Abstract']);
         $this->assertEquals('1', $metadata['Number of pages']);
-        $this->assertEquals('Nitro PDF PrimoPDF', $metadata['PDF producer']);
+        $this->assertEquals('No', $metadata['Trapped']);
+        $this->assertEquals('Aspose.PDF for .NET 25.8.0', $metadata['PDF producer']);
         $this->assertEquals('1.3', $metadata['PDF version']);
     }
 
