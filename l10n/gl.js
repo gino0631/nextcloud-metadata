@@ -34,6 +34,7 @@ OC.L10N.register(
     "Audio sample rate" : "Taxa da mostra de son",
     "%s kHz" : "%s kHz",
     "Audio sample size" : "Tamaño da mostra de son",
+    "Audio bit rate" : "Taxa de bits de son",
     "Album" : "Álbum",
     "Track #" : "Nº pista",
     "Year" : "Ano",
