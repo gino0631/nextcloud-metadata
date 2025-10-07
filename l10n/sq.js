@@ -13,6 +13,7 @@ OC.L10N.register(
     "Subject" : "Temë",
     "Created" : "U krijua",
     "Modified" : "Modifikuar ",
+    "Yes" : "Po",
     "Unknown" : "I/E panjohur",
     "Pattern" : "Strukturë",
     "Other" : "Tjetër"

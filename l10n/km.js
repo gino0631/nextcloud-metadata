@@ -12,6 +12,8 @@ OC.L10N.register(
     "Description" : "ការ​អធិប្បាយ",
     "Tags" : "ស្លាក",
     "Modified" : "បាន​កែ​ប្រែ",
+    "Yes" : "បាទ ឬចាស",
+    "No" : "ទេ",
     "Other" : "ផ្សេងៗ"
 },
 "nplurals=1; plural=0;");

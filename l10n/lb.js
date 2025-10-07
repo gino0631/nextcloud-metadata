@@ -8,6 +8,8 @@ OC.L10N.register(
     "Description" : "Beschreiwung",
     "Tags" : "Tags",
     "Modified" : "Geännert",
+    "Yes" : "Jo",
+    "No" : "Nee",
     "Unknown" : "Onbekannt",
     "Other" : "Aner"
 },

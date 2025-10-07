@@ -28,11 +28,11 @@ OC.L10N.register(
     "Subject" : "Тэма",
     "Modified" : "Зменены",
     "Application" : "Праграма",
+    "Unknown" : "Невядомы",
     "Portrait mode" : "Кніжны рэжым",
     "Landscape mode" : "Альбомны рэжым",
     "Auto exposure" : "Аўтаматычная экспазіцыя",
     "Manual exposure" : "Ручная экспазіцыя",
-    "Unknown" : "Невядомы",
     "Pattern" : "Узор",
     "Other" : "Іншае"
 },

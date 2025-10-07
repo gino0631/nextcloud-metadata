@@ -12,6 +12,7 @@ OC.L10N.register(
     "ISO-%s" : "ISO-%s",
     "Created" : "Krouet",
     "Modified" : "Cheñchet",
+    "No" : "Ket",
     "Unknown" : "Dianv",
     "Pattern" : "Pattern",
     "Other" : "All"

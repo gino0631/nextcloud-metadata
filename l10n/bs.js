@@ -7,6 +7,8 @@ OC.L10N.register(
     "Comment" : "Komentar",
     "Description" : "Opis",
     "Modified" : "Izmijenjeno",
+    "Yes" : "Da",
+    "No" : "Ne",
     "Unknown" : "Nepoznato",
     "Other" : "Ostali"
 },

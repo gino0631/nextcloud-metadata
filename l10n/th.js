@@ -13,6 +13,8 @@ OC.L10N.register(
     "People" : "ผู้คน",
     "Tags" : "แท็ก",
     "Modified" : "แก้ไขเมื่อ",
+    "Yes" : "ใช่",
+    "No" : "ไม่ตกลง",
     "Unknown" : "ไม่ทราบ",
     "Other" : "อื่น ๆ"
 },

@@ -10,8 +10,8 @@ OC.L10N.register(
     "Subject" : "Onderwerp",
     "Created" : "Geskep",
     "Modified" : "Gewysig",
-    "Manual" : "Handmatig",
     "Unknown" : "Onbekend",
+    "Manual" : "Handmatig",
     "Other" : "Ander"
 },
 "nplurals=2; plural=(n != 1);");

@@ -21,8 +21,10 @@ OC.L10N.register(
     "Subject" : "Chủ đề",
     "Created" : "Đã tạo",
     "Modified" : "Thay đổi",
-    "Manual" : "Thủ công",
+    "Yes" : "Có",
+    "No" : "Không",
     "Unknown" : "Không xác định",
+    "Manual" : "Thủ công",
     "Other" : "Khác"
 },
 "nplurals=1; plural=0;");

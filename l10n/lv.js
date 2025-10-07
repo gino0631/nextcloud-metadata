@@ -19,9 +19,11 @@ OC.L10N.register(
     "Created" : "Izveidots",
     "Modified" : "Mainīts",
     "Application" : "Lietotne",
+    "Yes" : "Jā",
+    "No" : "Nē",
+    "Unknown" : "Nezināms",
     "Number of files" : "Datņu skaits",
     "Manual" : "Pašrocīgi",
-    "Unknown" : "Nezināms",
     "Other" : "Cits"
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);");

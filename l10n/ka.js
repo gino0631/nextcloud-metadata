@@ -17,8 +17,10 @@ OC.L10N.register(
     "Created" : "Created",
     "Modified" : "Modified",
     "Application" : "Application",
-    "Manual" : "Manual",
+    "Yes" : "კი",
+    "No" : "არა",
     "Unknown" : "Unknown",
+    "Manual" : "Manual",
     "Pattern" : "Pattern",
     "Other" : "Other"
 },

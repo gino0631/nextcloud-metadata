@@ -6,6 +6,8 @@ OC.L10N.register(
     "Date" : "Date",
     "Description" : "Keterangan",
     "Modified" : "Dimodifikasi",
+    "Yes" : "Ya",
+    "No" : "Tidak",
     "Other" : "Lain"
 },
 "nplurals=1; plural=0;");

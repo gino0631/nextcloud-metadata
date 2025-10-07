@@ -19,8 +19,8 @@ OC.L10N.register(
     "Created" : "Creado",
     "Modified" : "Modificado",
     "Application" : "Aplicación",
-    "Manual" : "Manual",
     "Unknown" : "Desconocido",
+    "Manual" : "Manual",
     "Pattern" : "Patrón",
     "Other" : "Otro"
 },

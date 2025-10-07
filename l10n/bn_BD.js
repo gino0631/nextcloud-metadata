@@ -8,6 +8,8 @@ OC.L10N.register(
     "Description" : "বিবরণ",
     "Tags" : "ট্যাগ",
     "Modified" : "পরিবর্তিত",
+    "Yes" : "হ্যাঁ",
+    "No" : "না",
     "Unknown" : "অজানা",
     "Other" : "অন্যান্য"
 },

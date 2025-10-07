@@ -14,8 +14,10 @@ OC.L10N.register(
     "Subject" : "Temo",
     "Created" : "Kreita",
     "Modified" : "Modifita",
-    "Manual" : "Permane",
+    "Yes" : "Jes",
+    "No" : "Ne",
     "Unknown" : "Nekonata",
+    "Manual" : "Permane",
     "Other" : "Alia"
 },
 "nplurals=2; plural=(n != 1);");

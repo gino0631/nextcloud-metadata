@@ -29,8 +29,10 @@ OC.L10N.register(
     "Created" : "Oprettet",
     "Modified" : "Ændret",
     "Application" : "Applikation",
-    "Manual" : "Manuel",
+    "Yes" : "Ja",
+    "No" : "Nej",
     "Unknown" : "Ukendt",
+    "Manual" : "Manuel",
     "Pattern" : "Mønster",
     "Other" : "Andet"
 },

@@ -13,6 +13,7 @@ OC.L10N.register(
     "Subject" : "სათაური",
     "Created" : "შექმნილია",
     "Modified" : "შეიცვალა",
+    "Yes" : "დიახ",
     "Unknown" : "ამოუცნობი",
     "Pattern" : "ნიმუში",
     "Other" : "სხვა"

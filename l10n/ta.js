@@ -7,6 +7,8 @@ OC.L10N.register(
     "Description" : "விவரிப்பு",
     "Tags" : "சீட்டுகள்",
     "Modified" : "மாற்றப்பட்டது",
+    "Yes" : "ஆம்",
+    "No" : "இல்லை",
     "Unknown" : "தெரியாத",
     "Other" : "மற்றவை"
 },

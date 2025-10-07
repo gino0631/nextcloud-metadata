@@ -6,6 +6,8 @@
     "Description" : "Նկարագրություն",
     "Credits" : "անվանացանկ",
     "Modified" : "Փոփոխված",
+    "Yes" : "Այո",
+    "No" : "Ոչ",
     "Unknown" : "Անհայտ",
     "Other" : "Այլ"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"

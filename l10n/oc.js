@@ -19,6 +19,8 @@ OC.L10N.register(
     "Tags" : "Etiquetas",
     "Credits" : "Crèdits",
     "Modified" : "Modificat",
+    "Yes" : "Òc",
+    "No" : "Non",
     "Unknown" : "Desconegut",
     "Other" : "Autre"
 },

@@ -18,6 +18,8 @@ OC.L10N.register(
     "%s EV" : "%s EV",
     "Created" : "Yettwarna.",
     "Modified" : "Yettwabeddel",
+    "Yes" : "Ih",
+    "No" : "Uhu",
     "Unknown" : "Arussin",
     "Other" : "Wayeḍ"
 },

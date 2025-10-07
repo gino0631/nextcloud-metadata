@@ -7,6 +7,8 @@ OC.L10N.register(
     "Description" : "Opis",
     "Tags" : "Oznake",
     "Credits" : "Zasluge",
+    "Yes" : "Da",
+    "No" : "Ne",
     "Unknown" : "Nepoznato",
     "Other" : "Ostali"
 },
