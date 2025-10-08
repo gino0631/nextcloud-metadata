@@ -28,6 +28,8 @@ OC.L10N.register(
     "Subject" : "Тэма",
     "Modified" : "Зменены",
     "Application" : "Праграма",
+    "Yes" : "Так",
+    "No" : "Не",
     "Unknown" : "Невядомы",
     "Portrait mode" : "Кніжны рэжым",
     "Landscape mode" : "Альбомны рэжым",

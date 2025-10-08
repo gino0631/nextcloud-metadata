@@ -51,6 +51,8 @@ OC.L10N.register(
     "Modified" : "Modificóse",
     "Application" : "Aplicación",
     "Number of pages" : "Númberu de páxines",
+    "Yes" : "Sí",
+    "No" : "Non",
     "Number of files" : "Númberu de ficheros",
     "Not defined" : "Nun se definió",
     "Manual" : "Manual",

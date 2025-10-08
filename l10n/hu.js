@@ -74,6 +74,7 @@ OC.L10N.register(
     "Modified" : "Módosítva",
     "Application" : "Alkalmazás",
     "Number of pages" : "Oldalak száma",
+    "Trapped" : "Túltöltés",
     "Yes" : "Igen",
     "No" : "Nem",
     "Unknown" : "Ismeretlen",

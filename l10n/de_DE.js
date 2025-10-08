@@ -74,6 +74,7 @@ OC.L10N.register(
     "Modified" : "Geändert",
     "Application" : "Anwendung",
     "Number of pages" : "Anzahl der Seiten",
+    "Trapped" : "Gefangen",
     "Yes" : "Ja",
     "No" : "Nein",
     "Unknown" : "Unbekannt",

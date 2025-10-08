@@ -73,6 +73,8 @@ OC.L10N.register(
     "Modified" : "عُدل",
     "Application" : "تطبيق",
     "Number of pages" : "عدد الصفحات",
+    "Yes" : "نعم",
+    "No" : "لا",
     "Unknown" : "مجهول",
     "PDF producer" : "مُنتِج PDF",
     "PDF version" : "نسخة PDF",
