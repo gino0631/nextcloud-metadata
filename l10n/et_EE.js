@@ -82,6 +82,7 @@ OC.L10N.register(
     "Not defined" : "Määratlemata",
     "Manual" : "Käsitsi",
     "Normal program" : "Tavaprogramm",
+    "Aperture priority" : "Ava prioriteet",
     "Shutter priority" : "Ava prioriteet",
     "Portrait mode" : "Püstvaade",
     "Landscape mode" : "Rõhtvaade",
