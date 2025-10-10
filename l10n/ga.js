@@ -74,6 +74,7 @@ OC.L10N.register(
     "Modified" : "Athraithe",
     "Application" : "Iarratas",
     "Number of pages" : "Líon na leathanach",
+    "Trapped" : "Gafa",
     "Yes" : "Tá",
     "No" : "Níl",
     "Unknown" : "Anaithnid",
