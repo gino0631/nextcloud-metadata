@@ -199,7 +199,7 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('Warning of nature of content', $metadata['Warning']);
         $this->assertEquals('Device used to create the image', $metadata['Source']);
         $this->assertEquals('Miscellaneous comment; conversion from GIF comment', $metadata['Comment']);
-        $this->assertEquals('Information on AI-generated images is often contained in \'parameters\'.\nBut this is not a predefined keyword.', $metadata['parameters']);
+        $this->assertEquals("Information on AI-generated images is often contained in 'parameters'.\nBut this is not a predefined keyword.", $metadata['parameters']);
         $this->assertEquals('This is tEXt chunks.', $metadata['Text1']);
         $this->assertEquals('This is zTxt chunks. This content is compressed.', $metadata['Test2']);
         $this->assertEquals('This is tTXt chunks. Contains ja_JP translation keyword.', $metadata['Test3']);
