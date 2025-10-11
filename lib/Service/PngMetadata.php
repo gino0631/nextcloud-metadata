@@ -4,19 +4,11 @@ namespace OCA\Metadata\Service;
 class PngMetadata {
     private $textChunks = array();
 
-    public static function fromFile($file) {
-        if ($hnd = fopen($file, 'rb')) {
-            try {
-                $obj = new PngMetadata();
-                $obj->readPng($hnd);
+    public static function fromFile($hnd) {
+        $obj = new PngMetadata();
+        $obj->readPng($hnd);
 
-                return $obj;
-            } finally {
-                fclose($hnd);
-            }
-        }
-
-        return null;
+        return $obj;
     }
 
     public function getTextChunks() {

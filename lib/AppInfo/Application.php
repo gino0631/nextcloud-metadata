@@ -27,8 +27,4 @@ class Application extends App implements IBootstrap {
 
 	public function boot(IBootContext $context): void {
 	}
-
-	public static function getL10N() {
-		return \OC::$server->getL10N(Application::APP_ID);
-	}
 }

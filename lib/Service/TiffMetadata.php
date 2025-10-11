@@ -12,20 +12,11 @@ class TiffMetadata extends TiffParser {
     private $iptc = array();
     private $gps = array();
 
-    public static function fromFile($file) {
-        if ($hnd = fopen($file, 'rb')) {
-            try {
-                $obj = new TiffMetadata();
-                $obj->parseTiff($hnd, 0);
+    public static function fromFile($hnd) {
+        $obj = new TiffMetadata();
+        $obj->parseTiff($hnd, 0);
 
-                return $obj;
-
-            } finally {
-                fclose($hnd);
-            }
-        }
-
-        return null;
+        return $obj;
     }
 
     public static function fromFileData($hnd, $pos) {

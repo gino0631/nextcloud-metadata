@@ -54,23 +54,16 @@ class XmpMetadata {
         return $obj;
     }
 
-    public static function fromFile($file) {
-        if ($hnd = fopen($file, 'rb')) {
-            try {
-                $obj = new XmpMetadata();
+    public static function fromFile($hnd) {
+        $obj = new XmpMetadata();
 
-                while (($data = fread($hnd, 8192))) {
-                    xml_parse($obj->parser, $data);
-                }
-
-                xml_parse($obj->parser, '', true);
-
-                return $obj;
-
-            } finally {
-                fclose($hnd);
-            }
+        while (($data = fread($hnd, 8192))) {
+            xml_parse($obj->parser, $data);
         }
+
+        xml_parse($obj->parser, '', true);
+
+        return $obj;
     }
 
     public function getArray() {
@@ -194,6 +187,10 @@ class XmpMetadata {
 
     protected function addVal($key, &$value) {
         if (!empty($value)) {
+            if (($key === 'dateCreated') && ($value[10] === 'T')) {
+                $value[10] = ' ';
+            }
+
             if (!array_key_exists($key, $this->data)) {
                 $this->data[$key] = array($value);
 

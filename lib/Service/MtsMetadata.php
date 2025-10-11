@@ -42,19 +42,11 @@ class MtsMetadata extends MtsParser {
 	private $mdpmParsed = false;
 	private $spsParsed = false;
 
-	public static function fromFile($file) {
-		if ($hnd = fopen($file, 'rb')) {
-			try {
-				$obj = new MtsMetadata();
-				$obj->parseMts($hnd, 1024);
-				return $obj->sections;
+	public static function fromFile($hnd) {
+		$obj = new MtsMetadata();
+		$obj->parseMts($hnd, 1024);
 
-			} finally {
-				fclose($hnd);
-			}
-		}
-
-		return null;
+		return $obj->sections;
 	}
 
 	protected function handleStream($pid, $streamType, &$data, $pos) {

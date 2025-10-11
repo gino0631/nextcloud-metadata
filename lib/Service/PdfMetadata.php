@@ -17,20 +17,11 @@ class PdfMetadata {
 	private $pageCount;
 	private $info = array();
 
-	public static function fromFile($file) {
-		if ($hnd = fopen($file, 'rb')) {
-			try {
-				$obj = new PdfMetadata();
-				$obj->readPdf($hnd);
+	public static function fromFile($hnd) {
+		$obj = new PdfMetadata();
+		$obj->readPdf($hnd);
 
-				return ($obj->pdfVersion) ? $obj : null;
-
-			} finally {
-				fclose($hnd);
-			}
-		}
-
-		return null;
+		return ($obj->pdfVersion) ? $obj : null;
 	}
 
 	public function getPdfVersionString() {

@@ -1,9 +1,10 @@
 <?php
 namespace OCA\Metadata\Service;
 
-use OC\Files\Filesystem;
 use OCA\Metadata\AppInfo\Application;
 use OCA\Metadata\GetID3\getID3;
+use OCP\Files\FileInfo;
+use OCP\L10N\IFactory;
 
 class MetadataService {
     const EMSP = "\xe2\x80\x83";
@@ -12,24 +13,22 @@ class MetadataService {
 
     protected $language;
 
-    public function __construct() {
-        $this->language = \OC::$server->getL10N(Application::APP_ID);
+    public function __construct(IFactory $languageFactory) {
+        $this->language = $languageFactory->get(Application::APP_ID);
     }
 
     /**
      * @NoAdminRequired
      * @throws \Exception
      */
-    public function getMetadata($source) {
-        \OC_Util::setupFS();
-        $file = Filesystem::getLocalFile($source);
-        if (!$file) {
-            throw new \Exception($this->t('File not found.'));
+    public function getMetadata($file) {
+        if ($file->getType() !== FileInfo::TYPE_FILE) {
+            return null;
         }
 
         $metadata = null;
 
-        $mimetype = Filesystem::getMimeType($source);
+        $mimetype = $file->getMimeType();
         switch ($mimetype) {
             case 'audio/flac':
             case 'audio/mp4':
@@ -47,90 +46,54 @@ class MetadataService {
             case 'video/x-msvideo':
                 if ($sections = $this->readId3($file)) {
                     $metadata = $this->getAvMetadata($sections);
-//                        $metadata->dump($sections);
                 }
                 break;
 
             case 'video/MP2T':
-                if ($sections = MtsMetadata::fromFile($file)) {
+                if ($sections = $this->readMts($file)) {
                     $metadata = $this->getAvMetadata($sections);
-//                    $metadata->dump($sections);
                 }
                 break;
 
             case 'image/gif':
                 if ($sections = $this->readGif($file)) {
                     $metadata = $this->getImageMetadata($sections);
-//                        $this->dump($sections, $metadata);
                 }
                 break;
 
             case 'image/png':
                 if ($sections = $this->readPng($file)) {
                     $metadata = $this->getImageMetadata($sections);
-//                        $this->dump($sections, $metadata);
                 }
                 break;
 
             case 'image/heic':
-                if ($heicMetadata = HeicMetadata::fromFile($file)) {
-                    $sections = $heicMetadata->getExif();
+                if ($sections = $this->readHeic($file)) {
                     $metadata = $this->getImageMetadata($sections);
-//                    $metadata->dump($sections);
                 }
                 break;
 
             case 'image/jpeg':
-                if ($sections = $this->readExif($file)) {
-                    if ($jpegMetadata = JpegMetadata::fromFile($file)) {
-                        $sections['XMP'] = array_merge($jpegMetadata->getIptc(), $jpegMetadata->getXmp());
-                        $sections['IFD0'] = array_merge((array)$this->getVal('IFD0', $sections), $jpegMetadata->getIfd0());
-                        if (!array_key_exists('GPS', $sections)) {
-                            $sections['GPS'] = $jpegMetadata->getGps();
-                        }
-                    }
+                if ($sections = $this->readJpeg($file)) {
                     $metadata = $this->getImageMetadata($sections);
-//                    $metadata->dump($sections);
                 }
                 break;
 
             case 'image/tiff':
-                if ($sections = $this->readExif($file)) {
-                    if ($tiffMetadata = TiffMetadata::fromFile($file)) {
-                        $sections['XMP'] = array_merge($tiffMetadata->getIptc(), $tiffMetadata->getXmp());
-                        $sections['IFD0'] = array_merge((array)$this->getVal('IFD0', $sections), $tiffMetadata->getIfd0());
-                    }
+                if ($sections = $this->readTiff($file)) {
                     $metadata = $this->getImageMetadata($sections);
-//                    $metadata->dump($sections);
                 }
                 break;
 
             case 'image/x-dcraw':
-                if ($sections = $this->readExif($file)) {
-                    $sidecar = $file . '.xmp';
-                    if (file_exists($sidecar)) {
-                        if ($xmpMetadata = XmpMetadata::fromFile($sidecar)) {
-                            $sections['XMP'] = $xmpMetadata->getArray();
-                        }
-                    }
-
+                if ($sections = $this->readRaw($file)) {
                     $metadata = $this->getImageMetadata($sections);
-//                        $this->dump($sections, $metadata);
                 }
                 break;
 
             case 'application/pdf':
-                if ($pdfMetadata = PdfMetadata::fromFile($file)) {
-                    $sections = array(
-                        'COMPUTED' => array(
-                            'version' => $pdfMetadata->getPdfVersionString(),
-                            'pageCount' => $pdfMetadata->getPageCount()
-                        ),
-                        'INFO' => $pdfMetadata->getInfo()
-                    );
-
+                if ($sections = $this->readPdf($file)) {
                     $metadata = $this->getPdfMetadata($sections);
-//                    $metadata->dump($sections);
                 }
                 break;
 
@@ -148,62 +111,176 @@ class MetadataService {
     }
 
     protected function readId3($file) {
-        $getId3 = new getID3();
-        $getId3->option_save_attachments = false;
+        if ($hnd = $file->fopen('r')) {
+            $getId3 = new getID3();
+            $getId3->option_save_attachments = false;
 
-        return $getId3->analyze($file);
+            return $getId3->analyze(null, $file->getSize(), $file->getName(), $hnd);	// closes $hnd
+        }
+
+        return false;
+    }
+
+    protected function readJpeg($file) {
+        return $this->withFile($file, function($hnd) {
+            if ($sections = $this->getExif($hnd)) {
+                rewind($hnd);
+
+                if ($jpegMetadata = JpegMetadata::fromFile($hnd)) {
+                    $sections['XMP'] = array_merge($jpegMetadata->getIptc(), $jpegMetadata->getXmp());
+                    $sections['IFD0'] = array_merge((array)$this->getVal('IFD0', $sections), $jpegMetadata->getIfd0());
+                    if (!array_key_exists('GPS', $sections)) {
+                        $sections['GPS'] = $jpegMetadata->getGps();
+                    }
+                }
+
+                return $sections;
+            }
+
+            return false;
+        });
+    }
+
+    protected function readTiff($file) {
+        return $this->withFile($file, function($hnd) {
+            if ($sections = $this->getExif($hnd)) {
+                rewind($hnd);
+
+                if ($tiffMetadata = TiffMetadata::fromFile($hnd)) {
+                    $sections['XMP'] = array_merge($tiffMetadata->getIptc(), $tiffMetadata->getXmp());
+                    $sections['IFD0'] = array_merge((array)$this->getVal('IFD0', $sections), $tiffMetadata->getIfd0());
+                }
+
+                return $sections;
+            }
+
+            return false;
+        });
+    }
+
+    protected function readRaw($file) {
+        $sections = $this->withFile($file, function($hnd) {
+            return $this->getExif($hnd);
+        });
+
+        if ($sections) {
+            $sidecar = $file->getName() . '.xmp';
+            $folder = $file->getParent();
+
+            if ($folder->nodeExists($sidecar)) {
+                $file = $folder->get($sidecar);
+
+                if ($file->getType() === FileInfo::TYPE_FILE) {
+                    $xmpMetadata = $this->withFile($file, function($hnd) {
+                        return XmpMetadata::fromFile($hnd);
+                    });
+
+                    if ($xmpMetadata) {
+                        $sections['XMP'] = $xmpMetadata->getArray();
+                    }
+                }
+            }
+        }
+
+        return $sections;
+    }
+
+    protected function readHeic($file) {
+        return $this->withFile($file, function($hnd) {
+            return (($heicMetadata = HeicMetadata::fromFile($hnd)) !== null) ? $heicMetadata->getExif() : false;
+        });
     }
 
     protected function readGif($file) {
-        $computed = array();
-        $this->getImageSize($file, $computed);
+        return $this->withFile($file, function($hnd) {
+            $computed = array();
+            $this->getImageSize($file, $computed);
 
-        return array(
-            'COMPUTED' => $computed
-        );
+            return array(
+                'COMPUTED' => $computed
+            );
+        });
     }
 
     protected function readPng($file) {
-        $computed = array();
-        $this->getImageSize($file, $computed);
+        return $this->withFile($file, function($hnd) {
+            $computed = array();
+            $this->getImageSize($file, $computed);
 
-        $pngMetadata = PngMetadata::fromFile($file);
+            $pngMetadata = PngMetadata::fromFile($hnd);
 
-        return array(
-            'COMPUTED' => $computed,
-            'PNG_TEXT_CHUNKS' => $pngMetadata ? $pngMetadata->getTextChunks() : null
-        );
+            return array(
+                'COMPUTED' => $computed,
+                'PNG_TEXT_CHUNKS' => $pngMetadata ? $pngMetadata->getTextChunks() : null
+            );
+        });
     }
 
     protected function getImageSize($file, &$return) {
-        $size = getimagesize($file);
-        $return['Width'] = $size[0];
-        $return['Height'] = $size[1];
+        if (($size = getimagesize($file->getStorage()->getLocalFile($file->getInternalPath()))) !== false) {
+            $return['Width'] = $size[0];
+            $return['Height'] = $size[1];
+        }
 
         return $return;
     }
 
-    protected function readExif($file) {
+    protected function getExif($hnd) {
         if (!function_exists('exif_read_data')) {
             throw new \Exception($this->t('EXIF support is missing; you might need to install an appropriate package for your system.'));
         }
 
-        return @exif_read_data($file, 0, true);
+        return @exif_read_data($hnd, 0, true);
+    }
+
+    protected function readMts($file) {
+        return $this->withFile($file, function($hnd) {
+            return MtsMetadata::fromFile($hnd);
+        });
+    }
+
+    protected function readPdf($file) {
+        return $this->withFile($file, function($hnd) {
+            if ($pdfMetadata = PdfMetadata::fromFile($hnd)) {
+                return array(
+                    'COMPUTED' => array(
+                        'version' => $pdfMetadata->getPdfVersionString(),
+                        'pageCount' => $pdfMetadata->getPageCount()
+                    ),
+                    'INFO' => $pdfMetadata->getInfo()
+                );
+            }
+
+            return false;
+        });
     }
 
     protected function readZip($file) {
-        $computed = array();
+          $computed = array();
 
-        $zip = new \ZipArchive();
-        if ($zip->open($file) === true) {
-            $computed['numFiles'] = $zip->numFiles;
-            $computed['comment'] = $zip->comment;
-            $zip->close();
+          $zip = new \ZipArchive();
+          if ($zip->open($file->getStorage()->getLocalFile($file->getInternalPath())) === true) {
+              $computed['numFiles'] = $zip->numFiles;
+              $computed['comment'] = $zip->comment;
+              $zip->close();
+          }
+
+          return array(
+              'COMPUTED' => $computed
+          );
+    }
+
+    protected function withFile($file, callable $fn) {
+        if ($hnd = $file->fopen('r')) {
+            try {
+                return $fn($hnd);
+
+            } finally {
+                fclose($hnd);
+            }
         }
 
-        return array(
-            'COMPUTED' => $computed
-        );
+        return false;
     }
 
     protected function getAvMetadata($sections) {

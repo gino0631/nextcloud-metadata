@@ -10,20 +10,11 @@ class JpegMetadata extends FileReader {
     private $iptc = array();
     private $gps = array();
 
-    public static function fromFile($file) {
-        if ($hnd = fopen($file, 'rb')) {
-            try {
-                $obj = new JpegMetadata();
-                $obj->readJpeg($hnd);
+    public static function fromFile($hnd) {
+        $obj = new JpegMetadata();
+        $obj->readJpeg($hnd);
 
-                return $obj;
-
-            } finally {
-                fclose($hnd);
-            }
-        }
-
-        return null;
+        return $obj;
     }
 
     public function getIfd0() {
@@ -94,7 +85,7 @@ class JpegMetadata extends FileReader {
             $data = fread($hnd, 29);
             $size -= 29;
 
-            if ($data === 'http://ns.adobe.com/xap/1.0/' . "\x00") {
+            if ($data === "http://ns.adobe.com/xap/1.0/\x00") {
                 $xmpMetadata = XmpMetadata::fromData(fread($hnd, $size));
                 $this->xmp = $xmpMetadata->getArray();
                 return true;
@@ -108,7 +99,7 @@ class JpegMetadata extends FileReader {
         if ($size > 14) {
             $data = fread($hnd, 6);
 
-            if ($data === 'Exif'."\x00\x00") {
+            if ($data === "Exif\x00\x00") {
                 $pos = ftell($hnd);
                 $tiffMetadata = TiffMetadata::fromFileData($hnd, $pos);
                 $this->ifd0 = $tiffMetadata->getIfd0();

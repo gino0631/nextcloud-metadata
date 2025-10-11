@@ -11,20 +11,11 @@ class HeicMetadata extends BmffParser {
 	private $itemInfosSeen;
 	private $itemExtents = array();
 
-	public static function fromFile($file) {
-		if ($hnd = fopen($file, 'rb')) {
-			try {
-				$obj = new HeicMetadata();
-				$obj->readHeic($hnd);
+	public static function fromFile($hnd) {
+		$obj = new HeicMetadata();
+		$obj->readHeic($hnd);
 
-				return ($obj->exif) ? $obj : null;
-
-			} finally {
-				fclose($hnd);
-			}
-		}
-
-		return null;
+		return ($obj->exif) ? $obj : null;
 	}
 
 	public function getExif() {

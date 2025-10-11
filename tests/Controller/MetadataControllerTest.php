@@ -114,6 +114,17 @@ class MetadataControllerTest extends TestCase {
         $this->assertEquals('0 m', $metadata['GPS altitude']);
     }
 
+    public function testRawXmp() {
+        $res = $this->controller->get('RAW_KODAK_DC50.KDC');
+        $data = $res->getData();
+        $this->assertEquals('success', $data['response']);
+
+        $metadata = $data['metadata'];
+        $this->assertEquals('DC50 Camera V1.1', $metadata['Software']);
+        $this->assertEquals(['Douro', 'Holiday', 'Location', 'Occasion', 'Palácio de Cristal', 'Porto'], $metadata['Keywords']);
+        $this->assertEquals('2018-10-06 13:20:38', $metadata['Date created']);
+    }
+
     public function testHeic() {
         $res = $this->controller->get('IMG_20170626_181110.heic');
         $data = $res->getData();

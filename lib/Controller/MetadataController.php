@@ -6,14 +6,22 @@ use OCA\Metadata\AppInfo\Application;
 use OCA\Metadata\Service\MetadataService;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\JSONResponse;
+use OCP\Files\IRootFolder;
 use OCP\IRequest;
+use OCP\IUserSession;
+use OCP\L10N\IFactory;
 use Psr\Log\LoggerInterface;
 
 class MetadataController extends Controller {
+	protected $userHome;
+	protected $language;
 	protected $metadataService;
 
-	public function __construct($appName, IRequest $request, MetadataService $metadataService) {
+	public function __construct($appName, IRequest $request, IUserSession $userSession, IRootFolder $rootFolder, IFactory $languageFactory, MetadataService $metadataService) {
 		parent::__construct($appName, $request);
+
+		$this->userHome = $rootFolder->getUserFolder($userSession->getUser()->getUID());
+		$this->language = $languageFactory->get(Application::APP_ID);
 		$this->metadataService = $metadataService;
 	}
 
@@ -22,7 +30,8 @@ class MetadataController extends Controller {
 	 */
 	public function get($source) {
 		try {
-			$metadata = $this->metadataService->getMetadata($source);
+			$file = $this->userHome->get($source);
+			$metadata = $this->metadataService->getMetadata($file);
 
 			if (!empty($metadata) && !$metadata->isEmpty()) {
 				return new JSONResponse(
@@ -39,7 +48,7 @@ class MetadataController extends Controller {
 				return new JSONResponse(
 					array(
 						'response' => 'error',
-						'msg' => Application::getL10N()->t('No metadata found.')
+						'msg' => $this->language->t('No metadata found.')
 					)
 				);
 			}
