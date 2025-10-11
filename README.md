@@ -33,5 +33,5 @@ If you find this app useful and would like to support the development, you can [
 The plugin makes use of [Transifex](https://www.transifex.com/), so you can contribute [here](https://www.transifex.com/nextcloud/nextcloud/metadata/).
 
 ## Requirements
-* PHP 8.0 or later (tested successfully with 8.1, 8.2, 8.3, and 8.4; other versions may or may not work)
+* PHP 8.2 or later (tested successfully with 8.2, 8.3, and 8.4; other versions may or may not work)
 * EXIF support for PHP (if `php --ri exif` returns `Extension 'exif' not present`, you might need to install an appropriate package for your system, e.g. by running `pkg install php81-exif` on FreeBSD/NAS4Free)
