@@ -36,7 +36,10 @@ class MetadataControllerTest extends TestCase {
         $this->controller = new MetadataController(
             'metadata',
             $this->createMock(\OCP\IRequest::class),
-            new MetadataService()
+            Server::get(\OCP\IUserSession::class),
+            Server::get(\OCP\Files\IRootFolder::class),
+            Server::get(\OCP\L10N\IFactory::class),
+            new MetadataService(Server::get(OCP\L10N\IFactory::class))
         );
     }
 
