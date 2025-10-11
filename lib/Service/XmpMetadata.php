@@ -187,7 +187,7 @@ class XmpMetadata {
 
     protected function addVal($key, &$value) {
         if (!empty($value)) {
-            if (($key === 'dateCreated') && ($value[10] === 'T')) {
+            if (($key === 'dateCreated') && (strlen($value) > 10) && ($value[10] === 'T')) {
                 $value[10] = ' ';
             }
 

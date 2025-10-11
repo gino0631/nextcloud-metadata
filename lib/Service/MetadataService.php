@@ -115,7 +115,7 @@ class MetadataService {
             $getId3 = new getID3();
             $getId3->option_save_attachments = false;
 
-            return $getId3->analyze(null, $file->getSize(), $file->getName(), $hnd);	// closes $hnd
+            return $getId3->analyze($file->getName(), $file->getSize(), $file->getName(), $hnd);	// closes $hnd
         }
 
         return false;
@@ -203,17 +203,17 @@ class MetadataService {
     }
 
     protected function readPng($file) {
-        return $this->withFile($file, function($hnd) {
-            $computed = array();
-            $this->getImageSize($file, $computed);
+        $computed = array();
+        $this->getImageSize($file, $computed);
 
-            $pngMetadata = PngMetadata::fromFile($hnd);
-
-            return array(
-                'COMPUTED' => $computed,
-                'PNG_TEXT_CHUNKS' => $pngMetadata ? $pngMetadata->getTextChunks() : null
-            );
+        $pngMetadata = $this->withFile($file, function($hnd) {
+            return PngMetadata::fromFile($hnd);
         });
+
+        return array(
+            'COMPUTED' => $computed,
+            'PNG_TEXT_CHUNKS' => $pngMetadata ? $pngMetadata->getTextChunks() : null
+        );
     }
 
     protected function getImageSize($file, &$return) {

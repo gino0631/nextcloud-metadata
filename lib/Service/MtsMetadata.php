@@ -82,7 +82,7 @@ class MtsMetadata extends MtsParser {
 
 		$getId3 = new getID3();
 		$getId3->option_save_attachments = false;
-		$sections = $getId3->analyze(null, strlen($data) - $pos, '', $tmp);	// closes $tmp
+		$sections = $getId3->analyze('', strlen($data) - $pos, '', $tmp);	// closes $tmp
 		$this->sections[$section] = $sections[$section];
 	}
 	
