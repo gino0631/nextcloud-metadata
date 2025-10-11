@@ -74,6 +74,7 @@ OC.L10N.register(
     "Modified" : "Ändrad",
     "Application" : "Applikation",
     "Number of pages" : "Antal sidor",
+    "Trapped" : "Fångad",
     "Yes" : "Ja",
     "No" : "Nej",
     "Unknown" : "Okänd",
