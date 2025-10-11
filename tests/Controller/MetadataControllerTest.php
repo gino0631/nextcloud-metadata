@@ -39,7 +39,7 @@ class MetadataControllerTest extends TestCase {
             Server::get(\OCP\IUserSession::class),
             Server::get(\OCP\Files\IRootFolder::class),
             Server::get(\OCP\L10N\IFactory::class),
-            new MetadataService(Server::get(OCP\L10N\IFactory::class))
+            new MetadataService(Server::get(\OCP\L10N\IFactory::class))
         );
     }
 
