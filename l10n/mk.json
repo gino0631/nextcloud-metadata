@@ -7,7 +7,6 @@
     "Nominatim service unavailable" : "Услугата Nominatim е недостапна",
     "Metadata" : "Метаподатоци",
     "No metadata found." : "Не се пронајдени метаподатоци.",
-    "File not found." : "Датотеката не е пронајдена.",
     "Unsupported MIME type \"%s\"." : "Неподржан MIME вид \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Недостасува поддршка за EXIF; можеби ќе треба да инсталирате соодветен пакет за вашиот систем.",
     "Title" : "Наслов",

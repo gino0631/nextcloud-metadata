@@ -9,7 +9,6 @@ OC.L10N.register(
     "Nominatim service unavailable" : "具体来说，服务不可用",
     "Metadata" : "元数据",
     "No metadata found." : "找不到元数据",
-    "File not found." : "找不到文件",
     "Unsupported MIME type \"%s\"." : "不支持的 MIME 类型 \"%s\"。",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "EXIF 支持缺失；您可能需要为系统安装适当的软件包。",
     "Title" : "标题",

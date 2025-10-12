@@ -7,7 +7,6 @@
     "Nominatim service unavailable" : "A Nominatim szolgáltatás nem érhető el",
     "Metadata" : "Metaadatok",
     "No metadata found." : "Nem találhatók metaadatok.",
-    "File not found." : "A fájl nem található.",
     "Unsupported MIME type \"%s\"." : "Nem támogatott MIME-típus: „%s”.",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Az EXIF támogatás hiányzik; lehet hogy telepítenie kell a megfelelő csomagot a rendszerén.",
     "Title" : "Cím",

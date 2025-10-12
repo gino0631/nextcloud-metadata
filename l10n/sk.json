@@ -7,7 +7,6 @@
     "Nominatim service unavailable" : "Nominačná služba nie je k dispozícii",
     "Metadata" : "Metadáta",
     "No metadata found." : "Nenašli sa žiadne metadáta.",
-    "File not found." : "Súbor sa nenašiel.",
     "Unsupported MIME type \"%s\"." : "Nepodporovaný MIME typ \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Podpora pre EXIF metadáta chýba. Pre jej podporu je potrebné doinštalovať príslušný balík.",
     "Title" : "Názov",

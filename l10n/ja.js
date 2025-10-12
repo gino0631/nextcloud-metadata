@@ -5,7 +5,6 @@ OC.L10N.register(
     "Location" : "場所",
     "Metadata" : "メタデータ",
     "No metadata found." : "メタデータが見つかりません。",
-    "File not found." : "ファイルが見つかりません",
     "Unsupported MIME type \"%s\"." : "\"%s\" はサポートされていないMIMEタイプです。",
     "Title" : "タイトル",
     "Artist" : "アーティスト",

@@ -9,7 +9,6 @@ OC.L10N.register(
     "Nominatim service unavailable" : "سرویس Nominatim در دسترس نیست",
     "Metadata" : "ابرداده",
     "No metadata found." : "هیچ ابرداده ای یافت نشد.",
-    "File not found." : "پرونده یافت نشد",
     "Unsupported MIME type \"%s\"." : "نوع MIME پشتیبانی نشده است%s",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "پشتیبانی EXIF وجود ندارد. شاید لازم باشد یک بسته مناسب برای سیستم خود نصب کنید.",
     "Title" : "عنوان",

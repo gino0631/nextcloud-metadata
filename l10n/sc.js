@@ -9,7 +9,6 @@ OC.L10N.register(
     "Nominatim service unavailable" : "Su servìtziu Nominatim no est a disponimentu",
     "Metadata" : "Metadatos",
     "No metadata found." : "Perunu metadatu agatadu.",
-    "File not found." : "Archìviu no agatadu.",
     "Unsupported MIME type \"%s\"." : "Genia MIME \"%s\" non suportada.",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Mancat su suportu EXIF; ti diat tocare de installare unu pachete apòsitu pro su sistema tuo.",
     "Title" : "Tìtulu",

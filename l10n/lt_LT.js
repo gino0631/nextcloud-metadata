@@ -6,7 +6,6 @@ OC.L10N.register(
     "Location could not be determined" : "Nepavyko nustatyti vietos",
     "Metadata" : "Metaduomenys",
     "No metadata found." : "Nerasta jokių metaduomenų.",
-    "File not found." : "Failas nerastas.",
     "Unsupported MIME type \"%s\"." : "Nepalaikomas MIME tipas \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Trūksta EXIF palaikymo; jums gali tekti įdiegti savo sistemai tinkamą paketą.",
     "Title" : "Pavadinimas",

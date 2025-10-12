@@ -2,7 +2,6 @@ OC.L10N.register(
     "metadata",
     {
     "Location" : "Lokasi",
-    "File not found." : "Berkas tidak ditemukan.",
     "Title" : "Judul",
     "Author" : "Penulis",
     "Copyright" : "Hak cipta",

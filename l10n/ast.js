@@ -7,7 +7,6 @@ OC.L10N.register(
     "Nominatim service unavailable" : "El serviciu de Nominatim nun ta disponible",
     "Metadata" : "Metadatos",
     "No metadata found." : "Nun s'atopó nengún metadatu.",
-    "File not found." : "Nun s'atopó'l ficheru.",
     "Title" : "Tñitulu",
     "Artist" : "Artista",
     "Date created" : "Data de creación",

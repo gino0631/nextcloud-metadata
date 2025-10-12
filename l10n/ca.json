@@ -7,7 +7,6 @@
     "Nominatim service unavailable" : "Servei Nominatim no disponible",
     "Metadata" : "Metadades",
     "No metadata found." : "No s'han trobat metades.",
-    "File not found." : "No s'ha trobat el fitxer.",
     "Unsupported MIME type \"%s\"." : "Tipus MIME \"%s\" no compatible.",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Suport EXIF no disponible; potser haureu d’instal·lar un paquet adequat per al vostre sistema.",
     "Title" : "Títol",

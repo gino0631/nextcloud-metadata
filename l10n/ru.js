@@ -9,7 +9,6 @@ OC.L10N.register(
     "Nominatim service unavailable" : "Недоступен сервис геокодирования Nominatim ",
     "Metadata" : "Метаданные",
     "No metadata found." : "Метаданные не найдены.",
-    "File not found." : "Файл не найден.",
     "Unsupported MIME type \"%s\"." : "Неподдерживаемый MIME-тип «%s»",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "В системе не установлены модули поддержки расширений EXIF.",
     "Title" : "Название",

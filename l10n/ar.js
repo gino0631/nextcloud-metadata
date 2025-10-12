@@ -9,7 +9,6 @@ OC.L10N.register(
     "Nominatim service unavailable" : "خدمة Nominatim الجغرافية غير متاحة",
     "Metadata" : "البيانات الوصفية Metadata",
     "No metadata found." : "تعذر العثور على البيانات الوصفية ",
-    "File not found." : "الملف غير موجود",
     "Unsupported MIME type \"%s\"." : "الملف من هذا النوع MIME غير مدعوم  \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "دعم EXIF غير متاح؛ ربما تحتاج إلى تنصيب الحزمة المناسبة لنظامك",
     "Title" : "العنوان",

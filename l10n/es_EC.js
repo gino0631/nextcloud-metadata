@@ -9,7 +9,6 @@ OC.L10N.register(
     "Nominatim service unavailable" : "Servicio Nominatim no disponible",
     "Metadata" : "Metadatos",
     "No metadata found." : "No se encontraron metadatos.",
-    "File not found." : "Archivo no encontrado.",
     "Unsupported MIME type \"%s\"." : "Tipo MIME no compatible \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Falta el soporte EXIF; es posible que necesites instalar un paquete adecuado para tu sistema.",
     "Title" : "Título",

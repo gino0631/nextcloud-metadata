@@ -2,7 +2,6 @@ OC.L10N.register(
     "metadata",
     {
     "Location" : "ස්ථානය",
-    "File not found." : "ගොනුව හමු නොවිණි.",
     "Length" : "දිග",
     "Copyright" : "ප්‍රකාශන හිමිකම",
     "Android version" : "ඇන්ඩ්‍රොයිඩ් අනුවාදය",

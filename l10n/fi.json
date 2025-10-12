@@ -7,7 +7,6 @@
     "Nominatim service unavailable" : "Nominatim-palvelu ei käytettävissä",
     "Metadata" : "Metatiedot",
     "No metadata found." : "Metatietoja ei löytynyt.",
-    "File not found." : "Tiedostoa ei löytynyt.",
     "Unsupported MIME type \"%s\"." : "MIME-tyyppi \"%s\" ei ole tuettu.",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "EXIF-tuki puuttuu; järjestelmään tulee asentaa soveltuva paketti.",
     "Title" : "Otsikko",

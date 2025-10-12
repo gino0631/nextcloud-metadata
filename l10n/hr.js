@@ -9,7 +9,6 @@ OC.L10N.register(
     "Nominatim service unavailable" : "Usluga Nominatim je nedostupna",
     "Metadata" : "Metapodaci",
     "No metadata found." : "Metapodaci nisu pronađeni.",
-    "File not found." : "Datoteka nije pronađena.",
     "Unsupported MIME type \"%s\"." : "MIME vrsta „%s“ nije podržan.",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Nedostaje podrška za EXIF; instalirajte odgovarajući paket za svoj sustav.",
     "Title" : "Naslov",

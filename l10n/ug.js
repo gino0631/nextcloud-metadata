@@ -9,7 +9,6 @@ OC.L10N.register(
     "Nominatim service unavailable" : "Nominatim مۇلازىمىتىنى ئىشلەتكىلى بولمايدۇ",
     "Metadata" : "Metadata",
     "No metadata found." : "مېتا سانلىق مەلۇمات تېپىلمىدى.",
-    "File not found." : "ھۆججەت تېپىلمىدى.",
     "Unsupported MIME type \"%s\"." : "قوللىمايدىغان MIME تىپى \"% s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "EXIF قوللاش كەم. سىستېمىڭىزغا ماس كېلىدىغان ئورالما ئورنىتىشىڭىز لازىم بولۇشى مۇمكىن.",
     "Title" : "ماۋزۇ",

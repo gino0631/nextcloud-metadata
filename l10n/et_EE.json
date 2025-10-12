@@ -6,7 +6,6 @@
     "Nominatim service unavailable" : "Nominatimi teenus pole saadaval",
     "Metadata" : "Metaandmed",
     "No metadata found." : "Metateavet ei leidu.",
-    "File not found." : "Faili ei leitud",
     "Unsupported MIME type \"%s\"." : "„%s“ MIME tüüp ehk vorming pole toetatud.",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "EXIF-i tugi on puudu. Sa ilmselt pead oma serverisse paigaldama vastava paketi.",
     "Title" : "Pealkiri",

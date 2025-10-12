@@ -7,7 +7,6 @@
     "Nominatim service unavailable" : "Nominatim-þjónusta ekki tiltæk",
     "Metadata" : "Lýsigögn",
     "No metadata found." : "Engin lýsigögn fundust.",
-    "File not found." : "Skrá fannst ekki.",
     "Unsupported MIME type \"%s\"." : "Óstudd MIME-tegund \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Vantar stuðning við EXIF, þú þurft að setja upp viðeigandi pakka á kerfið þitt.",
     "Title" : "Titill",

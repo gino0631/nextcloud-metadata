@@ -4,7 +4,6 @@ OC.L10N.register(
     "Reading metadata …" : "Чытанне метаданых…",
     "Location" : "Месцазнаходжанне",
     "Metadata" : "Метаданыя",
-    "File not found." : "Файл не знойдзены.",
     "Title" : "Загаловак",
     "Artist" : "Выканаўца",
     "Length" : "Працягласць",

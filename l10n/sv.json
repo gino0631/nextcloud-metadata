@@ -7,7 +7,6 @@
     "Nominatim service unavailable" : "Nominativtjänsten ej tillgänglig",
     "Metadata" : "Metadata",
     "No metadata found." : "Inga metadata hittade.",
-    "File not found." : "Filen hittades ej",
     "Unsupported MIME type \"%s\"." : "Ej stödd MIME-typ \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "EXIF-stöd saknas. Du måste kanske installera ett programpaket avsett för ditt system.",
     "Title" : "Titel",

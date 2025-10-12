@@ -2,7 +2,6 @@ OC.L10N.register(
     "metadata",
     {
     "Location" : "Vị trí",
-    "File not found." : "Không tìm thấy tệp tin.",
     "Title" : "Tên",
     "Date created" : "Ngày tạo",
     "Copyright" : "Bản quyền",

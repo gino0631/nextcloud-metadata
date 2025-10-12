@@ -7,7 +7,6 @@ OC.L10N.register(
     "Nominatim service unavailable" : "שירות ה־Nominatim אינו זמין",
     "Metadata" : "נתוני על",
     "No metadata found." : "לא נמצאו נתוני על.",
-    "File not found." : "הקובץ לא נמצא.",
     "Unsupported MIME type \"%s\"." : "סוג ה־MIME ‏„%s” אינו נתמך.",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "התמיכה ב־EXIF חסרה, יתכן שיהיה עליך להתקין את החבילה המתאימה עבור המערכת שלך.",
     "Title" : "תפקיד",

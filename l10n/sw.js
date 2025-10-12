@@ -9,7 +9,6 @@ OC.L10N.register(
     "Nominatim service unavailable" : "Huduma ya nominatim haipatikani",
     "Metadata" : "Metadata",
     "No metadata found." : "Hakuna metadata iliyopatikana",
-    "File not found." : "Faili halipo",
     "Unsupported MIME type \"%s\"." : "Aina ya MIME isiyotumika \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Usaidizi wa EXIF ​​haupo; unaweza kuhitaji kusakinisha kifurushi kinachofaa kwa mfumo wako.",
     "Title" : "Kichwa cha habari",

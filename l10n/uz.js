@@ -2,7 +2,6 @@ OC.L10N.register(
     "metadata",
     {
     "Location" : "Joylashuv",
-    "File not found." : "Fayl topilmadi.",
     "Title" : "Sarlavha",
     "Year" : "Yil",
     "Date" : "Sana",

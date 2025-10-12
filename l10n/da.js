@@ -3,7 +3,6 @@ OC.L10N.register(
     {
     "Location" : "Placering",
     "Metadata" : "Metadata",
-    "File not found." : "Fil ikke fundet.",
     "Title" : "Titel",
     "Artist" : "Kunster",
     "Date created" : "Oprettet den",
