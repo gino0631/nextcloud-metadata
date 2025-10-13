@@ -2,6 +2,7 @@ OC.L10N.register(
     "metadata",
     {
     "Reading metadata …" : "Loen metaandmeid…",
+    "Resolving, click here to view on map …" : "Tuvastan, kaardil vaatamiseks klõpsi siin…",
     "Nominatim service unavailable, click here to view on map" : "Nominatimi teenus pole saadaval, klõpsi siin vaatamiseks kaardil",
     "Location" : "Asukoht",
     "Location could not be determined" : "Asukoha tuvastamine ei õnnestunud",
@@ -91,6 +92,7 @@ OC.L10N.register(
     "Pattern" : "Muster",
     "Partial" : "Osaline",
     "Other" : "Muu",
+    "Flash" : "Välklamp",
     "auto" : "automaatne",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "A plugin for displaying file metadata" : "Lisamoodul faili metateabe kuvamiseks"

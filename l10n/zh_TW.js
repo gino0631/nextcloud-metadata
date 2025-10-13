@@ -73,6 +73,7 @@ OC.L10N.register(
     "Modified" : "已修改",
     "Application" : "應用程式",
     "Number of pages" : "頁數",
+    "Trapped" : "疊印陷阱",
     "Yes" : "是",
     "No" : "否",
     "Unknown" : "未知",
