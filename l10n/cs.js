@@ -72,6 +72,7 @@ OC.L10N.register(
     "Modified" : "Změněno",
     "Application" : "Aplikace",
     "Number of pages" : "Počet stránek",
+    "Trapped" : "Zachyceno",
     "Yes" : "Ano",
     "No" : "Ne",
     "Unknown" : "Neznámé",
