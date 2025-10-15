@@ -713,7 +713,8 @@ class MetadataService {
         }
 
         if ($v = $this->getVal('Trapped', $info)) {
-            $this->addVal($this->t('Trapped'), ($v === 'True') ? $this->t('Yes') : (($v === 'False') ? $this->t('No') : $this->t('Unknown')), $return);
+            // TRANSLATORS https://www.google.com/search?q=what+is+a+trapped+pdf
+            $this->addVal($this->t('Trapped'), $this->formatTrueFalse($v), $return);
         }
 
         if ($v = $this->getVal('Producer', $info)) {
@@ -846,6 +847,10 @@ class MetadataService {
         $return = str_pad($return, 5 * strlen(self::WHITE_STAR), self::WHITE_STAR);
 
         return $return;
+    }
+
+    protected function formatTrueFalse($val) {
+        return ($val === 'True') ? $this->t('Yes') : (($val === 'False') ? $this->t('No') : $this->t('Unknown'));
     }
 
     protected function evalGpsCoord($coord) {
