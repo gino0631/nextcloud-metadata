@@ -17,8 +17,8 @@
     "Created" : "Creado",
     "Modified" : "Modificado",
     "Application" : "Aplicación",
-    "Unknown" : "Desconocido",
     "Manual" : "Manual",
+    "Unknown" : "Desconocido",
     "Pattern" : "Patrón",
     "Other" : "Otro"
 },"pluralForm" :"nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"

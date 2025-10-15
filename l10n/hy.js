@@ -8,9 +8,9 @@ OC.L10N.register(
     "Description" : "Նկարագրություն",
     "Credits" : "անվանացանկ",
     "Modified" : "Փոփոխված",
-    "Yes" : "Այո",
-    "No" : "Ոչ",
     "Unknown" : "Անհայտ",
-    "Other" : "Այլ"
+    "Other" : "Այլ",
+    "Yes" : "Այո",
+    "No" : "Ոչ"
 },
 "nplurals=2; plural=(n != 1);");

@@ -72,9 +72,6 @@
     "Application" : "Апликација",
     "Number of pages" : "Број страница",
     "Trapped" : "Trapped",
-    "Yes" : "Да",
-    "No" : "Не",
-    "Unknown" : "Непознато",
     "PDF producer" : "PDF генератор",
     "PDF version" : "PDF верзија",
     "Number of files" : "Број фајлова",
@@ -90,6 +87,7 @@
     "Auto exposure" : "Аутоматска експозиција",
     "Manual exposure" : "Ручна експозиција",
     "Auto bracket" : "Аутоматски распон експозиција",
+    "Unknown" : "Непознато",
     "Average" : "Просечно",
     "Center Weighted Average" : "Center Weighted Average",
     "Spot" : "Тачкаст",
@@ -103,6 +101,8 @@
     "red-eye" : "црвене-очи",
     "strobe return" : "студијски",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
+    "Yes" : "Да",
+    "No" : "Не",
     "A plugin for displaying file metadata" : "Додатак за приказивање метаподатака фајлова",
     "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Додатак који приказује метаподатке фајла у бочној траци где су детаљи фајла.\n\nПогледајте [ПРОЧИТАЈ МЕ](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) да видите подржане типове фајлова и ограничења."
 },"pluralForm" :"nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);"

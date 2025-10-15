@@ -48,15 +48,15 @@ OC.L10N.register(
     "Subject" : "Tema",
     "Created" : "Sukurta",
     "Modified" : "Pakeistas",
-    "Yes" : "Taip",
-    "No" : "Ne",
-    "Unknown" : "Nežinoma",
     "PDF version" : "PDF versija",
     "Number of files" : "Failų skaičius",
     "Not defined" : "Neapibrėžta",
     "Manual" : "Rankiniu būdu",
+    "Unknown" : "Nežinoma",
     "Pattern" : "Šablonas",
     "Other" : "Kita",
+    "Yes" : "Taip",
+    "No" : "Ne",
     "A plugin for displaying file metadata" : "Failo metaduomenų atvaizdavimo įskiepis"
 },
 "nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);");

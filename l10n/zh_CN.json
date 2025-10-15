@@ -70,9 +70,6 @@
     "Modified" : "已修改",
     "Application" : "应用",
     "Number of pages" : "页数",
-    "Yes" : "是",
-    "No" : "否",
-    "Unknown" : "未知",
     "PDF producer" : "PDF 制作者",
     "PDF version" : "PDF 版本",
     "Number of files" : "文件数",
@@ -88,6 +85,7 @@
     "Auto exposure" : "自动曝光",
     "Manual exposure" : "手动曝光",
     "Auto bracket" : "自动支架",
+    "Unknown" : "未知",
     "Average" : "平均测光",
     "Center Weighted Average" : "中央重点测光",
     "Spot" : "点测光",
@@ -101,6 +99,8 @@
     "red-eye" : "去红眼",
     "strobe return" : "频闪回报",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264-MPEG-4 AVC（第10部分）",
+    "Yes" : "是",
+    "No" : "否",
     "A plugin for displaying file metadata" : "用于显示文件元数据的插件",
     "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "一个在文件详细信息侧栏中显示文件元数据的插件。\n\n有关受支持的文件类型和限制，请参见 [自述文件](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md)。"
 },"pluralForm" :"nplurals=1; plural=0;"

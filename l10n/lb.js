@@ -8,9 +8,9 @@ OC.L10N.register(
     "Description" : "Beschreiwung",
     "Tags" : "Tags",
     "Modified" : "Geännert",
-    "Yes" : "Jo",
-    "No" : "Nee",
     "Unknown" : "Onbekannt",
-    "Other" : "Aner"
+    "Other" : "Aner",
+    "Yes" : "Jo",
+    "No" : "Nee"
 },
 "nplurals=2; plural=(n != 1);");

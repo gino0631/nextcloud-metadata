@@ -28,11 +28,11 @@ OC.L10N.register(
     "Created" : "Oprettet",
     "Modified" : "Ændret",
     "Application" : "Applikation",
-    "Yes" : "Ja",
-    "No" : "Nej",
-    "Unknown" : "Ukendt",
     "Manual" : "Manuel",
+    "Unknown" : "Ukendt",
     "Pattern" : "Mønster",
-    "Other" : "Andet"
+    "Other" : "Andet",
+    "Yes" : "Ja",
+    "No" : "Nej"
 },
 "nplurals=2; plural=(n != 1);");

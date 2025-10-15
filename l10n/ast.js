@@ -50,8 +50,6 @@ OC.L10N.register(
     "Modified" : "Modificóse",
     "Application" : "Aplicación",
     "Number of pages" : "Númberu de páxines",
-    "Yes" : "Sí",
-    "No" : "Non",
     "Number of files" : "Númberu de ficheros",
     "Not defined" : "Nun se definió",
     "Manual" : "Manual",
@@ -63,6 +61,8 @@ OC.L10N.register(
     "Pattern" : "Patrón",
     "Partial" : "Parcial",
     "Flash" : "Flax",
+    "Yes" : "Sí",
+    "No" : "Non",
     "A plugin for displaying file metadata" : "Un plugin p'amosar metadatos de ficheros"
 },
 "nplurals=2; plural=(n != 1);");

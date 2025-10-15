@@ -18,9 +18,9 @@ OC.L10N.register(
     "Tags" : "Etiquetas",
     "Credits" : "Crèdits",
     "Modified" : "Modificat",
-    "Yes" : "Òc",
-    "No" : "Non",
     "Unknown" : "Desconegut",
-    "Other" : "Autre"
+    "Other" : "Autre",
+    "Yes" : "Òc",
+    "No" : "Non"
 },
 "nplurals=2; plural=(n > 1);");

@@ -13,8 +13,8 @@ OC.L10N.register(
     "Subject" : "Asunto",
     "Created" : "Creado",
     "Modified" : "Modificado",
-    "Unknown" : "Desconocido",
     "Manual" : "Manual",
+    "Unknown" : "Desconocido",
     "Pattern" : "Patrón",
     "Other" : "Otro"
 },

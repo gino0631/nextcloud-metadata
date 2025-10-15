@@ -6,9 +6,9 @@
     "Description" : "Beschreiwung",
     "Tags" : "Tags",
     "Modified" : "Geännert",
-    "Yes" : "Jo",
-    "No" : "Nee",
     "Unknown" : "Onbekannt",
-    "Other" : "Aner"
+    "Other" : "Aner",
+    "Yes" : "Jo",
+    "No" : "Nee"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

@@ -70,9 +70,6 @@
     "Modified" : "تغییر یافته",
     "Application" : "Application",
     "Number of pages" : "Number of pages",
-    "Yes" : "بله",
-    "No" : "خیر",
-    "Unknown" : "نامشخص",
     "PDF producer" : "PDF producer",
     "PDF version" : "PDF version",
     "Number of files" : "Number of files",
@@ -88,6 +85,7 @@
     "Auto exposure" : "قرار گرفتن در معرض خودکار",
     "Manual exposure" : "قرار گرفتن در معرض دستی",
     "Auto bracket" : "براکت خودکار",
+    "Unknown" : "نامشخص",
     "Average" : "میانگین",
     "Center Weighted Average" : "میانگین وزن مرکز",
     "Spot" : "نقطه",
@@ -101,6 +99,8 @@
     "red-eye" : "چشم قرمز",
     "strobe return" : "بازگشت بارق",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (قسمت 10)",
+    "Yes" : "بله",
+    "No" : "خیر",
     "A plugin for displaying file metadata" : "افزونه ای برای نمایش ابرداده پرونده",
     "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations."
 },"pluralForm" :"nplurals=2; plural=(n > 1);"

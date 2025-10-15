@@ -72,9 +72,6 @@
     "Application" : "Iarratas",
     "Number of pages" : "Líon na leathanach",
     "Trapped" : "Gafa",
-    "Yes" : "Tá",
-    "No" : "Níl",
-    "Unknown" : "Anaithnid",
     "PDF producer" : "Táirgeoir pdf",
     "PDF version" : "Leagan PDF",
     "Number of files" : "Líon na gcomhad",
@@ -90,6 +87,7 @@
     "Auto exposure" : "Nochtadh uathoibríoch",
     "Manual exposure" : "Nochtadh láimhe",
     "Auto bracket" : "Lúibín uathoibríoch",
+    "Unknown" : "Anaithnid",
     "Average" : "Meán",
     "Center Weighted Average" : "Ionad Meán ualaithe",
     "Spot" : "Spota",
@@ -103,6 +101,8 @@
     "red-eye" : "dearg-shúil",
     "strobe return" : "filleadh strobe",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (cuid 10)",
+    "Yes" : "Tá",
+    "No" : "Níl",
     "A plugin for displaying file metadata" : "Breiseán chun meiteashonraí comhaid a thaispeáint",
     "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Breiseán a thaispeánann meiteashonraí comhaid i mbarra taoibh sonraí an chomhaid.\n\nFéach an [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) le haghaidh na gcineálacha comhaid agus na teorainneacha a dtacaítear leo."
 },"pluralForm" :"nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : 4);"

@@ -11,9 +11,9 @@
     "Subject" : "სათაური",
     "Created" : "შექმნილია",
     "Modified" : "შეიცვალა",
-    "Yes" : "დიახ",
     "Unknown" : "ამოუცნობი",
     "Pattern" : "ნიმუში",
-    "Other" : "სხვა"
+    "Other" : "სხვა",
+    "Yes" : "დიახ"
 },"pluralForm" :"nplurals=2; plural=(n!=1);"
 }

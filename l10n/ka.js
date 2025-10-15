@@ -17,11 +17,11 @@ OC.L10N.register(
     "Created" : "Created",
     "Modified" : "Modified",
     "Application" : "Application",
-    "Yes" : "კი",
-    "No" : "არა",
-    "Unknown" : "Unknown",
     "Manual" : "Manual",
+    "Unknown" : "Unknown",
     "Pattern" : "Pattern",
-    "Other" : "Other"
+    "Other" : "Other",
+    "Yes" : "კი",
+    "No" : "არა"
 },
 "nplurals=2; plural=(n!=1);");

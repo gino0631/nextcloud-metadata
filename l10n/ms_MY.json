@@ -4,8 +4,8 @@
     "Date" : "Date",
     "Description" : "Keterangan",
     "Modified" : "Dimodifikasi",
+    "Other" : "Lain",
     "Yes" : "Ya",
-    "No" : "Tidak",
-    "Other" : "Lain"
+    "No" : "Tidak"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

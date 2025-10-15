@@ -70,9 +70,6 @@
     "Modified" : "Muokattu",
     "Application" : "Sovellus",
     "Number of pages" : "Sivujen määrä",
-    "Yes" : "Kyllä",
-    "No" : "Ei",
-    "Unknown" : "Tuntematon",
     "PDF producer" : "PDF:n tuottaja",
     "PDF version" : "PDF-versio",
     "Number of files" : "Tiedostojen lukumäärä",
@@ -88,6 +85,7 @@
     "Auto exposure" : "Automaattinen valotus",
     "Manual exposure" : "Manuaalinen valotus",
     "Auto bracket" : "Automaattihaarukointi",
+    "Unknown" : "Tuntematon",
     "Average" : "Keskiarvo",
     "Center Weighted Average" : "Keskustapainotteinen mittaus",
     "Spot" : "Piste",
@@ -100,6 +98,8 @@
     "auto" : "automaattinen",
     "red-eye" : "punasilmä",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
+    "Yes" : "Kyllä",
+    "No" : "Ei",
     "A plugin for displaying file metadata" : "Liitännäinen metatietojen näyttämistä varten",
     "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Lisäosa, joka näyttää tiedoston metatiedot sivupalkissa.\n\nKatso tuetut tiedostotyypit ja rajoitukset: [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md)."
 },"pluralForm" :"nplurals=2; plural=(n != 1);"

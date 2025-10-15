@@ -71,10 +71,7 @@
     "Modified" : "Geändert",
     "Application" : "Anwendung",
     "Number of pages" : "Anzahl der Seiten",
-    "Trapped" : "Gefangen",
-    "Yes" : "Ja",
-    "No" : "Nein",
-    "Unknown" : "Unbekannt",
+    "Trapped" : "Trapped",
     "PDF producer" : "PDF-Ersteller",
     "PDF version" : "PDF-Version",
     "Number of files" : "Anzahl der Dateien",
@@ -90,6 +87,7 @@
     "Auto exposure" : "Automatische Belichtung",
     "Manual exposure" : "Manuelle Belichtung",
     "Auto bracket" : "Automatische Belichtungsreihe",
+    "Unknown" : "Unbekannt",
     "Average" : "Durchschnitt",
     "Center Weighted Average" : "Mittenbetont",
     "Spot" : "Spot",
@@ -103,6 +101,8 @@
     "red-eye" : "Rote Augen",
     "strobe return" : "Rückwurf des Blitzes",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (Teil 10)",
+    "Yes" : "Ja",
+    "No" : "Nein",
     "A plugin for displaying file metadata" : "Ein Plugin für das Anzeigen von Metadaten",
     "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Ein Plugin, das Metadaten zu Dateien in der Detailseitenleiste anzeigt.\n\nSiehe [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) für die unterstützten Dateitypen und Einschränkungen."
 },"pluralForm" :"nplurals=2; plural=(n != 1);"

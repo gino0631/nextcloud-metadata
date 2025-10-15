@@ -8,8 +8,8 @@
     "Subject" : "Onderwerp",
     "Created" : "Geskep",
     "Modified" : "Gewysig",
-    "Unknown" : "Onbekend",
     "Manual" : "Handmatig",
+    "Unknown" : "Onbekend",
     "Other" : "Ander"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

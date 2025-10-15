@@ -70,9 +70,6 @@
     "Modified" : "ئۆزگەرتكەن",
     "Application" : "ئىلتىماس",
     "Number of pages" : "بەت سانى",
-    "Yes" : "ھەئە",
-    "No" : "ياق",
-    "Unknown" : "نامەلۇم",
     "PDF producer" : "PDF ئىشلەپچىقارغۇچى",
     "PDF version" : "PDF نەشرى",
     "Number of files" : "ھۆججەت سانى",
@@ -88,6 +85,7 @@
     "Auto exposure" : "ئاپتوماتىك ئاشكارلىنىش",
     "Manual exposure" : "قولدا ئاشكارىلاش",
     "Auto bracket" : "ئاپتوماتىك تىرناق",
+    "Unknown" : "نامەلۇم",
     "Average" : "ئوتتۇرىچە",
     "Center Weighted Average" : "مەركەزنىڭ ئوتتۇرىچە ئېغىرلىقى",
     "Spot" : "داغ",
@@ -101,6 +99,8 @@
     "red-eye" : "قىزىل كۆز",
     "strobe return" : "strobe return",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (10-قىسىم)",
+    "Yes" : "ھەئە",
+    "No" : "ياق",
     "A plugin for displaying file metadata" : "ھۆججەت مېتا سانلىق مەلۇماتلىرىنى كۆرسىتىش ئۈچۈن قىستۇرما",
     "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "ھۆججەت تەپسىلاتلىرى يانبالداقتا ھۆججەت مېتا سانلىق مەلۇماتلىرىنى كۆرسىتىدىغان قىستۇرما.\n\nقوللايدىغان ھۆججەت تىپى ۋە چەكلىمىسى ئۈچۈن [README] (https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) نى كۆرۈڭ."
 },"pluralForm" :"nplurals=2; plural=(n != 1);"

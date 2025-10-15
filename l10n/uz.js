@@ -12,9 +12,9 @@ OC.L10N.register(
     "Instructions" : "Ko'rsatmalar",
     "Credits" : "Kreditlar",
     "Modified" : "Modified",
-    "Yes" : "Ha",
-    "No" : "Yo`q",
     "Unknown" : "Unknown",
-    "Other" : "Boshqa"
+    "Other" : "Boshqa",
+    "Yes" : "Ha",
+    "No" : "Yo`q"
 },
 "nplurals=1; plural=0;");

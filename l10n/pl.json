@@ -70,9 +70,6 @@
     "Modified" : "Zmodyfikowany",
     "Application" : "Aplikacja",
     "Number of pages" : "Liczba stron",
-    "Yes" : "Tak",
-    "No" : "Nie",
-    "Unknown" : "Nieznany",
     "PDF producer" : "Producent PDF",
     "PDF version" : "Wersja PDF",
     "Number of files" : "Liczba plików",
@@ -88,6 +85,7 @@
     "Auto exposure" : "Ekspozycja automatyczna",
     "Manual exposure" : "Ekspozycja ręczna",
     "Auto bracket" : "Automatyczny wspornik",
+    "Unknown" : "Nieznany",
     "Average" : "Średnia",
     "Center Weighted Average" : "Średnia ważona centralnie",
     "Spot" : "Miejsce",
@@ -101,6 +99,8 @@
     "red-eye" : "czerwone oko",
     "strobe return" : "powracanie stroboskopowe",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (część 10)",
+    "Yes" : "Tak",
+    "No" : "Nie",
     "A plugin for displaying file metadata" : "Wtyczka do wyświetlania metadanych plików",
     "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Wtyczka wyświetlająca metadane pliku na pasku bocznym szczegółów pliku.\n\nZobacz [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) w celu uzyskania informacji na temat obsługiwanych typów plików i ograniczeń."
 },"pluralForm" :"nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);"

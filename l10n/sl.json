@@ -68,9 +68,6 @@
     "Created" : "Ustvarjeno",
     "Modified" : "Spremenjeno",
     "Application" : "Program",
-    "Yes" : "Da",
-    "No" : "Ne",
-    "Unknown" : "Neznano",
     "Number of files" : "Število datotek",
     "Not defined" : "Ni določeno",
     "Manual" : "Ročno",
@@ -84,6 +81,7 @@
     "Auto exposure" : "Samodejna osvetlitev",
     "Manual exposure" : "Ročna osvetljitev",
     "Auto bracket" : "Samodejno kadriranje",
+    "Unknown" : "Neznano",
     "Average" : "Povprečje",
     "Center Weighted Average" : "Sredinsko uteženo povprečje",
     "Spot" : "Točkovno",
@@ -97,6 +95,8 @@
     "red-eye" : "odstranjevanje rdečih oči",
     "strobe return" : "stroboskop",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 – MPEG-4 AVC (del 10)",
+    "Yes" : "Da",
+    "No" : "Ne",
     "A plugin for displaying file metadata" : "Vstavek za prikaz metapodatkov",
     "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Vstavek za prikazovanje metapodatkov datotek v bočnem oknu.\n\nVeč podrobnosti o podprtih vrstah datotek in omejitvah je zapisanih v datoteki [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) ."
 },"pluralForm" :"nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);"

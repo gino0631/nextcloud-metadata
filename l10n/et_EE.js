@@ -73,9 +73,6 @@ OC.L10N.register(
     "Modified" : "Muudetud",
     "Application" : "Rakendus",
     "Number of pages" : "Lehti",
-    "Yes" : "Jah",
-    "No" : "Ei",
-    "Unknown" : "Teadmata",
     "PDF producer" : "PDF-faili valmistaja",
     "PDF version" : "PDF-i versioon",
     "Number of files" : "Failide arv",
@@ -88,6 +85,7 @@ OC.L10N.register(
     "Landscape mode" : "Rõhtvaade",
     "Auto exposure" : "Automaatne säritus",
     "Manual exposure" : "Käsitsi säritus",
+    "Unknown" : "Teadmata",
     "Average" : "Keskmine",
     "Pattern" : "Muster",
     "Partial" : "Osaline",
@@ -95,6 +93,8 @@ OC.L10N.register(
     "Flash" : "Välklamp",
     "auto" : "automaatne",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
+    "Yes" : "Jah",
+    "No" : "Ei",
     "A plugin for displaying file metadata" : "Lisamoodul faili metateabe kuvamiseks"
 },
 "nplurals=2; plural=(n != 1);");

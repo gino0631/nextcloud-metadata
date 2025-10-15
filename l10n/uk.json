@@ -70,9 +70,6 @@
     "Modified" : "Змінено",
     "Application" : "Застосунок",
     "Number of pages" : "Кількість сторінок",
-    "Yes" : "Так",
-    "No" : "Ні",
-    "Unknown" : "Невідомо",
     "PDF producer" : "Виробник PDF-файлів",
     "PDF version" : "PDF-версія",
     "Number of files" : "Кількість файлів",
@@ -88,6 +85,7 @@
     "Auto exposure" : "Автоматична експозиція",
     "Manual exposure" : "Ручна експозиція",
     "Auto bracket" : "Автоматичний кронштейн",
+    "Unknown" : "Невідомо",
     "Average" : "Середній показник",
     "Center Weighted Average" : "Середньозважена по центру",
     "Spot" : "Спот",
@@ -101,6 +99,8 @@
     "red-eye" : "з червоними очима",
     "strobe return" : "повернення стробоскопа",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (частина 10)",
+    "Yes" : "Так",
+    "No" : "Ні",
     "A plugin for displaying file metadata" : "Плаґін для показу метаданих файлів",
     "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Плагін, який відображає метадані файлу в бічній панелі деталей файлу.\n\nДивіться [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) для підтримки типів файлів і обмежень."
 },"pluralForm" :"nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);"

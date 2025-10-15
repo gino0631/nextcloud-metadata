@@ -9,8 +9,8 @@ OC.L10N.register(
     "Date" : "දිනය",
     "Comment" : "අදහස",
     "Description" : "විස්තරය",
-    "No" : "නැහැ",
     "Unknown" : "නොදන්නා",
-    "Other" : "වෙනත්"
+    "Other" : "වෙනත්",
+    "No" : "නැහැ"
 },
 "nplurals=2; plural=(n != 1);");

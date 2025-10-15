@@ -70,9 +70,6 @@
     "Modified" : "Upravené",
     "Application" : "Aplikácia",
     "Number of pages" : "Počet stránok",
-    "Yes" : "Áno",
-    "No" : "Nie",
-    "Unknown" : "Neznámy",
     "PDF producer" : "PDF vytvorené v",
     "PDF version" : "Verzia PDF",
     "Number of files" : "Počet súborov",
@@ -88,6 +85,7 @@
     "Auto exposure" : "Automatická expozícia",
     "Manual exposure" : "Manuálna expozícia",
     "Auto bracket" : "Automatické sériové snímamie",
+    "Unknown" : "Neznámy",
     "Average" : "Maticové",
     "Center Weighted Average" : "So zdôrazneným stredom",
     "Spot" : "Bodové",
@@ -101,6 +99,8 @@
     "red-eye" : "redukcia červených očí",
     "strobe return" : "stroboskopický návrat",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
+    "Yes" : "Áno",
+    "No" : "Nie",
     "A plugin for displaying file metadata" : "Zásuvný modul pre zobrazovanie metadát súboru",
     "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Zásuvný modul, ktorý v postrannom paneli s informáciami o súbore zobrazuje jeho metadáta.\n\nPodporované typy súborov a existujúce obmedzenia: [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations."
 },"pluralForm" :"nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);"

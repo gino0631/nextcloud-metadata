@@ -4,8 +4,8 @@ OC.L10N.register(
     "Title" : "ಶೀರ್ಷಿಕೆ",
     "Date" : "Date",
     "Modified" : "﻿ಬದಲಾಯಿಸಿದ",
+    "Other" : "﻿ಇತರೆ",
     "Yes" : "﻿ಹೌದು",
-    "No" : "﻿ಇಲ್ಲ",
-    "Other" : "﻿ಇತರೆ"
+    "No" : "﻿ಇಲ್ಲ"
 },
 "nplurals=2; plural=(n > 1);");

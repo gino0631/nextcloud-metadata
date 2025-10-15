@@ -15,9 +15,9 @@ OC.L10N.register(
     "Subject" : "Asunto",
     "Created" : "Creado",
     "Modified" : "Modificado",
-    "Yes" : "Sí",
     "Unknown" : "Desconocido",
     "Pattern" : "Patrón",
-    "Other" : "Otro"
+    "Other" : "Otro",
+    "Yes" : "Sí"
 },
 "nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

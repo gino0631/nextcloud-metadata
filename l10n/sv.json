@@ -72,9 +72,6 @@
     "Application" : "Applikation",
     "Number of pages" : "Antal sidor",
     "Trapped" : "Fångad",
-    "Yes" : "Ja",
-    "No" : "Nej",
-    "Unknown" : "Okänd",
     "PDF producer" : "PDF-producent",
     "PDF version" : "PDF-version",
     "Number of files" : "Antal filer",
@@ -90,6 +87,7 @@
     "Auto exposure" : "Autoexponering",
     "Manual exposure" : "Manuell exponering",
     "Auto bracket" : "Auto bracket",
+    "Unknown" : "Okänd",
     "Average" : "Medel",
     "Center Weighted Average" : "Centervägt medel",
     "Spot" : "Punkt",
@@ -103,6 +101,8 @@
     "red-eye" : "rött öga",
     "strobe return" : "stroberetur",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (del 10)",
+    "Yes" : "Ja",
+    "No" : "Nej",
     "A plugin for displaying file metadata" : "Ett plugin för att visa metadata",
     "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Ett plugin som visa bildfilens metadata i fildetaljfönstret.\n\nLäs [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) om begränsningar och vilka filtyper som stöds."
 },"pluralForm" :"nplurals=2; plural=(n != 1);"

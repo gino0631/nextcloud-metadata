@@ -70,9 +70,6 @@
     "Modified" : "عُدل",
     "Application" : "تطبيق",
     "Number of pages" : "عدد الصفحات",
-    "Yes" : "نعم",
-    "No" : "لا",
-    "Unknown" : "مجهول",
     "PDF producer" : "مُنتِج PDF",
     "PDF version" : "نسخة PDF",
     "Number of files" : "عدد الملفات",
@@ -88,6 +85,7 @@
     "Auto exposure" : "التعرُّض التلقائي Auto exposure",
     "Manual exposure" : "التعرض اليدوي Manual exposure",
     "Auto bracket" : "تصحيح تلقائي Auto bracket",
+    "Unknown" : "مجهول",
     "Average" : "متوسط",
     "Center Weighted Average" : "متوسط مركزي مُرجّح Center Weighted Average",
     "Spot" : "بُقعَة spot",
@@ -101,6 +99,8 @@
     "red-eye" : "العين الحمراء",
     "strobe return" : "رجوع الوامض strobe return",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (الجزء 10)",
+    "Yes" : "نعم",
+    "No" : "لا",
     "A plugin for displaying file metadata" : "مكوّن إضافي plugin لعرض البيانات الوصفية metadata",
     "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "مكون إضافي plugin يعرض البيانات الوصفية للملف metadata في الشريط الجانبي لتفاصيل الملف. \nراجع [README] (https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) لمعرفة أنواع الملفات المدعومة والقيود."
 },"pluralForm" :"nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;"

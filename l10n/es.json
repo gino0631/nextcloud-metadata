@@ -70,9 +70,6 @@
     "Modified" : "Modificado",
     "Application" : "Aplicación",
     "Number of pages" : "Número de página",
-    "Yes" : "Sí",
-    "No" : "No",
-    "Unknown" : "Desconocido",
     "PDF producer" : "Productor PDF",
     "PDF version" : "Versión PDF",
     "Number of files" : "Número de archivos",
@@ -88,6 +85,7 @@
     "Auto exposure" : "Exposición automática",
     "Manual exposure" : "Exposición manual",
     "Auto bracket" : "Soporte automático",
+    "Unknown" : "Desconocido",
     "Average" : "Media",
     "Center Weighted Average" : "Media ponderada en el centro",
     "Spot" : "Puntual",
@@ -101,6 +99,8 @@
     "red-eye" : "ojos rojos",
     "strobe return" : "retorno de parpadeo de luz",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
+    "Yes" : "Sí",
+    "No" : "No",
     "A plugin for displaying file metadata" : "Un plugin para mostrar los metadatos de los archivos",
     "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Un plugin que muestra los metadatos de archivos en la barra lateral de detalles de los archivos.\n\nVéase el [LÉEME](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) para los tipos de archivo compatible y las limitaciones."
 },"pluralForm" :"nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"

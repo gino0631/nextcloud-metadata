@@ -18,9 +18,9 @@ OC.L10N.register(
     "%s EV" : "%s EV",
     "Created" : "Yettwarna.",
     "Modified" : "Yettwabeddel",
-    "Yes" : "Ih",
-    "No" : "Uhu",
     "Unknown" : "Arussin",
-    "Other" : "Wayeḍ"
+    "Other" : "Wayeḍ",
+    "Yes" : "Ih",
+    "No" : "Uhu"
 },
 "nplurals=2; plural=(n != 1);");

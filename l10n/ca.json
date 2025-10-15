@@ -70,9 +70,6 @@
     "Modified" : "Darrera modificació",
     "Application" : "Aplicació",
     "Number of pages" : "Nombre de pàgines",
-    "Yes" : "Sí",
-    "No" : "No",
-    "Unknown" : "Desconegut",
     "PDF producer" : "productor de PDF",
     "PDF version" : "Versió PDF",
     "Number of files" : "Nombre de fitxers",
@@ -88,6 +85,7 @@
     "Auto exposure" : "Exposició automàtica",
     "Manual exposure" : "Exposició manual",
     "Auto bracket" : "Claudàtor automàtic",
+    "Unknown" : "Desconegut",
     "Average" : "Mitjana",
     "Center Weighted Average" : "Mitjana central ponderada",
     "Spot" : "Preu al comptat",
@@ -101,6 +99,8 @@
     "red-eye" : "ulls vermells",
     "strobe return" : "retorn estroboscòpic",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
+    "Yes" : "Sí",
+    "No" : "No",
     "A plugin for displaying file metadata" : "Connector per mostrar les metadades d'un fitxer",
     "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Connector que mostra les metadades d'un fitxer a la barra lateral de detalls dels fitxers.\n\nVeure a [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) els tipus de fitxer compatibles i les limitacions."
 },"pluralForm" :"nplurals=2; plural=(n != 1);"

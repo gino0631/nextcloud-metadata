@@ -10,8 +10,8 @@ OC.L10N.register(
     "Tags" : "Işarələr",
     "Subject" : "Mövzu",
     "Modified" : "Dəyişdirildi",
+    "Other" : "Digər",
     "Yes" : "Bəli",
-    "No" : "Xeyir",
-    "Other" : "Digər"
+    "No" : "Xeyir"
 },
 "nplurals=2; plural=(n != 1);");
