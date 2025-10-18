@@ -46,6 +46,7 @@ class MetadataService {
             case 'video/x-msvideo':
                 if ($sections = $this->readId3($file)) {
                     $metadata = $this->getAvMetadata($sections);
+//                    $metadata->dump($sections);
                 }
                 break;
 
@@ -437,6 +438,11 @@ class MetadataService {
         if ($v = $this->getVal('gps_longitude', $quicktime)) {
             $lon = $v[0];
             $this->addVal($this->t('GPS coordinates'), $this->formatGpsDegree($lon, 'E', 'W'), $return, null, self::EMSP);
+        }
+
+        if ($v = $this->getVal('gps_altitude', $quicktime)) {
+            $alt = $v[0];
+            $this->addVal($this->t('GPS altitude'), $this->formatGpsAlt($alt, 0), $return);
         }
 
         return new Metadata($return, $lat, $lon);

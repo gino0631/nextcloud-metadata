@@ -9,6 +9,10 @@
 ### Changed
 - Dropped support for PHP 8.1
 
+### Fixed
+- Parsing of QuickTime files
+  [#118](https://github.com/gino0631/nextcloud-metadata/issues/118)
+
 ## 0.23.0 – 2025-10-05
 ### Added
 - Support for MPEG transport streams
