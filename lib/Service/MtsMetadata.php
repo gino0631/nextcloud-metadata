@@ -51,6 +51,11 @@ class MtsMetadata extends MtsParser {
 
 	protected function handleStream($pid, $streamType, &$data, $pos) {
 		switch ($streamType) {
+			case MtsParser::STREAM_TYPE_VIDEO_MPEG1:
+				$this->getId3($data, $pos, 'video');
+				$this->sections['video']['codec'] = 'MPEG-1';
+				return false;
+
 			case MtsParser::STREAM_TYPE_VIDEO_MPEG2:
 				$this->getId3($data, $pos, 'video');
 				$this->sections['video']['codec'] = 'MPEG-2';
@@ -59,6 +64,11 @@ class MtsMetadata extends MtsParser {
 			case MtsParser::STREAM_TYPE_AUDIO_MPEG1:
 				$this->getId3($data, $pos, 'audio');
 				$this->sections['audio']['codec'] = 'MPEG-1';
+				return false;
+
+			case MtsParser::STREAM_TYPE_AUDIO_MPEG2:
+				$this->getId3($data, $pos, 'audio');
+				$this->sections['audio']['codec'] = 'MPEG-2';
 				return false;
 
 			case MtsParser::STREAM_TYPE_AUDIO_AC3:

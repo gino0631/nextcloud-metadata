@@ -2,13 +2,17 @@
 namespace OCA\Metadata\Service;
 
 class MtsParser extends FileReader {
+	protected const STREAM_TYPE_VIDEO_MPEG1 = 0x01;
 	protected const STREAM_TYPE_VIDEO_MPEG2 = 0x02;
 	protected const STREAM_TYPE_AUDIO_MPEG1 = 0x03;
+	protected const STREAM_TYPE_AUDIO_MPEG2 = 0x04;
 	protected const STREAM_TYPE_VIDEO_H264  = 0x1B;
 	protected const STREAM_TYPE_AUDIO_AC3   = 0x81;
 	private const TARGET_STREAM_TYPES = array(
+		self::STREAM_TYPE_VIDEO_MPEG1,
 		self::STREAM_TYPE_VIDEO_MPEG2,
 		self::STREAM_TYPE_AUDIO_MPEG1,
+		self::STREAM_TYPE_AUDIO_MPEG2,
 		self::STREAM_TYPE_VIDEO_H264,
 		self::STREAM_TYPE_AUDIO_AC3
 	);
