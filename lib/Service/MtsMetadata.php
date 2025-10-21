@@ -44,7 +44,7 @@ class MtsMetadata extends MtsParser {
 
 	public static function fromFile($hnd) {
 		$obj = new MtsMetadata();
-		$obj->parseMts($hnd, 1024);
+		$obj->parseMts($hnd, 8192);
 
 		return $obj->sections;
 	}
