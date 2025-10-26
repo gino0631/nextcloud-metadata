@@ -33,6 +33,7 @@ OC.L10N.register(
     "Audio sample rate" : "Frekvence vzorkování zvuku",
     "%s kHz" : "%s kHz",
     "Audio sample size" : "Velikost zvukového vzorku",
+    "Audio bit rate" : "Bitová rychlost zvuku",
     "Album" : "Album",
     "Track #" : "Stopa č.",
     "Year" : "Rok",
