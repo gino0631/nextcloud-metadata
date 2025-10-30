@@ -37,9 +37,8 @@ OC.L10N.register(
     "Credits" : "クレジット",
     "Source" : "出典",
     "Software" : "ソフトウェア",
-    "Exposure" : "暴露",
     "%s sec." : "%s sec.",
-    "ISO-%s" : "ISO %s",
+    "ISO-%s" : "ISO-%s",
     "Subject" : "件名",
     "Created" : "作成時刻",
     "Modified" : "更新日時",
@@ -53,7 +52,6 @@ OC.L10N.register(
     "Other" : "その他",
     "Flash" : "フラッシュ",
     "auto" : "自動",
-    "red-eye" : "赤目",
     "Yes" : "はい",
     "No" : "いいえ"
 },
