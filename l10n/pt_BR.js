@@ -73,7 +73,7 @@ OC.L10N.register(
     "Modified" : "Modificado",
     "Application" : "Aplicativo",
     "Number of pages" : "Número de páginas",
-    "Trapped" : "Encurralada",
+    "Trapped" : "Trapagem",
     "PDF producer" : "Produtor de PDF",
     "PDF version" : "Versão PDF",
     "Number of files" : "Número de arquivos",
