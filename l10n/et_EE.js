@@ -73,6 +73,7 @@ OC.L10N.register(
     "Modified" : "Muudetud",
     "Application" : "Rakendus",
     "Number of pages" : "Lehti",
+    "Trapped" : "Värvikatvusmärkidega",
     "PDF producer" : "PDF-faili valmistaja",
     "PDF version" : "PDF-i versioon",
     "Number of files" : "Failide arv",
@@ -90,11 +91,14 @@ OC.L10N.register(
     "Pattern" : "Muster",
     "Partial" : "Osaline",
     "Other" : "Muu",
+    "No flash function" : "Välklambita",
     "Flash" : "Välklamp",
     "auto" : "automaatne",
+    "red-eye" : "punasilmsus",
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "Yes" : "Jah",
     "No" : "Ei",
-    "A plugin for displaying file metadata" : "Lisamoodul faili metateabe kuvamiseks"
+    "A plugin for displaying file metadata" : "Lisamoodul faili metateabe kuvamiseks",
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Lisamoodul, mis kuvab failide metateavet failiandmete külgpaanil.\n\nSellest [LOEMIND-failist(https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) leiad teavet toetatud tüüpide, vormingute ja piirangute kohta."
 },
 "nplurals=2; plural=(n != 1);");
