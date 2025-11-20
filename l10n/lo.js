@@ -20,6 +20,7 @@ OC.L10N.register(
     "Created" : "ສ້າງເມື່ອ",
     "Modified" : "ດັດແປງ",
     "Application" : "Application",
+    "Not defined" : "ບໍ່ໄດ້ກຳນົດ",
     "Manual" : "Manual",
     "Unknown" : "ບໍ່ຮູ້",
     "Pattern" : "Pattern",
