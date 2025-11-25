@@ -2,7 +2,7 @@ OC.L10N.register(
     "metadata",
     {
     "Reading metadata …" : "Čtení metadat…",
-    "Resolving, click here to view on map …" : "Řeší se, pro zobrazení na mapě klikněte sem…",
+    "Resolving, click here to view on map …" : "Řeší se, pro zobrazení na mapě klikněte sem …",
     "Nominatim service unavailable, click here to view on map" : "Nominační služba není k dispozici, pro zobrazení na mapě klikněte sem",
     "Location" : "Umístění",
     "Location could not be determined" : "Umístění se nepodařilo zjistit",
