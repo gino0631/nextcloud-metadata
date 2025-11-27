@@ -25,7 +25,7 @@ OC.L10N.register(
     "Description" : "Descrição",
     "Rating" : "Avaliação",
     "People" : "Pessoas",
-    "Tags" : "Marcações",
+    "Tags" : "Etiquetas",
     "Keywords" : "Palavras-chave",
     "Instructions" : "Instruções",
     "Credits" : "Créditos",
