@@ -33,6 +33,7 @@ OC.L10N.register(
     "Audio sample rate" : "Ääninäytteen nopeus",
     "%s kHz" : "%s kHz",
     "Audio sample size" : "Ääninäytteen koko",
+    "Audio bit rate" : "Äänen bittinopeus",
     "Album" : "Albumi",
     "Track #" : "Kappale #",
     "Year" : "Vuosi",
