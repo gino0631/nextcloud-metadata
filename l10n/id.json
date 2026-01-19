@@ -6,6 +6,7 @@
     "Year" : "Tahun",
     "Date" : "Date",
     "Comment" : "Komentar",
+    "Headline" : "Judul",
     "Description" : "Deskrisi",
     "Rating" : "Nilai",
     "People" : "Orang",
@@ -15,7 +16,10 @@
     "Subject" : "Subjek",
     "Created" : "Dibuat",
     "Modified" : "Dimodifikasi",
+    "Not defined" : "Tidak ditentukan",
     "Unknown" : "Tidak diketahui",
-    "Other" : "Lainnya"
+    "Other" : "Lainnya",
+    "Yes" : "Ya",
+    "No" : "Tidak"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

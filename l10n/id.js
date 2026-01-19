@@ -8,6 +8,7 @@ OC.L10N.register(
     "Year" : "Tahun",
     "Date" : "Date",
     "Comment" : "Komentar",
+    "Headline" : "Judul",
     "Description" : "Deskrisi",
     "Rating" : "Nilai",
     "People" : "Orang",
@@ -17,7 +18,10 @@ OC.L10N.register(
     "Subject" : "Subjek",
     "Created" : "Dibuat",
     "Modified" : "Dimodifikasi",
+    "Not defined" : "Tidak ditentukan",
     "Unknown" : "Tidak diketahui",
-    "Other" : "Lainnya"
+    "Other" : "Lainnya",
+    "Yes" : "Ya",
+    "No" : "Tidak"
 },
 "nplurals=1; plural=0;");
