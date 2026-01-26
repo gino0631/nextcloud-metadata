@@ -31,6 +31,8 @@ OC.L10N.register(
     "Not defined" : "Tidak ditentukan",
     "Manual" : "Manual",
     "Unknown" : "Tidak diketahui",
+    "Pattern" : "Pola",
+    "Partial" : "Sebagian",
     "Other" : "Lainnya",
     "Yes" : "Ya",
     "No" : "Tidak"
