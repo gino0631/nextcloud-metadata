@@ -69,6 +69,7 @@ OC.L10N.register(
     "Subject" : "Predmet",
     "Created" : "Stvoreno",
     "Modified" : "Promijenjeno",
+    "Application" : "Aplikacija",
     "Number of files" : "Broj datoteka",
     "Not defined" : "Nedefinirano",
     "Manual" : "Ručno",
