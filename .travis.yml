@@ -1,6 +1,6 @@
 language: php
 os: linux
-dist: jammy
+dist: noble
 php:
   - 8.2
   - 8.3
