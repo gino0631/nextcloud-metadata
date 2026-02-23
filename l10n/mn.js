@@ -10,6 +10,7 @@ OC.L10N.register(
     "Metadata" : "Мета өгөгдөл",
     "No metadata found." : "Мета өгөгдөл олдсонгүй.",
     "Unsupported MIME type \"%s\"." : "Дэмжигдээгүй MIME төрөл \"%s\".",
+    "EXIF support is missing; you might need to install an appropriate package for your system." : "EXIF дэмжлэг байхгүй байна; системдээ тохирох багцыг суулгах шаардлагатай байж болно.",
     "Title" : "Цол/Албан тушаал",
     "Artist" : "Уран бүтээлч",
     "Date created" : "Үүсгэсэн огноо",
@@ -104,6 +105,7 @@ OC.L10N.register(
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "Yes" : "Тийм",
     "No" : "Үгүй",
-    "A plugin for displaying file metadata" : "Файлын мета өгөгдлийг харуулах залгаас"
+    "A plugin for displaying file metadata" : "Файлын мета өгөгдлийг харуулах залгаас",
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Файлын дэлгэрэнгүй мэдээллийн самбарт файлын мета өгөгдлийг харуулдаг залгаас.\n\nДэмжигдэх файлын төрлүүд болон хязгаарлалтуудыг [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md)-г үзнэ үү."
 },
 "nplurals=2; plural=(n != 1);");
