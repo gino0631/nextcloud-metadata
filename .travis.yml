@@ -17,8 +17,8 @@ env:
   global:
     - APP_NAME=metadata
   jobs:
-    - CLOUD=nextcloud CORE_BRANCH=stable31
     - CLOUD=nextcloud CORE_BRANCH=stable32
+    - CLOUD=nextcloud CORE_BRANCH=stable33
     - CLOUD=nextcloud CORE_BRANCH=master
 
 jobs:
