@@ -7,6 +7,7 @@ OC.L10N.register(
     "Date" : "Date",
     "Comment" : "Kommentér",
     "Description" : "Skildring",
+    "People" : "Folk",
     "Tags" : "Emneord",
     "Created" : "Lagd",
     "Modified" : "Endra",
