@@ -2,9 +2,14 @@
 
 ## [Unreleased]
 ### Added
+- Compatibility with Nextcloud 34
+
+## 0.24.0 – 2026-06-14
+### Added
 - Support for PDF custom properties
   [#65](https://github.com/gino0631/nextcloud-metadata/issues/65)
 - Compatibility with Nextcloud 33
+  [#123](https://github.com/gino0631/nextcloud-metadata/issues/123)
 
 ### Changed
 - Dropped support for PHP 8.1
