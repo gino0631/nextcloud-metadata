@@ -3,6 +3,7 @@
 ## [Unreleased]
 ### Added
 - Compatibility with Nextcloud 34
+- Support for PHP 8.5
 
 ## 0.24.0 – 2026-06-14
 ### Added
