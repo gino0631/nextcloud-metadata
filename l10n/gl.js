@@ -1,13 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Reading metadata …" : "Lendo os metadatos…",
-    "Resolving, click here to view on map …" : "Resolvendo, prema aquí para ver no mapa…",
-    "Nominatim service unavailable, click here to view on map" : "O servizo Nominatim non está dispoñíbel, prema aquí para ver no mapa… ",
-    "Location" : "Localización",
-    "Location could not be determined" : "Non foi posíbel determinar a localización",
-    "Nominatim service unavailable" : "O servizo Nominatim non está dispoñíbel",
-    "Metadata" : "Metadatos",
     "No metadata found." : "Non se atopou ningún metadato",
     "Unsupported MIME type \"%s\"." : "Tipo MIME «%s» non admitido.",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Non se atopa a compatibilidade con EXIF; quizais necesite instalar un paquete axeitado para o se sistema.",
@@ -105,7 +98,14 @@ OC.L10N.register(
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (parte 10)",
     "Yes" : "Si",
     "No" : "Non",
+    "Metadata" : "Metadatos",
     "A plugin for displaying file metadata" : "Un complemento para amosar metadatos de ficheiros",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Un complemento que amosa os metadatos do ficheiro na barra lateral de detalles do ficheiro.\n\nConsulte o [LÉEME] (https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) para ver os tipos e limitacións de ficheiros admitidos."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Un complemento que amosa os metadatos do ficheiro na barra lateral de detalles do ficheiro.\n\nConsulte o [LÉEME] (https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) para ver os tipos e limitacións de ficheiros admitidos.",
+    "Reading metadata …" : "Lendo os metadatos…",
+    "Resolving, click here to view on map …" : "Resolvendo, prema aquí para ver no mapa…",
+    "Nominatim service unavailable, click here to view on map" : "O servizo Nominatim non está dispoñíbel, prema aquí para ver no mapa… ",
+    "Location" : "Localización",
+    "Location could not be determined" : "Non foi posíbel determinar a localización",
+    "Nominatim service unavailable" : "O servizo Nominatim non está dispoñíbel"
 },
 "nplurals=2; plural=(n != 1);");

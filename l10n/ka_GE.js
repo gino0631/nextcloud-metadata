@@ -1,7 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "ადგილმდებარეობა",
     "Title" : "სათაური",
     "Copyright" : "საავტორო უფლებები",
     "Date" : "თარიღი",
@@ -16,6 +15,7 @@ OC.L10N.register(
     "Unknown" : "ამოუცნობი",
     "Pattern" : "ნიმუში",
     "Other" : "სხვა",
-    "Yes" : "დიახ"
+    "Yes" : "დიახ",
+    "Location" : "ადგილმდებარეობა"
 },
 "nplurals=2; plural=(n!=1);");

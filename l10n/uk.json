@@ -1,11 +1,4 @@
 { "translations": {
-    "Reading metadata …" : "Отримання метаданих...",
-    "Resolving, click here to view on map …" : "Визначення, клацніть тут для перегляду на мапі ...",
-    "Nominatim service unavailable, click here to view on map" : "Послуга Nominatim недоступна, натисніть тут, щоб переглянути на мапі",
-    "Location" : "Місце",
-    "Location could not be determined" : "Неможливо визначити розташування",
-    "Nominatim service unavailable" : "Послуга Nominatim недоступна",
-    "Metadata" : "Метадані",
     "No metadata found." : "Відсутні метадані.",
     "Unsupported MIME type \"%s\"." : "Не підтримується MIME тип \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Відсутня підтримка EXIF; можливо, вам доведеться встановити відповідний пакет для вашої системи.",
@@ -101,7 +94,14 @@
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (частина 10)",
     "Yes" : "Так",
     "No" : "Ні",
+    "Metadata" : "Метадані",
     "A plugin for displaying file metadata" : "Плаґін для показу метаданих файлів",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Плагін, який відображає метадані файлу в бічній панелі деталей файлу.\n\nДивіться [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) для підтримки типів файлів і обмежень."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Плагін, який відображає метадані файлу в бічній панелі деталей файлу.\n\nДивіться [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) для підтримки типів файлів і обмежень.",
+    "Reading metadata …" : "Отримання метаданих...",
+    "Resolving, click here to view on map …" : "Визначення, клацніть тут для перегляду на мапі ...",
+    "Nominatim service unavailable, click here to view on map" : "Послуга Nominatim недоступна, натисніть тут, щоб переглянути на мапі",
+    "Location" : "Місце",
+    "Location could not be determined" : "Неможливо визначити розташування",
+    "Nominatim service unavailable" : "Послуга Nominatim недоступна"
 },"pluralForm" :"nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);"
 }

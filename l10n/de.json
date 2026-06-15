@@ -1,11 +1,4 @@
 { "translations": {
-    "Reading metadata …" : "Lese Metadaten …",
-    "Resolving, click here to view on map …" : "Auflösen, klicke hier, um die Karte zu sehen …",
-    "Nominatim service unavailable, click here to view on map" : "Nominatim-Dienst nicht verfügbar. Klicke hier, um die Karte zu sehen.",
-    "Location" : "Ort",
-    "Location could not be determined" : "Ort konnte nicht bestimmt werden.",
-    "Nominatim service unavailable" : "Nominatim-Dienst nicht verfügbar",
-    "Metadata" : "Metadaten",
     "No metadata found." : "Keine Metadaten gefunden. ",
     "Unsupported MIME type \"%s\"." : "Nicht unterstützter MIME-Typ \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "EXIF-Unterstützung fehlt. Möglicherweise musst du ein entsprechendes Paket für dein System installieren.",
@@ -103,7 +96,14 @@
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (Teil 10)",
     "Yes" : "Ja",
     "No" : "Nein",
+    "Metadata" : "Metadaten",
     "A plugin for displaying file metadata" : "Ein Plugin für das Anzeigen von Metadaten",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Ein Plugin, das Metadaten zu Dateien in der Detailseitenleiste anzeigt.\n\nSiehe [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) für die unterstützten Dateitypen und Einschränkungen."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Ein Plugin, das Metadaten zu Dateien in der Detailseitenleiste anzeigt.\n\nSiehe [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) für die unterstützten Dateitypen und Einschränkungen.",
+    "Reading metadata …" : "Lese Metadaten …",
+    "Resolving, click here to view on map …" : "Auflösen, klicke hier, um die Karte zu sehen …",
+    "Nominatim service unavailable, click here to view on map" : "Nominatim-Dienst nicht verfügbar. Klicke hier, um die Karte zu sehen.",
+    "Location" : "Ort",
+    "Location could not be determined" : "Ort konnte nicht bestimmt werden.",
+    "Nominatim service unavailable" : "Nominatim-Dienst nicht verfügbar"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

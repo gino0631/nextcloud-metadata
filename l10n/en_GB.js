@@ -1,13 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Reading metadata …" : "Reading metadata …",
-    "Resolving, click here to view on map …" : "Resolving, click here to view on map …",
-    "Nominatim service unavailable, click here to view on map" : "Nominatim service unavailable, click here to view on map",
-    "Location" : "Location",
-    "Location could not be determined" : "Location could not be determined",
-    "Nominatim service unavailable" : "Nominatim service unavailable",
-    "Metadata" : "Metadata",
     "No metadata found." : "No metadata found.",
     "Unsupported MIME type \"%s\"." : "Unsupported MIME type \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "EXIF support is missing; you might need to install an appropriate package for your system.",
@@ -105,7 +98,14 @@ OC.L10N.register(
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "Yes" : "Yes",
     "No" : "No",
+    "Metadata" : "Metadata",
     "A plugin for displaying file metadata" : "A plugin for displaying file metadata",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations.",
+    "Reading metadata …" : "Reading metadata …",
+    "Resolving, click here to view on map …" : "Resolving, click here to view on map …",
+    "Nominatim service unavailable, click here to view on map" : "Nominatim service unavailable, click here to view on map",
+    "Location" : "Location",
+    "Location could not be determined" : "Location could not be determined",
+    "Nominatim service unavailable" : "Nominatim service unavailable"
 },
 "nplurals=2; plural=(n != 1);");

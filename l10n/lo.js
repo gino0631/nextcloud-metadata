@@ -1,8 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "Location",
-    "Metadata" : "Metadata",
     "Title" : "ຫົວຂໍ້",
     "Artist" : "ສິນລະປິນ",
     "Date created" : "ວັນທີສ້າງ",
@@ -33,6 +31,8 @@ OC.L10N.register(
     "Pattern" : "Pattern",
     "Other" : "ອື່ນໆ",
     "Yes" : "ແມ່ນ",
-    "No" : "ບໍ່"
+    "No" : "ບໍ່",
+    "Metadata" : "Metadata",
+    "Location" : "Location"
 },
 "nplurals=1; plural=0;");

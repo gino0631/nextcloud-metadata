@@ -1,5 +1,4 @@
 { "translations": {
-    "Location" : "ස්ථානය",
     "Length" : "දිග",
     "Copyright" : "ප්‍රකාශන හිමිකම",
     "Android version" : "ඇන්ඩ්‍රොයිඩ් අනුවාදය",
@@ -9,6 +8,7 @@
     "Description" : "විස්තරය",
     "Unknown" : "නොදන්නා",
     "Other" : "වෙනත්",
-    "No" : "නැහැ"
+    "No" : "නැහැ",
+    "Location" : "ස්ථානය"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

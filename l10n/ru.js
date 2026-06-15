@@ -1,13 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Reading metadata …" : "Чтение метаданных...",
-    "Resolving, click here to view on map …" : "Выполняется определение, нажмите здесь, чтобы просмотреть местоположение на карте …",
-    "Nominatim service unavailable, click here to view on map" : "Cервис геокодирования Nominatim недоступен. Нажмите здесь чтобы просмотреть местоположение на карте. ",
-    "Location" : "Местоположение",
-    "Location could not be determined" : "Невозможно определить местоположение",
-    "Nominatim service unavailable" : "Недоступен сервис геокодирования Nominatim ",
-    "Metadata" : "Метаданные",
     "No metadata found." : "Метаданные не найдены.",
     "Unsupported MIME type \"%s\"." : "Неподдерживаемый MIME-тип «%s»",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "В системе не установлены модули поддержки расширений EXIF.",
@@ -105,7 +98,14 @@ OC.L10N.register(
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 — MPEG-4 AVC (часть 10)",
     "Yes" : "Да",
     "No" : "Нет",
+    "Metadata" : "Метаданные",
     "A plugin for displaying file metadata" : "Подключаемый модуль для просмотра метаданных файлов",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Этот подключаемый модуль позволяет просматривать метаданные файлов в боковой панели.\n\nОзнакомьтесь с информацией по ссылке [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) чтобы узнать о поддерживаемых типах файлов и ограничениях."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Этот подключаемый модуль позволяет просматривать метаданные файлов в боковой панели.\n\nОзнакомьтесь с информацией по ссылке [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) чтобы узнать о поддерживаемых типах файлов и ограничениях.",
+    "Reading metadata …" : "Чтение метаданных...",
+    "Resolving, click here to view on map …" : "Выполняется определение, нажмите здесь, чтобы просмотреть местоположение на карте …",
+    "Nominatim service unavailable, click here to view on map" : "Cервис геокодирования Nominatim недоступен. Нажмите здесь чтобы просмотреть местоположение на карте. ",
+    "Location" : "Местоположение",
+    "Location could not be determined" : "Невозможно определить местоположение",
+    "Nominatim service unavailable" : "Недоступен сервис геокодирования Nominatim "
 },
 "nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);");

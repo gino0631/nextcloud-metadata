@@ -1,6 +1,4 @@
 { "translations": {
-    "Location" : "Atrašanās vieta",
-    "Metadata" : "Metadati",
     "Title" : "Amats",
     "Copyright" : "Autortiesības",
     "Year" : "Gads",
@@ -22,6 +20,8 @@
     "Unknown" : "Nezināms",
     "Other" : "Cits",
     "Yes" : "Jā",
-    "No" : "Nē"
+    "No" : "Nē",
+    "Metadata" : "Metadati",
+    "Location" : "Atrašanās vieta"
 },"pluralForm" :"nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);"
 }

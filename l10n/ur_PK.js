@@ -1,12 +1,12 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "مقام",
     "Title" : "عنوان",
     "Date" : "Date",
     "Description" : "تصریح",
     "Other" : "دیگر",
     "Yes" : "ہاں",
-    "No" : "نہیں"
+    "No" : "نہیں",
+    "Location" : "مقام"
 },
 "nplurals=2; plural=(n != 1);");

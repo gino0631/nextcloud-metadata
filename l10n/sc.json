@@ -1,11 +1,4 @@
 { "translations": {
-    "Reading metadata …" : "Letura de is metadatos",
-    "Resolving, click here to view on map …" : "Risolutzione. Incarca inoghe pro visualizare in sa mapa ...",
-    "Nominatim service unavailable, click here to view on map" : "Su servìtziu Nominatim no est a disponimentu, incarca inoghe pro visualizare in sa mapa",
-    "Location" : "Positzione",
-    "Location could not be determined" : "No at fatu a determinare sa positzione",
-    "Nominatim service unavailable" : "Su servìtziu Nominatim no est a disponimentu",
-    "Metadata" : "Metadatos",
     "No metadata found." : "Perunu metadatu agatadu.",
     "Unsupported MIME type \"%s\"." : "Genia MIME \"%s\" non suportada.",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Mancat su suportu EXIF; ti diat tocare de installare unu pachete apòsitu pro su sistema tuo.",
@@ -96,7 +89,14 @@
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "Yes" : "Si",
     "No" : "No",
+    "Metadata" : "Metadatos",
     "A plugin for displaying file metadata" : "Un'estensione pro mustrare archìvios metadatos",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Un'estensione chi mustrat archìvios metadatos in s'istanga de is detàllios de is archìvios.\n\nCàstia [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) pro is genias de archìvios suportados e pro is limitatziones."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Un'estensione chi mustrat archìvios metadatos in s'istanga de is detàllios de is archìvios.\n\nCàstia [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) pro is genias de archìvios suportados e pro is limitatziones.",
+    "Reading metadata …" : "Letura de is metadatos",
+    "Resolving, click here to view on map …" : "Risolutzione. Incarca inoghe pro visualizare in sa mapa ...",
+    "Nominatim service unavailable, click here to view on map" : "Su servìtziu Nominatim no est a disponimentu, incarca inoghe pro visualizare in sa mapa",
+    "Location" : "Positzione",
+    "Location could not be determined" : "No at fatu a determinare sa positzione",
+    "Nominatim service unavailable" : "Su servìtziu Nominatim no est a disponimentu"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

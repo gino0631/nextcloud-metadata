@@ -1,11 +1,4 @@
 { "translations": {
-    "Reading metadata …" : "Čtení metadat…",
-    "Resolving, click here to view on map …" : "Řeší se, pro zobrazení na mapě klikněte sem …",
-    "Nominatim service unavailable, click here to view on map" : "Nominační služba není k dispozici, pro zobrazení na mapě klikněte sem",
-    "Location" : "Umístění",
-    "Location could not be determined" : "Umístění se nepodařilo zjistit",
-    "Nominatim service unavailable" : "Nominační služba není dostupná",
-    "Metadata" : "Metadata",
     "No metadata found." : "Nenalezena žádná metadata.",
     "Unsupported MIME type \"%s\"." : "Nepodporovaný MIME typ „%s“",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Podpora pro EXIF metadata chybí. Do systému je třeba doinstalovat příslušný balíček.",
@@ -103,7 +96,14 @@
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "Yes" : "Ano",
     "No" : "Ne",
+    "Metadata" : "Metadata",
     "A plugin for displaying file metadata" : "Zásuvný modul pro zobrazování metadat souboru",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Zásuvný modul, který v postranním panelu s podrobnostmi o souboru zobrazuje jeho metadata.\n\nPodporované typy souborů a omezení viz [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md)."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Zásuvný modul, který v postranním panelu s podrobnostmi o souboru zobrazuje jeho metadata.\n\nPodporované typy souborů a omezení viz [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md).",
+    "Reading metadata …" : "Čtení metadat…",
+    "Resolving, click here to view on map …" : "Řeší se, pro zobrazení na mapě klikněte sem …",
+    "Nominatim service unavailable, click here to view on map" : "Nominační služba není k dispozici, pro zobrazení na mapě klikněte sem",
+    "Location" : "Umístění",
+    "Location could not be determined" : "Umístění se nepodařilo zjistit",
+    "Nominatim service unavailable" : "Nominační služba není dostupná"
 },"pluralForm" :"nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;"
 }

@@ -1,5 +1,4 @@
 { "translations": {
-    "Location" : "Տեղակայություն",
     "Title" : "Վերնագիր",
     "Date" : "Date",
     "Comment" : "Մեկնաբանել",
@@ -9,6 +8,7 @@
     "Unknown" : "Անհայտ",
     "Other" : "Այլ",
     "Yes" : "Այո",
-    "No" : "Ոչ"
+    "No" : "Ոչ",
+    "Location" : "Տեղակայություն"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

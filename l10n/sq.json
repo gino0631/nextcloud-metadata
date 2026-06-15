@@ -1,5 +1,4 @@
 { "translations": {
-    "Location" : "Vendndodhje",
     "Title" : "Titulli",
     "Copyright" : "Të drejta kopjimi",
     "Date" : "Data",
@@ -14,6 +13,7 @@
     "Unknown" : "I/E panjohur",
     "Pattern" : "Strukturë",
     "Other" : "Tjetër",
-    "Yes" : "Po"
+    "Yes" : "Po",
+    "Location" : "Vendndodhje"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

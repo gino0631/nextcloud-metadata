@@ -1,13 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Reading metadata …" : "Loen metaandmeid…",
-    "Resolving, click here to view on map …" : "Tuvastan, kaardil vaatamiseks klõpsi siin…",
-    "Nominatim service unavailable, click here to view on map" : "Nominatimi teenus pole saadaval, klõpsi siin vaatamiseks kaardil",
-    "Location" : "Asukoht",
-    "Location could not be determined" : "Asukoha tuvastamine ei õnnestunud",
-    "Nominatim service unavailable" : "Nominatimi teenus pole saadaval",
-    "Metadata" : "Metaandmed",
     "No metadata found." : "Metateavet ei leidu.",
     "Unsupported MIME type \"%s\"." : "„%s“ MIME tüüp ehk vorming pole toetatud.",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "EXIF-i tugi on puudu. Sa ilmselt pead oma serverisse paigaldama vastava paketi.",
@@ -98,7 +91,14 @@ OC.L10N.register(
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "Yes" : "Jah",
     "No" : "Ei",
+    "Metadata" : "Metaandmed",
     "A plugin for displaying file metadata" : "Lisamoodul faili metateabe kuvamiseks",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Lisamoodul, mis kuvab failide metateavet failiandmete külgpaanil.\n\nSellest [LOEMIND-failist(https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) leiad teavet toetatud tüüpide, vormingute ja piirangute kohta."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Lisamoodul, mis kuvab failide metateavet failiandmete külgpaanil.\n\nSellest [LOEMIND-failist(https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) leiad teavet toetatud tüüpide, vormingute ja piirangute kohta.",
+    "Reading metadata …" : "Loen metaandmeid…",
+    "Resolving, click here to view on map …" : "Tuvastan, kaardil vaatamiseks klõpsi siin…",
+    "Nominatim service unavailable, click here to view on map" : "Nominatimi teenus pole saadaval, klõpsi siin vaatamiseks kaardil",
+    "Location" : "Asukoht",
+    "Location could not be determined" : "Asukoha tuvastamine ei õnnestunud",
+    "Nominatim service unavailable" : "Nominatimi teenus pole saadaval"
 },
 "nplurals=2; plural=(n != 1);");

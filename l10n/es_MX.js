@@ -1,7 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "Ubicación",
     "Title" : "Título",
     "Author" : "Autor",
     "Copyright" : "Derechos de autor",
@@ -22,6 +21,7 @@ OC.L10N.register(
     "Manual" : "Manual",
     "Unknown" : "Desconocido",
     "Pattern" : "Patrón",
-    "Other" : "Otro"
+    "Other" : "Otro",
+    "Location" : "Ubicación"
 },
 "nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

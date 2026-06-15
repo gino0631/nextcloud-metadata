@@ -1,11 +1,4 @@
 { "translations": {
-    "Reading metadata …" : "Skaitomi metaduomenys…",
-    "Resolving, click here to view on map …" : "Sprendžiama, spustelėkite čia, kad peržiūrėtumėte žemėlapyje…",
-    "Nominatim service unavailable, click here to view on map" : "„Nominatim“ paslauga nepasiekiama, spustelėkite čia, norėdami peržiūrėti žemėlapyje",
-    "Location" : "Vieta",
-    "Location could not be determined" : "Nepavyko nustatyti vietos",
-    "Nominatim service unavailable" : "„Nominatim“ paslauga nepasiekiama",
-    "Metadata" : "Metaduomenys",
     "No metadata found." : "Nerasta jokių metaduomenų.",
     "Unsupported MIME type \"%s\"." : "Nepalaikomas MIME tipas \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Trūksta EXIF palaikymo; jums gali tekti įdiegti savo sistemai tinkamą paketą.",
@@ -103,7 +96,14 @@
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "Yes" : "Taip",
     "No" : "Ne",
+    "Metadata" : "Metaduomenys",
     "A plugin for displaying file metadata" : "Failo metaduomenų atvaizdavimo įskiepis",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Įskiepis, kuris rodo failo metaduomenis failo informacijos šoninėje juostoje.\n\nŽr. [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md), kuriame pateikiami palaikomi failų tipai ir apribojimai."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Įskiepis, kuris rodo failo metaduomenis failo informacijos šoninėje juostoje.\n\nŽr. [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md), kuriame pateikiami palaikomi failų tipai ir apribojimai.",
+    "Reading metadata …" : "Skaitomi metaduomenys…",
+    "Resolving, click here to view on map …" : "Sprendžiama, spustelėkite čia, kad peržiūrėtumėte žemėlapyje…",
+    "Nominatim service unavailable, click here to view on map" : "„Nominatim“ paslauga nepasiekiama, spustelėkite čia, norėdami peržiūrėti žemėlapyje",
+    "Location" : "Vieta",
+    "Location could not be determined" : "Nepavyko nustatyti vietos",
+    "Nominatim service unavailable" : "„Nominatim“ paslauga nepasiekiama"
 },"pluralForm" :"nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);"
 }

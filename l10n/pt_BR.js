@@ -1,13 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Reading metadata …" : "Lendo metadados...",
-    "Resolving, click here to view on map …" : "Resolvendo, clique aqui para ver no mapa...",
-    "Nominatim service unavailable, click here to view on map" : "Serviço Nominatim indisponível, clique aqui para ver no mapa",
-    "Location" : "Localização",
-    "Location could not be determined" : "A localização não pôde ser determinada",
-    "Nominatim service unavailable" : "Serviço Nominatim indisponível",
-    "Metadata" : "Metadados",
     "No metadata found." : "Nenhum metadado encontrado.",
     "Unsupported MIME type \"%s\"." : "Tipo MIME não suportado \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Falta o suporte para EXIF; pode ser necessário instalar um pacote para o seu sistema.",
@@ -105,7 +98,14 @@ OC.L10N.register(
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (parte 10)",
     "Yes" : "Sim",
     "No" : "Não",
+    "Metadata" : "Metadados",
     "A plugin for displaying file metadata" : "Um plugin para exibir os metadados do arquivo",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Um plugin que exibe os metadados do arquivo na barra lateral de detalhes do arquivo.\n\nVeja o [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) para os tipos e limitações de arquivos suportados."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Um plugin que exibe os metadados do arquivo na barra lateral de detalhes do arquivo.\n\nVeja o [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) para os tipos e limitações de arquivos suportados.",
+    "Reading metadata …" : "Lendo metadados...",
+    "Resolving, click here to view on map …" : "Resolvendo, clique aqui para ver no mapa...",
+    "Nominatim service unavailable, click here to view on map" : "Serviço Nominatim indisponível, clique aqui para ver no mapa",
+    "Location" : "Localização",
+    "Location could not be determined" : "A localização não pôde ser determinada",
+    "Nominatim service unavailable" : "Serviço Nominatim indisponível"
 },
 "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

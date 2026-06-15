@@ -1,11 +1,4 @@
 { "translations": {
-    "Reading metadata …" : "Čítanie meta údajov…",
-    "Resolving, click here to view on map …" : "Ak chcete zobraziť mapu, kliknite sem...",
-    "Nominatim service unavailable, click here to view on map" : "Nominačná služba nie je k dispozícii, pre zobrazenie na mape kliknite sem",
-    "Location" : "Umiestnenie",
-    "Location could not be determined" : "Nepodarilo sa zistiť umiestnenie",
-    "Nominatim service unavailable" : "Nominačná služba nie je k dispozícii",
-    "Metadata" : "Metadáta",
     "No metadata found." : "Nenašli sa žiadne metadáta.",
     "Unsupported MIME type \"%s\"." : "Nepodporovaný MIME typ \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Podpora pre EXIF metadáta chýba. Pre jej podporu je potrebné doinštalovať príslušný balík.",
@@ -101,7 +94,14 @@
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "Yes" : "Áno",
     "No" : "Nie",
+    "Metadata" : "Metadáta",
     "A plugin for displaying file metadata" : "Zásuvný modul pre zobrazovanie metadát súboru",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Zásuvný modul, ktorý v postrannom paneli s informáciami o súbore zobrazuje jeho metadáta.\n\nPodporované typy súborov a existujúce obmedzenia: [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Zásuvný modul, ktorý v postrannom paneli s informáciami o súbore zobrazuje jeho metadáta.\n\nPodporované typy súborov a existujúce obmedzenia: [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations.",
+    "Reading metadata …" : "Čítanie meta údajov…",
+    "Resolving, click here to view on map …" : "Ak chcete zobraziť mapu, kliknite sem...",
+    "Nominatim service unavailable, click here to view on map" : "Nominačná služba nie je k dispozícii, pre zobrazenie na mape kliknite sem",
+    "Location" : "Umiestnenie",
+    "Location could not be determined" : "Nepodarilo sa zistiť umiestnenie",
+    "Nominatim service unavailable" : "Nominačná služba nie je k dispozícii"
 },"pluralForm" :"nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);"
 }

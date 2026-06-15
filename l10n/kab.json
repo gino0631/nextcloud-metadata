@@ -1,6 +1,4 @@
 { "translations": {
-    "Location" : "Adig",
-    "Metadata" : "Adferisefka",
     "Title" : "Azwel",
     "%g fps" : "%g fps",
     "Author" : "Ameskar",
@@ -27,6 +25,8 @@
     "Partial" : "Aḥric",
     "Other" : "Wayeḍ",
     "Yes" : "Ih",
-    "No" : "Uhu"
+    "No" : "Uhu",
+    "Metadata" : "Adferisefka",
+    "Location" : "Adig"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

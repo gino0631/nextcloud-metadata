@@ -1,5 +1,4 @@
 { "translations": {
-    "Location" : "ទីតាំង",
     "Title" : "ចំណងជើង",
     "Artist" : "តន្ត្រីករណ៍",
     "Length" : "រយៈពេល",
@@ -12,6 +11,7 @@
     "Modified" : "បាន​កែ​ប្រែ",
     "Other" : "ផ្សេងៗ",
     "Yes" : "បាទ ឬចាស",
-    "No" : "ទេ"
+    "No" : "ទេ",
+    "Location" : "ទីតាំង"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

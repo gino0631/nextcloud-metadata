@@ -1,5 +1,4 @@
 { "translations": {
-    "Location" : "ადგილმდებარეობა",
     "Title" : "სათაური",
     "Copyright" : "საავტორო უფლებები",
     "Date" : "თარიღი",
@@ -14,6 +13,7 @@
     "Unknown" : "ამოუცნობი",
     "Pattern" : "ნიმუში",
     "Other" : "სხვა",
-    "Yes" : "დიახ"
+    "Yes" : "დიახ",
+    "Location" : "ადგილმდებარეობა"
 },"pluralForm" :"nplurals=2; plural=(n!=1);"
 }

@@ -1,5 +1,4 @@
 { "translations": {
-    "Location" : "Stad",
     "Title" : "Tittel",
     "Year" : "År",
     "Date" : "Date",
@@ -10,6 +9,7 @@
     "Created" : "Lagd",
     "Modified" : "Endra",
     "Unknown" : "Ukjend",
-    "Other" : "Anna"
+    "Other" : "Anna",
+    "Location" : "Stad"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

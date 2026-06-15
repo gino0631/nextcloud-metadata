@@ -1,8 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "Vị trí",
-    "Metadata" : "Metadata",
     "Title" : "Tên",
     "Artist" : "Ca sĩ",
     "Date created" : "Ngày tạo",
@@ -29,6 +27,8 @@ OC.L10N.register(
     "Unknown" : "Không xác định",
     "Other" : "Khác",
     "Yes" : "Có",
-    "No" : "Không"
+    "No" : "Không",
+    "Metadata" : "Metadata",
+    "Location" : "Vị trí"
 },
 "nplurals=1; plural=0;");

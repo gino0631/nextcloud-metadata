@@ -1,13 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Reading metadata …" : "Inasoma metadata...",
-    "Resolving, click here to view on map …" : "Inasuluhisha, bofya hapa ili kutazama kwenye ramani…",
-    "Nominatim service unavailable, click here to view on map" : "Huduma ya nominatim haipatikani, bofya hapa ili kutazama kwenye ramani",
-    "Location" : "Mahali/eneo",
-    "Location could not be determined" : "Mahali hapakuweza kubainishwa",
-    "Nominatim service unavailable" : "Huduma ya nominatim haipatikani",
-    "Metadata" : "Metadata",
     "No metadata found." : "Hakuna metadata iliyopatikana",
     "Unsupported MIME type \"%s\"." : "Aina ya MIME isiyotumika \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Usaidizi wa EXIF ​​haupo; unaweza kuhitaji kusakinisha kifurushi kinachofaa kwa mfumo wako.",
@@ -103,7 +96,14 @@ OC.L10N.register(
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "Yes" : "Ndiyo",
     "No" : "Hapana",
+    "Metadata" : "Metadata",
     "A plugin for displaying file metadata" : "Programu-jalizi ya kuonyesha metadata ya faili",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Programu-jalizi inayoonyesha metadata ya faili kwenye upau wa kando wa maelezo ya faili.\n\nAngalia [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) kwa aina na vikwazo vya faili vinavyotumika."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Programu-jalizi inayoonyesha metadata ya faili kwenye upau wa kando wa maelezo ya faili.\n\nAngalia [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) kwa aina na vikwazo vya faili vinavyotumika.",
+    "Reading metadata …" : "Inasoma metadata...",
+    "Resolving, click here to view on map …" : "Inasuluhisha, bofya hapa ili kutazama kwenye ramani…",
+    "Nominatim service unavailable, click here to view on map" : "Huduma ya nominatim haipatikani, bofya hapa ili kutazama kwenye ramani",
+    "Location" : "Mahali/eneo",
+    "Location could not be determined" : "Mahali hapakuweza kubainishwa",
+    "Nominatim service unavailable" : "Huduma ya nominatim haipatikani"
 },
 "nplurals=2; plural=(n != 1);");

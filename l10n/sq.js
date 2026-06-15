@@ -1,7 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "Vendndodhje",
     "Title" : "Titulli",
     "Copyright" : "Të drejta kopjimi",
     "Date" : "Data",
@@ -16,6 +15,7 @@ OC.L10N.register(
     "Unknown" : "I/E panjohur",
     "Pattern" : "Strukturë",
     "Other" : "Tjetër",
-    "Yes" : "Po"
+    "Yes" : "Po",
+    "Location" : "Vendndodhje"
 },
 "nplurals=2; plural=(n != 1);");

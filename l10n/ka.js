@@ -1,8 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "Location",
-    "Metadata" : "Metadata",
     "Author" : "Author",
     "Year" : "Year",
     "Date" : "Date",
@@ -22,6 +20,8 @@ OC.L10N.register(
     "Pattern" : "Pattern",
     "Other" : "Other",
     "Yes" : "კი",
-    "No" : "არა"
+    "No" : "არა",
+    "Metadata" : "Metadata",
+    "Location" : "Location"
 },
 "nplurals=2; plural=(n!=1);");

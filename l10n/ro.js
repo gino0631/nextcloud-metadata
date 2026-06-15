@@ -1,7 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "Locație",
     "Title" : "Titlu",
     "Author" : "Autor",
     "Year" : "An",
@@ -20,6 +19,7 @@ OC.L10N.register(
     "Unknown" : "Necunoscut",
     "Other" : "Altele",
     "Yes" : "Da",
-    "No" : "Nu"
+    "No" : "Nu",
+    "Location" : "Locație"
 },
 "nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));");

@@ -1,7 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "Stad",
     "Title" : "Tittel",
     "Year" : "År",
     "Date" : "Date",
@@ -12,6 +11,7 @@ OC.L10N.register(
     "Created" : "Lagd",
     "Modified" : "Endra",
     "Unknown" : "Ukjend",
-    "Other" : "Anna"
+    "Other" : "Anna",
+    "Location" : "Stad"
 },
 "nplurals=2; plural=(n != 1);");

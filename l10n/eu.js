@@ -1,13 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Reading metadata …" : "Metadatuak irakurtzen …",
-    "Resolving, click here to view on map …" : "Ebazten, sakatu hemen mapan ikusteko …",
-    "Nominatim service unavailable, click here to view on map" : "Nominatim zerbitzua ez dago erabilgarri, sakatu hemen mapan ikusteko",
-    "Location" : "Kokapena",
-    "Location could not be determined" : "Ezin izan da kokapena zehaztu",
-    "Nominatim service unavailable" : "Nominatim zerbitzua ez dago erabilgarri",
-    "Metadata" : "Metadatuak",
     "No metadata found." : "Ez da metadaturik aurkitu.",
     "Unsupported MIME type \"%s\"." : "Euskarririk gabeko MIME mota \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "EXIF euskarria falta da, zure sistemarako pakete egokia instalatu behar zenezake.",
@@ -103,7 +96,14 @@ OC.L10N.register(
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "Yes" : "Bai",
     "No" : "Ez",
+    "Metadata" : "Metadatuak",
     "A plugin for displaying file metadata" : "Fitxategien metadatuak bistaratzeko plugina",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Fitxategiaren xehetasunen alboko barran fitxategiaren metadatuak bistaratzen dituen plugina.\n\nIkusi [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) fitxategia onartutako fitxategi-motak eta mugak jakiteko."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Fitxategiaren xehetasunen alboko barran fitxategiaren metadatuak bistaratzen dituen plugina.\n\nIkusi [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) fitxategia onartutako fitxategi-motak eta mugak jakiteko.",
+    "Reading metadata …" : "Metadatuak irakurtzen …",
+    "Resolving, click here to view on map …" : "Ebazten, sakatu hemen mapan ikusteko …",
+    "Nominatim service unavailable, click here to view on map" : "Nominatim zerbitzua ez dago erabilgarri, sakatu hemen mapan ikusteko",
+    "Location" : "Kokapena",
+    "Location could not be determined" : "Ezin izan da kokapena zehaztu",
+    "Nominatim service unavailable" : "Nominatim zerbitzua ez dago erabilgarri"
 },
 "nplurals=2; plural=(n != 1);");

@@ -1,13 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Reading metadata …" : "Ανάγνωση μεταδεδομένων …",
-    "Resolving, click here to view on map …" : "Επίλυση, κλικ εδώ για εμφάνιση στο χάρτη …",
-    "Nominatim service unavailable, click here to view on map" : "Η υπηρεσία Nominatim δεν είναι διαθέσιμη, κλικ εδώ για εμφάνιση στο χάρτη",
-    "Location" : "Τοποθεσία",
-    "Location could not be determined" : "Δεν ήταν δυνατό να προσδιοριστεί η τοποθεσία",
-    "Nominatim service unavailable" : "Η υπηρεσία Nominatim δεν είναι διαθέσιμη",
-    "Metadata" : "Μεταδεδομένα",
     "No metadata found." : "Δεν βρέθηκαν μεταδεδομένα.",
     "Unsupported MIME type \"%s\"." : "Μη υποστηριζόμενος τύπος ΜΙΜΕ \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Η υποστήριξη EXIF απουσιάζει; ίσως χρειαστεί να εγκαταστήσετε ένα κατάλληλο πακέτο για το σύστημά σας.",
@@ -105,7 +98,14 @@ OC.L10N.register(
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "Yes" : "Ναι",
     "No" : "Όχι",
+    "Metadata" : "Μεταδεδομένα",
     "A plugin for displaying file metadata" : "Μια επέκταση για εμφάνιση μεταδεδομένων ενός αρχείου",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Μια επέκταση για εμφάνιση μεταδεδομένων ενός αρχείου στις λεπτομέρειες πλευρικής εργαλειοθήκης..\n\nΔείτε στο [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) για τους υποστηριζόμενους τύπους αρχείων και περιορισμούς."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Μια επέκταση για εμφάνιση μεταδεδομένων ενός αρχείου στις λεπτομέρειες πλευρικής εργαλειοθήκης..\n\nΔείτε στο [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) για τους υποστηριζόμενους τύπους αρχείων και περιορισμούς.",
+    "Reading metadata …" : "Ανάγνωση μεταδεδομένων …",
+    "Resolving, click here to view on map …" : "Επίλυση, κλικ εδώ για εμφάνιση στο χάρτη …",
+    "Nominatim service unavailable, click here to view on map" : "Η υπηρεσία Nominatim δεν είναι διαθέσιμη, κλικ εδώ για εμφάνιση στο χάρτη",
+    "Location" : "Τοποθεσία",
+    "Location could not be determined" : "Δεν ήταν δυνατό να προσδιοριστεί η τοποθεσία",
+    "Nominatim service unavailable" : "Η υπηρεσία Nominatim δεν είναι διαθέσιμη"
 },
 "nplurals=2; plural=(n != 1);");

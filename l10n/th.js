@@ -1,7 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "ตำแหน่ง",
     "Title" : "ชื่อเรื่อง",
     "Length" : "ความยาวเพลง",
     "Copyright" : "ลิขสิทธิ์",
@@ -16,6 +15,7 @@ OC.L10N.register(
     "Unknown" : "ไม่ทราบ",
     "Other" : "อื่น ๆ",
     "Yes" : "ใช่",
-    "No" : "ไม่ตกลง"
+    "No" : "ไม่ตกลง",
+    "Location" : "ตำแหน่ง"
 },
 "nplurals=1; plural=0;");

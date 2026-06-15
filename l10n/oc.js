@@ -1,8 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "Emplaçament",
-    "Metadata" : "Metadonadas",
     "Title" : "Títol",
     "Artist" : "Artista",
     "Length" : "Longor",
@@ -21,6 +19,8 @@ OC.L10N.register(
     "Unknown" : "Desconegut",
     "Other" : "Autre",
     "Yes" : "Òc",
-    "No" : "Non"
+    "No" : "Non",
+    "Metadata" : "Metadonadas",
+    "Location" : "Emplaçament"
 },
 "nplurals=2; plural=(n > 1);");

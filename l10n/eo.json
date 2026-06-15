@@ -1,5 +1,4 @@
 { "translations": {
-    "Location" : "Loko",
     "Title" : "Titolo",
     "Copyright" : "Kopirajto",
     "Date" : "Date",
@@ -16,6 +15,7 @@
     "Unknown" : "Nekonata",
     "Other" : "Alia",
     "Yes" : "Jes",
-    "No" : "Ne"
+    "No" : "Ne",
+    "Location" : "Loko"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

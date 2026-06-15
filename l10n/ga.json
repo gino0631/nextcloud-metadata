@@ -1,11 +1,4 @@
 { "translations": {
-    "Reading metadata …" : "Meiteashonraí á léamh…",
-    "Resolving, click here to view on map …" : "Ag réiteach, cliceáil anseo chun féachaint ar léarscáil…",
-    "Nominatim service unavailable, click here to view on map" : "Níl seirbhís Nominatim ar fáil, cliceáil anseo chun é a fheiceáil ar an léarscáil",
-    "Location" : "Suíomh",
-    "Location could not be determined" : "Níorbh fhéidir an suíomh a chinneadh",
-    "Nominatim service unavailable" : "Níl seirbhís Nominatim ar fáil",
-    "Metadata" : "Meiteashonraí",
     "No metadata found." : "Níor aimsíodh aon mheiteashonraí.",
     "Unsupported MIME type \"%s\"." : "Cineál MIME \"%s\" nach dtacaítear leis.",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Tá tacaíocht EXIF ​​ar iarraidh; seans go mbeidh ort pacáiste cuí a shuiteáil do do chóras.",
@@ -103,7 +96,14 @@
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (cuid 10)",
     "Yes" : "Tá",
     "No" : "Níl",
+    "Metadata" : "Meiteashonraí",
     "A plugin for displaying file metadata" : "Breiseán chun meiteashonraí comhaid a thaispeáint",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Breiseán a thaispeánann meiteashonraí comhaid i mbarra taoibh sonraí an chomhaid.\n\nFéach an [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) le haghaidh na gcineálacha comhaid agus na teorainneacha a dtacaítear leo."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Breiseán a thaispeánann meiteashonraí comhaid i mbarra taoibh sonraí an chomhaid.\n\nFéach an [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) le haghaidh na gcineálacha comhaid agus na teorainneacha a dtacaítear leo.",
+    "Reading metadata …" : "Meiteashonraí á léamh…",
+    "Resolving, click here to view on map …" : "Ag réiteach, cliceáil anseo chun féachaint ar léarscáil…",
+    "Nominatim service unavailable, click here to view on map" : "Níl seirbhís Nominatim ar fáil, cliceáil anseo chun é a fheiceáil ar an léarscáil",
+    "Location" : "Suíomh",
+    "Location could not be determined" : "Níorbh fhéidir an suíomh a chinneadh",
+    "Nominatim service unavailable" : "Níl seirbhís Nominatim ar fáil"
 },"pluralForm" :"nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : 4);"
 }

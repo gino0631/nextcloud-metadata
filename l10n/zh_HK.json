@@ -1,11 +1,4 @@
 { "translations": {
-    "Reading metadata …" : "正在讀取元數據 ...",
-    "Resolving, click here to view on map …" : "正在解決，請點擊此處在地圖上查看…",
-    "Nominatim service unavailable, click here to view on map" : "按名字的服務不可用，請單擊此處在地圖上查看",
-    "Location" : "地點",
-    "Location could not be determined" : "無法確定位置",
-    "Nominatim service unavailable" : "按名字服務無法使用",
-    "Metadata" : "元數據",
     "No metadata found." : "找不到元數據。",
     "Unsupported MIME type \"%s\"." : "不支援的 MIME 格式 \"%s\"。",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "缺少EXIF支持； 您可能需要為系統安裝適當的軟件。",
@@ -103,7 +96,14 @@
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC（part 10）",
     "Yes" : "是",
     "No" : "否",
+    "Metadata" : "元數據",
     "A plugin for displaying file metadata" : "用於顯示文件元數據的插件",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "一個在文件詳細信息側欄中顯示文件元數據的插件。有關受支持的文件類型和限制，請參見 [自述文件]（https://github.com/gino0631/nextcloud-metadata/blob/master/README.md）。"
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "一個在文件詳細信息側欄中顯示文件元數據的插件。有關受支持的文件類型和限制，請參見 [自述文件]（https://github.com/gino0631/nextcloud-metadata/blob/master/README.md）。",
+    "Reading metadata …" : "正在讀取元數據 ...",
+    "Resolving, click here to view on map …" : "正在解決，請點擊此處在地圖上查看…",
+    "Nominatim service unavailable, click here to view on map" : "按名字的服務不可用，請單擊此處在地圖上查看",
+    "Location" : "地點",
+    "Location could not be determined" : "無法確定位置",
+    "Nominatim service unavailable" : "按名字服務無法使用"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

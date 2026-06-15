@@ -1,8 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "Atrašanās vieta",
-    "Metadata" : "Metadati",
     "Title" : "Amats",
     "Copyright" : "Autortiesības",
     "Year" : "Gads",
@@ -24,6 +22,8 @@ OC.L10N.register(
     "Unknown" : "Nezināms",
     "Other" : "Cits",
     "Yes" : "Jā",
-    "No" : "Nē"
+    "No" : "Nē",
+    "Metadata" : "Metadati",
+    "Location" : "Atrašanās vieta"
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);");

@@ -1,7 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "Joylashuv",
     "Title" : "Sarlavha",
     "Year" : "Yil",
     "Date" : "Sana",
@@ -15,6 +14,7 @@ OC.L10N.register(
     "Unknown" : "Unknown",
     "Other" : "Boshqa",
     "Yes" : "Ha",
-    "No" : "Yo`q"
+    "No" : "Yo`q",
+    "Location" : "Joylashuv"
 },
 "nplurals=1; plural=0;");

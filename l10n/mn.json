@@ -1,11 +1,4 @@
 { "translations": {
-    "Reading metadata …" : "Мета өгөгдлийг уншиж байна …",
-    "Resolving, click here to view on map …" : "Тодруулж байна, газрын зурагт харахын тулд энд дарна уу …",
-    "Nominatim service unavailable, click here to view on map" : "Nominatim үйлчилгээ боломжгүй байна, газрын зурагт харахын тулд энд дарна уу",
-    "Location" : "Байршил",
-    "Location could not be determined" : "Байршлыг тодорхойлж чадсангүй",
-    "Nominatim service unavailable" : "Nominatim үйлчилгээ боломжгүй байна",
-    "Metadata" : "Мета өгөгдөл",
     "No metadata found." : "Мета өгөгдөл олдсонгүй.",
     "Unsupported MIME type \"%s\"." : "Дэмжигдээгүй MIME төрөл \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "EXIF дэмжлэг байхгүй байна; системдээ тохирох багцыг суулгах шаардлагатай байж болно.",
@@ -103,7 +96,14 @@
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "Yes" : "Тийм",
     "No" : "Үгүй",
+    "Metadata" : "Мета өгөгдөл",
     "A plugin for displaying file metadata" : "Файлын мета өгөгдлийг харуулах залгаас",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Файлын дэлгэрэнгүй мэдээллийн самбарт файлын мета өгөгдлийг харуулдаг залгаас.\n\nДэмжигдэх файлын төрлүүд болон хязгаарлалтуудыг [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md)-г үзнэ үү."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Файлын дэлгэрэнгүй мэдээллийн самбарт файлын мета өгөгдлийг харуулдаг залгаас.\n\nДэмжигдэх файлын төрлүүд болон хязгаарлалтуудыг [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md)-г үзнэ үү.",
+    "Reading metadata …" : "Мета өгөгдлийг уншиж байна …",
+    "Resolving, click here to view on map …" : "Тодруулж байна, газрын зурагт харахын тулд энд дарна уу …",
+    "Nominatim service unavailable, click here to view on map" : "Nominatim үйлчилгээ боломжгүй байна, газрын зурагт харахын тулд энд дарна уу",
+    "Location" : "Байршил",
+    "Location could not be determined" : "Байршлыг тодорхойлж чадсангүй",
+    "Nominatim service unavailable" : "Nominatim үйлчилгээ боломжгүй байна"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

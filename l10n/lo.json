@@ -1,6 +1,4 @@
 { "translations": {
-    "Location" : "Location",
-    "Metadata" : "Metadata",
     "Title" : "ຫົວຂໍ້",
     "Artist" : "ສິນລະປິນ",
     "Date created" : "ວັນທີສ້າງ",
@@ -31,6 +29,8 @@
     "Pattern" : "Pattern",
     "Other" : "ອື່ນໆ",
     "Yes" : "ແມ່ນ",
-    "No" : "ບໍ່"
+    "No" : "ບໍ່",
+    "Metadata" : "Metadata",
+    "Location" : "Location"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

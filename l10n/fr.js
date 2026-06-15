@@ -1,13 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Reading metadata …" : "Lecture des métadonnées…",
-    "Resolving, click here to view on map …" : "Résolution, cliquez ici pour voir sur la carte…",
-    "Nominatim service unavailable, click here to view on map" : "Service Nominatim indisponible, cliquez ici pour voir sur la carte",
-    "Location" : "Emplacement",
-    "Location could not be determined" : "Impossible de déterminer la position.",
-    "Nominatim service unavailable" : "Service Nominatim indisponible",
-    "Metadata" : "Métadonnées",
     "No metadata found." : "Aucune métadonnée trouvée.",
     "Unsupported MIME type \"%s\"." : "Type MIME « %s » non pris en charge.",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "La prise en charge du format EXIF est manquante ; vous pourriez avoir besoin d'installer un paquet approprié pour votre système.",
@@ -105,7 +98,14 @@ OC.L10N.register(
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "Yes" : "Oui",
     "No" : "Non",
+    "Metadata" : "Métadonnées",
     "A plugin for displaying file metadata" : "Un plugin pour afficher les fichiers de métadonnées",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Un plugin qui affiche les métadonnées du fichier dans le panneau latéral des détails du fichier. \nVoir le [README] (https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) pour les types de fichiers pris en charge et les limitations."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Un plugin qui affiche les métadonnées du fichier dans le panneau latéral des détails du fichier. \nVoir le [README] (https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) pour les types de fichiers pris en charge et les limitations.",
+    "Reading metadata …" : "Lecture des métadonnées…",
+    "Resolving, click here to view on map …" : "Résolution, cliquez ici pour voir sur la carte…",
+    "Nominatim service unavailable, click here to view on map" : "Service Nominatim indisponible, cliquez ici pour voir sur la carte",
+    "Location" : "Emplacement",
+    "Location could not be determined" : "Impossible de déterminer la position.",
+    "Nominatim service unavailable" : "Service Nominatim indisponible"
 },
 "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

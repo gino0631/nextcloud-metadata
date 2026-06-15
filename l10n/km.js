@@ -1,7 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "ទីតាំង",
     "Title" : "ចំណងជើង",
     "Artist" : "តន្ត្រីករណ៍",
     "Length" : "រយៈពេល",
@@ -14,6 +13,7 @@ OC.L10N.register(
     "Modified" : "បាន​កែ​ប្រែ",
     "Other" : "ផ្សេងៗ",
     "Yes" : "បាទ ឬចាស",
-    "No" : "ទេ"
+    "No" : "ទេ",
+    "Location" : "ទីតាំង"
 },
 "nplurals=1; plural=0;");

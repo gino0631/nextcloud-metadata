@@ -1,13 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Reading metadata …" : "Üst veriler okunuyor …",
-    "Resolving, click here to view on map …" : "Çözümleniyor, harita üzerinde görüntülemek için buraya tıklayın …",
-    "Nominatim service unavailable, click here to view on map" : "Nominatim hizmeti kullanılamıyor, harita üzerinde görüntülemek için buraya tıklayın",
-    "Location" : "Konum",
-    "Location could not be determined" : "Konum belirlenemedi",
-    "Nominatim service unavailable" : "Nominatim hizmeti kullanılamıyor",
-    "Metadata" : "Üst veriler",
     "No metadata found." : "Herhangi bir üst veri bulunamadı.",
     "Unsupported MIME type \"%s\"." : "Desteklenmeyen MIME türü \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "EXIF desteği bulunamadı. Sisteminize uygun paketi kurmanız gerekiyor olabilir.",
@@ -105,7 +98,14 @@ OC.L10N.register(
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "Yes" : "Evet",
     "No" : "Hayır",
+    "Metadata" : "Üst veriler",
     "A plugin for displaying file metadata" : "Dosya üst verilerini görüntüleyen bir eklenti",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Dosya üst verilerini dosya ayrıntıları kenar çubuğunda görüntüleyen bir eklenti.\n\nDesteklenen dosya türleri ve sınırlamalar ile ilgili ayrıntılı bilgi almak için [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) dosyasına bakabilirsiniz."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Dosya üst verilerini dosya ayrıntıları kenar çubuğunda görüntüleyen bir eklenti.\n\nDesteklenen dosya türleri ve sınırlamalar ile ilgili ayrıntılı bilgi almak için [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) dosyasına bakabilirsiniz.",
+    "Reading metadata …" : "Üst veriler okunuyor …",
+    "Resolving, click here to view on map …" : "Çözümleniyor, harita üzerinde görüntülemek için buraya tıklayın …",
+    "Nominatim service unavailable, click here to view on map" : "Nominatim hizmeti kullanılamıyor, harita üzerinde görüntülemek için buraya tıklayın",
+    "Location" : "Konum",
+    "Location could not be determined" : "Konum belirlenemedi",
+    "Nominatim service unavailable" : "Nominatim hizmeti kullanılamıyor"
 },
 "nplurals=2; plural=(n > 1);");

@@ -1,11 +1,4 @@
 { "translations": {
-    "Reading metadata …" : "Luetaan metatietoja...",
-    "Resolving, click here to view on map …" : "Ratkaistaan, klikkaa tästä näyttääksesi kartalla ...",
-    "Nominatim service unavailable, click here to view on map" : "Nominatim-palvelu ei käytettävissä, klikkaa tästä näyttääksesi kartalla",
-    "Location" : "Sijainti",
-    "Location could not be determined" : "Sijaintia ei voitu määrittää",
-    "Nominatim service unavailable" : "Nominatim-palvelu ei käytettävissä",
-    "Metadata" : "Metatiedot",
     "No metadata found." : "Metatietoja ei löytynyt.",
     "Unsupported MIME type \"%s\"." : "MIME-tyyppi \"%s\" ei ole tuettu.",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "EXIF-tuki puuttuu; järjestelmään tulee asentaa soveltuva paketti.",
@@ -101,7 +94,14 @@
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "Yes" : "Kyllä",
     "No" : "Ei",
+    "Metadata" : "Metatiedot",
     "A plugin for displaying file metadata" : "Liitännäinen metatietojen näyttämistä varten",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Lisäosa, joka näyttää tiedoston metatiedot sivupalkissa.\n\nKatso tuetut tiedostotyypit ja rajoitukset: [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md)."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Lisäosa, joka näyttää tiedoston metatiedot sivupalkissa.\n\nKatso tuetut tiedostotyypit ja rajoitukset: [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md).",
+    "Reading metadata …" : "Luetaan metatietoja...",
+    "Resolving, click here to view on map …" : "Ratkaistaan, klikkaa tästä näyttääksesi kartalla ...",
+    "Nominatim service unavailable, click here to view on map" : "Nominatim-palvelu ei käytettävissä, klikkaa tästä näyttääksesi kartalla",
+    "Location" : "Sijainti",
+    "Location could not be determined" : "Sijaintia ei voitu määrittää",
+    "Nominatim service unavailable" : "Nominatim-palvelu ei käytettävissä"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

@@ -1,7 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "Yerləşdiyiniz ünvan",
     "Title" : "Başlıq",
     "Date" : "Date",
     "Comment" : "Komentariya",
@@ -12,6 +11,7 @@ OC.L10N.register(
     "Modified" : "Dəyişdirildi",
     "Other" : "Digər",
     "Yes" : "Bəli",
-    "No" : "Xeyir"
+    "No" : "Xeyir",
+    "Location" : "Yerləşdiyiniz ünvan"
 },
 "nplurals=2; plural=(n != 1);");

@@ -1,11 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Reading metadata …" : "Lleendo los metadatos…",
-    "Location" : "Llocalización",
-    "Location could not be determined" : "Nun se pudo determinar la llocalización",
-    "Nominatim service unavailable" : "El serviciu de Nominatim nun ta disponible",
-    "Metadata" : "Metadatos",
     "No metadata found." : "Nun s'atopó nengún metadatu.",
     "Title" : "Tñitulu",
     "Artist" : "Artista",
@@ -63,6 +58,11 @@ OC.L10N.register(
     "Flash" : "Flax",
     "Yes" : "Sí",
     "No" : "Non",
-    "A plugin for displaying file metadata" : "Un plugin p'amosar metadatos de ficheros"
+    "Metadata" : "Metadatos",
+    "A plugin for displaying file metadata" : "Un plugin p'amosar metadatos de ficheros",
+    "Reading metadata …" : "Lleendo los metadatos…",
+    "Location" : "Llocalización",
+    "Location could not be determined" : "Nun se pudo determinar la llocalización",
+    "Nominatim service unavailable" : "El serviciu de Nominatim nun ta disponible"
 },
 "nplurals=2; plural=(n != 1);");

@@ -1,8 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "Adig",
-    "Metadata" : "Adferisefka",
     "Title" : "Azwel",
     "%g fps" : "%g fps",
     "Author" : "Ameskar",
@@ -29,6 +27,8 @@ OC.L10N.register(
     "Partial" : "Aḥric",
     "Other" : "Wayeḍ",
     "Yes" : "Ih",
-    "No" : "Uhu"
+    "No" : "Uhu",
+    "Metadata" : "Adferisefka",
+    "Location" : "Adig"
 },
 "nplurals=2; plural=(n != 1);");

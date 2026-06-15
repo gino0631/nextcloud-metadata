@@ -1,8 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "Placering",
-    "Metadata" : "Metadata",
     "Title" : "Titel",
     "Artist" : "Kunster",
     "Date created" : "Oprettet den",
@@ -33,6 +31,8 @@ OC.L10N.register(
     "Pattern" : "Mønster",
     "Other" : "Andet",
     "Yes" : "Ja",
-    "No" : "Nej"
+    "No" : "Nej",
+    "Metadata" : "Metadata",
+    "Location" : "Placering"
 },
 "nplurals=2; plural=(n != 1);");

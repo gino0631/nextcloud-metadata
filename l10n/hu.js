@@ -1,13 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Reading metadata …" : "Metaadatok olvasása…",
-    "Resolving, click here to view on map …" : "Meghatározás, kattintson ide a térképen való megtekintéshez…",
-    "Nominatim service unavailable, click here to view on map" : "A Nominatim szolgáltatás nem érhető el, kattintson ide a térképen való megjelenítéshez",
-    "Location" : "Hely",
-    "Location could not be determined" : "A hely nem határozható meg",
-    "Nominatim service unavailable" : "A Nominatim szolgáltatás nem érhető el",
-    "Metadata" : "Metaadatok",
     "No metadata found." : "Nem találhatók metaadatok.",
     "Unsupported MIME type \"%s\"." : "Nem támogatott MIME-típus: „%s”.",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Az EXIF támogatás hiányzik; lehet hogy telepítenie kell a megfelelő csomagot a rendszerén.",
@@ -105,7 +98,14 @@ OC.L10N.register(
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 – MPEG-4 AVC (part 10)",
     "Yes" : "Igen",
     "No" : "Nem",
+    "Metadata" : "Metaadatok",
     "A plugin for displaying file metadata" : "Bővítmény a fájl-metaadatok megjelenítéséhez",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Bővítmény, amely megjeleníti a fájlok metaadatait a fájlrészletező oldalsávban.\n\nLásd a [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) fájlt a támogatott fájltípusok és korlátozások megtekintéséhez."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Bővítmény, amely megjeleníti a fájlok metaadatait a fájlrészletező oldalsávban.\n\nLásd a [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) fájlt a támogatott fájltípusok és korlátozások megtekintéséhez.",
+    "Reading metadata …" : "Metaadatok olvasása…",
+    "Resolving, click here to view on map …" : "Meghatározás, kattintson ide a térképen való megtekintéshez…",
+    "Nominatim service unavailable, click here to view on map" : "A Nominatim szolgáltatás nem érhető el, kattintson ide a térképen való megjelenítéshez",
+    "Location" : "Hely",
+    "Location could not be determined" : "A hely nem határozható meg",
+    "Nominatim service unavailable" : "A Nominatim szolgáltatás nem érhető el"
 },
 "nplurals=2; plural=(n != 1);");

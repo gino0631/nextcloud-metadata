@@ -1,8 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "Lokasi",
-    "Metadata" : "Metadata",
     "Title" : "Judul",
     "Artist" : "Artis",
     "Date created" : "Tanggal dibuat",
@@ -35,6 +33,8 @@ OC.L10N.register(
     "Partial" : "Sebagian",
     "Other" : "Lainnya",
     "Yes" : "Ya",
-    "No" : "Tidak"
+    "No" : "Tidak",
+    "Metadata" : "Metadata",
+    "Location" : "Lokasi"
 },
 "nplurals=1; plural=0;");

@@ -1,6 +1,4 @@
 { "translations": {
-    "Location" : "Placering",
-    "Metadata" : "Metadata",
     "Title" : "Titel",
     "Artist" : "Kunster",
     "Date created" : "Oprettet den",
@@ -31,6 +29,8 @@
     "Pattern" : "Mønster",
     "Other" : "Andet",
     "Yes" : "Ja",
-    "No" : "Nej"
+    "No" : "Nej",
+    "Metadata" : "Metadata",
+    "Location" : "Placering"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

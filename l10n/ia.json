@@ -1,5 +1,4 @@
 { "translations": {
-    "Location" : "Loco",
     "Title" : "Titulo",
     "Copyright" : "Copyright",
     "Date" : "Date",
@@ -8,6 +7,7 @@
     "Tags" : "Etiquettas",
     "Modified" : "Modificate",
     "Unknown" : "Incognite",
-    "Other" : "Altere"
+    "Other" : "Altere",
+    "Location" : "Loco"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

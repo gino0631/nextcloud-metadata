@@ -1,6 +1,4 @@
 { "translations": {
-    "Location" : "Lokasi",
-    "Metadata" : "Metadata",
     "Title" : "Judul",
     "Artist" : "Artis",
     "Date created" : "Tanggal dibuat",
@@ -33,6 +31,8 @@
     "Partial" : "Sebagian",
     "Other" : "Lainnya",
     "Yes" : "Ya",
-    "No" : "Tidak"
+    "No" : "Tidak",
+    "Metadata" : "Metadata",
+    "Location" : "Lokasi"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

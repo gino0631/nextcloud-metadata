@@ -1,10 +1,10 @@
 { "translations": {
-    "Location" : "مقام",
     "Title" : "عنوان",
     "Date" : "Date",
     "Description" : "تصریح",
     "Other" : "دیگر",
     "Yes" : "ہاں",
-    "No" : "نہیں"
+    "No" : "نہیں",
+    "Location" : "مقام"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

@@ -1,11 +1,4 @@
 { "translations": {
-    "Reading metadata …" : "S'estan llegint les metadades…",
-    "Resolving, click here to view on map …" : "Resolent, feu clic aquí per veure al mapa …",
-    "Nominatim service unavailable, click here to view on map" : "Servei Nominatim no disponible, fer click per veure al mapa",
-    "Location" : "Ubicació",
-    "Location could not be determined" : "No es pot determinar la ubicació",
-    "Nominatim service unavailable" : "Servei Nominatim no disponible",
-    "Metadata" : "Metadades",
     "No metadata found." : "No s'han trobat metades.",
     "Unsupported MIME type \"%s\"." : "Tipus MIME \"%s\" no compatible.",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Suport EXIF no disponible; potser haureu d’instal·lar un paquet adequat per al vostre sistema.",
@@ -101,7 +94,14 @@
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "Yes" : "Sí",
     "No" : "No",
+    "Metadata" : "Metadades",
     "A plugin for displaying file metadata" : "Connector per mostrar les metadades d'un fitxer",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Connector que mostra les metadades d'un fitxer a la barra lateral de detalls dels fitxers.\n\nVeure a [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) els tipus de fitxer compatibles i les limitacions."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Connector que mostra les metadades d'un fitxer a la barra lateral de detalls dels fitxers.\n\nVeure a [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) els tipus de fitxer compatibles i les limitacions.",
+    "Reading metadata …" : "S'estan llegint les metadades…",
+    "Resolving, click here to view on map …" : "Resolent, feu clic aquí per veure al mapa …",
+    "Nominatim service unavailable, click here to view on map" : "Servei Nominatim no disponible, fer click per veure al mapa",
+    "Location" : "Ubicació",
+    "Location could not be determined" : "No es pot determinar la ubicació",
+    "Nominatim service unavailable" : "Servei Nominatim no disponible"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

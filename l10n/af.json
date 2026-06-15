@@ -1,5 +1,4 @@
 { "translations": {
-    "Location" : "Ligging",
     "Title" : "Titel",
     "Date" : "Datum",
     "Comment" : "Kommentaar",
@@ -10,6 +9,7 @@
     "Modified" : "Gewysig",
     "Manual" : "Handmatig",
     "Unknown" : "Onbekend",
-    "Other" : "Ander"
+    "Other" : "Ander",
+    "Location" : "Ligging"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

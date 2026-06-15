@@ -1,13 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Reading metadata …" : "Lezen metadata ...",
-    "Resolving, click here to view on map …" : "Oplossen, klik hier om op kaart te bekijken ...",
-    "Nominatim service unavailable, click here to view on map" : "Nominatim-service niet beschikbaar, klik hier om op de kaart te bekijken",
-    "Location" : "Locatie",
-    "Location could not be determined" : "Locatie kon niet worden vastgesteld",
-    "Nominatim service unavailable" : "Nominatim-service niet beschikbaar",
-    "Metadata" : "Metadata",
     "No metadata found." : "Geen metadata gevonden.",
     "Unsupported MIME type \"%s\"." : "Niet-ondersteund MIME type \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "EXIF-ondersteuning ontbreekt; je moet misschien een geschikt pakket voor je systeem installeren.",
@@ -103,7 +96,14 @@ OC.L10N.register(
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "Yes" : "Ja",
     "No" : "Nee",
+    "Metadata" : "Metadata",
     "A plugin for displaying file metadata" : "Een plug-in voor het tonen van metadata",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Een plug-in die in de zijbalk met bestandsdetails metagegevens van bestanden weergeeft..Zie de [README] (https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) voor de ondersteunde bestandstypes en beperkingen."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Een plug-in die in de zijbalk met bestandsdetails metagegevens van bestanden weergeeft..Zie de [README] (https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) voor de ondersteunde bestandstypes en beperkingen.",
+    "Reading metadata …" : "Lezen metadata ...",
+    "Resolving, click here to view on map …" : "Oplossen, klik hier om op kaart te bekijken ...",
+    "Nominatim service unavailable, click here to view on map" : "Nominatim-service niet beschikbaar, klik hier om op de kaart te bekijken",
+    "Location" : "Locatie",
+    "Location could not be determined" : "Locatie kon niet worden vastgesteld",
+    "Nominatim service unavailable" : "Nominatim-service niet beschikbaar"
 },
 "nplurals=2; plural=(n != 1);");

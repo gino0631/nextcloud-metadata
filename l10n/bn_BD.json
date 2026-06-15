@@ -1,5 +1,4 @@
 { "translations": {
-    "Location" : "অবস্থান",
     "Title" : "শিরোনাম",
     "Date" : "Date",
     "Comment" : "মন্তব্য",
@@ -9,6 +8,7 @@
     "Unknown" : "অজানা",
     "Other" : "অন্যান্য",
     "Yes" : "হ্যাঁ",
-    "No" : "না"
+    "No" : "না",
+    "Location" : "অবস্থান"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

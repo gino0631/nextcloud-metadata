@@ -1,13 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Reading metadata …" : "مېتا سانلىق مەلۇماتلارنى ئوقۇش…",
-    "Resolving, click here to view on map …" : "ھەل قىلىش ، بۇ يەرنى چېكىپ خەرىتىنى كۆرۈڭ…",
-    "Nominatim service unavailable, click here to view on map" : "Nominatim مۇلازىمىتىنى ئىشلەتكىلى بولمايدۇ ، بۇ يەرنى چېكىپ خەرىتىنى كۆرۈڭ",
-    "Location" : "ئورنى",
-    "Location could not be determined" : "ئورنى ئېنىقلانمىدى",
-    "Nominatim service unavailable" : "Nominatim مۇلازىمىتىنى ئىشلەتكىلى بولمايدۇ",
-    "Metadata" : "Metadata",
     "No metadata found." : "مېتا سانلىق مەلۇمات تېپىلمىدى.",
     "Unsupported MIME type \"%s\"." : "قوللىمايدىغان MIME تىپى \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "EXIF قوللاش كەم. سىستېمىڭىزغا ماس كېلىدىغان ئورالما ئورنىتىشىڭىز لازىم بولۇشى مۇمكىن.",
@@ -105,7 +98,14 @@ OC.L10N.register(
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (10-قىسىم)",
     "Yes" : "ھەئە",
     "No" : "ياق",
+    "Metadata" : "Metadata",
     "A plugin for displaying file metadata" : "ھۆججەت مېتا سانلىق مەلۇماتلىرىنى كۆرسىتىش ئۈچۈن قىستۇرما",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "ھۆججەت تەپسىلاتلىرى يانبالداقتا ھۆججەت مېتا سانلىق مەلۇماتلىرىنى كۆرسىتىدىغان قىستۇرما.\n\nقوللايدىغان ھۆججەت تىپى ۋە چەكلىمىسى ئۈچۈن [README] (https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) نى كۆرۈڭ."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "ھۆججەت تەپسىلاتلىرى يانبالداقتا ھۆججەت مېتا سانلىق مەلۇماتلىرىنى كۆرسىتىدىغان قىستۇرما.\n\nقوللايدىغان ھۆججەت تىپى ۋە چەكلىمىسى ئۈچۈن [README] (https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) نى كۆرۈڭ.",
+    "Reading metadata …" : "مېتا سانلىق مەلۇماتلارنى ئوقۇش…",
+    "Resolving, click here to view on map …" : "ھەل قىلىش ، بۇ يەرنى چېكىپ خەرىتىنى كۆرۈڭ…",
+    "Nominatim service unavailable, click here to view on map" : "Nominatim مۇلازىمىتىنى ئىشلەتكىلى بولمايدۇ ، بۇ يەرنى چېكىپ خەرىتىنى كۆرۈڭ",
+    "Location" : "ئورنى",
+    "Location could not be determined" : "ئورنى ئېنىقلانمىدى",
+    "Nominatim service unavailable" : "Nominatim مۇلازىمىتىنى ئىشلەتكىلى بولمايدۇ"
 },
 "nplurals=2; plural=(n != 1);");

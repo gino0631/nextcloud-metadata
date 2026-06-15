@@ -1,7 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "ස්ථානය",
     "Length" : "දිග",
     "Copyright" : "ප්‍රකාශන හිමිකම",
     "Android version" : "ඇන්ඩ්‍රොයිඩ් අනුවාදය",
@@ -11,6 +10,7 @@ OC.L10N.register(
     "Description" : "විස්තරය",
     "Unknown" : "නොදන්නා",
     "Other" : "වෙනත්",
-    "No" : "නැහැ"
+    "No" : "නැහැ",
+    "Location" : "ස්ථානය"
 },
 "nplurals=2; plural=(n != 1);");

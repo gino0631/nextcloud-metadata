@@ -1,13 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Reading metadata …" : "Les lýsigögn …",
-    "Resolving, click here to view on map …" : "Leysi, smelltu hér til að skoða á korti …",
-    "Nominatim service unavailable, click here to view on map" : "Nominatim-þjónusta ekki tiltæk, smelltu hér til að skoða á korti",
-    "Location" : "Staðsetning",
-    "Location could not be determined" : "Ekki var hægt að ákvarða staðsetningu",
-    "Nominatim service unavailable" : "Nominatim-þjónusta ekki tiltæk",
-    "Metadata" : "Lýsigögn",
     "No metadata found." : "Engin lýsigögn fundust.",
     "Unsupported MIME type \"%s\"." : "Óstudd MIME-tegund \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Vantar stuðning við EXIF, þú þurft að setja upp viðeigandi pakka á kerfið þitt.",
@@ -103,7 +96,14 @@ OC.L10N.register(
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (part 10)",
     "Yes" : "Já",
     "No" : "Nei",
+    "Metadata" : "Lýsigögn",
     "A plugin for displaying file metadata" : "Viðbót til að birta lýsigögn skráa",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Viðbót sem birtir lýsigögn skráa á hliðarspjaldi með nánari skráaupplýsingum.\n\nSkoðaðu [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) til að sjá takmarkanir og hvaða skráategundir eru studdar."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Viðbót sem birtir lýsigögn skráa á hliðarspjaldi með nánari skráaupplýsingum.\n\nSkoðaðu [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) til að sjá takmarkanir og hvaða skráategundir eru studdar.",
+    "Reading metadata …" : "Les lýsigögn …",
+    "Resolving, click here to view on map …" : "Leysi, smelltu hér til að skoða á korti …",
+    "Nominatim service unavailable, click here to view on map" : "Nominatim-þjónusta ekki tiltæk, smelltu hér til að skoða á korti",
+    "Location" : "Staðsetning",
+    "Location could not be determined" : "Ekki var hægt að ákvarða staðsetningu",
+    "Nominatim service unavailable" : "Nominatim-þjónusta ekki tiltæk"
 },
 "nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);");

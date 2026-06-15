@@ -1,7 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "Տեղակայություն",
     "Title" : "Վերնագիր",
     "Date" : "Date",
     "Comment" : "Մեկնաբանել",
@@ -11,6 +10,7 @@ OC.L10N.register(
     "Unknown" : "Անհայտ",
     "Other" : "Այլ",
     "Yes" : "Այո",
-    "No" : "Ոչ"
+    "No" : "Ոչ",
+    "Location" : "Տեղակայություն"
 },
 "nplurals=2; plural=(n != 1);");

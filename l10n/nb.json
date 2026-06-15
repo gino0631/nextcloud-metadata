@@ -1,11 +1,4 @@
 { "translations": {
-    "Reading metadata …" : "Leser metadata…",
-    "Resolving, click here to view on map …" : "Løser, klikk her for å se på kartet…",
-    "Nominatim service unavailable, click here to view on map" : "Nominatim-tjenesten er utilgjengelig, klikk her for å se på kart",
-    "Location" : "Sted",
-    "Location could not be determined" : "Plassering kunne ikke bestemmes",
-    "Nominatim service unavailable" : "Nominatim-tjenesten er utilgjengelig",
-    "Metadata" : "Metadata",
     "No metadata found." : "Ingen metadata funnet.",
     "Unsupported MIME type \"%s\"." : "Ustøttet MIME-type \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "EXIF-støtte mangler; du må kanskje installere en passende pakke for systemet.",
@@ -101,7 +94,14 @@
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (del 10)",
     "Yes" : "Ja",
     "No" : "Nei",
+    "Metadata" : "Metadata",
     "A plugin for displaying file metadata" : "En plugin for å vise filmetadata",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "En plugin som viser filmetadata i fildetaljene.\n\nSe [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for støttede filtyper og begrensninger."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "En plugin som viser filmetadata i fildetaljene.\n\nSe [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for støttede filtyper og begrensninger.",
+    "Reading metadata …" : "Leser metadata…",
+    "Resolving, click here to view on map …" : "Løser, klikk her for å se på kartet…",
+    "Nominatim service unavailable, click here to view on map" : "Nominatim-tjenesten er utilgjengelig, klikk her for å se på kart",
+    "Location" : "Sted",
+    "Location could not be determined" : "Plassering kunne ikke bestemmes",
+    "Nominatim service unavailable" : "Nominatim-tjenesten er utilgjengelig"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

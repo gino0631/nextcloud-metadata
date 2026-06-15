@@ -1,5 +1,4 @@
 { "translations": {
-    "Location" : "இடம்",
     "Title" : "தலைப்பு",
     "Date" : "Date",
     "Description" : "விவரிப்பு",
@@ -8,6 +7,7 @@
     "Unknown" : "தெரியாத",
     "Other" : "மற்றவை",
     "Yes" : "ஆம்",
-    "No" : "இல்லை"
+    "No" : "இல்லை",
+    "Location" : "இடம்"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

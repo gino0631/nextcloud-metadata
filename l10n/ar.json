@@ -1,11 +1,4 @@
 { "translations": {
-    "Reading metadata …" : "قراءة البيانات الوصفية Metadata",
-    "Resolving, click here to view on map …" : "التحليل، أنقر هنا للعرض على الخريطة",
-    "Nominatim service unavailable, click here to view on map" : "خدمة Nominatim الجغرافية غير متاحة، أنقر هنا للعرض على الخريطة",
-    "Location" : "المكان",
-    "Location could not be determined" : "تعذر تعيين الموقع",
-    "Nominatim service unavailable" : "خدمة Nominatim الجغرافية غير متاحة",
-    "Metadata" : "البيانات الوصفية Metadata",
     "No metadata found." : "تعذر العثور على البيانات الوصفية ",
     "Unsupported MIME type \"%s\"." : "الملف من هذا النوع MIME غير مدعوم  \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "دعم EXIF غير متاح؛ ربما تحتاج إلى تنصيب الحزمة المناسبة لنظامك",
@@ -101,7 +94,14 @@
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (الجزء 10)",
     "Yes" : "نعم",
     "No" : "لا",
+    "Metadata" : "البيانات الوصفية Metadata",
     "A plugin for displaying file metadata" : "مكوّن إضافي plugin لعرض البيانات الوصفية metadata",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "مكون إضافي plugin يعرض البيانات الوصفية للملف metadata في الشريط الجانبي لتفاصيل الملف. \nراجع [README] (https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) لمعرفة أنواع الملفات المدعومة والقيود."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "مكون إضافي plugin يعرض البيانات الوصفية للملف metadata في الشريط الجانبي لتفاصيل الملف. \nراجع [README] (https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) لمعرفة أنواع الملفات المدعومة والقيود.",
+    "Reading metadata …" : "قراءة البيانات الوصفية Metadata",
+    "Resolving, click here to view on map …" : "التحليل، أنقر هنا للعرض على الخريطة",
+    "Nominatim service unavailable, click here to view on map" : "خدمة Nominatim الجغرافية غير متاحة، أنقر هنا للعرض على الخريطة",
+    "Location" : "المكان",
+    "Location could not be determined" : "تعذر تعيين الموقع",
+    "Nominatim service unavailable" : "خدمة Nominatim الجغرافية غير متاحة"
 },"pluralForm" :"nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;"
 }

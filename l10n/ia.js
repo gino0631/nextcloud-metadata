@@ -1,7 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "Loco",
     "Title" : "Titulo",
     "Copyright" : "Copyright",
     "Date" : "Date",
@@ -10,6 +9,7 @@ OC.L10N.register(
     "Tags" : "Etiquettas",
     "Modified" : "Modificate",
     "Unknown" : "Incognite",
-    "Other" : "Altere"
+    "Other" : "Altere",
+    "Location" : "Loco"
 },
 "nplurals=2; plural=(n != 1);");

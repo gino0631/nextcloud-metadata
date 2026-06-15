@@ -1,7 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "অবস্থান",
     "Title" : "শিরোনাম",
     "Date" : "Date",
     "Comment" : "মন্তব্য",
@@ -11,6 +10,7 @@ OC.L10N.register(
     "Unknown" : "অজানা",
     "Other" : "অন্যান্য",
     "Yes" : "হ্যাঁ",
-    "No" : "না"
+    "No" : "না",
+    "Location" : "অবস্থান"
 },
 "nplurals=2; plural=(n != 1);");

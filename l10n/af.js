@@ -1,7 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "Ligging",
     "Title" : "Titel",
     "Date" : "Datum",
     "Comment" : "Kommentaar",
@@ -12,6 +11,7 @@ OC.L10N.register(
     "Modified" : "Gewysig",
     "Manual" : "Handmatig",
     "Unknown" : "Onbekend",
-    "Other" : "Ander"
+    "Other" : "Ander",
+    "Location" : "Ligging"
 },
 "nplurals=2; plural=(n != 1);");

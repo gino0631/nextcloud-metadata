@@ -1,5 +1,4 @@
 { "translations": {
-    "Location" : "Joylashuv",
     "Title" : "Sarlavha",
     "Year" : "Yil",
     "Date" : "Sana",
@@ -13,6 +12,7 @@
     "Unknown" : "Unknown",
     "Other" : "Boshqa",
     "Yes" : "Ha",
-    "No" : "Yo`q"
+    "No" : "Yo`q",
+    "Location" : "Joylashuv"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

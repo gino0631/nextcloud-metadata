@@ -1,5 +1,4 @@
 { "translations": {
-    "Location" : "Yerləşdiyiniz ünvan",
     "Title" : "Başlıq",
     "Date" : "Date",
     "Comment" : "Komentariya",
@@ -10,6 +9,7 @@
     "Modified" : "Dəyişdirildi",
     "Other" : "Digər",
     "Yes" : "Bəli",
-    "No" : "Xeyir"
+    "No" : "Xeyir",
+    "Location" : "Yerləşdiyiniz ünvan"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

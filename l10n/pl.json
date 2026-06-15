@@ -1,11 +1,4 @@
 { "translations": {
-    "Reading metadata …" : "Odczytywanie metadanych…",
-    "Resolving, click here to view on map …" : "Dla rozstrzygnięcia, kliknij tutaj, aby wyświetlić na mapie…",
-    "Nominatim service unavailable, click here to view on map" : "Usługa Nominatim niedostępna. Kliknij tutaj, aby wyświetlić mapę",
-    "Location" : "Lokalizacja",
-    "Location could not be determined" : "Nie można ustalić lokalizacji",
-    "Nominatim service unavailable" : "Usługa Nominatim niedostępna",
-    "Metadata" : "Metadane",
     "No metadata found." : "Nie znaleziono metadanych.",
     "Unsupported MIME type \"%s\"." : "Nieobsługiwany typ MIME \"%s\".",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "Brakuje obsługi EXIF; może być konieczne zainstalowanie odpowiedniego pakietu dla systemu.",
@@ -101,7 +94,14 @@
     "H.264 - MPEG-4 AVC (part 10)" : "H.264 - MPEG-4 AVC (część 10)",
     "Yes" : "Tak",
     "No" : "Nie",
+    "Metadata" : "Metadane",
     "A plugin for displaying file metadata" : "Wtyczka do wyświetlania metadanych plików",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Wtyczka wyświetlająca metadane pliku na pasku bocznym szczegółów pliku.\n\nZobacz [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) w celu uzyskania informacji na temat obsługiwanych typów plików i ograniczeń."
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Wtyczka wyświetlająca metadane pliku na pasku bocznym szczegółów pliku.\n\nZobacz [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) w celu uzyskania informacji na temat obsługiwanych typów plików i ograniczeń.",
+    "Reading metadata …" : "Odczytywanie metadanych…",
+    "Resolving, click here to view on map …" : "Dla rozstrzygnięcia, kliknij tutaj, aby wyświetlić na mapie…",
+    "Nominatim service unavailable, click here to view on map" : "Usługa Nominatim niedostępna. Kliknij tutaj, aby wyświetlić mapę",
+    "Location" : "Lokalizacja",
+    "Location could not be determined" : "Nie można ustalić lokalizacji",
+    "Nominatim service unavailable" : "Usługa Nominatim niedostępna"
 },"pluralForm" :"nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);"
 }

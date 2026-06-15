@@ -1,7 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Location" : "இடம்",
     "Title" : "தலைப்பு",
     "Date" : "Date",
     "Description" : "விவரிப்பு",
@@ -10,6 +9,7 @@ OC.L10N.register(
     "Unknown" : "தெரியாத",
     "Other" : "மற்றவை",
     "Yes" : "ஆம்",
-    "No" : "இல்லை"
+    "No" : "இல்லை",
+    "Location" : "இடம்"
 },
 "nplurals=2; plural=(n != 1);");

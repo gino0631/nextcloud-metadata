@@ -1,13 +1,6 @@
 OC.L10N.register(
     "metadata",
     {
-    "Reading metadata …" : "正在读取元数据…",
-    "Resolving, click here to view on map …" : "正在解决，请点击此处在地图上查看…",
-    "Nominatim service unavailable, click here to view on map" : "名义上的服务不可用，请单击此处在地图上查看",
-    "Location" : "地点",
-    "Location could not be determined" : "无法确定位置",
-    "Nominatim service unavailable" : "具体来说，服务不可用",
-    "Metadata" : "元数据",
     "No metadata found." : "找不到元数据",
     "Unsupported MIME type \"%s\"." : "不支持的 MIME 类型 \"%s\"。",
     "EXIF support is missing; you might need to install an appropriate package for your system." : "EXIF 支持缺失；您可能需要为系统安装适当的软件包。",
@@ -105,7 +98,14 @@ OC.L10N.register(
     "H.264 - MPEG-4 AVC (part 10)" : "H.264-MPEG-4 AVC（第10部分）",
     "Yes" : "是",
     "No" : "否",
+    "Metadata" : "元数据",
     "A plugin for displaying file metadata" : "用于显示文件元数据的插件",
-    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "一个在文件详细信息侧栏中显示文件元数据的插件。\n\n有关受支持的文件类型和限制，请参见 [自述文件](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md)。"
+    "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "一个在文件详细信息侧栏中显示文件元数据的插件。\n\n有关受支持的文件类型和限制，请参见 [自述文件](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md)。",
+    "Reading metadata …" : "正在读取元数据…",
+    "Resolving, click here to view on map …" : "正在解决，请点击此处在地图上查看…",
+    "Nominatim service unavailable, click here to view on map" : "名义上的服务不可用，请单击此处在地图上查看",
+    "Location" : "地点",
+    "Location could not be determined" : "无法确定位置",
+    "Nominatim service unavailable" : "具体来说，服务不可用"
 },
 "nplurals=1; plural=0;");
