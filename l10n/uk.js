@@ -26,6 +26,7 @@ OC.L10N.register(
     "Audio sample rate" : "Частота дискретизації звуку",
     "%s kHz" : "%s кГц",
     "Audio sample size" : "Розмір вибірки аудіо",
+    "Audio bit rate" : "Бітрейт аудіо",
     "Album" : "Альбом",
     "Track #" : "Трек №",
     "Year" : "рік",
