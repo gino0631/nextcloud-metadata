@@ -6,6 +6,7 @@
     "build": "bun build --minify --outdir=./js ./src/tabview.js"
   },
   "dependencies": {
+    "@nextcloud/axios": "^2.6.0",
     "@nextcloud/files": "^4.0.0",
     "@nextcloud/router": "^3.1.0",
     "axios": "^1.18.1"

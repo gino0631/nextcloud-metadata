@@ -1,9 +1,13 @@
 import axios from 'axios'
+// Adds the Nextcloud request token to every request, so it is only used for the app's own routes
+import nextcloudAxios from '@nextcloud/axios'
 import { getSidebar, FileType } from '@nextcloud/files'
-import { generateUrl } from "@nextcloud/router"
+import { generateUrl, imagePath } from "@nextcloud/router"
 import { t } from '@nextcloud/l10n'
 
 import MetadataIconSvg from './info.svg' with { type: "text" }
+
+const CloseIconSvg = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/></svg>';
 
 class MetadataTabView extends HTMLElement {
     constructor() {
@@ -12,7 +16,7 @@ class MetadataTabView extends HTMLElement {
 
     connectedCallback() {
         this.innerHTML = '<div style="text-align:center; word-wrap:break-word;" class="metadata-tab-view get-metadata"><p><br><img src="'
-            + OC.imagePath('core', 'loading.gif')
+            + imagePath('core', 'loading.gif')
             + '"><br><br></p><p>'
             + t('metadata', 'Reading metadata …')
             + '</p></div>';
@@ -20,7 +24,7 @@ class MetadataTabView extends HTMLElement {
         var url = generateUrl('/apps/metadata/get'),
             params = {source: this.node.dirname + '/' + this.node.basename},
             _self = this;
-        axios.get(url, {params: params}).then(function(response) {
+        nextcloudAxios.get(url, {params: params}).then(function(response) {
             _self.updateDisplay(response.data);
         });
     }
@@ -34,14 +38,11 @@ class MetadataTabView extends HTMLElement {
         var showLocation = false;
 
         if (data.response === 'success') {
-            table = $('<table>');
+            table = document.createElement('table');
 
             var metadata = data.metadata;
             for (var m in metadata) {
-                var row = $('<tr>')
-                    .append($('<td>').addClass('key').text(m + ':'))
-                    .append($('<td>').addClass('value').text(this.formatValue(metadata[m])));
-                table.append(row);
+                table.append(this.createRow(m + ':', this.createElement('td', 'value', this.formatValue(metadata[m]))));
             }
 
             showLocation = (data.loc !== null) || ((data.lat !== null) && (data.lon !== null));
@@ -72,23 +73,26 @@ class MetadataTabView extends HTMLElement {
                     });
                 }
 
-                var row = $('<tr>')
-                    .append($('<td>').addClass('key').text(t('metadata', 'Location') + ':'))
-                    .append($('<td>').addClass('value').append($('<a>').attr('href', '#').addClass('get-location').text(location)));
-                table.append(row);
+                var link = this.createElement('a', 'get-location', location);
+                link.setAttribute('href', '#');
+                var value = this.createElement('td', 'value');
+                value.append(link);
+                table.append(this.createRow(t('metadata', 'Location') + ':', value));
             }
 
         } else {
-            table = $('<p>').text(data.msg);
+            table = this.createElement('p', null, data.msg);
         }
 
-        $(this).find('.get-metadata').empty().append(table);
+        this.querySelector('.get-metadata').replaceChildren(table);
 
         if (showLocation) {
             var _self = this;
 
-            $(this).find('.get-location')
-                .click(function() {
+            this.querySelector('.get-location')
+                .addEventListener('click', function(event) {
+                    event.preventDefault();
+
                     if ((data.lat === null) || (data.lon === null)) {
                         var url = 'https://nominatim.openstreetmap.org/search',
                             params = {city: data.loc.city, state: data.loc.state, country: data.loc.country, format: 'json', limit: 1};
@@ -106,7 +110,7 @@ class MetadataTabView extends HTMLElement {
                     } else {
                         _self.showMap(data);
                     }
-                })
+                });
         }
     }
 
@@ -118,18 +122,41 @@ class MetadataTabView extends HTMLElement {
         iframe.setAttribute('height', '100%');
         iframe.setAttribute('src', 'https://www.openstreetmap.org/export/embed.html?bbox=' + bbox.join() + '&marker=' + data.lat + ',' + data.lon);
 
-        $(document.createElement('div'))
-            .prop('title', 'OpenStreetMap')
-            .css('background', 'url(' + OC.imagePath('core','loading.gif') + ') center center no-repeat')
-            .css('max-width', 'none')
-            .append(iframe)
-            .appendTo($('body'))
-            .ocdialog({
-                width: 900,
-                height: 680,
-                closeOnEscape: true,
-                modal: true
-            });
+        var close = this.createElement('button', 'metadata-map-close');
+        close.setAttribute('aria-label', t('metadata', 'Close'));
+        close.innerHTML = CloseIconSvg;
+
+        // A form with method "dialog" closes its dialog when submitted
+        var header = this.createElement('form', 'metadata-map-header');
+        header.setAttribute('method', 'dialog');
+        header.append(this.createElement('h2', null, 'OpenStreetMap'), close);
+
+        var map = this.createElement('div', 'metadata-map-content');
+        map.style.backgroundImage = 'url(' + imagePath('core', 'loading.gif') + ')';
+        map.append(iframe);
+
+        var dialog = this.createElement('dialog', 'metadata-map');
+        dialog.setAttribute('aria-label', 'OpenStreetMap');
+        dialog.append(header, map);
+        dialog.addEventListener('keydown', function(event) {
+            // The files app prevents the default of Escape (which would close the dialog) and closes the sidebar
+            if (event.key === 'Escape') {
+                event.stopPropagation();
+                dialog.close();
+            }
+        });
+        dialog.addEventListener('click', function(event) {
+            // A click on the backdrop targets the dialog itself
+            if (event.target === dialog) {
+                dialog.close();
+            }
+        });
+        dialog.addEventListener('close', function() {
+            dialog.remove();
+        });
+
+        document.body.append(dialog);
+        dialog.showModal();
     }
 
     updateLocation(data) {
@@ -148,7 +175,30 @@ class MetadataTabView extends HTMLElement {
             text = address.join(', ');
         }
 
-        $(this).find('.get-location').text(text);
+        // The tab may have been rendered again while waiting for the response
+        var link = this.querySelector('.get-location');
+        if (link) {
+            link.textContent = text;
+        }
+    }
+
+    createElement(tagName, className, text) {
+        var element = document.createElement(tagName);
+        if (className) {
+            element.className = className;
+        }
+        if (text !== undefined) {
+            element.textContent = text;
+        }
+
+        return element;
+    }
+
+    createRow(key, value) {
+        var row = document.createElement('tr');
+        row.append(this.createElement('td', 'key', key), value);
+
+        return row;
     }
 
     add(val, array) {
