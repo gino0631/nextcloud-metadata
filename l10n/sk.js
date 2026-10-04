@@ -81,7 +81,7 @@ OC.L10N.register(
     "Landscape mode" : "Vodorovný režim",
     "Auto exposure" : "Automatická expozícia",
     "Manual exposure" : "Manuálna expozícia",
-    "Auto bracket" : "Automatické sériové snímamie",
+    "Auto bracket" : "Automatická gradácia expozície",
     "Unknown" : "Neznámy",
     "Average" : "Maticové",
     "Center Weighted Average" : "So zdôrazneným stredom",
