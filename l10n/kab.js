@@ -18,6 +18,7 @@ OC.L10N.register(
     "Software" : "Aseɣẓan",
     "ISO-%s" : "ISO-%s",
     "%s EV" : "%s EV",
+    "%g mm" : "%g tsd",
     "Subject" : "Asentel",
     "Created" : "Yettwarna.",
     "Modified" : "Yettwabeddel",
