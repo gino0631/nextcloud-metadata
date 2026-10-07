@@ -102,7 +102,7 @@ OC.L10N.register(
     "A plugin for displaying file metadata" : "Zásuvný modul pre zobrazovanie metadát súboru",
     "A plugin which displays file metadata in the file details sidebar.\n\nSee the [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations." : "Zásuvný modul, ktorý v postrannom paneli s informáciami o súbore zobrazuje jeho metadáta.\n\nPodporované typy súborov a existujúce obmedzenia: [README](https://github.com/gino0631/nextcloud-metadata/blob/master/README.md) for the supported file types and limitations.",
     "Reading metadata …" : "Čítanie meta údajov…",
-    "Resolving, click here to view on map …" : "Ak chcete zobraziť mapu, kliknite sem...",
+    "Resolving, click here to view on map …" : "Rieši sa, kliknutím sem zobrazíte mapu …",
     "Nominatim service unavailable, click here to view on map" : "Nominačná služba nie je k dispozícii, pre zobrazenie na mape kliknite sem",
     "Location" : "Umiestnenie",
     "Location could not be determined" : "Nepodarilo sa zistiť umiestnenie",
