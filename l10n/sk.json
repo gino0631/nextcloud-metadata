@@ -104,6 +104,6 @@
     "Nominatim service unavailable, click here to view on map" : "Nominačná služba nie je k dispozícii, pre zobrazenie na mape kliknite sem",
     "Location" : "Umiestnenie",
     "Location could not be determined" : "Nepodarilo sa zistiť umiestnenie",
-    "Nominatim service unavailable" : "Nominačná služba nie je k dispozícii"
+    "Nominatim service unavailable" : "Služba Nominatim nie je k dispozícii"
 },"pluralForm" :"nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);"
 }
