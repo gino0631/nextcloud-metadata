@@ -42,7 +42,7 @@ OC.L10N.register(
     "Rating" : "Bedømmelse",
     "Description writer" : "Beskrivelse skrevet af",
     "People" : "Personer",
-    "Tags" : "Tags",
+    "Tags" : "Mærker",
     "Keywords" : "Nøgleord",
     "Instructions" : "Instruktioner",
     "Job title" : "Stillingsbetegnelse",
