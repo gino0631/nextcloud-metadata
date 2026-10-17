@@ -31,6 +31,7 @@ OC.L10N.register(
     "Tags" : "タグ",
     "Keywords" : "キーワード",
     "Instructions" : "手順",
+    "Job title" : "役職名",
     "Credits" : "クレジット",
     "Source" : "出典",
     "Software" : "ソフトウェア",
