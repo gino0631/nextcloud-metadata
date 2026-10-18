@@ -11,6 +11,8 @@ OC.L10N.register(
     "Rating" : "Evaluare",
     "People" : "Persoane",
     "Tags" : "Etichete",
+    "Instructions" : "Instrucțiuni",
+    "Job title" : "Funcție",
     "Credits" : "Realizatori",
     "Subject" : "Subiect",
     "Created" : "A fost creat",
