@@ -27,3 +27,65 @@
 .metadata-tab-view .value:hover {
     white-space: pre-wrap;
 }
+
+.metadata-map {
+    width: min(900px, 90vw);
+    height: min(680px, 90vh);
+    margin: auto;
+    padding: 0;
+    border: none;
+    border-radius: var(--border-radius-large);
+    background-color: var(--color-main-background);
+    color: var(--color-main-text);
+    box-shadow: 0 0 40px var(--color-box-shadow);
+}
+
+.metadata-map[open] {
+    display: flex;
+    flex-direction: column;
+}
+
+.metadata-map::backdrop {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.metadata-map-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 0 1em;
+}
+
+.metadata-map-header h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.metadata-map-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--default-clickable-area);
+    height: var(--default-clickable-area);
+    margin: 4px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: var(--color-main-text);
+}
+
+.metadata-map-close:hover,
+.metadata-map-close:focus-visible {
+    background-color: var(--color-background-hover);
+}
+
+.metadata-map-content {
+    flex: 1;
+    min-height: 0;
+    background: center center no-repeat;
+}
+
+.metadata-map-content iframe {
+    display: block;
+    border: none;
+}
