@@ -8,6 +8,7 @@ OC.L10N.register(
     "Tags" : "Oznake",
     "Credits" : "Zasluge",
     "Unknown" : "Nepoznato",
+    "Average" : "Prosečno",
     "Other" : "Ostali",
     "Yes" : "Da",
     "No" : "Ne"

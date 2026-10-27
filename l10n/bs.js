@@ -7,6 +7,7 @@ OC.L10N.register(
     "Description" : "Opis",
     "Modified" : "Izmijenjeno",
     "Unknown" : "Nepoznato",
+    "Average" : "Prosjek",
     "Other" : "Ostali",
     "Yes" : "Da",
     "No" : "Ne",

@@ -13,6 +13,7 @@ OC.L10N.register(
     "Created" : "U krijua",
     "Modified" : "Modifikuar ",
     "Unknown" : "I/E panjohur",
+    "Average" : "Mesatarja",
     "Pattern" : "Strukturë",
     "Other" : "Tjetër",
     "Yes" : "Po",

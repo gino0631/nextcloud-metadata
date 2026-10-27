@@ -15,6 +15,7 @@ OC.L10N.register(
     "Created" : "Creado",
     "Modified" : "Modificado",
     "Unknown" : "Desconocido",
+    "Average" : "Promedio",
     "Pattern" : "Patrón",
     "Other" : "Otro",
     "Yes" : "Sí",

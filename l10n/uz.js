@@ -12,6 +12,7 @@ OC.L10N.register(
     "Credits" : "Kreditlar",
     "Modified" : "Modified",
     "Unknown" : "Unknown",
+    "Average" : "O'rtacha",
     "Other" : "Boshqa",
     "Yes" : "Ha",
     "No" : "Yo`q",

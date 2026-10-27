@@ -29,6 +29,7 @@ OC.L10N.register(
     "Auto exposure" : "Аўтаматычная экспазіцыя",
     "Manual exposure" : "Ручная экспазіцыя",
     "Unknown" : "Невядомы",
+    "Average" : "Сярэдняе",
     "Pattern" : "Узор",
     "Other" : "Іншае",
     "Yes" : "Так",

@@ -20,6 +20,7 @@ OC.L10N.register(
     "Application" : "Aplicación",
     "Manual" : "Manual",
     "Unknown" : "Desconocido",
+    "Average" : "Promedio",
     "Pattern" : "Patrón",
     "Other" : "Otro",
     "Location" : "Ubicación"

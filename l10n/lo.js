@@ -28,6 +28,7 @@ OC.L10N.register(
     "Not defined" : "ບໍ່ໄດ້ກຳນົດ",
     "Manual" : "Manual",
     "Unknown" : "ບໍ່ຮູ້",
+    "Average" : "ຄ່າສະເລ່ຍ",
     "Pattern" : "Pattern",
     "Other" : "ອື່ນໆ",
     "Yes" : "ແມ່ນ",

@@ -20,6 +20,7 @@ OC.L10N.register(
     "Number of files" : "Datņu skaits",
     "Manual" : "Pašrocīgi",
     "Unknown" : "Nezināms",
+    "Average" : "Vidējais",
     "Other" : "Cits",
     "Yes" : "Jā",
     "No" : "Nē",

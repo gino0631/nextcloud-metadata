@@ -11,6 +11,7 @@ OC.L10N.register(
     "Created" : "Lagd",
     "Modified" : "Endra",
     "Unknown" : "Ukjend",
+    "Average" : "Gjennomsnitt",
     "Other" : "Anna",
     "Location" : "Stad"
 },
