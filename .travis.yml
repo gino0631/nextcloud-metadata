@@ -19,6 +19,7 @@ env:
   jobs:
     - CLOUD=nextcloud CORE_BRANCH=stable33
     - CLOUD=nextcloud CORE_BRANCH=stable34
+    - CLOUD=nextcloud CORE_BRANCH=stable35
     - CLOUD=nextcloud CORE_BRANCH=master
 
 jobs:
