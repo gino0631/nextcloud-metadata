@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { getSidebar, FileType } from '@nextcloud/files'
 import { generateUrl } from "@nextcloud/router"
 import { t } from '@nextcloud/l10n'
@@ -17,17 +18,10 @@ class MetadataTabView extends HTMLElement {
             + '</p></div>';
 
         var url = generateUrl('/apps/metadata/get'),
-            data = {source: this.node.dirname + '/' + this.node.basename},
+            params = {source: this.node.dirname + '/' + this.node.basename},
             _self = this;
-        $.ajax({
-            type: 'GET',
-            url: url,
-            dataType: 'json',
-            data: data,
-            async: true,
-            success: function(data) {
-                _self.updateDisplay(data);
-            }
+        axios.get(url, {params: params}).then(function(response) {
+            _self.updateDisplay(response.data);
         });
     }
 
@@ -69,19 +63,11 @@ class MetadataTabView extends HTMLElement {
                     var url = 'https://nominatim.openstreetmap.org/reverse',
                         params = {lat: data.lat, lon: data.lon, format: 'json', zoom: 18},
                         _self = this;
-                    $.ajax({
-                        type: 'GET',
-                        url: url,
-                        dataType: 'json',
-                        data: params,
-                        async: true,
-                        success: function(data) {
-                            _self.updateLocation(data);
-                        },
-                        error: function() {
-                            if (data.loc === null) {
-                                _self.updateLocation({error: t('metadata', 'Nominatim service unavailable, click here to view on map')});
-                            }
+                    axios.get(url, {params: params}).then(function(response) {
+                        _self.updateLocation(response.data);
+                    }).catch(function() {
+                        if (data.loc === null) {
+                            _self.updateLocation({error: t('metadata', 'Nominatim service unavailable, click here to view on map')});
                         }
                     });
                 }
@@ -106,23 +92,15 @@ class MetadataTabView extends HTMLElement {
                     if ((data.lat === null) || (data.lon === null)) {
                         var url = 'https://nominatim.openstreetmap.org/search',
                             params = {city: data.loc.city, state: data.loc.state, country: data.loc.country, format: 'json', limit: 1};
-                        $.ajax({
-                            type: 'GET',
-                            url: url,
-                            dataType: 'json',
-                            data: params,
-                            async: true,
-                            success: function(data) {
-                                if (data.length > 0) {
-                                    _self.showMap(data[0]);
+                        axios.get(url, {params: params}).then(function(response) {
+                            if (response.data.length > 0) {
+                                _self.showMap(response.data[0]);
 
-                                } else {
-                                    console.log(t('metadata', 'Location could not be determined'));
-                                }
-                            },
-                            error: function() {
-                                console.log(t('metadata', 'Nominatim service unavailable'));
+                            } else {
+                                console.log(t('metadata', 'Location could not be determined'));
                             }
+                        }).catch(function() {
+                            console.log(t('metadata', 'Nominatim service unavailable'));
                         });
 
                     } else {
