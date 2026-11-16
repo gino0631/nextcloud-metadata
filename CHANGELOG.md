@@ -3,6 +3,8 @@
 ## [Unreleased]
 ### Added
 - Compatibility with Nextcloud 34
+  [#126](https://github.com/gino0631/nextcloud-metadata/issues/126)
+- Compatibility with Nextcloud 35
 - Support for PHP 8.5
 
 ## 0.24.0 – 2026-06-14
